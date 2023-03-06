@@ -76,7 +76,7 @@ The cartsets directory is a parent to cart components and functionality used and
 The collection holds .jsx and .scss components responsible for categorizing data for the application's UI.
 
 ## directory
-The directory is a single, integral .jsx component responsible for reading and rendering of the collection components.
+The directory is a single, integral .jsx component responsible for reacting and rendering of the collection components.
 
 ## products
 The products hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
@@ -94,7 +94,7 @@ The categories.context holds the context and value provider for data categories 
 The users.context holds the context and providers for user-session-log and renders throughout the application.
 
 ## firebase.utils
-The firebase.utils hold configs for firebase, firestore and google providers used for authentication in the application.
+The firebase.utils hold configurations for firebase, firestore and google providers used as authentication in the application.
 
 
 # Designed & Developed by Gideon, I
