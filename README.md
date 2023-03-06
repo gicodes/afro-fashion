@@ -1,4 +1,4 @@
-# afro-fasion.app
+# afro-fashion.app
 
 - is a react application designed for e-commerce: Africa's original fashion marketplace.
 - This project was built on ReactJS & npm ^18, custom sass, stripe, firebase & firestore.
@@ -11,20 +11,20 @@
 
   *import App from './App' ;*
 
-  *ReactDOM.createRoot(document.getElementById('root'))
-  .render(
-      <React.StrictMode>
-        <BrowserRouter>
-          <UserProvider>
-            <CategoriesProvider>
-              <CartProvider>
-                <App />
-              </CartProvider>
-            </CategoriesProvider>
-          </UserProvider>
-        </BrowserRouter>
-      </React.StrictMode>
-    );*
+  * ReactDOM.createRoot(document.getElementById('root'))
+  * .render(
+  *    <React.StrictMode>
+  *      <BrowserRouter>
+  *       <UserProvider>
+  *          <CategoriesProvider>
+  *            <CartProvider>
+  *              <App />
+  *            </CartProvider>
+  *          </CategoriesProvider>
+  *        </UserProvider>
+  *      </BrowserRouter>
+  *    </React.StrictMode>
+  *  );
     
 - However, App.js renders the application component dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 
