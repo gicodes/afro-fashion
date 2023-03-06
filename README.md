@@ -6,7 +6,7 @@
 
 ## Render Structure
   
-- The absolute routing & responsiveness of this app's UI depends on how the components are rendered.
+- The absolute routing & responsiveness of this app's UI depends on the render structure.
 - Rewriting "create-react-app" default config, App.js is rendered inside the *index.js* file like so;
 
   *import App from './App' ;*
@@ -42,10 +42,19 @@
     * > assets
     * > buttons
     * > cartsets
+      * > cart-content
+      * > cart-dropdown
+      * > cart-icon
+      * > checkout 
     * > collection
     * > directory
     * > products
     * > routes
+      * > authentication
+      * > category
+      * > home
+      * > navbar
+      * > shop
   * contexts
     * > cart.context
     * > categories.context
@@ -54,32 +63,38 @@
     * > firebase.utils
    
 
-## 0-hero-components
-The Hero component holds a Bulma style used dynamically from 1-header-components to 9-footer-components.
+## assets
+The assets used include SVG elements that are integral and unique to the brand or consistency of the application's UI.
 
-## 1-header-components
-The header components run the header and toobar section of this app and renders to both mobile and larger viewports.
+## buttons
+The buttons hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
 
-## 2-terminal-components
-The terminal component is a single, integral 'fa-' element that renders to both mobile and larger viewports.
+## cartsets
+The cartsets directory is a parent to cart components and functionality used and rendered throughout the application.
 
-## 3-summary-components
-The summary components show the summary and rotating image section, and renders to both mobile and larger viewports.
+## collection
+The collection holds .jsx and .scss components responsible for categorizing data for the application's UI.
 
-## 4-resume-components
-The resume components hold a resume document, displays modal and renders to both mobile and larger viewports.
+## directory
+The directory is a single, integral .jsx component responsible for reading and rendering of the collection components.
 
-## 5-abme-components
-The abme components show a png image, 'ABOUT ME' and sub-components, and renders to both mobile and larger viewports.
+## products
+The products hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
 
-## 6-xp-components
-The xp components run the 'EXPERIENCE' and xp-cards section, and renders to both mobile and larger viewports.
+## routes
+The routes directory is a parent to router components and routing functionalities rendered throughout the application.
 
-## 8-sppro-components
-The sppro components show the 'PREVIOUS PROJECTS' and images section, and renders to both mobile and larger viewports.
+## cart.context
+The cart.context holds the context and providers for cart components and renders throughout the application.
 
-## 9-footer-components
-The footer components run the footer and contact icons section and renders to both mobile and larger viewports.
+## categories.context
+The categories.context holds the context and value provider for data categories and renders throughout the application.
+
+## users.context
+The users.context holds the context and providers for user-session-log and renders throughout the application.
+
+## firebase.utils
+The firebase.utils hold configs for firebase, firestore and google providers used for authentication in the application.
 
 
 # Designed & Developed by Gideon, I
