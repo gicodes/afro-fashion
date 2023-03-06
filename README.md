@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# afro-fasion.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- is a react application designed for e-commerce: Africa's original fashion marketplace.
+- This project was built on ReactJS & npm ^18, custom sass, stripe, firebase & firestore.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Render Structure
+  
+- The absolute routing & responsiveness of this app's UI depends on how the components are rendered.
+- Rewriting 'create-react-app' default configs, App.js is rendered inside the *index.js* file like so;
 
-### `npm start`
+  *import App from './App' ;*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  *const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
+      </UserProvider>
+    </BrowserRouter>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  </React.StrictMode>
+);*
+    
+- However, App.js renders the application components dynamically with material's MediaQuery.
+- The viewports are defined by two major material breakpoints; 
+- i. *MobileApp* | mobile and ii. *DesktApp* | larger viewports.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Component Structure
 
-### `npm run build`
+  The main components of this application can be found under the *src* directory like so;
+  
+* src
+  * components 
+    * > 0-hero-components
+    * > 1-header-components
+    * > 2-terminal-components
+    * > 3-summary-components
+    * > 4-resume-components
+    * > 5-abme-components
+    * > 6-xp-components
+    * > 8-sppro-components
+    * > 9-footer-components
+   
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 0-hero-components
+The Hero component holds a Bulma style used dynamically from 1-header-components to 9-footer-components.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 1-header-components
+The header components run the header and toobar section of this app and renders to both mobile and larger viewports.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 2-terminal-components
+The terminal component is a single, integral 'fa-' element that renders to both mobile and larger viewports.
 
-### `npm run eject`
+## 3-summary-components
+The summary components show the summary and rotating image section, and renders to both mobile and larger viewports.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 4-resume-components
+The resume components hold a resume document, displays modal and renders to both mobile and larger viewports.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 5-abme-components
+The abme components show a png image, 'ABOUT ME' and sub-components, and renders to both mobile and larger viewports.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 6-xp-components
+The xp components run the 'EXPERIENCE' and xp-cards section, and renders to both mobile and larger viewports.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 8-sppro-components
+The sppro components show the 'PREVIOUS PROJECTS' and images section, and renders to both mobile and larger viewports.
 
-## Learn More
+## 9-footer-components
+The footer components run the footer and contact icons section and renders to both mobile and larger viewports.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Designed & Developed by Gideon, I
