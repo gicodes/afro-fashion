@@ -7,25 +7,24 @@
 ## Render Structure
   
 - The absolute routing & responsiveness of this app's UI depends on how the components are rendered.
-- Rewriting 'create-react-app' default configs, App.js is rendered inside the *index.js* file like so;
+- Rewriting "create-react-app" default config, App.js is rendered inside the *index.js* file like so;
 
   *import App from './App' ;*
 
-  *const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <CategoriesProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </CategoriesProvider>
-      </UserProvider>
-    </BrowserRouter>
-
-  </React.StrictMode>
-);*
+  *const root = ReactDOM.createRoot(document.getElementById('root'))
+  .render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <UserProvider>
+            <CategoriesProvider>
+              <CartProvider>
+                <App />
+              </CartProvider>
+            </CategoriesProvider>
+          </UserProvider>
+        </BrowserRouter>
+      </React.StrictMode>
+    );*
     
 - However, App.js renders the application components dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 
