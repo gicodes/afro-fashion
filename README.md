@@ -16,11 +16,11 @@
       <React.StrictMode>
         <BrowserRouter>
          <UserProvider>
-           <CategoriesProvider>
-             <CartProvider>
-               <App />
-             </CartProvider>
-           </CategoriesProvider>
+          <CategoriesProvider>
+           <CartProvider>
+            <App />
+           </CartProvider>
+          </CategoriesProvider>
          </UserProvider>
         </BrowserRouter>
       </React.StrictMode>
@@ -30,6 +30,7 @@
 - CartProvider is nested under CategoriesProvider and uses her context for our app data UI.
 - CategoriesProvider is nested under UserProvider and uses her context for user-session-log. 
 - UserProvider is nested under BrowserRouter and uses her memory to navigate the entire app.
+- BrowserRouter is rendered by React.StrictMode- StrictMode wraps and sets the component tree. 
 
 
 ## Component Structure
