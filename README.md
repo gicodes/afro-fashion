@@ -11,24 +11,25 @@
 
   *import App from './App' ;*
 
-  * ReactDOM.createRoot(document.getElementById('root'))
+  *ReactDOM.createRoot(document.getElementById('root'))
     .render(
       <React.StrictMode>
         <BrowserRouter>
          <UserProvider>
            <CategoriesProvider>
              <CartProvider>
-                <App />
+               <App />
              </CartProvider>
            </CategoriesProvider>
          </UserProvider>
         </BrowserRouter>
       </React.StrictMode>
-   );
+   );*
     
-- However, App.js renders the application component dynamically with material's MediaQuery.
-- The viewports are defined by two major material breakpoints; 
-- i. *MobileApp* | mobile and ii. *DesktApp* | larger viewports.
+- In this application, App.js is nested under CartProvider and uses her context for our UX.
+- CartProvider is nested under CategoriesProvider and uses her context for our app data UI.
+- CategoriesProvider is nested under UserProvider and uses her context for user-session-log. 
+- UserProvider is nested under BrowserRouter and uses her memory to navigate the entire app.
 
 
 ## Component Structure
