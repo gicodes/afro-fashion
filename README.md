@@ -12,19 +12,19 @@
   *import App from './App' ;*
 
   * ReactDOM.createRoot(document.getElementById('root'))
-  * .render(
-  *    <React.StrictMode>
-  *      <BrowserRouter>
-  *       <UserProvider>
-  *          <CategoriesProvider>
-  *            <CartProvider>
-  *              <App />
-  *            </CartProvider>
-  *          </CategoriesProvider>
-  *        </UserProvider>
-  *      </BrowserRouter>
-  *    </React.StrictMode>
-  *  );
+    .render(
+      <React.StrictMode>
+        <BrowserRouter>
+         <UserProvider>
+           <CategoriesProvider>
+             <CartProvider>
+                <App />
+             </CartProvider>
+           </CategoriesProvider>
+         </UserProvider>
+        </BrowserRouter>
+      </React.StrictMode>
+   );
     
 - However, App.js renders the application component dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 
