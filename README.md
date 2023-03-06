@@ -39,15 +39,19 @@
   
 * src
   * components 
-    * > 0-hero-components
-    * > 1-header-components
-    * > 2-terminal-components
-    * > 3-summary-components
-    * > 4-resume-components
-    * > 5-abme-components
-    * > 6-xp-components
-    * > 8-sppro-components
-    * > 9-footer-components
+    * > assets
+    * > buttons
+    * > cartsets
+    * > collection
+    * > directory
+    * > products
+    * > routes
+  * contexts
+    * > cart.context
+    * > categories.context
+    * > users.context
+  * utils
+    * > firebase.utils
    
 
 ## 0-hero-components
