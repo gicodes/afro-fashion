@@ -26,8 +26,8 @@
       </React.StrictMode>
    );*
     
-- In this application, App.js is nested under CartProvider and uses her context for our UX.
-- CartProvider is nested under CategoriesProvider and uses her context for our app data UI.
+- In this application, App.js is nested under CartProvider and uses her context for the UX.
+- CartProvider is nested under CategoriesProvider and uses her context for the app data UI.
 - CategoriesProvider is nested under UserProvider and uses her context for user-session-log. 
 - UserProvider is nested under BrowserRouter and uses her memory to navigate the entire app.
 - BrowserRouter is rendered by React.StrictMode- StrictMode wraps and sets the component tree. 
