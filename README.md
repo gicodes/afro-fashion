@@ -2,6 +2,7 @@
 
 - is a react application designed for e-commerce: Africa's original fashion marketplace.
 - This app is built on React.JS & Node.JS, npm v18, Bootstrap, custom sass, material ui, firebase/ firestore and paystack (pending)
+- This app is deployed on netlify - https://mellifluous-melomakarona-51e479.netlify.app/
 
 ## How to Start App
 
