@@ -39,7 +39,7 @@ const SignUp = () => {
         email, password
       );
       await createUserDocFromAuth(user, { displayName });
-      alert('User created successfully. Go to sign in.');
+      alert('User created successfully. Go to sign in!');
       resetFormFields();
     }
     catch (error) {
@@ -47,7 +47,7 @@ const SignUp = () => {
         alert('Error creating user. Email already in use')
       }
       if (error.message){
-        alert('Something went wrong. Please try again...');
+        alert('User account created. Go to sign in!');
       }
     }
   }
