@@ -38,14 +38,17 @@ const SignUp = () => {
       const { user } = await createAuthUserWithEmailandPassword(
         email, password
       );
-      await createUserDocFromAuth(user, { displayName })
+      await createUserDocFromAuth(user, { displayName });
+      alert('User created successfully. Go to sign in.');
       resetFormFields();
     }
     catch (error) {
       if (error.message === 'auth/email-already-in-use') {
         alert('Error creating user. Email already in use')
       }
-      alert('Something went wrong. Please try again...');
+      if (error.message){
+        alert('Something went wrong. Please try again...');
+      }
     }
   }
 

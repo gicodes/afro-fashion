@@ -27,6 +27,7 @@ const SignInForm = () => {
 
     try {
       await signInWithEmail(email, password);
+      alert('Signed in successfully. Happy Shopping!!!')
       resetFormFields();
     }
     catch (error) {
