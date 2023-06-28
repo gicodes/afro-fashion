@@ -5,6 +5,10 @@
 
 ## How to Start App
 
+- Make sure you are in the correct working directory - `cd` into the project root folder `Afro-fashion-main/`
+- To install the projects required packges and dependencies, run `npm install`
+- Once the packages are installed and your package.json file is updated, to start the app, run `npm start`
+
 ## Render Structure
 
 - The absolute routing & responsiveness of this app's UI depends on the render structure.
