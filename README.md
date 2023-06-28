@@ -1,7 +1,7 @@
 # Afro Fashion
 
 - is a react application designed for e-commerce: Africa's original fashion marketplace.
-- This app is built on React.JS & Node.JS, npm v18, Bootstrap, custom sass, material-ui, firebase, firestore and paystack
+- This app is built on React.JS & Node.JS, npm v18, Bootstrap, custom sass, material ui, firebase/ firestore and paystack (pending)
 
 ## How to Start App
 
