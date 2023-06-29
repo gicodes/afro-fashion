@@ -14,7 +14,7 @@ const CartDropdown = () => {
     <div className='cart-dropdown'>
       <div className='cart-items'>
         <span className='toggle-message'>
-          click on the cart icon above to toggle it open or close
+          click on the cart icon above to close this cart dropdown
           <hr/>
         </span>
         {

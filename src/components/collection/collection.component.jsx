@@ -61,14 +61,20 @@ const Collection = () => {
     },
     {
       id: 10,
-      title: 'Fashion Bags (Unisex)',
+      title: 'Fashion Bags',
       imageUrl: 'https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80',
       route: '',
     },
     {
-      id: 34,
-      title: 'Afro Fashion (Africana)',
+      id: 11,
+      title: 'Africana',
       imageUrl: 'https://media.istockphoto.com/id/1384884976/photo/young-black-woman-playing-with-her-daughter.jpg?s=612x612&w=0&k=20&c=bnGaBdQfImLCwVyit2WMCK5lEk3S585Xfq2WEKHFrj4=',
+      route: '',
+    },
+    {
+      id: 12,
+      title: "Mimi's Fabrics",
+      imageUrl: 'https://images.unsplash.com/photo-1601056639638-c53c50e13ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFicmljc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
       route: '',
     },
   ]
