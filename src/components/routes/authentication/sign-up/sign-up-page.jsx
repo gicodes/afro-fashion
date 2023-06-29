@@ -9,9 +9,9 @@ import {
 } from "../../../../utils/firebase.utils";
 
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const logGoogleUser = async () => await signInWithGoogle();
-
 
 // SignUp takes a username and password, with multiple fields and functions
 const SignUp = () => {
@@ -22,11 +22,14 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   }
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const resetFormFields = () => { setFormFields(defaultFormFields) }
+  const resetFormFields = () => { setFormFields(defaultFormFields) };
+  const navigate = useNavigate();
+  let path = '/auth'; 
 
-  const handleSubmit = async (event) => {
+  const HandleSubmit = async (event) => {
     event.preventDefault()
 
     if (password !== confirmPassword) {
@@ -40,13 +43,18 @@ const SignUp = () => {
       );
       await createUserDocFromAuth(user, { displayName });
       resetFormFields();
+      alert('User created successfully. Go to sign in!');
+      navigate(path);
     }
     catch (error) {
-      if (error.message === 'auth/email-already-in-use') {
-        alert('Error creating user. Email already in use')
-      }
-      if (error.message){
-        alert('User account created. Go to sign in!');
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          alert('Error creating user. Email already in use');
+          break
+        case 'auth/weak-password':
+          alert('Your password must be at least 6 characters');
+          break
+        default: console.log(error.message);
       }
     }
   }
@@ -58,64 +66,63 @@ const SignUp = () => {
 
   return (
     <Container className="container">
-    <div className="card container sign-up-container">
-      <div className="card-header">
-        <h3>Don't have an account? </h3>
-        <span>Sign up with your email and password</span>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-      <div className="group">
-        <FormField
-          label={'Display Name'}
-          type='text' required
-          onChange={handleChange}
-          name='displayName'
-          value={displayName}
-        />
-
-        <FormField
-          label={'Email'}
-          type='email' required
-          onChange={handleChange}
-          name='email'
-          value={email}
-        />
-
-        <FormField
-          label={'Password'}
-          type='password' required
-          onChange={handleChange}
-          name='password'
-          value={password}
-          autoComplete='true'
-        />
-
-        <FormField
-          label={'Confirm Password'}
-          type='password' required
-          onChange={handleChange}
-          name='confirmPassword'
-          value={confirmPassword}
-          autoComplete='true'
-        />
-
-        <div className='buttons-container container'>
-          <Button type="submit">
-            Sign Up
-          </Button>
-
-          <Button
-            type='button'
-            buttonType='google'
-            onClick={logGoogleUser}
-          >
-            Google Sign-up
-          </Button>
-      </div>
+      <div className="card container sign-up-container">
+        <div className="card-header">
+          <h3>Don't have an account? </h3>
+          <span>Sign up with your email and password</span>
         </div>
-      </form>
-    </div>
+
+        <form onSubmit={HandleSubmit}>
+          <div className="group">
+            <FormField
+              label={'Display Name'}
+              type='text' required
+              onChange={handleChange}
+              name='displayName'
+              value={displayName}
+            />
+
+            <FormField
+              label={'Email'}
+              type='email' required
+              onChange={handleChange}
+              name='email'
+              value={email}
+            />
+
+            <FormField
+              label={'Password'}
+              type='password' required
+              onChange={handleChange}
+              name='password'
+              value={password}
+              autoComplete='true'
+            />
+
+            <FormField
+              label={'Confirm Password'}
+              type='password' required
+              onChange={handleChange}
+              name='confirmPassword'
+              value={confirmPassword}
+              autoComplete='true'
+            />
+
+            <div className='buttons-container container'>
+              <Button type="submit">
+                Sign Up
+              </Button>
+              <Button
+                type='button'
+                buttonType='google'
+                onClick={logGoogleUser}
+              >
+                Google Sign-up
+              </Button>
+            </div>
+          </div>
+        </form>
+      </div>
     </Container>
   )
 }

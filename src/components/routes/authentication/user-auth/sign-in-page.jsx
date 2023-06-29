@@ -6,6 +6,7 @@ import {
   signInWithGoogle,
 } from "../../../../utils/firebase.utils";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
   email: '',
@@ -14,21 +15,23 @@ const defaultFormFields = {
 
 const logGoogleUser = async () => await signInWithGoogle();
 
-
 // Sign in with form takes email and password, or google credentials
 const SignInForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) }
+  const navigate = useNavigate();
+  let path = '/shop'; 
 
-  const handleSubmit = async (event) => {
+  const HandleSubmit = async (event) => {
     event.preventDefault()
 
     try {
       await signInWithEmail(email, password);
-      alert('Signed in successfully. Happy Shopping!!!')
       resetFormFields();
+      alert('Signed in successfully. Happy Shopping!!!')
+      navigate(path);
     }
     catch (error) {
       switch (error.code) {
@@ -56,7 +59,7 @@ const SignInForm = () => {
           <span>Sign in with your email and password</span>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={HandleSubmit}>
           <div className="group">
             <FormField
               label={'Email'}
@@ -79,7 +82,6 @@ const SignInForm = () => {
               <Button type='submit'>
                 Sign In
               </Button>
-
               <Button
                 type='button'
                 buttonType='google'
