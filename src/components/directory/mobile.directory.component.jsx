@@ -9,7 +9,8 @@ const Directory = ({categories}) => {
   const onRouteHandler = (route) => { navigate(route) }
 
   return (
-    <Container className="container">
+    <Container className="card container">
+      <br/>
       {
         categories.map(
           ({ title, id, imageUrl, route }) => (
@@ -21,9 +22,9 @@ const Directory = ({categories}) => {
                   backgroundImage: `url(${imageUrl})`
                 }} />
               <div className='category-body-container'>
-                <div className='title-container'>
+                <div className='title-container container'>
                   <h2>{title}</h2>
-                  <span>Shop now</span>
+                  <h4>Shop now</h4>
                 </div>
               </div>
             </div>

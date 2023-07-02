@@ -52,7 +52,7 @@ const SignInForm = () => {
   }
 
   return (
-    <Container className="container">
+    <Container>
       <div className="card container sign-in-container">
         <div className="card-header">
           <h3>Already have an account?</h3>
@@ -78,7 +78,7 @@ const SignInForm = () => {
               value={password}
             />
 
-            <div className='buttons-container container'>
+            <div className='buttons-container'>
               <Button type='submit'>
                 Sign In
               </Button>

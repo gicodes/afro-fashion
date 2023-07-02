@@ -22,7 +22,6 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
-    <>
     <Container className="container">
       <br/>
       <h1 className='category-title'>
@@ -37,7 +36,6 @@ const Category = () => {
         }
       </div>
       </Container>
-    </>
   )
 }
 

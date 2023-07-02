@@ -65,7 +65,7 @@ const SignUp = () => {
   }
 
   return (
-    <Container className="container">
+    <Container>
       <div className="card container sign-up-container">
         <div className="card-header">
           <h3>Don't have an account? </h3>
@@ -108,7 +108,7 @@ const SignUp = () => {
               autoComplete='true'
             />
 
-            <div className='buttons-container container'>
+            <div className='buttons-container'>
               <Button type="submit">
                 Sign Up
               </Button>

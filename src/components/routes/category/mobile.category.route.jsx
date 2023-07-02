@@ -22,13 +22,12 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
-    <>
     <Container className="container">
       <br/>
       <h1 className='category-title'>
         {category.toUpperCase()}
       </h1>
-      <div className='container'>
+      <div>
         {
           products && products.map(
             (product) => (
@@ -37,7 +36,6 @@ const Category = () => {
         }
       </div>
       </Container>
-    </>
   )
 }
 
