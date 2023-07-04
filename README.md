@@ -122,11 +122,12 @@ The firebase.utils hold configurations for firebase, firestore and google provid
 
 ## Tech Stack
 
-React
-Node.js
-Bootstrap
-Firebase/firestore
-Materal-UI
+- React
+- Node.js
+- Bootstrap
+- Firebase/firestore
+- Materal-UI
+- Netlify
 
 
 # Designed & Developed by Gideon, I
