@@ -120,7 +120,9 @@ The users.context holds the context and providers for user-session-log and rende
 
 The firebase.utils hold configurations for firebase, firestore and google providers used as authentication in the application.
 
-## Tech Stack
+
+
+# Tech Stack
 
 - React
 - Node.js
