@@ -128,6 +128,7 @@ The firebase.utils hold configurations for firebase, firestore and google provid
 - Node.js
 - Bootstrap
 - Firebase/firestore
+- Google-Auth
 - Materal-UI
 - Netlify
 
