@@ -4,6 +4,7 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
+import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { UserContext } from "../../../contexts/user.context";
 import { CartContext } from "../../../contexts/cart.context";
 
@@ -32,24 +33,28 @@ const MobileNavBar = () => {
                   SHOP
                 </Link>
               </li>
-              <br/>
+              <li className="nav-item">
+                <Link className="nav-link" to='auth'>
+                  SELL
+                </Link>
+              </li>
+              <li className="nav-item active" aria-current="page">
+                <CartIcon />
+              </li>
               <li className="nav-item">
                 {
                   currentUser ? (
                     <Link className="nav-link"
                       onClick={SignOutUser}>
-                      SIGN OUT
-                    </Link>
+                        <LuLogOut/>
+                     </Link>
                   ) : (
                     <Link className="nav-link"
                       to='auth'>
-                      SIGN IN
+                      <LuLogIn/>
                     </Link>
                   )
                 }
-              </li>
-              <li className="nav-item active" aria-current="page">
-                <CartIcon />
               </li>
             </ul>
           </div>

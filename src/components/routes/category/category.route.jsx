@@ -32,10 +32,10 @@ const Category = () => {
           products && products.map(
             (product) => (
               <ProductCard key={product.id} product={product} />
-            ))
+          ))
         }
       </div>
-      </Container>
+    </Container>
   )
 }
 

@@ -8,6 +8,7 @@ import {
   signInWithGoogle,
 } from "../../../../utils/firebase.utils";
 
+import { RadioGroup, FormLabel, FormControlLabel, Radio } from "@mui/material";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +20,7 @@ const SignUp = () => {
   const defaultFormFields = {
     displayName: '',
     email: '',
+    seller: '',
     password: '',
     confirmPassword: '',
   }
@@ -41,7 +43,9 @@ const SignUp = () => {
       const { user } = await createAuthUserWithEmailandPassword(
         email, password
       );
-      await createUserDocFromAuth(user, { displayName });
+      await createUserDocFromAuth(user, displayName, 
+        // {seller: true} 
+      );
       resetFormFields();
       alert('User created successfully. Go to sign in!');
       navigate(path);
@@ -60,8 +64,8 @@ const SignUp = () => {
   }
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormFields({ ...formFields, [name]: value });
+    const { name, value, displayName, seller } = event.target;
+    setFormFields({ ...formFields, [name]: value, [displayName]: value, [seller]: value });
   }
 
   return (
@@ -89,7 +93,7 @@ const SignUp = () => {
               name='email'
               value={email}
             />
-
+            
             <FormField
               label={'Password'}
               type='password' required
@@ -107,6 +111,18 @@ const SignUp = () => {
               value={confirmPassword}
               autoComplete='true'
             />
+
+            <FormLabel>
+              <h6>Are you here to Buy or Sell?</h6>
+            </FormLabel>
+            <RadioGroup
+              defaultValue='buyer'
+              name='seller'
+            >
+              <FormControlLabel value="buyer" control={<Radio />} label="buyer" />
+              {/* <FormControlLabel value="seller" control={<Radio />} label="seller" /> */}
+              <br/>
+            </RadioGroup>
 
             <div className='buttons-container'>
               <Button type="submit">

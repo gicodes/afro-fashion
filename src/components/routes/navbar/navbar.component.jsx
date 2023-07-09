@@ -4,6 +4,7 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
+import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { UserContext } from "../../../contexts/user.context";
 import { CartContext } from "../../../contexts/cart.context";
 
@@ -21,7 +22,7 @@ const NavBarComponent = () => {
 
   return (
     <Fragment>
-      <Container className="container v-ident">
+      <Container className="container">
         <nav className="navbar bg-body-light">
           <div className="container-fluid">
             <Link className="navigation navbar-brand" to='/'>
@@ -32,18 +33,25 @@ const NavBarComponent = () => {
                 <Link className="nav-link" to='shop'>
                   SHOP
                 </Link>
+                
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to='auth'>
+                  SELL
+                </Link>
               </li>
               <li className="nav-item">
                 {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
                       onClick={SignOutUser}>
-                      SIGN OUT
+                      <LuLogOut/> LOGOUT
                     </Link>
                   ) : (
                     <Link className="nav-link active" aria-current="page"
                       to='auth'>
-                      SIGN IN
+                      <LuLogIn/> 
+                      LOGIN
                     </Link>
                   )
                 }
