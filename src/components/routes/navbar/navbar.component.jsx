@@ -40,24 +40,23 @@ const NavBarComponent = () => {
                   SELL
                 </Link>
               </li>
+              <li className="nav-item active" aria-current="page">
+                <CartIcon />
+              </li>
               <li className="nav-item">
                 {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
                       onClick={SignOutUser}>
-                      <LuLogOut/> LOGOUT
+                      LOGOUT <LuLogOut/> 
                     </Link>
                   ) : (
                     <Link className="nav-link active" aria-current="page"
                       to='auth'>
-                      <LuLogIn/> 
-                      LOGIN
+                      LOGIN <LuLogIn/> 
                     </Link>
                   )
                 }
-              </li>
-              <li className="nav-item active" aria-current="page">
-                <CartIcon />
               </li>
             </ul>
           </div>
