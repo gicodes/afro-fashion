@@ -1,0 +1,20 @@
+.category-preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  .title {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    cursor: pointer;
+  }
+
+  .preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+  }
+}

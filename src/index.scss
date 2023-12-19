@@ -1,0 +1,51 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/bootstrap/scss/mixins";
+
+body {
+  margin: 0;
+  padding: 20px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-aw {
+  background: antiquewhite;
+}
+
+.bg-gw {
+  background: ghostwhite;
+}
+
+.bg-gray {
+  background: grey;
+}
+
+// Your existing container styles
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Custom class to override padding
+.no-padding-container {
+  padding-right: 0;
+  padding-left: 0;
+}

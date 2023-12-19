@@ -1,0 +1,30 @@
+.checkout-items-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  img {
+    width:50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.checkout-name {
+  font-size: smaller;
+}
+
+.checkout-items-row {
+  .increment,
+  .decrement {
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+
+.payButton {
+  background-color: darkolivegreen;
+  position: absolute;
+  margin-top: 5px;
+  right: 45%;
+}

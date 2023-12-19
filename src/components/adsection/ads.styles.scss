@@ -1,0 +1,28 @@
+.ads-container {
+  width: 100%;
+  padding: 15px;
+  padding-top: 25px;
+  min-height: 150px;
+  color: antiquewhite;
+
+  .ad-header {
+    display: block;
+    text-align: center;
+  }
+
+  .ad-list {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .ad-link {
+    text-decoration: underline;
+    color: antiquewhite;
+  }
+
+  .v-spaced {
+    padding-right: 75px;
+  }
+}
