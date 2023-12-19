@@ -10,10 +10,10 @@ const Directory = ({ categories }) => {
   const onRouteHandler = (route) => { navigate(route) }
 
   return (
-    <>
+    <Container className="categories-container">
     <AdSection />
     <br/>
-    <Container className="categories-container bg-gw">
+    <div className="categories-container bg-gw">
       {
         categories.map(
           ({ title, id, imageUrl, route }) => (
@@ -27,13 +27,14 @@ const Directory = ({ categories }) => {
               <div className='category-body-container'>
                 <div className='title-container'>
                   <h2>{title}</h2>
+                  <span>Shop now</span>
                 </div>
               </div>
             </div>
           ))
       }
+    </div>
     </Container>
-    </>
   )
 }
 
