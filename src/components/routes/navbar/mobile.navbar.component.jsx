@@ -21,8 +21,13 @@ const MobileNavBar = () => {
 
   return (
     <Fragment>
+<<<<<<< HEAD
       <Container className="container">
         <nav className="nav bg-body-light">
+=======
+      <Container className="container no-padding-container">
+        <nav className="nav bg-gw">
+>>>>>>> main__
           <div className="container-fluid">
             <Link className="navigation navbar-brand" to='/'>
               <Logo/>

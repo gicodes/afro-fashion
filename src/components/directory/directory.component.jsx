@@ -2,6 +2,10 @@
 
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+<<<<<<< HEAD
+=======
+import AdSection from "../adsection/ads";
+>>>>>>> main__
 
 const Directory = ({ categories }) => {
 
@@ -10,6 +14,12 @@ const Directory = ({ categories }) => {
 
   return (
     <Container className="categories-container">
+<<<<<<< HEAD
+=======
+    <AdSection />
+    <br/>
+    <div className="categories-container bg-gw">
+>>>>>>> main__
       {
         categories.map(
           ({ title, id, imageUrl, route }) => (
@@ -29,6 +39,10 @@ const Directory = ({ categories }) => {
             </div>
           ))
       }
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> main__
     </Container>
   )
 }

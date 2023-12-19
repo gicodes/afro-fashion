@@ -27,7 +27,11 @@ import { getAnalytics } from "firebase/analytics";
 const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 const analytics = getAnalytics(firebaseApp);
+<<<<<<< HEAD
 // console.log(`analytics: ${analytics}`);
+=======
+console.log(`analytics: ${analytics}`);
+>>>>>>> main__
 
 googleProvider.setCustomParameters({
   prompt: "select_account"

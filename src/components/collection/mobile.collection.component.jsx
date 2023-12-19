@@ -49,7 +49,11 @@ const CollectItems = () => {
     },
     {
       id: 8,
+<<<<<<< HEAD
       title: 'Sneakers & Trainers',
+=======
+      title: 'Sneakers',
+>>>>>>> main__
       imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
       route: 'shop/sneakers',
     },
