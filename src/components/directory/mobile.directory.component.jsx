@@ -2,6 +2,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import AdSection from "../../AdSection";
 
 const Directory = ({categories}) => {
 
@@ -10,6 +11,7 @@ const Directory = ({categories}) => {
 
   return (
     <Container className="card container">
+      <AdSection />
       <br/>
       {
         categories.map(
