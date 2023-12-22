@@ -2,7 +2,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import AdSection from "../../AdSection";
+import AdSection from "../AdSection/ads";
 
 const Directory = ({categories}) => {
 
