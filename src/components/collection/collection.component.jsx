@@ -31,11 +31,7 @@ const Collection = () => {
     },
     {
       id: 5,
-<<<<<<< HEAD
-      title: 'Hats & head gears',
-=======
-      title: 'Hats & Head gears',
->>>>>>> main__
+      title: 'Hats, Head gears',
       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
       route: 'shop/hats',
     },
@@ -53,11 +49,7 @@ const Collection = () => {
     },
     {
       id: 8,
-<<<<<<< HEAD
-      title: 'Sneakers & Trainers',
-=======
       title: 'Sneakers',
->>>>>>> main__
       imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
       route: 'shop/sneakers',
     },
