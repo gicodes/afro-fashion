@@ -4,10 +4,6 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
-<<<<<<< HEAD
-import { LuLogIn, LuLogOut } from "react-icons/lu";
-=======
->>>>>>> main__
 import { UserContext } from "../../../contexts/user.context";
 import { CartContext } from "../../../contexts/cart.context";
 
@@ -26,11 +22,7 @@ const NavBarComponent = () => {
   return (
     <Fragment>
       <Container className="container">
-<<<<<<< HEAD
-        <nav className="navbar bg-body-light">
-=======
         <nav className="navbar bg-gw">
->>>>>>> main__
           <div className="container-fluid">
             <Link className="navigation navbar-brand" to='/'>
               <Logo/>
@@ -47,11 +39,7 @@ const NavBarComponent = () => {
                   SELL
                 </Link>
               </li>
-<<<<<<< HEAD
-              <li className="nav-item active" aria-current="page">
-=======
               <li className="nav-item" style={{marginRight: '20px'}}>
->>>>>>> main__
                 <CartIcon />
               </li>
               <li className="nav-item">
@@ -59,20 +47,12 @@ const NavBarComponent = () => {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
                       onClick={SignOutUser}>
-<<<<<<< HEAD
-                      LOGOUT <LuLogOut/> 
-=======
                       LOGOUT
->>>>>>> main__
                     </Link>
                   ) : (
                     <Link className="nav-link active" aria-current="page"
                       to='auth'>
-<<<<<<< HEAD
-                      LOGIN <LuLogIn/> 
-=======
                       LOGIN 
->>>>>>> main__
                     </Link>
                   )
                 }

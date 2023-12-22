@@ -1,15 +1,10 @@
 .categories-container {
   width: 100%;
-<<<<<<< HEAD
-  display: flex;
-  flex-wrap: wrap;
-=======
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   border-radius: 1%;
   border: 1px solid lightgray;
->>>>>>> main__
   justify-content: space-between;
 }
 
@@ -59,11 +54,7 @@
 
   .category-body-container {
     background-color: transparent;
-<<<<<<< HEAD
-    border: 1px solid black;
-=======
     border: 1px solid lightgrey;
->>>>>>> main__
     justify-content: center;
     align-items: center;
     position: absolute;
