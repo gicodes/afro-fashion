@@ -7,6 +7,23 @@ $main-color: black;
   color: $main-color;
 }
 
+.sign-up-container {
+  padding-top: 50px;
+  display: flex;
+  width: 25%;
+  // min-width: none;
+  flex-direction: column;
+
+  h2 {
+    margin: 10px 0;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .group {
   position: relative;
   margin: 45px 0;

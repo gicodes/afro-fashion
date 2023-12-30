@@ -1,5 +1,4 @@
 import { useState } from "react";
-import './form-field.styles.scss';
 import Button from '../../../buttons/button.component'
 import FormField from "./form.component";
 import {
@@ -7,6 +6,8 @@ import {
   createUserDocFromAuth,
   signInWithGoogle,
 } from "../../../../utils/firebase.utils";
+
+import './form-field.styles.scss';
 
 import { RadioGroup, FormLabel, FormControlLabel, Radio } from "@mui/material";
 import { Container } from "react-bootstrap";
@@ -58,7 +59,7 @@ const SignUp = () => {
         case 'auth/weak-password':
           alert('Your password must be at least 6 characters');
           break
-        default: console.log(error.message);
+        default: alert('Failed Operation! Try again...');;
       }
     }
   }
@@ -69,11 +70,11 @@ const SignUp = () => {
   }
 
   return (
-    <Container>
+    <Container className=" no-padding-container">
       <div className="card container sign-up-container">
-        <div className="card-header">
-          <h3>Don't have an account? </h3>
-          <span>Sign up with your email and password</span>
+        <div className="card-header bg-gw">
+          <h4>Don't have an account? </h4>
+          <p className="fs-smaller">Sign up with your email and password</p>
         </div>
 
         <form onSubmit={HandleSubmit}>

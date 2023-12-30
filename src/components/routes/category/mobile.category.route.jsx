@@ -22,20 +22,22 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
-    <Container className="container">
-      <br/>
-      <h1 className='category-title'>
-        {category.toUpperCase()}
-      </h1>
-      <div>
-        {
-          products && products.map(
+    <><br/>
+      <Container className="card container bg-ws">
+        <br/>
+        <h1 className='category-title'>
+          {category.toUpperCase()}
+        </h1>
+        <div>
+          {
+            products && products.map(
             (product) => (
               <ProductCard key={product.id} product={product} />
             ))
-        }
-      </div>
+          }
+        </div>
       </Container>
+    </>
   )
 }
 

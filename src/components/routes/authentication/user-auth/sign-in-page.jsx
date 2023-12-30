@@ -36,12 +36,12 @@ const SignInForm = () => {
     catch (error) {
       switch (error.code) {
         case 'auth/user-not-found':
-          alert('Email or Password incorrect')
+          alert('User not found !')
           break
         case 'auth/wrong-password':
-          alert('Password incorrect')
+          alert('Password incorrect !!!')
           break
-        default: console.log(error.message);
+        default: alert('Email or Password incorrect !!');
       }
     }
   }
@@ -52,11 +52,11 @@ const SignInForm = () => {
   }
 
   return (
-    <Container>
+    <Container className=" no-padding-container">
       <div className="card container sign-in-container">
-        <div className="card-header">
-          <h3>Already have an account?</h3>
-          <span>Sign in with your email and password</span>
+        <div className="card-header bg-gw">
+          <h4>Already have an account?</h4>
+          <p className="fs-smaller">Sign in with your email and password</p>
         </div>
 
         <form onSubmit={HandleSubmit}>

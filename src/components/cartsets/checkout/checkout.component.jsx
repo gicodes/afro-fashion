@@ -22,7 +22,8 @@ const Checkout = () => {
   const cartTotalinNaira = cartTotal * USDtoNGNRate;
 
   return (
-      <table className="table table-light table-hover">
+    <><br/>
+      <table className="card table table-light table-hover">
        <thead>
           <tr>
             <th scope="col"></th>
@@ -48,12 +49,13 @@ const Checkout = () => {
             </th>
           </tr>
           <tr>
-            <td className='payButton btn btn-success'>
+            <td className='payButton btn btn-warning'>
               Pay NGN {cartTotalinNaira}
             </td>
           </tr>
         </tbody>
       </table>
+      </>
   )
 }
 

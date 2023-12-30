@@ -12,7 +12,9 @@
 
 ## Render Structure
 
-- The absolute routing & responsiveness of this app's UI depends on the render structure.
+- The routing and UX of this app's UI depends on the tree structure and data flow.
+- The responsiveness and UI of this app depends on 2 screen sizes-- `lg` (often referred to as _Desktop_ throughout the App )and `sm` (_Mobile_).
+- The rendering and component lifecycle of this app also depend on `react` and `react-router-dom.`
 - Rewriting "create-react-app" default config, App.js is rendered inside the _index.js_ file like so;
 
   _import App from './App' ;_
@@ -120,8 +122,6 @@ The users.context holds the context and providers for user-session-log and rende
 
 The firebase.utils hold configurations for firebase, firestore and google providers used as authentication in the application.
 
-
-
 # Tech Stack
 
 - React
@@ -131,6 +131,5 @@ The firebase.utils hold configurations for firebase, firestore and google provid
 - Google-Auth
 - Materal-UI
 - Netlify
-
 
 # Designed & Developed by Gideon, I

@@ -3,16 +3,20 @@
 import SignUpForm from '../sign-up/sign-up-page.jsx';
 import SignInForm from './sign-in-page.jsx';
 
+import './authentication.scss'
+
 const MobileSignIn = () => {
   return (
     <>
-        <div>
+      <br/>
+        <div className="margin-top-am">
           <SignInForm />
         </div>
         <br/>
         <div>
           <SignUpForm />
         </div>
+      <br/>
     </>
   )
 }

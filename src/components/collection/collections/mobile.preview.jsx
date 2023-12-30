@@ -9,7 +9,8 @@ import ProductCard from '../../products/product-card'
 
 const CollectionPreview = ({ title, products }) => {
   return (
-    <Container className='card container'>
+    <>
+    <Container className='container'>
       <br/>
       <h2 className='title mx-auto'>
         <Link to={title}>{title.toUpperCase()}</Link>
@@ -24,6 +25,7 @@ const CollectionPreview = ({ title, products }) => {
         }
       </div>
     </Container>
+    </>
   )
 }
 

@@ -1,6 +1,27 @@
 .auth-container {
   display: flex;
-  margin: 30px auto;
+  margin: 50px auto;
   justify-content: space-between;
 
+  .auth-sign-in-form {
+    width: 35%;  
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    justify-content: flex-start;
+  }
+
+  .auth-sign-up-form { 
+  width: 40%;  
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    justify-content: flex-end;  
+  }
+}
+
+.margin-top-am {
+  margin-top: 2px;
 }

@@ -22,7 +22,7 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
-    <Container className="container">
+    <Container className="card container">
       <br/>
       <h1 className='category-title'>
         {category.toUpperCase()}

@@ -1,6 +1,6 @@
 /* This is a Desktop first Component. Designed to render on Desktop Devices */
 
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
@@ -15,22 +15,29 @@ import CartDropdown from "../../cartsets/cart-dropdown/cart-dropdown";
 import './navbar.styles.scss'
 
 const NavBarComponent = () => {
-
   const { isCartOpen } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
+  const [ cartOpen, setCartOpen ] = useState(false);
+
+  function toggleCart() {
+    if (cartOpen) {
+      setCartOpen(false);
+    }
+    else { setCartOpen(true)}
+  }
 
   return (
     <Fragment>
-      <Container className="container">
-        <nav className="navbar bg-gw">
-          <div className="container-fluid">
+      <Container className="container no-padding-container">
+        <nav className="navbar">
+          <div className="container-fluid is-lg">
             <Link className="navigation navbar-brand" to='/'>
               <Logo/>
             </Link>
-            <ul className="nav nav-tabs justify-content-end">
+            <ul className="nav nav-tabs justify-content-end bg-gw isl-menu">
               <li className="nav-item">
                 <Link className="nav-link" to='shop'>
-                  SHOP
+                  <span className="nav-title">SHOP</span>
                 </Link>
                 
               </li>
@@ -40,7 +47,7 @@ const NavBarComponent = () => {
                 </Link>
               </li>
               <li className="nav-item" style={{marginRight: '20px'}}>
-                <CartIcon />
+                <span onClick={toggleCart}><CartIcon /></span>
               </li>
               <li className="nav-item">
                 {
@@ -57,9 +64,9 @@ const NavBarComponent = () => {
                   )
                 }
               </li>
+            {isCartOpen && <CartDropdown />}
             </ul>
           </div>
-          {isCartOpen && <CartDropdown />}
         </nav>
         <Outlet />
         <br/>

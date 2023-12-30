@@ -12,8 +12,7 @@ const Directory = ({ categories }) => {
   return (
     <Container className="categories-container">
     <AdSection />
-    <br/>
-    <div className="categories-container bg-gw">
+          <div className="categories-container bg-gw">
       {
         categories.map(
           ({ title, id, imageUrl, route }) => (

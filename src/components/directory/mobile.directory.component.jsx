@@ -1,22 +1,38 @@
 /* This is a Mobile first Component. Designed to render on Mobile Devices */
 
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { useState } from "react";
+
 import AdSection from "../adsection/ads";
+import './directory.styles.scss'
+import { Button } from "@mui/material";
 
 const Directory = ({categories}) => {
 
   const navigate = useNavigate();
   const onRouteHandler = (route) => { navigate(route) }
+  const [ adsOpen, setAdsOpen ] = useState(false);
+
+  function toggleAds() {
+    if (adsOpen) {
+      setAdsOpen(false);
+    }
+    else { setAdsOpen(true)}
+  }
 
   return (
     <>
-    <AdSection/>
-    <br/>
-    <Container className="card bg-gw">
+      <div className="adsOpen" onClick={toggleAds}>
+        <span className="drop"><DropdownToggle size="sm"/></span>
+      </div>
+      {adsOpen && <AdSection/>}
       <br/>
-      {
-        categories.map(
+      <Container className="card bg-gw">
+        <br/>
+        {
+          categories.map(
           ({ title, id, imageUrl, route }) => (
             <div key={id} className="category-container"
               onClick={() => onRouteHandler(route)}
@@ -33,7 +49,9 @@ const Directory = ({categories}) => {
             </div>
           ))
       }
-    </Container></>
+    </Container>
+    <hr/>
+    </>
   )
 }
 

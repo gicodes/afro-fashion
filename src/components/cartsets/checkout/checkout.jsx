@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../../../contexts/cart.context';
+import { Container } from '@mui/material';
 
 const CheckoutContent = ({ cartItem }) => {
 
@@ -9,6 +10,8 @@ const CheckoutContent = ({ cartItem }) => {
   const itemTotal = cartItem.price * cartItem.quantity;
 
   return (
+    <Container className='card container'>
+      
     <tr className='align-middle'>
       <td className='checkout-items-img'>
         <img
@@ -28,6 +31,7 @@ const CheckoutContent = ({ cartItem }) => {
       </td>
       <td className='price'>${itemTotal}.00</td>
     </tr>
+    </Container>
   )
 }
 

@@ -2,8 +2,8 @@
 @import "../node_modules/bootstrap/scss/mixins";
 
 body {
+  background: #1a1a1a url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D");
   margin: 0;
-  padding: 20px 40px;
   font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,16 +23,32 @@ a {
   box-sizing: border-box;
 }
 
-.bg-aw {
-  background: antiquewhite;
+.bg-dark {
+  background: #1a1a1a;
+}
+
+.bg-gray {
+  background: grey;
 }
 
 .bg-gw {
   background: ghostwhite;
 }
 
-.bg-gray {
-  background: grey;
+.bg-trans {
+  background: transparent;
+}
+
+.bg-ws {
+  background: whitesmoke;
+}
+
+.bg-white {
+  background: white;
+}
+
+.fs-smaller {
+  font-size: smaller;
 }
 
 // Your existing container styles
