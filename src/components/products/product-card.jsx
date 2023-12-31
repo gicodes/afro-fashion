@@ -11,26 +11,25 @@ const ProductCard = ({ product }) => {
   const { addItemtoCart } = useContext(CartContext)
 
   return (
-    <div className='product-card-container '>
-      <img
-        src={imageUrl}
-        alt={name}
-      />
-      <div className='footer'>
-        <span className='name'>
-          {name}
-        </span>
-        <span className='price'>
-          ${price}
-        </span>
+    <>
+      <div className='product-card-container'>
+        <img src={imageUrl} alt={name} />
+
+        <div className='footer'>
+          <span className='name'>
+            {name}
+          </span>
+          
+          <span className='price'>
+            ${price}
+          </span>
+        </div>
+        
+        <Button buttonType={'inverted'} onClick={productIn}>
+          Add to Cart
+        </Button>
       </div>
-      <Button
-        buttonType={'inverted'}
-        onClick={productIn}
-      >
-        Add to Cart
-      </Button>
-    </div>
+    </>
   )
 
 }

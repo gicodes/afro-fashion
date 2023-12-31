@@ -9,21 +9,25 @@ import ProductCard from '../../products/product-card'
 
 const CollectionPreview = ({ title, products }) => {
   return (
-    <Container className='card category-preview'>
+    <>
       <br/>
-      <h2 className='title'>
-        <Link to={title}>{title.toUpperCase()}</Link>
-      </h2>
-      <div className='preview'>
-        {
-          products
-            .filter((_, idx) => idx < 4)
-            .map((product) => (
-              <ProductCard key={product.id} product={product} />
+      <Container className='card category-preview bg-ws'>
+        <br/>
+        <h2 className='title'>
+          <Link to={title}>{title.toUpperCase()}</Link>
+        </h2>
+        <div className='preview'>
+          {
+            products
+              .filter((_, idx) => idx < 4)
+              .map((product) => (
+                <ProductCard key={product.id} product={product} />
             ))
-        }
-      </div>
-    </Container>
+          }
+          <br/>
+        </div>
+      </Container>
+    </>
   )
 }
 
