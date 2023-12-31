@@ -1,4 +1,4 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { Route, Routes } from "react-router-dom";
 import ShopStore from "../shop/shop.component.jsx";

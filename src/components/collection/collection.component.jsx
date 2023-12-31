@@ -1,4 +1,4 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import './collections/collection.styles.scss';
 import Directory from '../directory/directory.component';
@@ -7,7 +7,7 @@ const Collection = () => {
   const categories = [
     {
       id: 1,
-      title: 'Kids clothing',
+      title: 'Kids Clothing',
       imageUrl: 'https://images.unsplash.com/photo-1570545917537-873e36d4f64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
       route: 'shop/kids',
     },

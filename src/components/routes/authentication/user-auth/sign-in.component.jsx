@@ -1,23 +1,23 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import SignUpForm from '../sign-up/sign-up-page.jsx';
 import SignInForm from './sign-in-page.jsx';
+
 import './authentication.scss'
-import { Card } from 'react-bootstrap';
 
 const SignIn = () => {
 
   return (
     <div className='auth-container'>
 
-      <Card className='auth-sign-in-form'>
+      <div className='card auth-sign-in-form'>
         <SignInForm />
-      </Card>
+      </div>
 
 
-      <Card className='auth-sign-up-form'>
+      <div className='card auth-sign-up-form'>
         <SignUpForm />
-      </Card>
+      </div>
 
     </div>
 

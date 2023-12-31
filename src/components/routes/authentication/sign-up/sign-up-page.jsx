@@ -30,6 +30,7 @@ const SignUp = () => {
   const { displayName, email, password, confirmPassword } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) };
   const navigate = useNavigate();
+  
   let path = '/auth'; 
 
   const HandleSubmit = async (event) => {
@@ -72,9 +73,10 @@ const SignUp = () => {
   return (
     <Container className=" no-padding-container">
       <div className="card container sign-up-container">
-        <div className="card-header bg-gw">
-          <h4>Don't have an account? </h4>
-          <p className="fs-smaller">Sign up with your email and password</p>
+        <div className="centered">
+          <h4 className="title">Don't have an account? </h4>
+          <p className="no-color">Sign up with your email and password</p>
+          <hr/>
         </div>
 
         <form onSubmit={HandleSubmit}>

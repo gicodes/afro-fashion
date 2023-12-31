@@ -1,4 +1,4 @@
-/* This is a Mobile first Component. Designed to render on Mobile Devices */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Route, Routes } from 'react-router-dom';
 

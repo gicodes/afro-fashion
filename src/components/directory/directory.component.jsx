@@ -1,8 +1,9 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import AdSection from "../adsection/ads";
+import React from 'react';
 
 const Directory = ({ categories }) => {
 
@@ -11,28 +12,28 @@ const Directory = ({ categories }) => {
 
   return (
     <Container className="categories-container">
-    <AdSection />
-          <div className="categories-container bg-gw">
-      {
-        categories.map(
-          ({ title, id, imageUrl, route }) => (
-            <div key={id} className="category-container"
-              onClick={() => onRouteHandler(route)}
-            >
-              <div className='background-image'
-                style={{
-                  backgroundImage: `url(${imageUrl})`
-                }} />
-              <div className='category-body-container'>
-                <div className='title-container'>
-                  <h2>{title}</h2>
-                  <span>Shop now</span>
+      <AdSection />
+      <div className="categories-container bg-gw">
+        {
+          categories.map(
+            ({ title, id, imageUrl, route }) => (
+              <div key={id} className="category-container"
+                onClick={() => onRouteHandler(route)}
+                >
+                <div className='background-image'
+                  style={{
+                    backgroundImage: `url(${imageUrl})`
+                  }} />
+                <div className='category-body-container'>
+                  <div className='title-container'>
+                    <h2>{title}</h2>
+                    <span>Shop now</span>
                 </div>
               </div>
             </div>
           ))
-      }
-    </div>
+        }
+      </div>
     </Container>
   )
 }

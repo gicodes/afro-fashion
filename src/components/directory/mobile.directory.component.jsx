@@ -1,12 +1,12 @@
-/* This is a Mobile first Component. Designed to render on Mobile Devices */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
-import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 
-import AdSection from "../adsection/ads";
 import './directory.styles.scss'
+import AdSection from "../adsection/ads";
+import Button from "../buttons/button.component";
 
 const Directory = ({categories}) => {
 
@@ -23,8 +23,8 @@ const Directory = ({categories}) => {
 
   return (
     <>
-      <div className="adsOpen" onClick={toggleAds}>
-        <span className="drop"><DropdownToggle size="sm"/></span>
+      <div className="adsOpen" onClick={toggleAds}> 
+        <Button className="drop"></Button>
       </div>
       {adsOpen && <AdSection/>}
       <br/>
@@ -47,9 +47,9 @@ const Directory = ({categories}) => {
               </div>
             </div>
           ))
-      }
-    </Container>
-    <hr/>
+        }
+      </Container>
+      <hr/>
     </>
   )
 }

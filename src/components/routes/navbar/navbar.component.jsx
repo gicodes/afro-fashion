@@ -1,14 +1,14 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import { Fragment, useContext, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
-
-import { Container } from "react-bootstrap";
+import { React, useContext, useState , Fragment} from "react";
 import { UserContext } from "../../../contexts/user.context";
 import { CartContext } from "../../../contexts/cart.context";
 
 import { SignOutUser } from "../../../utils/firebase.utils";
+import { Navbar, Container } from 'react-bootstrap';
+import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
+
 import CartIcon from "../../cartsets/cart-icon/cart-icon.components";
 import CartDropdown from "../../cartsets/cart-dropdown/cart-dropdown";
 
@@ -29,27 +29,46 @@ const NavBarComponent = () => {
   return (
     <Fragment>
       <Container className="container no-padding-container">
-        <nav className="navbar">
-          <div className="container-fluid is-lg">
-            <Link className="navigation navbar-brand" to='/'>
-              <Logo/>
-            </Link>
-            <ul className="nav nav-tabs justify-content-end bg-gw isl-menu">
-              <li className="nav-item">
-                <Link className="nav-link" to='shop'>
-                  <span className="nav-title">SHOP</span>
-                </Link>
+        {/*  */}
+
+        <br/>
+        {isCartOpen && <CartDropdown />}
+        <Outlet />
+      
+        <Navbar fixed="bottom" bg="light">
+          <nav className="navbar bottom">
+            <div className="container-fluid">
+              <Link className="navigation logo" to='/'>
+                <Logo/>
+              </Link>
+
+              <Navbar.Brand href="#" className="nav-brand">
+                <h1>
+                  <span className="green">A</span>
+                  <span>fro</span>
+                  &nbsp;
+                  <span className="green">Fa</span>
+                  <span>sh</span>
+                  <span className="green">ion</span>
+                </h1>
+              </Navbar.Brand>
+
+              <ul className="nav nav-tabs justify-content-end">
+                <li className="nav-item">
+                  <Link className="nav-link" to='shop'>
+                    <span className="nav-title">SHOP</span>
+                  </Link>
                 
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to='auth'>
-                  SELL
-                </Link>
-              </li>
-              <li className="nav-item" style={{marginRight: '20px'}}>
-                <span onClick={toggleCart}><CartIcon /></span>
-              </li>
-              <li className="nav-item">
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to='auth'>
+                    SELL
+                  </Link>
+                </li>
+                <li className="nav-item" style={{marginRight: '20px'}}>
+                  <span onClick={toggleCart}><CartIcon /></span>
+                </li>
+                <li className="nav-item">
                 {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
@@ -64,12 +83,10 @@ const NavBarComponent = () => {
                   )
                 }
               </li>
-            {isCartOpen && <CartDropdown />}
             </ul>
           </div>
         </nav>
-        <Outlet />
-        <br/>
+        </Navbar>
       </Container>
     </Fragment>
   )

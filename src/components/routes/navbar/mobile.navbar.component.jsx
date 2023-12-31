@@ -1,9 +1,9 @@
-/* This is a Mobile first Component. Designed to render on Mobile Devices */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Fragment, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import { Container } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { UserContext } from "../../../contexts/user.context";
 
@@ -41,7 +41,11 @@ const MobileNavBar = () => {
 
           <div className="container-fluid">
             <div className="nav-burger">
-              <button className="navbar-toggler burger-button" type="button" onClick={toggleMenu}>
+              <button 
+                type="button" 
+                onClick={toggleMenu}
+                className="navbar-toggler burger-button"
+              >
                 <div className="animated-icon1">                      
                   <span>
                   </span>
@@ -54,7 +58,7 @@ const MobileNavBar = () => {
                 </div>
               </button>
 
-              <Link to="/" className="nav-brand"><h1><span className="green">A</span>F</h1></Link>
+              <Navbar.Brand to="/" className="nav-brand"><h1><span className="green">A</span>F</h1></Navbar.Brand>
 
               <div className="burger-end">
                 <span onClick={toggleCart}><CartIcon /></span>

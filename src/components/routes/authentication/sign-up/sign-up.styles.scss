@@ -1,3 +1,5 @@
+/* These are the sign-up component custom styles. Excluding other authentication styles */
+
 $sub-color: grey;
 $main-color: black;
 
@@ -10,8 +12,6 @@ $main-color: black;
 .sign-up-container {
   padding-top: 50px;
   display: flex;
-  width: 25%;
-  // min-width: none;
   flex-direction: column;
 
   h2 {

@@ -22,6 +22,7 @@ const SignInForm = () => {
   const { email, password } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) }
   const navigate = useNavigate();
+  
   let path = '/shop'; 
 
   const HandleSubmit = async (event) => {
@@ -54,9 +55,10 @@ const SignInForm = () => {
   return (
     <Container className=" no-padding-container">
       <div className="card container sign-in-container">
-        <div className="card-header bg-gw">
-          <h4>Already have an account?</h4>
-          <p className="fs-smaller">Sign in with your email and password</p>
+        <div className="centered">
+          <h4 className="title">Already have an account?</h4>
+          <p className="no-color">Sign in with your email and password</p>
+          <hr/>
         </div>
 
         <form onSubmit={HandleSubmit}>

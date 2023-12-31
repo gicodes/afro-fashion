@@ -23,12 +23,12 @@ const CartDropdown = () => {
             <span className='empty-message'>
               Your cart is empty
             </span>
-          ) :
-            (
-              cartItems.map((item) => (
-                <CartContent key={item.id} cartItem={item} />
-              ))
-            )}
+          ) : (
+            cartItems.map((item) => (
+              <CartContent key={item.id} cartItem={item} />
+            ))
+          )
+        }
 
         <Link className='cart-link'
           to='/checkout'>

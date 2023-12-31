@@ -13,17 +13,17 @@ const BurgerMenu = () => {
     <ul>
       <Link className="menu-list dropdown-item" aria-current="page" to='shop'>
         <LuBaggageClaim className="ml-icon"/>
-        <span className="ml-title"><u>Shop</u></span>
+        <span className="ml-title">Start shopping </span>
       </Link>
 
       <Link className="menu-list dropdown-item" to='sell'>
         <LuDollarSign className="ml-icon"/>
-        <span className="ml-title"><u>Sell</u></span>
+        <span className="ml-title">Seller profile</span>
       </Link>
 
       <Link className="menu-list dropdown-item" to='help'>
         <LuHelpCircle className="ml-icon"/>
-        <span className="ml-title"><u>Need Help?</u></span>
+        <span className="ml-title">Need help</span>
       </Link>
     </ul>
   </div>

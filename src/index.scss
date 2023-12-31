@@ -1,6 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "../node_modules/bootstrap/scss/mixins";
 
+// custom body styles used throughout
+
 body {
   background: #1a1a1a url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D");
   margin: 0;
@@ -22,6 +24,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+// custom background colors used throughout
 
 .bg-dark {
   background: #1a1a1a;
@@ -47,11 +51,7 @@ a {
   background: white;
 }
 
-.fs-smaller {
-  font-size: smaller;
-}
-
-// Your existing container styles
+// existing container styles
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -60,7 +60,7 @@ a {
   margin-left: auto;
 }
 
-// Custom class to override padding
+// custom class to override .container padding
 .no-padding-container {
   padding-right: 0;
   padding-left: 0;

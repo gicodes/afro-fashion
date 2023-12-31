@@ -1,4 +1,4 @@
-/* This is a Desktop first Component. Designed to render on Desktop Devices */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import './preview.styles.scss';
 
@@ -12,6 +12,7 @@ const CollectionPreview = ({ title, products }) => {
     <>
       <br/>
       <Container className='card category-preview bg-ws'>
+        {/* br suits the temporary gap-design solution between the parent container and nav */}
         <br/>
         <h2 className='title'>
           <Link to={title}>{title.toUpperCase()}</Link>

@@ -1,4 +1,4 @@
-/* This is a Mobile first Component. Designed to render on Mobile Devices */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import './collections/collection.styles.scss';
 import Directory from '../directory/mobile.directory.component';
@@ -7,7 +7,7 @@ const CollectItems = () => {
   const categories = [
     {
       id: 1,
-      title: 'Kids clothing',
+      title: 'Kids Clothing',
       imageUrl: 'https://images.unsplash.com/photo-1570545917537-873e36d4f64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
       route: 'shop/kids',
     },
@@ -31,7 +31,7 @@ const CollectItems = () => {
     },
     {
       id: 5,
-      title: 'Hats & head gears',
+      title: 'Hats & Head gears',
       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
       route: 'shop/hats',
     },

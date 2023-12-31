@@ -1,4 +1,4 @@
-/* This is a Mobile first Component. Designed to render on Mobile Devices */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import './preview.styles.scss';
 
@@ -10,6 +10,7 @@ import ProductCard from '../../products/product-card'
 const CollectionPreview = ({ title, products }) => {
   return (
     <>
+      {/* br suits the temporary gap-design solution between the parent container and nav */}
       <br/>
       <Container className='card container bg-ws'>
         <br/>

@@ -1,3 +1,5 @@
+/* These are the sign-in component custom styles. Excluding other authentication styles */
+
 $sub-color: grey;
 $main-color: black;
 
@@ -7,16 +9,6 @@ $main-color: black;
   color: $main-color;
 }
 
-/*
-.sign-in-container {
-  width: 100%;
-}
-@include media-breakpoint-up(lg) {
-  .sign-in-container {
-    width: 360px;
-  }
-}
-*/
 
 .sign-in-container {
   padding-top: 50px;
@@ -26,7 +18,7 @@ $main-color: black;
   h2 {
     margin: 10px 0;
   }
-
+  
   .buttons-container {
     display: flex;
     justify-content: space-between;

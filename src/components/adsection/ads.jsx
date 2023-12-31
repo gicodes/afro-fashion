@@ -1,7 +1,8 @@
-/* This is a Desktop and Mobile Component. Designed to be responsive on both Desktop and Mobile Devices */
+/* This is a Desktop and Mobile Component. Designed to be responsive on both Desktop and mobile devices and smaller screen sizes */
 
 import { Container } from "react-bootstrap";
 import { Link} from "react-router-dom"
+
 import './ads.styles.scss';
 
 const AdSection = () => {
@@ -9,7 +10,7 @@ const AdSection = () => {
     <Container className="card bg-gray">
       <div className="ads-container">
         <div className="ad-header">
-          <h6>Afro Fashion is africa's leading platform for buying and selling all kinds of fashion stuff. Including trending outfits, local-made fits and thrifts </h6>
+          <h6>Afro Fashion is africa's leading platform for buying & selling all kinds of fashion stuff, including trending outfits, local-made fits, thrifts, jewelries and accessories, etc. </h6>
         </div>
         <br/>
         <div className="ad-list">
