@@ -7,7 +7,6 @@ import { useState } from "react";
 
 import AdSection from "../adsection/ads";
 import './directory.styles.scss'
-import { Button } from "@mui/material";
 
 const Directory = ({categories}) => {
 

@@ -18,21 +18,23 @@ const Checkout = () => {
       (total, itemTotal) => total + itemTotal, 0
     )
 
-  let USDtoNGNRate = 800;
+  let USDtoNGNRate = 1100;
   const cartTotalinNaira = cartTotal * USDtoNGNRate;
 
   return (
-    <><br/>
+    <>
+      <br/>
       <table className="card table table-light table-hover">
-       <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Name</th>
+        <thead className='checkout-table'>
+          <tr className='theader'>
+            <th scope="col">Item</th>
+            <th scope="col">Title</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
+            <th className='price'>Price</th>
           </tr>
         </thead>
-        <tbody>
+
+        <tbody colSpan="2" className='checkout-table'>
           {
             cartItems.map(
               (item) =>
@@ -40,13 +42,13 @@ const Checkout = () => {
             )
           } 
           <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope='col'>
-              SUB-TOTAL <hr/> 
-              <h6>${`${cartTotal}`}.00</h6>
-            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td className='checkout-total'>
+              <b>SUB-TOTAL:</b> &nbsp;
+              <h5 style={{display: 'inline-block'}}>${`${cartTotal}`}.00</h5>
+            </td>
           </tr>
           <tr>
             <td className='payButton btn btn-warning'>

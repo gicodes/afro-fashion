@@ -1,17 +1,23 @@
+.checkout-table {
+  width: 100%;
+  display: table;
+}
+
 .checkout-items-img {
   display: flex;
   align-items: center;
   justify-content: space-around;
 
   img {
-    width:50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 100%;
+    max-width: 150px;
+    padding-top: 2%; 
+    padding-bottom: 2%; 
   }
 }
 
 .checkout-name {
-  font-size: smaller;
+  font-size: 1rem;
 }
 
 .checkout-items-row {
@@ -20,11 +26,29 @@
     cursor: pointer;
     padding: 10px;
   }
+
+}
+
+.theader {  
+  margin: 2%;
+  text-align: center;
+  
+  .price {
+    padding-right: 8%;
+  }
+}
+
+.checkout-price {
+  text-align: center;
+}
+
+.checkout-total {
+  text-align: end;
 }
 
 .payButton {
   background-color: darkolivegreen;
   position: absolute;
   margin-top: 5px;
-  right: 45%;
+  right: 1%;
 }
