@@ -31,7 +31,7 @@ const Collection = () => {
     },
     {
       id: 5,
-      title: 'Hats & Head gears',
+      title: 'Hats, Head gears',
       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
       route: 'shop/hats',
     },
