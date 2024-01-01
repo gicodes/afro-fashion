@@ -1,8 +1,8 @@
 # Afro Fashion
 
-- is a react application designed for e-commerce: Africa's original fashion marketplace.
-- This app is built on React.JS & Node.JS, npm v18, Bootstrap, custom sass, material ui, firebase/ firestore and paystack (pending)
-- This app is deployed on netlify - https://afrofashionng.netlify.app/
+- is an e-commerce application: Africa's original fashion marketplace.
+- This app is built on React.js,Bootstrap & custom sass, firebase,paystack (pending).
+- This app runs on npm v18, and is deployed on netlify @https://afrofashionng.netlify.app/
 
 ## How to Start App
 
@@ -12,8 +12,8 @@
 
 ## Render Structure
 
-- The routing and UX of this app's UI depends on the tree structure and data flow.
-- The responsiveness and UI of this app depends on 2 screen sizes-- `lg` (often referred to as _Desktop_ throughout the App )and `sm` (_Mobile_).
+- The routing and UX of this app depends on the tree structure and data flow.
+- The responsiveness and UI of this app depends on 2 screen sizes-- `lg` (often referred to as _Desktop_ throughout the App) and `sm` (_Mobile_).
 - The rendering and component lifecycle of this app also depend on `react` and `react-router-dom.`
 - Rewriting "create-react-app" default config, App.js is rendered inside the _index.js_ file like so;
 
@@ -48,6 +48,8 @@ The main components of this application can be found under the _src_ directory l
 
   - components
 
+    - > adSection
+    - > alertServices
     - > assets
     - > buttons
     - > cartServices
@@ -75,8 +77,16 @@ The main components of this application can be found under the _src_ directory l
     - > users.context
 
   - utils
-
+    - > config
     - > firebase.utils
+    - > writeBatch
+
+- > App
+- > App.test
+- > index
+- > index.scss
+- > reportWebVitals
+- > setupTests
 
 ## assets
 
@@ -124,12 +134,17 @@ The firebase.utils hold configurations for firebase, firestore and google provid
 
 # Tech Stack
 
-- React
+- React.js
 - Node.js
 - Bootstrap
+- React-Bootstrap
 - Firebase/firestore
 - Google-Auth
 - Materal-UI
 - Netlify
+- Github
+- Jest (_testing_)
 
-# Designed & Developed by Gideon, I
+# Author: Gideon, I
+
+## Contributors: Adeola, A
