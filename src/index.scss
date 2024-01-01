@@ -2,7 +2,7 @@
 @import "../node_modules/bootstrap/scss/mixins";
 
 // custom body styles used throughout
-
+// 4 - 26
 body {
   background: #1a1a1a url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D");
   margin: 0;
@@ -26,7 +26,7 @@ a {
 }
 
 // custom background colors used throughout
-
+// 28 - 52
 .bg-dark {
   background: #1a1a1a;
 }
@@ -64,4 +64,22 @@ a {
 .no-padding-container {
   padding-right: 0;
   padding-left: 0;
+}
+
+.lr-padding {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.y-p {
+  padding-top: 25px;
+}
+
+.y-m {
+  padding-top: 25px;
+}
+
+.lr-margin {
+  margin-right: 5px;
+  margin-left: 5px;
 }

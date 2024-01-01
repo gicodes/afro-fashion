@@ -1,7 +1,7 @@
 # Afro Fashion
 
 - is an e-commerce application: Africa's original fashion marketplace.
-- This app is built on React.js,Bootstrap & custom sass, firebase,paystack (pending).
+- This app is built on React.js, Bootstrap & custom sass, firebase, Paystack (pending).
 - This app runs on npm v18, and is deployed on netlify @https://afrofashionng.netlify.app/
 
 ## How to Start App

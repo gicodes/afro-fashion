@@ -9,8 +9,10 @@ import { Container } from 'react-bootstrap';
 import ProductCard from '../../products/product-card';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
-const Category = () => {
 
+// category route serves the index or "shop now" click from home
+const Category = () => {
+  
   const { category } = useParams();
 
   const { categoriesMap } = useContext(CategoriesContext);
@@ -22,20 +24,27 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
-    <Container className="card container bg-ws">
-      <br/>
-      <h1 className='category-title'>
-        {category.toUpperCase()}
-      </h1>
-      <div className='category-route-container'>
-        {
-          products && products.map(
-            (product) => (
-              <ProductCard key={product.id} product={product} />
-          ))
-        }
-      </div>
-    </Container>
+    <section id={category.toLowerCase()} className='y-m lr-margin'>
+      <Container className="card container bg-ws">
+        <h1 className='category-title y-m'>
+          {category.toUpperCase()}
+        </h1>
+!
+        { !products ? (
+          <p className='mx-auto'>No {category} items are available at the moment...</p>
+
+        ) : (
+        <div className='category-route-container'>
+          {
+            products && products.map(
+              (product) => (
+                <ProductCard key={product.id} product={product} />
+            ))
+          }
+        </div>
+        )}
+      </Container>
+    </section>
   )
 }
 

@@ -6,15 +6,13 @@ import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import ProductCard from '../../products/product-card'
 
-
+// collection preview usually seen on the shop page
 const CollectionPreview = ({ title, products }) => {
   return (
     <>
-      {/* br suits the temporary gap-design solution between the parent container and nav */}
-      <br/>
-      <Container className='card container bg-ws'>
-        <br/>
-        <h2 className='title mx-auto'>
+      <section id={title.toLowerCase()} className='y-m lr-margin'>
+        <Container className='card bg-ws lr-padding'>
+          <h2 className='title mx-auto y-p'>
           <Link to={title}>{title.toUpperCase()}</Link>
         </h2>
         <div className='preview'>
@@ -26,8 +24,9 @@ const CollectionPreview = ({ title, products }) => {
             ))
           }
           <br/>
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </section>
     </>
   )
 }

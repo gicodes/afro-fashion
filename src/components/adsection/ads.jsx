@@ -1,4 +1,4 @@
-/* This is a Desktop and Mobile Component. Designed to be responsive on both Desktop and mobile devices and smaller screen sizes */
+/* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { Container } from "react-bootstrap";
 import { Link} from "react-router-dom"

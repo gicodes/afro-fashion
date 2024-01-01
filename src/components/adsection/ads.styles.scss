@@ -1,4 +1,4 @@
-// larger viewport cart drawer similar to `z-sm`
+// larger viewport ads class similar to `z-sm`
 
 .ads-container {
   width: 100%;
@@ -29,12 +29,12 @@
   }
 }
 
-// smaller viewport cart drawer similar to `ads-container`
+// smaller viewport class similar to `ads-container`
 .z-sm {
   display: flex;
 
   .toggle {
-    justify-self: end;
+    align-items: center;
     background: transparent;
   }
 }

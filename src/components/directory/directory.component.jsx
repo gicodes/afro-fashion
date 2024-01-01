@@ -3,8 +3,9 @@
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import AdSection from "../adSection/ads";
-import React from 'react';
 
+
+// directory-holding-categories container seen on the homepage
 const Directory = ({ categories }) => {
 
   const navigate = useNavigate();

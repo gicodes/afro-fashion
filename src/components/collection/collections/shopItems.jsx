@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import CollectionPreview from './preview';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
-
+// collections as categories mapped to shop route
 const Collections = () => {
   const { categoriesMap } = useContext(CategoriesContext);
 

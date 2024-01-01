@@ -1,9 +1,11 @@
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
+
 import { useState } from "react";
 import { Navbar } from "react-bootstrap";
 import { FaChevronUp } from "react-icons/fa";
 import Button from "../buttons/button.component";
 
-import AdSection from "../adSection/ads";
+import AdSection from "./ads";
 import './ads.styles.scss';
 
 const MobileAds = () => {
@@ -26,7 +28,7 @@ const MobileAds = () => {
 
         {adsOpen && <AdSection/>}
         <div className="z-sm" onClick={toggleAds}> 
-          <Button className="toggle button-container">
+          <Button className="toggle button-frame">
             <FaChevronUp size={20}/>
           </Button>
         </div>

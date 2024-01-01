@@ -24,31 +24,28 @@ const CartDropdown = () => {
     { close ? (
       <></>
       ) : (
-    <div className='cart-drawer'>
-      <div className='z-lg'>
-        <span onClick={toggleCartClose} className='toggle-message'>
-          <CloseButton/>
-        </span>
-        {
-          cartCount === 0 ? (
-            <span className='empty-message'>
-              Your cart is empty
-            </span>
-          ) : (
-            cartItems.map((item) => (
-              <CartContent key={item.id} cartItem={item} />
-            ))
-          )
-        }
+      <div className='cart-drawer'>
+        <div className='z-lg'>
+          <span onClick={toggleCartClose} className='toggle-message'>
+            <CloseButton/>
+          </span>
+          {
+            cartCount === 0 ? (
+              <span className='empty-message'>
+                Your cart is empty
+              </span>
+              ) : (
+              cartItems.map((item) => (
+                <CartContent key={item.id} cartItem={item} />
+              ))
+            )
+          }
 
-        <Link className='cart-link'
-          to='/checkout'>
-          <Button>
-            Checkout
-          </Button>
-        </Link>
+          <Link className='cart-link' to='/checkout'>
+            <Button>Checkout</Button>
+          </Link>
+        </div>
       </div>
-    </div>
     )}  
     </>
   )
