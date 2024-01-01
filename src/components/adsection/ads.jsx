@@ -16,7 +16,6 @@ const AdSection = () => {
         <div className="ad-list">
           <div>
             <h6>Do you own a fashion store?</h6> 
-          {/* <br/> */}
             <ul>
               <li>Register as a <Link className="ad-link" to=''>Seller</Link> </li> 
               <li>Read the <Link className="ad-link" to=''>Terms</Link> of contract</li>

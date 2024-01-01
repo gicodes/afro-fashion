@@ -57,6 +57,8 @@ const Checkout = () => {
           </tr>
         </tbody>
       </table>
+
+      <div className='pay-gap'></div>
       </>
   )
 }

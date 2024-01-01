@@ -50,7 +50,7 @@ The main components of this application can be found under the _src_ directory l
 
     - > assets
     - > buttons
-    - > cartsets
+    - > cartServices
 
       - > cart-content
       - > cart-dropdown
@@ -86,9 +86,9 @@ The assets used include SVG elements that are integral and unique to the brand o
 
 The buttons hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
 
-## cartsets
+## cartServices
 
-The cartsets directory is a parent to cart components and functionality used and rendered throughout the application.
+The cartServices directory is a parent to cart components and functionality used and rendered throughout the application.
 
 ## collection
 

@@ -1,3 +1,5 @@
+// larger viewport cart drawer similar to `z-sm`
+
 .ads-container {
   width: 100%;
   padding: 15px;
@@ -24,5 +26,15 @@
 
   .v-spaced {
     padding-right: 75px;
+  }
+}
+
+// smaller viewport cart drawer similar to `ads-container`
+.z-sm {
+  display: flex;
+
+  .toggle {
+    justify-self: end;
+    background: transparent;
   }
 }

@@ -4,12 +4,12 @@ import { Fragment, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { Container, Navbar } from "react-bootstrap";
-import { LuLogIn, LuLogOut } from "react-icons/lu";
+import { LuLogIn, LuUserCheck } from "react-icons/lu";
 import { UserContext } from "../../../contexts/user.context";
 
 import { SignOutUser } from "../../../utils/firebase.utils";
-import CartIcon from "../../cartsets/cart-icon/cart-icon.components";
-import CartDropdown from "../../cartsets/cart-dropdown/cart-dropdown";
+import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
+import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
 
 import BurgerMenu from './mobile.navdrop';
 import './navbar.styles.scss'
@@ -58,7 +58,11 @@ const MobileNavBar = () => {
                 </div>
               </button>
 
-              <Navbar.Brand to="/" className="nav-brand"><h1><span className="green">A</span>F</h1></Navbar.Brand>
+              <Navbar.Brand className="nav-brand">
+                <Link to="/"><h1>
+                  <span className="green">A</span>F
+                </h1></Link>
+              </Navbar.Brand>
 
               <div className="burger-end">
                 <span onClick={toggleCart}><CartIcon /></span>
@@ -67,12 +71,12 @@ const MobileNavBar = () => {
                   {
                   currentUser ? (
                     <Link className="nav-link"                       
-                      onClick={SignOutUser}>                        
-                      <LuLogOut/>
-                      </Link>
+                      onClick={SignOutUser}> 
+                      <LuUserCheck/>                       
+                    </Link>
                     ) : (
                     <Link className="nav-link"
-                      to='auth'>
+                      to='/auth'>
                         <LuLogIn/>
                       </Link>
                     )

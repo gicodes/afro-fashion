@@ -9,8 +9,8 @@ import { Navbar, Container } from 'react-bootstrap';
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
 
-import CartIcon from "../../cartsets/cart-icon/cart-icon.components";
-import CartDropdown from "../../cartsets/cart-dropdown/cart-dropdown";
+import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
+import CartDropdown from "../../cartServices/cart-dropdown/cart-dropdown";
 
 import './navbar.styles.scss'
 
@@ -19,7 +19,7 @@ const NavBarComponent = () => {
   const { currentUser } = useContext(UserContext);
   const [ cartOpen, setCartOpen ] = useState(false);
 
-  function toggleCart() {
+  const toggleCart = () => {
     if (cartOpen) {
       setCartOpen(false);
     }
@@ -29,20 +29,20 @@ const NavBarComponent = () => {
   return (
     <Fragment>
       <Container className="container no-padding-container">
-        {/*  */}
-
-        <br/>
-        {isCartOpen && <CartDropdown />}
+        
         <Outlet />
-      
+
         <Navbar fixed="bottom" bg="light">
+
+          {isCartOpen && <CartDropdown />}
+
           <nav className="navbar bottom">
             <div className="container-fluid">
               <Link className="navigation logo" to='/'>
                 <Logo/>
               </Link>
 
-              <Navbar.Brand href="#" className="nav-brand">
+              <Navbar.Brand href="/" className="nav-brand">
                 <h1>
                   <span className="green">A</span>
                   <span>fro</span>
@@ -69,7 +69,7 @@ const NavBarComponent = () => {
                   <span onClick={toggleCart}><CartIcon /></span>
                 </li>
                 <li className="nav-item">
-                {
+                 {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
                       onClick={SignOutUser}>
@@ -80,12 +80,11 @@ const NavBarComponent = () => {
                       to='auth'>
                       LOGIN 
                     </Link>
-                  )
-                }
-              </li>
-            </ul>
-          </div>
-        </nav>
+                  )}
+                </li>
+              </ul>
+            </div>
+          </nav>
         </Navbar>
       </Container>
     </Fragment>

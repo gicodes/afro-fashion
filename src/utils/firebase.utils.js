@@ -39,7 +39,10 @@ export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback)
 
 // Sign out user
-export const SignOutUser = () => { signOut(auth) };
+export const SignOutUser = () => { 
+  alert("Are you sure you want to sign out?")
+  signOut(auth) 
+};
 
 // Sign in user with Google Provider
 export const signInWithGoogle = async () => {
