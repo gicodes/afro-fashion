@@ -1,17 +1,19 @@
-/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes 
+   This component can be modified or made redudant as it only entends a viewport for the sign-up page
+*/
 
 import SignUpForm from '../sign-up/sign-up-page.jsx';
 
 import './authentication.scss'
 
-const MobileSignIn = () => {
+const MobileSignUp = () => {
   return (
     <>
-      <div className='y-m lr-margin'>
+      <div className='y-m lr-margin yb-p'>
         <SignUpForm />
       </div>
     </>
   )
 }
 
-export default MobileSignIn;
+export default MobileSignUp;

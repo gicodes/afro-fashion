@@ -1,7 +1,6 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import SignUpForm from '../sign-up/sign-up-page.jsx';
-import SignInForm from '../sign-in/sign-in-page.jsx';
 
 import './authentication.scss'
 

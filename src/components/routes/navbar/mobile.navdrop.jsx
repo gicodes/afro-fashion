@@ -48,7 +48,7 @@ const BurgerMenu = () => {
 
                 <Link 
                   className="menu-list dropdown-item" 
-                  aria-current="page" to='auth'
+                  aria-current="page" to='auth/register/#seller'
                   onClick={handleNavDropPostRouting}
                   >
                   <LuDollarSign className="ml-icon"/>

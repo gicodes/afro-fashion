@@ -71,19 +71,28 @@ a {
 }
 
 .lr-padding {
+  // left-right
   padding-right: 5px;
   padding-left: 5px;
 }
 
-.y-p {
-  padding-top: 20px;
+.y-m {
+  // y-axis margin
+  margin-top: 20px;
 }
 
-.y-m {
+.yb-p {
+  // y-axis bottom
+  padding-bottom: 20px;
+}
+
+.y-p {
+  // y-axis padding
   padding-top: 20px;
 }
 
 .lr-margin {
+  // left-right 
   margin-right: 5px;
   margin-left: 5px;
 }

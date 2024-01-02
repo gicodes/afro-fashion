@@ -1,19 +1,16 @@
 import { useState } from "react";
 import FormField from "./form.component";
-import Button from "../../../buttons/button.component";
-import {
-  signInWithEmail,
-  signInWithGoogle,
-} from "../../../../utils/firebase.utils";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../buttons/button.component";
+import { signInWithEmail } from "../../../../utils/firebase.utils";
+
+import { logGoogleUser } from "../user-auth/logGoogle";
 
 const defaultFormFields = {
   email: '',
   password: '',
 }
-
-const logGoogleUser = async () => await signInWithGoogle();
 
 // Sign in with form takes email and password, or google credentials
 const SignInForm = () => {
@@ -93,10 +90,11 @@ const SignInForm = () => {
             </div>
           </div>
         </form>
+
         <p className="centered z-footer"> 
           Don't have an account? 
-          <a to='auth/sign-up'> &nbsp;Go to 
-            <span className="zf-link"> sign up</span>
+          <a href='auth/register' className="zf-link"> &nbsp;Go to 
+            sign up
           </a>
         </p>
       </div>
