@@ -71,11 +71,10 @@ const SignUp = () => {
   }
 
   return (
-    <Container className=" no-padding-container">
+    <Container className="no-padding-container">
       <div className="card container sign-up-container">
         <div className="centered">
-          <h4 className="title">Don't have an account? </h4>
-          <p className="no-color">Sign up with your email and password</p>
+          <h4 className="title">Register</h4>
           <hr/>
         </div>
 
@@ -118,12 +117,14 @@ const SignUp = () => {
             <FormLabel>
               <h6>Are you here to Buy or Sell?</h6>
             </FormLabel>
+
+            {/* default value depends on the route or history is */}
             <RadioGroup
-              defaultValue='buyer'
+              defaultValue={buyer ? 'buyer' : 'seller'}
               name='seller'
             >
               <FormControlLabel value="buyer" control={<Radio />} label="buyer" />
-              {/* <FormControlLabel value="seller" control={<Radio />} label="seller" /> */}
+              <FormControlLabel value="seller" control={<Radio />} label="seller" />
               <br/>
             </RadioGroup>
 
@@ -141,6 +142,12 @@ const SignUp = () => {
             </div>
           </div>
         </form>
+        <p className="centered z-footer"> 
+          Already Registered? 
+          <a to='auth/sign-up'> &nbsp;Return to 
+            <span className="zf-link"> sign in</span>
+          </a>
+        </p>
       </div>
     </Container>
   )

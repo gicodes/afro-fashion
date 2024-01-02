@@ -1,7 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { useContext, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { CloseButton } from 'react-bootstrap';
 import Button from '../../buttons/button.component';
@@ -13,6 +13,8 @@ const CartDropdown = () => {
 
   const { cartItems, cartCount } = useContext(CartContext);
   const [ close, setClose ] = useState(false);
+  const location = useLocation();
+
 
   const toggleCartClose = () => {
     if (close) return ;
@@ -21,10 +23,20 @@ const CartDropdown = () => {
 
   useEffect(() => {
   // close the cart dropdown after 10 seconds
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setClose(true);
     }, 9999);
-  })
+  
+    // Clean up the timeout when the component unmounts or when a new route is clicked
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [location.pathname]);
+
+  const handleNavDropPostRouting = () => {
+    // close the burger menu when a user clicks a link
+    setClose(true);
+  };
 
   return (
     <> 
@@ -49,7 +61,9 @@ const CartDropdown = () => {
           )
         }
 
-        <Link className='cart-link'
+        <Link 
+          onClick={handleNavDropPostRouting}
+          className='cart-link'
           to='/checkout'>
           <Button>
             Checkout

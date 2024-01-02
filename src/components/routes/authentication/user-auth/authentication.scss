@@ -30,8 +30,16 @@
     color: #101010;
     justify-content: center;
   }
+}
 
-  .no-color {
-    color: #1a1a1a;
+.z-footer {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  font-size: medium;
+
+  .zf-link {
+    color: #1100ff;
+    font-weight: 500;
   }
 }

@@ -53,11 +53,10 @@ const SignInForm = () => {
   }
 
   return (
-    <Container className=" no-padding-container">
+    <Container className="no-padding-container">
       <div className="card container sign-in-container">
         <div className="centered">
-          <h4 className="title">Already have an account?</h4>
-          <p className="no-color">Sign in with your email and password</p>
+          <h4 className="title">Login</h4>
           <hr/>
         </div>
 
@@ -94,6 +93,12 @@ const SignInForm = () => {
             </div>
           </div>
         </form>
+        <p className="centered z-footer"> 
+          Don't have an account? 
+          <a to='auth/sign-up'> &nbsp;Go to 
+            <span className="zf-link"> sign up</span>
+          </a>
+        </p>
       </div>
     </Container>
   )
