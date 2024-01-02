@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import './directory.styles.scss'
-import AdSection from "../adSection/mobile.ads";
+import AdSection from "../adsection/mobile.ads";
 
 
 // directory-holding-categories container seen on the homepage
