@@ -61,7 +61,7 @@ const NavBarComponent = () => {
                 
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='auth'>
+                  <Link className="nav-link" to='auth/register/#seller'>
                     SELL
                   </Link>
                 </li>
