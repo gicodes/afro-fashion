@@ -6,7 +6,6 @@ import { Container } from "react-bootstrap";
 import './directory.styles.scss'
 import AdSection from "../adsection/mobile.ads";
 
-
 // directory-holding-categories container seen on the homepage
 const Directory = ({categories}) => {
 
@@ -38,7 +37,7 @@ const Directory = ({categories}) => {
           ))
         }
       </Container>
-      <hr/>
+      <br/>
     </>
   )
 }

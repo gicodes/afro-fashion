@@ -1,6 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Route, Routes } from "react-router-dom";
+import Seller from "../seller/sell.component.jsx";
 import ShopStore from "../shop/mobile.shop.component.jsx";
 import NavBar from "../navbar/mobile.navbar.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
@@ -18,8 +19,8 @@ const Home = () => {
         <Route path="auth/register" element={<SignUp/>} />
         <Route path="shop/*" element={<ShopStore />} />
         <Route path="checkout" element={<Checkout />} />
-        {/* <Route path="user" element={<Buyer/>} />
-        <Route path="user/seller" element={<Seller/>} /> */}
+        {/* <Route path="user" element={<Buyer/>} />*/}
+        <Route path="user/seller" element={<Seller/>} /> 
       </Route>
     </Routes>
   )
