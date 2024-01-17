@@ -31,7 +31,6 @@ const SignUp = () => {
   const [ buyer, setBuyer ] = useState(true);
   
   useEffect(() => {
-      console.log(location.pathname)
     // simple logic to determine if user clicked seller route and...
     if (location.pathname !== '/auth/register') {
       setBuyer(false); //... set seller

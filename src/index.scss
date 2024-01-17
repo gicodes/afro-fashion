@@ -27,33 +27,19 @@ a {
 
 // custom background colors used throughout
 // 28 - 56
-.bg-dark {
-  background: #1a1a1a;
-}
+.bg-dark { background: #1a1a1a; }
 
-.bg-gray {
-  background: grey;
-}
+.bg-gray { background: grey; }
 
-.bg-gw {
-  background: ghostwhite;
-}
+.bg-gw { background: ghostwhite; }
 
-.bg-trans {
-  background: transparent;
-}
+.bg-trans { background: transparent; }
 
-.bg-ws {
-  background: whitesmoke;
-}
+.bg-ws { background: whitesmoke; }
 
-.bg-kiwi {
-  background: black;
-}
+.bg-kiwi { background: black; }
 
-.bg-white {
-  background: white;
-}
+.bg-white { background: white; }
 
 // existing container styles
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -71,7 +57,7 @@ a {
 }
 
 .lr-padding {
-  // left-right
+  // left-right padding
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -82,17 +68,29 @@ a {
 }
 
 .yb-p {
-  // y-axis bottom
+  // y-axis bottom padding
   padding-bottom: 20px;
 }
 
-.y-p {
-  // y-axis padding
-  padding-top: 20px;
-}
+.y-p1 { padding-top: 10px }
+
+.y-p { padding-top: 20px }
 
 .lr-margin {
   // left-right 
   margin-right: 5px;
   margin-left: 5px;
 }
+
+.flex-just-center {
+  display: flex;
+  justify-content: center;
+}
+
+.fs-tiny { font-size: xx-small }
+
+.fs-smaller { font-size: smaller; }
+
+.c-50 { color: #505050 } 
+
+.c-90 { color: #909090 }

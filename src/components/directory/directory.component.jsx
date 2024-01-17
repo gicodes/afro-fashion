@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import AdSection from "../adsection/ads";
 
 
-// directory-holding-categories container seen on the homepage
+// directory-holding-categories container can be seen on the homepage
 const Directory = ({ categories }) => {
 
   const navigate = useNavigate();

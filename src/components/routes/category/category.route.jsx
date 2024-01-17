@@ -10,10 +10,10 @@ import ProductCard from '../../products/product-card';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
 
-// category route serves the index or "shop now" click from home
+// category route serves the index or "start shopping" click from home
 const Category = () => {
   
-  const { category } = useParams();
+  const { category } = useParams(); 
 
   const { categoriesMap } = useContext(CategoriesContext);
 
@@ -24,6 +24,7 @@ const Category = () => {
   }, [category, categoriesMap])
 
   return (
+    // section id issues a category with a dynamic link to target
     <section id={category.toLowerCase()} className='y-m lr-margin'>
       <Container className="card container bg-ws">
         <h1 className='category-title y-m'>
