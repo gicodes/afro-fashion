@@ -1,9 +1,10 @@
-import { Form, Row, Card, Col} from "react-bootstrap";
+import { Form, Row, Container, Col} from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 
 const SellerBusiness = () => {
   return (
-    <Card className='card no-padding-container y-m'> 
+    <Container className="no-padding-container">
+      <div className="card container y-m">
     <div className='card-header'>
           Fill in your business details
         </div>
@@ -67,7 +68,8 @@ const SellerBusiness = () => {
     </Form>
    </form>
    </div>
-    </Card>
+   </div>
+    </Container>
   );
 }
 

@@ -5,7 +5,7 @@ import { SellerEditIcon } from "./s.edit.jsx/edit-icon";
 const SellerProfileCard = ({ displayName, email, phone, shopName, badge }) => {
   return (
     <Container className="no-padding-container">
-      <div className="card container sign-in-container">
+      <div className="card container each-sell-container">
         <div className="p-4">
         <Row>
         <Col> 
