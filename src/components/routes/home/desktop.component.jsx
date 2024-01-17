@@ -7,6 +7,7 @@ import Collection from "../../collection/collection.component.jsx";
 import SignIn from "../authentication/user-auth/sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/sign-up.component.jsx";
 import Checkout from "../../cartServices/checkout/checkout.component.jsx";
+import Seller from "../seller/seller-profile.component.jsx";
 
 const Home = () => {
   return (
@@ -17,8 +18,7 @@ const Home = () => {
         <Route path="auth/register" element={<SignUp/>} />
         <Route path="shop/*" element={<ShopStore />} />
         <Route path="checkout" element={<Checkout />} />
-        {/* <Route path="user" element={<Buyer/>} />
-        <Route path="user/seller" element={<Seller/>} /> */}
+         <Route path="user/seller" element={<Seller/>} />  
       </Route>
     </Routes>
   )
