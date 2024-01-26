@@ -3,12 +3,13 @@
 import { React, useContext, useState , Fragment} from "react";
 import { UserContext } from "../../../contexts/user.context";
 import { CartContext } from "../../../contexts/cart.context";
-
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { Navbar, Container } from 'react-bootstrap';
 import { Outlet, Link } from "react-router-dom";
+import { 
+  // LuFileCode, 
+  LuHelpCircle } from "react-icons/lu";
 import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
-
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import CartDropdown from "../../cartServices/cart-dropdown/cart-dropdown";
 
@@ -18,6 +19,10 @@ const NavBarComponent = () => {
   const { isCartOpen } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
   const [ cartOpen, setCartOpen ] = useState(false);
+
+  const authIconStyle = {
+    backgroundColor: currentUser ? 'green' : 'yellow',
+  }
 
   const toggleCart = () => {
     if (cartOpen) {
@@ -58,17 +63,39 @@ const NavBarComponent = () => {
                   <Link className="nav-link" to='shop'>
                     <span className="nav-title">SHOP</span>
                   </Link>
-                
                 </li>
+
                 <li className="nav-item">
-                  <Link className="nav-link" to='auth/register/#seller'>
+                  <span onClick={toggleCart}><CartIcon /></span>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to='seller'>
                     SELL
                   </Link>
                 </li>
-                <li className="nav-item" style={{marginRight: '20px'}}>
-                  <span onClick={toggleCart}><CartIcon /></span>
-                </li>
+
                 <li className="nav-item">
+                  <Link className="nav-link" to='help'>
+                    <span className="help-icon">
+                      <LuHelpCircle/>
+                    </span>
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to='credits'>
+                    CREDITS
+                  </Link>
+                </li>
+
+                {/* <li className="nav-item">
+                  <Link className="nav-link" to='developer'>
+                    <span style={{color: "black"}}><LuFileCode /></span>
+                  </Link>
+                </li> */}
+
+                <li className="nav-item" style={authIconStyle}>
                  {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"

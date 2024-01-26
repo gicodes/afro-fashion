@@ -10,7 +10,7 @@ import ProductCard from '../../products/product-card';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
 
-// category route serves the index or "start shopping" click from home
+// category route is rendered when users click on a category from the index page
 const Category = () => {
   
   const { category } = useParams(); 
@@ -25,17 +25,18 @@ const Category = () => {
 
   return (
     // section id issues a category with a dynamic link to target
-    <section id={category.toLowerCase()} className='y-m lr-margin'>
+    <section id={category.toLowerCase()} className='y-m lr-margin y-mb'>
       <Container className="card container bg-ws">
         <h1 className='category-title y-m'>
-          {category.toUpperCase()}
+          <span className='bg-gw p-2'>{category.toUpperCase()}</span>
         </h1>
-!
         { !products ? (
-          <p className='mx-auto'>No {category} items are available at the moment...</p>
-
+          <>
+            <hr className='-mt'/>
+            <p className='mx-auto'>No {category} items are available at the moment...</p>
+          </>
         ) : (
-        <div className='category-route-container'>
+        <div className='category-route-container -lg'>
           {
             products && products.map(
               (product) => (
@@ -45,6 +46,7 @@ const Category = () => {
         </div>
         )}
       </Container>
+      <div className='lg-div'></div>
     </section>
   )
 }

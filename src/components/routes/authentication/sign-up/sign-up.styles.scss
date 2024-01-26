@@ -27,6 +27,12 @@ $main-color: black;
 .group {
   position: relative;
   margin: 45px 0;
+  
+  .form-fields {
+    border: 1px solid whitesmoke;
+    padding: 0 5% 0 5%;
+    margin-top: -5%;
+  }
 
   .form-input {
     background: none;

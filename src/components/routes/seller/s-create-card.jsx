@@ -1,92 +1,144 @@
-import { addCollectionAndDocuments } from '../../../utils/writeBatch';
 import FormField from '../authentication/sign-up/form.component';
+import { UserContext } from '../../../contexts/user.context';
+import { addSellerItems } from '../../../utils/writeBatch';
 import { useNavigate } from "react-router-dom";
-import { Card } from 'react-bootstrap';
-import { useState } from 'react';
+import { Card, Button } from 'react-bootstrap';
+import { useState, useContext } from 'react';
 
-export const SellerCreateCard = (seller) => {
-  let key = {seller};
-  let objectToAdd = [];
-  let path = `/shop/${seller}`; 
+import './seller.styles.scss';
 
+const defaultFormFields = {
+  category: '',
+  title: '',
+  price: '',
+  images: [],
+  info: '',
+}
+
+export const SellerCreateCard = () => {
   const navigate = useNavigate();
-
-  const defaultFormFields = {
-    name: '',
-    price: '',
-    image: '',
-    description: '',
-  }
-
+  const { currentUser } = useContext(UserContext);
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { name, price, image, description } = formFields;
-  const HandleSubmit = async (event) => {
-    event.preventDefault();
+  const { category, title, price, info } = formFields;
 
-    try {
-      await addCollectionAndDocuments(key, objectToAdd);
-      alert('Product added successful. Happy Selling!!!')
-      navigate(path);
-    }
-
-    catch (error) {
-      // need to check and handle error codes
-      switch (error.code) {
-        case '':
-          alert('!')
-          break
-        default: alert('!!!');
-      }
-    }
+  const generateRandomId = () => {
+    const timestamp = new Date().getTime();
+    const randomNumber = Math.floor(Math.random() * 1000000);
+    return `${timestamp}-${randomNumber}`;
   }
+  const brand = currentUser?.displayName;
+  const path = `/seller/${brand}`;
+  const id = generateRandomId();
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    setFormFields({ ...formFields, [name]: value, [image]: value, [price]: value, [description]: value });
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  const handleImgChange = (event) => {
+    const { name, files } = event.target;
+    const imagesArray = Array.from(files);
+    setFormFields({ ...formFields, [name]: imagesArray });
   }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const imagesArray = Array.from(formFields.images).flat(); // Flatten the array
+      const itemsArray = imagesArray.map((image, index) => ({
+        id: `${id}${index}`,
+        title: title,
+        price: price,
+        info: info,
+        seller: brand,
+        images: [image],
+      }));
+  
+      await addSellerItems(category, itemsArray);
+  
+      alert('Product created successfully. Happy sales!!!');
+      navigate(path);
+    } catch (err) {
+      console.error('Error adding items:', err.message);
+    }
+  };
 
   return (
     <>
-      <Card className='card no-padding-container y-m'> 
-        <div className='card-header'>
+      <Card className='card no-padding-container y-m mx-auto'> 
+        <div className='card-header flex-just-center bg-ws'>
           Add a Product to your Collection
         </div>
         <div className='card-body'>
-          <form onSubmit={HandleSubmit} action=''>
+          <form onSubmit={handleSubmit} action=''>
+            <select onChange={handleChange} name='category'
+              className="form-select centered-dropdown w-50">
+              <option>Select category</option>
+              <option value="kids">Kids</option>
+              <option value="women">Women</option>
+              <option value="men">Men</option>
+              <option value="jersey">Jersey</option>
+              <option value="hats">Hats</option>
+              <option value="accessories">Accessories</option>
+              <option value="jackets">Jackets</option>
+              <option value="sneakers">Sneakers</option>
+              <option value="shoes">Shoes</option>
+              <option value="slippers">Slippers</option>
+              <option value="bags">Bags</option>
+              <option value="senegalese">Senegalese</option>
+            </select>
+
             <FormField 
               label={'What would you name this item?'}
               onChange={handleChange}
               type="text"
-              value={name}
+              value={formFields.title}
+              name="title"
             />
-            <section className="bg-diffrent">
-              <div className="container bg-ws">
+            <section className="bg-ws">
                 <div className="row">
                   <div className="col-md-12">
                     <div className="verify-sub-box">
-                      <p className='flex-just-center fs-smaller y-p1 c-50'><i>Upload different clear images of this item</i></p>
-                      <div className="file-loading" >
-	                      <input id="multiplefileupload" type="file" accept=".jpg,.png" multiple/>
+                      <p className='flex-just-center fs-smaller y-p1 c-50'>
+                        <i>Upload different clear images of this item</i>
+                      </p>
+                      <div className="file-loading flex-just-center">
+	                      <input 
+                          className='flex-just-center'
+                          onChange={handleImgChange}
+                          accept=".jpg, .jpeg, .png"
+                          id='upload-images'
+                          name="images"
+                          type="file"
+                          multiple
+                        />
 	                    </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            </section>            
+            </section>
+
             <FormField 
-              label={'How much would this item cost?'}
+              label={'How much would this item cost? (US dollar $)'}
               onChange={handleChange}
               type="number"
-              value={price}
+              value={formFields.price}
+              name="price"
             />
+
             <textarea
               className='form-control' 
-              placeholder={'Write some description for this item'} 
+              placeholder={'Write some info for this item'} 
               onChange={handleChange}
               type="textarea"
-              value={description} 
+              value={formFields.info} 
               rows={3}
+              name="info"
             />
+
+            <div className='mt-3 flex-just-center'>
+              <Button type="submit">Submit</Button>
+            </div>
           </form>
         </div> 
       </Card>

@@ -5,8 +5,9 @@ import { Container } from "react-bootstrap";
 
 import './directory.styles.scss'
 import AdSection from "../adsection/mobile.ads";
+import { SearchBar } from "../searchServices/search-bar";
 
-// directory-holding-categories container seen on the homepage
+// This component is rendered on the landing page
 const Directory = ({categories}) => {
 
   const navigate = useNavigate();
@@ -14,7 +15,8 @@ const Directory = ({categories}) => {
 
   return (
     <>
-      <Container className="no-padding-container y-m">
+      <Container className="no-padding-container mb-5">
+        <SearchBar resultSx={"-mt pt-2"}/>
         <AdSection />
         {
           categories.map(

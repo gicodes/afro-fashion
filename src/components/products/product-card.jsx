@@ -1,37 +1,72 @@
-import { useContext } from 'react';
 import './product-card.styles.scss';
 
+import { useState, useContext } from 'react';
 import Button from '../buttons/button.component';
 import { CartContext } from '../../contexts/cart.context';
+import 
+  { FaCircleChevronRight, 
+    FaCircleChevronLeft,
+    FaCircleInfo,
+  } from "react-icons/fa6";
 
 const ProductCard = ({ product }) => {
-  const { name, price, imageUrl } = product;
+  const { addItemtoCart } = useContext(CartContext);
+  const [productInfo, setProductInfo] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const productIn = () => addItemtoCart(product)
-  const { addItemtoCart } = useContext(CartContext)
+  const { name, price, imageUrls, info, brandName, imageUrl } = product;
+
+  const toggleProductInfo = () => setProductInfo(!productInfo);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
+  };
+
+  const productIn = () => addItemtoCart(product);
 
   return (
     <>
       <div className='product-card-container'>
-        <img src={imageUrl} alt={name} />
+        <div className='image-container'>
+          <img 
+            src={imageUrls ? (imageUrls[currentImageIndex]) : (imageUrl)} 
+            alt={name} 
+          />
 
-        <div className='footer'>
-          <span className='name'>
-            {name}
-          </span>
-          
-          <span className='price'>
-            ${price}
-          </span>
+          <div className='chevron-left' onClick={prevImage}>
+            <FaCircleChevronLeft />    
+          </div>
+          <div className='chevron-right' onClick={nextImage}>
+            <FaCircleChevronRight />       
+          </div>
         </div>
-        
+
         <Button buttonType={'inverted'} onClick={productIn}>
           Add to Cart
         </Button>
+
+        <div className='footer'>
+          <div className='info-container'>
+            <span className='info-button' onClick={toggleProductInfo}>
+              <FaCircleInfo/>
+            </span>
+          </div>
+          <span className='product-name'>{name}</span>
+          <span className='product-price'>${price}</span>
+          {
+            productInfo && <div className='info-content'>
+              <div className='product-info'><p>{info}</p></div>
+              <div className='product-brand'>{brandName}</div>
+            </div>  
+          }
+        </div>
       </div>
     </>
-  )
-
-}
+  );
+};
 
 export default ProductCard;

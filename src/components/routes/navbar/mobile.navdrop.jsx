@@ -1,6 +1,9 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
-import { LuBaggageClaim, LuDollarSign, LuHelpCircle } from "react-icons/lu";
+import { LuBaggageClaim, LuDollarSign, LuHelpCircle,
+  //  LuFileCode 
+  } from "react-icons/lu";
+import { TbLicense } from "react-icons/tb";
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -15,7 +18,7 @@ const BurgerMenu = () => {
       setClose(true);
     }, 9999);
 
-    // Clean up the timeout when the component unmounts or when a new route is clicked
+    // clean up the timeout when the component unmounts or when a new route is clicked
     return () => {
       clearTimeout(timeoutId);
     };
@@ -43,12 +46,12 @@ const BurgerMenu = () => {
                   onClick={handleNavDropPostRouting}
                   >
                   <LuBaggageClaim className="ml-icon"/>
-                  <span className="ml-title">Start shopping </span>
+                  <span className="ml-title">Go to shop </span>
                 </Link>
 
                 <Link 
-                  className="menu-list dropdown-item" 
-                  aria-current="page" to='auth/register/#seller'
+                  className="menu-list dropdown-item"
+                  aria-current="page" to='seller'
                   onClick={handleNavDropPostRouting}
                   >
                   <LuDollarSign className="ml-icon"/>
@@ -63,6 +66,24 @@ const BurgerMenu = () => {
                   <LuHelpCircle className="ml-icon"/>
                   <span className="ml-title">Need help?</span>
                 </Link>
+
+                <Link 
+                  className="menu-list dropdown-item -mb2" 
+                  aria-current="page" to='credits'
+                  onClick={handleNavDropPostRouting}
+                  >
+                  <TbLicense className="ml-icon"/>
+                  <span className="ml-title">Credits</span>
+                </Link>
+
+                {/* <Link 
+                  className="menu-list dropdown-item" 
+                  aria-current="page" to='developer'
+                  onClick={handleNavDropPostRouting}
+                  >
+                  <LuFileCode className="ml-icon"/>
+                  <span className="ml-title">developer</span>
+                </Link> */}
               </ul>
             </div>
           </div>

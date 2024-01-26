@@ -16,6 +16,7 @@ const Collections = () => {
           )
         })
       }
+      <div className='lg-div'></div>
     </>
   )
 }

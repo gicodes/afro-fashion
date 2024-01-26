@@ -3,18 +3,29 @@ import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Button from '../../../buttons/button.component'
 import { useNavigate, useLocation } from "react-router-dom";
-import {
-  createUserDocFromAuth,
-  createAuthUserWithEmailandPassword,
-} from "../../../../utils/firebase.utils";
+import { customCreateUserWithEmail } from "../../../../utils/firebase.utils";
 import { RadioGroup, FormLabel, FormControlLabel, Radio } from "@mui/material";
+
+import "./sign-up.styles.scss";
 
 import { logGoogleUser } from "../user-auth/logGoogle";
 
-// SignUp takes a username and password, with multiple fields and functions
+// This component embodies the first creation of sign-up (logic and UI) before rendering on other components
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const [ buyer, setBuyer ] = useState(true);
+  
+  useEffect(() => {
+    // determine if user clicked seller route and...
+    if (location.hash === '#seller') {
+      setBuyer(false); //... set user to seller
+    }
+  }, [location.hash, setBuyer])
 
   const defaultFormFields = {
+    userType: '',
     displayName: '',
     email: '',
     password: '',
@@ -23,37 +34,31 @@ const SignUp = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const resetFormFields = () => { setFormFields(defaultFormFields) };
-  const { displayName, email, password, confirmPassword } = formFields;
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const [ buyer, setBuyer ] = useState(true);
-  
-  useEffect(() => {
-    // simple logic to determine if user clicked seller route and...
-    if (location.pathname !== '/auth/register') {
-      setBuyer(false); //... set seller
-    }
-  }, [location.pathname])
-
-  let path = 'auth/register'; 
+  const { userType, displayName, email, password, confirmPassword } = formFields;
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    setFormFields({ ...formFields, [email]: value, [displayName]: value });
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
   }
 
   const handleChangeUser = () => {
     if(buyer) {
       setBuyer(false);
+      navigate('#seller')
       return;
     };
 
+    navigate('')
     setBuyer(true);
   }
+  
+  let userPath = '/auth';
+  let sellerPath = '/seller/accept-terms'
 
-  // handle auth logic for single component operation
+  const handleSuccessNavigate = (path)=> {
+    navigate(path);        
+  }
+
   const HandleSubmit = async (event) => {
     event.preventDefault()
 
@@ -62,16 +67,20 @@ const SignUp = () => {
       return;
     }
 
-    try {
-      const { user } = await createAuthUserWithEmailandPassword(
-        email, password
-      );
-      await createUserDocFromAuth(user, displayName, 
-        // {seller: true} 
-      );
-      resetFormFields();
-      alert('User created successfully. Go to sign in!');
-      navigate(path);
+    try {      
+      await customCreateUserWithEmail(email, password, displayName, userType);
+      
+      if (userType === "seller"){
+        alert('Seller Profile created successfully!');
+
+        handleSuccessNavigate(sellerPath);
+        return;
+      } else {
+        resetFormFields();
+        alert('User created successfully. Go to sign in!');
+
+        handleSuccessNavigate(userPath)
+      }
     }
     catch (error) {
       switch (error.code) {
@@ -90,17 +99,42 @@ const SignUp = () => {
     <Container className="no-padding-container">
       <div className="card container sign-up-container">
         <div className="centered">
-          <h4 className="title">Register</h4><hr/>
+          <h4 className="title">Register</h4>
+          <hr/>
         </div>
 
         <form onSubmit={HandleSubmit}>
           <div className="group">
+            <div className="p-3 bg-ws -mt2">
+              <FormLabel className="flex-just-center">
+                <h6>Are you here to Buy or Sell?</h6>
+              </FormLabel>
+
+              <RadioGroup
+                value={buyer ? 'buyer' : 'seller'}
+                onChange={handleChange}
+                name='userType'
+              >
+                <ol className="mx-auto -mb">
+                  <FormControlLabel 
+                    onClick={handleChangeUser} 
+                    label="Buyer" control={<Radio />} 
+                    value="buyer" name="userType" />
+                  <FormControlLabel 
+                    onClick={handleChangeUser} 
+                    label="Seller" control={<Radio />} 
+                    value="seller" name="userType" />
+                </ol>
+              </RadioGroup>
+            </div>
+
+            <div className="form-fields">
             <FormField
               label={'Display Name'}
               type='text' required
               onChange={handleChange}
               name='displayName'
-              value={displayName}
+              value={formFields.displayName}
             />
 
             <FormField
@@ -108,7 +142,7 @@ const SignUp = () => {
               type='email' required
               onChange={handleChange}
               name='email'
-              value={email}
+              value={formFields.email}
             />
             
             <FormField
@@ -116,7 +150,7 @@ const SignUp = () => {
               type='password' required
               onChange={handleChange}
               name='password'
-              value={password}
+              value={formFields.password}
               autoComplete='true'
             />
 
@@ -125,41 +159,23 @@ const SignUp = () => {
               type='password' required
               onChange={handleChange}
               name='confirmPassword'
-              value={confirmPassword}
+              value={formFields.confirmPassword}
               autoComplete='true'
             />
-
-            <FormLabel
-              className="lr-margin">
-              <p>Are you here to Buy or Sell?</p>
-            </FormLabel>
-
-            {/* default value depends on user interaction */}
-            <RadioGroup
-              value={buyer ? 'buyer' : 'seller'}
-              onChange={handleChange}
-              className="lr-margin"
-              name='userType'
-            >
-              <ol>
-                <FormControlLabel onClick={handleChangeUser} value="buyer" control={<Radio />} label="Buyer" />
-                <FormControlLabel onClick={handleChangeUser} value="seller" control={<Radio />} label="Seller" />
-              </ol>
-            </RadioGroup>
-            
-            <br/>
+        
             <div className='buttons-container'>
               <Button type="submit">
                 Sign Up
               </Button>
-              <Button
+              {buyer && <Button
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
               >
                 Google Sign-up
-              </Button>
+              </Button>}
             </div>
+          </div>
           </div>
         </form>
 
@@ -169,7 +185,7 @@ const SignUp = () => {
             sign in
           </a>
         </p>
-      </div>
+        </div>
     </Container>
   )
 }

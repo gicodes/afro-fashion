@@ -4,6 +4,11 @@
   column-gap: 20px;
   row-gap: 40px;
   padding: 30px;
+  margin-top: -30px;
+
+  .-lg {
+    margin-bottom: 50px;
+  }
 }
 
 .category-title {

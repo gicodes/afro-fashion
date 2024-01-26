@@ -13,8 +13,12 @@ const CollectionPreview = ({ title, products }) => {
       <section id={title.toLowerCase()} className='y-m lr-margin'>
         <Container className='card bg-ws lr-padding'>
           <h2 className='title mx-auto y-p'>
-          <Link to={title}>{title.toUpperCase()}</Link>
-        </h2>
+            <Link to={title}>
+              <span className='bg-gw p-2'>
+                {title.toUpperCase()}
+              </span>
+            </Link>
+          </h2>
         <div className='preview'>
           {
             products

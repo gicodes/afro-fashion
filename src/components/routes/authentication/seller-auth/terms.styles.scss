@@ -1,0 +1,41 @@
+.terms-card {
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .card-title {
+    margin-top: 20px;
+    margin-bottom: -20px;
+    
+    h6 {
+      font-style: italic;
+      font-weight: bolder;
+    }
+  }
+
+  .card-body {
+    margin: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+    .form-check {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+  .form-check-label {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .card-actions {
+    margin: 2%;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    justify-content: center;
+  }
+}

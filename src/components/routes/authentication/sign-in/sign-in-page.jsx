@@ -2,23 +2,18 @@ import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
 import { signInWithEmail } from "../../../../utils/firebase.utils";
 
-import { logGoogleUser } from "../user-auth/logGoogle";
+const defaultFormFields = { email: '', password: '' }
 
-const defaultFormFields = {
-  email: '',
-  password: '',
-}
-
-// Sign in with form takes email and password, or google credentials
+// This component embodies the first creation of sign-in (logic and UI) before rendering on other components
 const SignInForm = () => {
-
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) }
-  const navigate = useNavigate();
   
   let path = '/shop'; 
 
@@ -36,10 +31,10 @@ const SignInForm = () => {
         case 'auth/user-not-found':
           alert('User not found !')
           break
-        case 'auth/wrong-password':
-          alert('Password incorrect !!!')
-          break
-        default: alert('Email or Password incorrect !!');
+          case 'auth/wrong-password':
+            alert('Email or Password incorrect !!')
+            break
+          default: alert('Something went wrong !!!');
       }
     }
   }
@@ -59,6 +54,7 @@ const SignInForm = () => {
 
         <form onSubmit={HandleSubmit}>
           <div className="group">
+            <div className="form-fields">
             <FormField
               label={'Email'}
               type="email" required
@@ -88,14 +84,13 @@ const SignInForm = () => {
                Google sign-in
               </Button>
             </div>
+            </div>
           </div>
         </form>
 
         <p className="centered z-footer"> 
           Don't have an account? 
-          <a href='auth/register' className="zf-link"> &nbsp;Go to 
-            sign up
-          </a>
+          <a href='auth/register' className="zf-link"> &nbsp;Go to sign up</a>
         </p>
       </div>
     </Container>

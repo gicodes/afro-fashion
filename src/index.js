@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './contexts/user.context';
 import { CartProvider } from './contexts/cart.context';
+import { BrandProvider } from './contexts/brand.context';
 import { CategoriesProvider } from './contexts/categories.context';
 
 import App from './App';
@@ -17,9 +18,11 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <CategoriesProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
+          <BrandProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </BrandProvider>
         </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
@@ -30,4 +33,5 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

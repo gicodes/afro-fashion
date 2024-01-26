@@ -7,12 +7,14 @@ import './authentication.scss'
 const SignIn = () => {
 
   return (
-    <div className='auth-container yb-p'>
-      <div className='card auth-sign-up-form'>
-        <SignUpForm />
+    <>
+      <div className='auth-container y-m yb-p'>
+        <div className='card auth-sign-up-form mx-auto'>
+          <SignUpForm />
+        </div>
       </div>
-
-    </div>
+      <div className='lg-div'></div>
+    </>
 
   )
 }
