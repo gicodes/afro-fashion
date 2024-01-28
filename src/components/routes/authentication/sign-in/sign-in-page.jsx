@@ -25,16 +25,15 @@ const SignInForm = () => {
       resetFormFields();
       alert('Signed in successfully. Happy Shopping!!!')
       navigate(path);
-    }
-    catch (error) {
+    } catch (error) {
       switch (error.code) {
         case 'auth/user-not-found':
           alert('User not found !')
           break
-          case 'auth/wrong-password':
-            alert('Email or Password incorrect !!')
-            break
-          default: alert('Something went wrong !!!');
+        case 'auth/wrong-password':
+          alert('Email or Password incorrect !!')
+          break
+        default: alert('Something went wrong !!!');
       }
     }
   }
@@ -60,6 +59,7 @@ const SignInForm = () => {
               type="email" required
               onChange={handleChange}
               name="email"
+              autoComplete="true"
               value={email}
             />
 

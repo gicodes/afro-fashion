@@ -10,26 +10,28 @@ import ProductCard from '../../products/product-card'
 const CollectionPreview = ({ title, products }) => {
   return (
     <> 
-      <section id={title.toLowerCase()} className='y-m lr-margin'> 
-        <Container className='card category-preview bg-ws y-m'>
-          <h2 className='title'>
-            <Link to={title}>
-              <span className='bg-gw p-2'>
-                {title.toUpperCase()}
-              </span>
-            </Link>
-          </h2>
-          <div className='preview lg-mb'>
-            {
-              products
-                .filter((_, idx) => idx < 4)
-                .map((product) => (
-                  <ProductCard key={product.id} product={product} />
-              ))
-            }
-          </div>
-        </Container>
-      </section>
+      { products.length !== 0 ?  
+        <section id={title.toLowerCase()} className='y-m lr-margin'>
+          <Container className='card category-preview bg-ws y-m'>
+            <h2 className='title'>
+              <Link to={title}>
+                <span className='bg-gw p-2'>
+                  {title.toUpperCase()}
+                </span>
+              </Link>
+            </h2>
+            <div className='preview lg-mb'>
+              {
+                products
+                  .filter((_, idx) => idx < 4)
+                  .map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))
+              }
+            </div>
+          </Container>
+        </section>
+      : (<></>)}
     </>
   )
 }

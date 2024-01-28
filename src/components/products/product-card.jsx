@@ -1,5 +1,4 @@
 import './product-card.styles.scss';
-
 import { useState, useContext } from 'react';
 import Button from '../buttons/button.component';
 import { CartContext } from '../../contexts/cart.context';
@@ -8,15 +7,18 @@ import
     FaCircleChevronLeft,
     FaCircleInfo,
   } from "react-icons/fa6";
-
+  
 const ProductCard = ({ product }) => {
   const { addItemtoCart } = useContext(CartContext);
   const [productInfo, setProductInfo] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const { name, price, imageUrls, info, brandName, imageUrl } = product;
+  const { name, price, info, seller, imageUrls, imageUrl } = product;
 
   const toggleProductInfo = () => setProductInfo(!productInfo);
+
+  const hasMultipleImages = (imageUrls) => Array.isArray(imageUrls) && imageUrls.length > 1;
+  const multipleImages = hasMultipleImages(imageUrls);
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
@@ -29,43 +31,45 @@ const ProductCard = ({ product }) => {
   const productIn = () => addItemtoCart(product);
 
   return (
-    <>
-      <div className='product-card-container'>
-        <div className='image-container'>
-          <img 
-            src={imageUrls ? (imageUrls[currentImageIndex]) : (imageUrl)} 
-            alt={name} 
-          />
+    <div className='product-card-container'>
+      <div className='image-container'>
+        {imageUrls ? (
+         <img src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} alt={name} />
+        ) : (
+          <img src={imageUrl} alt={name} />
+        )}
 
-          <div className='chevron-left' onClick={prevImage}>
-            <FaCircleChevronLeft />    
-          </div>
-          <div className='chevron-right' onClick={nextImage}>
-            <FaCircleChevronRight />       
-          </div>
-        </div>
-
-        <Button buttonType={'inverted'} onClick={productIn}>
-          Add to Cart
-        </Button>
-
-        <div className='footer'>
-          <div className='info-container'>
-            <span className='info-button' onClick={toggleProductInfo}>
-              <FaCircleInfo/>
-            </span>
-          </div>
-          <span className='product-name'>{name}</span>
-          <span className='product-price'>${price}</span>
-          {
-            productInfo && <div className='info-content'>
-              <div className='product-info'><p>{info}</p></div>
-              <div className='product-brand'>{brandName}</div>
-            </div>  
-          }
-        </div>
+        {multipleImages && (
+          <>
+            <div className='chevron-left' onClick={prevImage}><FaCircleChevronLeft /></div>
+            <div className='chevron-right' onClick={nextImage}><FaCircleChevronRight /></div>
+          </>
+        )}
       </div>
-    </>
+
+      <Button buttonType={'inverted'} onClick={productIn}>
+        Add to Cart
+      </Button>
+
+      <div className='footer'>
+        <div className='info-container'>
+          <span className='info-button' onClick={toggleProductInfo}><FaCircleInfo /></span>
+        </div>
+        <span className='product-name'>{name}</span>
+        <span className='product-price'>${price}</span>
+      </div>
+
+      {productInfo && (
+        <div className='info-content'>
+          <div className='product-info'>
+            <span>Description</span>: {info}
+          </div>
+          <div className='product-brand'>
+            <span>Seller name</span>: {seller}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

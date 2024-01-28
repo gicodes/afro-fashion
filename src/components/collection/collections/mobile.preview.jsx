@@ -10,7 +10,7 @@ import ProductCard from '../../products/product-card'
 const CollectionPreview = ({ title, products }) => {
   return (
     <>
-      <section id={title.toLowerCase()} className='y-m lr-margin'>
+      { products.length !== 0 ? <section id={title.toLowerCase()} className='y-m lr-margin'>
         <Container className='card bg-ws lr-padding'>
           <h2 className='title mx-auto y-p'>
             <Link to={title}>
@@ -19,7 +19,7 @@ const CollectionPreview = ({ title, products }) => {
               </span>
             </Link>
           </h2>
-        <div className='preview'>
+          <div className='preview'>
           {
             products
               .filter((_, idx) => idx < 4)
@@ -31,6 +31,7 @@ const CollectionPreview = ({ title, products }) => {
           </div>
         </Container>
       </section>
+      : (<></>)}
     </>
   )
 }

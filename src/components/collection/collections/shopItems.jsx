@@ -11,6 +11,7 @@ const Collections = () => {
       {
         Object.keys(categoriesMap).map((title) => {
           const products = categoriesMap[title];
+          
           return (
             <CollectionPreview key={title} title={title} products={products} />
           )

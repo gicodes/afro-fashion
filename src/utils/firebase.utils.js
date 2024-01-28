@@ -16,7 +16,6 @@ import {
   getDocs,
   query,
 } from 'firebase/firestore'
-
 import { firebaseConfig } from './config';
 import { initializeApp } from "firebase/app";
 
@@ -74,7 +73,6 @@ export const customCreateUserWithEmail = async (
             displayName,
             userType,
           }); // ... store sellerDocRef in firestore
-      
         } catch (error) {
           console.error("Error writing seller document: ", error);
         }
@@ -87,7 +85,6 @@ export const customCreateUserWithEmail = async (
             createdAt,
             displayName,
           });
-      
         } catch (error) {
           console.error("Error writing document: ", error);
         }
@@ -96,7 +93,8 @@ export const customCreateUserWithEmail = async (
 
     return userCredential;
   } catch (err) { 
-    console.error('Error creating user:', err.message) 
+    console.error('Error creating user:', err.message);
+    throw new Error(err.message);
   }
 }
 
@@ -108,6 +106,7 @@ export const getCollectionAndDocuments = async () => {
   const categoryMap = querySnapshot.docs.reduce(
     (acc, docSnapshot) => {
       const data = docSnapshot.data();
+
       if (data.title) {
         const { title, items } = data;
         acc[title.toLowerCase()] = items;
@@ -119,27 +118,35 @@ export const getCollectionAndDocuments = async () => {
   return categoryMap;
 }
 
-// Get snapshot and collection data with brandName query
-export const getItemsByBrandName = async (brandName) => {
-  const categoriesCollection = collection(db, 'categories');
-  const querySnapshot = await getDocs(categoriesCollection);
+// Get snapshot and collection data with sellers query
+export const getItemsBySellers = async () => {
+  const categoriesQuery = query(collection(db, "categories"));
+  const categoriesSnapshot = await getDocs(categoriesQuery);
 
-  const itemsByBrand = [];
+  const itemsBySeller = {};
 
-  for (const categoryDoc of querySnapshot.docs) {
-    const itemsCollection = collection(categoryDoc.ref, 'items');
-    const itemsSnapshot = await getDocs(itemsCollection);
+  categoriesSnapshot.forEach((categoryDoc) => {
+    const categoryData = categoryDoc.data();
+    const categoryName = categoryData.title.toLowerCase();
 
-    // Process the items
-    itemsSnapshot.forEach((itemDoc) => {
-      const itemData = itemDoc.data();
+    if (categoryData.items) {
+      categoryData.items.forEach((item) => {
+        const { seller, ...restOfItem } = item;
 
-      // Check if the 'seller' field is present and matches the specified brandName
-      if (!brandName || (itemData.seller && itemData.seller === brandName)) {
-        itemsByBrand.push({ category: categoryDoc.id, ...itemData });
-      }
-    });
-  }
+        if (seller) {
+          const sellerKey = seller.toLowerCase(); // Ensure consistent case
 
-  return itemsByBrand;
+          if (!itemsBySeller[sellerKey]) {
+            itemsBySeller[sellerKey] = {};
+          }
+          if (!itemsBySeller[sellerKey][categoryName]) {
+            itemsBySeller[sellerKey][categoryName] = [];
+          }
+          itemsBySeller[sellerKey][categoryName].push(restOfItem);
+        }
+      });
+    }
+  });
+
+  return itemsBySeller;
 };

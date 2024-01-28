@@ -76,19 +76,6 @@
       align-items: center;
     }
 
-    .info-content {
-      display: block;
-      margin-top: 10px;
-
-      .product-info {
-        font-size: x-small;
-      }
-      .product-brand {
-        font-size: small;
-        font-weight: bold;
-      }
-    }
-
     .info-button:hover + .info-content {
       display: flex;
     }
@@ -100,6 +87,24 @@
 
     .product-price {
       font-weight: 650;
+    }
+  }
+
+  .info-content {
+    padding-left: 10px;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+
+    span {
+      font-weight: bold;
+    }
+    .product-info {
+      font-size: medium;
+    }
+      
+    .product-brand {
+      font-size: medium;
     }
   }
 }

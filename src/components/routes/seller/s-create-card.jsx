@@ -1,6 +1,6 @@
+import { addSellerItems, uploadImages } from '../../../utils/writeBatch';
 import FormField from '../authentication/sign-up/form.component';
 import { UserContext } from '../../../contexts/user.context';
-import { addSellerItems } from '../../../utils/writeBatch';
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
@@ -9,7 +9,7 @@ import './seller.styles.scss';
 
 const defaultFormFields = {
   category: '',
-  title: '',
+  name: '',
   price: '',
   images: [],
   info: '',
@@ -19,7 +19,7 @@ export const SellerCreateCard = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { category, title, price, info } = formFields;
+  const { category, name, price, info } = formFields;
 
   const generateRandomId = () => {
     const timestamp = new Date().getTime();
@@ -37,24 +37,26 @@ export const SellerCreateCard = () => {
 
   const handleImgChange = (event) => {
     const { name, files } = event.target;
-    const imagesArray = Array.from(files);
-    setFormFields({ ...formFields, [name]: imagesArray });
-  }
+    setFormFields({ ...formFields, [name]: files });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
   
     try {
-      const imagesArray = Array.from(formFields.images).flat(); // Flatten the array
-      const itemsArray = imagesArray.map((image, index) => ({
-        id: `${id}${index}`,
-        title: title,
+      const imagesArray = formFields.images;
+      const imageUrls = await uploadImages(imagesArray, id);
+
+      const itemsToAdd = {
+        id: id,
+        name: name,
         price: price,
         info: info,
         seller: brand,
-        images: [image],
-      }));
+        imageUrls: imageUrls,
+      };
   
-      await addSellerItems(category, itemsArray);
+      await addSellerItems(category, itemsToAdd);
   
       alert('Product created successfully. Happy sales!!!');
       navigate(path);
@@ -77,7 +79,7 @@ export const SellerCreateCard = () => {
               <option value="kids">Kids</option>
               <option value="women">Women</option>
               <option value="men">Men</option>
-              <option value="jersey">Jersey</option>
+              <option value="jerseys">Jersey</option>
               <option value="hats">Hats</option>
               <option value="accessories">Accessories</option>
               <option value="jackets">Jackets</option>
@@ -92,19 +94,18 @@ export const SellerCreateCard = () => {
               label={'What would you name this item?'}
               onChange={handleChange}
               type="text"
-              value={formFields.title}
-              name="title"
+              value={formFields.name}
+              name="name"
             />
             <section className="bg-ws">
                 <div className="row">
                   <div className="col-md-12">
                     <div className="verify-sub-box">
-                      <p className='flex-just-center fs-smaller y-p1 c-50'>
+                      <p className='flex-just-center fs-smaller mt-2 c-50'>
                         <i>Upload different clear images of this item</i>
                       </p>
-                      <div className="file-loading flex-just-center">
+                      <div className="p-1 m-1">
 	                      <input 
-                          className='flex-just-center'
                           onChange={handleImgChange}
                           accept=".jpg, .jpeg, .png"
                           id='upload-images'
@@ -119,7 +120,7 @@ export const SellerCreateCard = () => {
             </section>
 
             <FormField 
-              label={'How much would this item cost? (US dollar $)'}
+              label={'How much would this item cost?'}
               onChange={handleChange}
               type="number"
               value={formFields.price}

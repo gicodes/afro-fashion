@@ -5,12 +5,12 @@ import { Route, Routes } from 'react-router-dom';
 import Seller from '../seller/sell.component.jsx';
 import ShopStore from '../shop/shop.component.jsx';
 import NavBar from '../navbar/navbar.component.jsx';
+import BrandCollection from '../brands/brands.route.jsx';
 import ProtectedSellerRoute from '../seller/protected-route.jsx'; 
 import Collection from '../../collection/collection.component.jsx';
 import SignIn from '../authentication/user-auth/sign-in.component.jsx';
 import SignUp from '../authentication/user-auth/sign-up.component.jsx';
 import Checkout from '../../cartServices/checkout/checkout.component.jsx';
-import { BrandCollection } from '../../searchServices/search-results.jsx';
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 
 const Home = () => {

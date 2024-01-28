@@ -21,9 +21,14 @@ const SignUp = () => {
     // determine if user clicked seller route and...
     if (location.hash === '#seller') {
       setBuyer(false); //... set user to seller
+    } else {
+      setBuyer(true);
     }
-  }, [location.hash, setBuyer])
 
+    return () => {
+      setBuyer(true);
+    };
+  }, [location.hash]);
   const defaultFormFields = {
     userType: '',
     displayName: '',
@@ -81,8 +86,7 @@ const SignUp = () => {
 
         handleSuccessNavigate(userPath)
       }
-    }
-    catch (error) {
+    } catch (error) {
       switch (error.code) {
         case 'auth/email-already-in-use':
           alert('Error creating user. Email already in use');
@@ -134,6 +138,7 @@ const SignUp = () => {
               type='text' required
               onChange={handleChange}
               name='displayName'
+              autoComplete="true"
               value={formFields.displayName}
             />
 
@@ -142,6 +147,7 @@ const SignUp = () => {
               type='email' required
               onChange={handleChange}
               name='email'
+              autoComplete="true"
               value={formFields.email}
             />
             

@@ -18,7 +18,11 @@ export const SearchBar = ({ searchSx, resultSx }) => {
     setSearchBox(true);
 
     const brands = await searchItemsByBrand(value);
-    setAggregatedResult(brands);
+    if (Array.isArray(brands)) {
+      setAggregatedResult(brands);
+    } else {
+      setAggregatedResult([]);
+    }
 
     if (value === '') {
       setSearchBox(false);
@@ -29,13 +33,13 @@ export const SearchBar = ({ searchSx, resultSx }) => {
     setSearchBox(false);
   };
 
-  const searchResult = aggregatedResult?.map((brand, index) => (
+  const searchResult = aggregatedResult?.map((brandObject, index) => (
     <ListGroup.Item key={index}>
-      <a href={`/seller/${brand}`} onClick={handleSearchClick}>
-        {brand}
+      <a href={`/seller/${brandObject}`} onClick={handleSearchClick}>
+        {brandObject}
       </a>
     </ListGroup.Item>
-  ));
+  ))
 
   return (
     <>
@@ -47,7 +51,7 @@ export const SearchBar = ({ searchSx, resultSx }) => {
             value={search}
             onChange={handleSearch}
           />
-          <button type="button" className="btn btn-info" onClick={searchItemsByBrand}>Go</button>
+          <button type="button" className="btn btn-info" onClick={handleSearch}>Go</button>
         </InputGroup>
       </div>
       {searchBox && 

@@ -5,7 +5,7 @@ const CheckoutContent = ({ cartItem }) => {
 
   const { addItemtoCart, removeItemfromCart } = useContext(CartContext);
 
-  const { imageUrl, name, quantity } = cartItem;
+  const { imageUrl, imageUrls, name, quantity } = cartItem;
   const itemTotal = cartItem.price * cartItem.quantity;
 
   return (
@@ -13,7 +13,7 @@ const CheckoutContent = ({ cartItem }) => {
     <tr className='align-middle'>
       <td className='checkout-items-img'>
         <img
-          src={imageUrl}
+          src={imageUrl || imageUrls}
           alt={name}
         />
       </td>
