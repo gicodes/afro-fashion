@@ -42,3 +42,20 @@ body{
   display: flex;
   text-align: center;
 }
+
+.category-card {
+  border: 1px solid #707070;
+  margin-bottom: 10px;
+  border-radius: 2%;
+  margin-top: 5px;
+
+  .product-bar {
+    justify-content: space-between;
+    display: flex;
+    margin: 10px;
+
+    .product-name {
+      align-self: center;
+    }
+  }
+}

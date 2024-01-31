@@ -3,10 +3,10 @@ import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Button from '../../../buttons/button.component'
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAlert } from "../../../../contexts/alert.context";
+import { useLoading } from '../../../../contexts/loading.context';
+import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { customCreateUserWithEmail } from "../../../../utils/firebase.utils";
-import { RadioGroup, FormLabel, FormControlLabel, Radio } from "@mui/material";
-
-import "./sign-up.styles.scss";
 
 import { logGoogleUser } from "../user-auth/logGoogle";
 
@@ -14,8 +14,9 @@ import { logGoogleUser } from "../user-auth/logGoogle";
 const SignUp = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
   const [ buyer, setBuyer ] = useState(true);
+  const addAlert = useAlert().addAutoCloseAlert;
+  const { showLoading, hideLoading } = useLoading();
   
   useEffect(() => {
     // determine if user clicked seller route and...
@@ -29,17 +30,19 @@ const SignUp = () => {
       setBuyer(true);
     };
   }, [location.hash]);
+
   const defaultFormFields = {
     userType: '',
     displayName: '',
     email: '',
+    phone: '',
     password: '',
     confirmPassword: '',
   }
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const resetFormFields = () => { setFormFields(defaultFormFields) };
-  const { userType, displayName, email, password, confirmPassword } = formFields;
+  const { userType, displayName, phone, email, password, confirmPassword } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -50,51 +53,53 @@ const SignUp = () => {
     if(buyer) {
       setBuyer(false);
       navigate('#seller')
-      return;
-    };
-
-    navigate('')
-    setBuyer(true);
+    } else { 
+      navigate('')
+      setBuyer(true);
+    }
   }
   
-  let userPath = '/auth';
-  let sellerPath = '/seller/accept-terms'
+  let userPath = '/auth', sellerPath = '/seller/accept-terms'
 
-  const handleSuccessNavigate = (path)=> {
-    navigate(path);        
-  }
+  const handleSuccessNavigate = (path)=> navigate(path)
 
   const HandleSubmit = async (event) => {
     event.preventDefault()
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match')
+      addAlert("danger", 'Passwords do not match')
       return;
     }
 
     try {      
-      await customCreateUserWithEmail(email, password, displayName, userType);
+      showLoading();
+      await customCreateUserWithEmail(email, password, displayName, phone, userType);
       
       if (userType === "seller"){
-        alert('Seller Profile created successfully!');
-
+        resetFormFields();
+        addAlert("info", 'Seller Profile created successfully!');
+        
+        hideLoading();
         handleSuccessNavigate(sellerPath);
-        return;
+        setBuyer(false);
       } else {
         resetFormFields();
-        alert('User created successfully. Go to sign in!');
-
+        addAlert("success", 'User created successfully. Go to sign in!');
+        
+        hideLoading();
         handleSuccessNavigate(userPath)
+        setBuyer(true);
       }
     } catch (error) {
+      hideLoading();
       switch (error.code) {
         case 'auth/email-already-in-use':
-          alert('Error creating user. Email already in use');
+          addAlert("danger", 'Error creating user. Email already in use');
           break
         case 'auth/weak-password':
-          alert('Your password must be at least 6 characters');
+          addAlert("warning", 'Your password must be at least 6 characters');
           break
-        default: alert('Failed Operation! Try again...');;
+        default: addAlert("danger", 'Failed Operation! Try again...');;
       }
     }
   }
@@ -103,16 +108,15 @@ const SignUp = () => {
     <Container className="no-padding-container">
       <div className="card container sign-up-container">
         <div className="centered">
-          <h4 className="title">Register</h4>
-          <hr/>
+          <h4 className="title">Register</h4><hr/>
         </div>
 
         <form onSubmit={HandleSubmit}>
           <div className="group">
             <div className="p-3 bg-ws -mt2">
-              <FormLabel className="flex-just-center">
+              <div className="flex-just-center">
                 <h6>Are you here to Buy or Sell?</h6>
-              </FormLabel>
+              </div>
 
               <RadioGroup
                 value={buyer ? 'buyer' : 'seller'}
@@ -140,6 +144,15 @@ const SignUp = () => {
               name='displayName'
               autoComplete="true"
               value={formFields.displayName}
+            />
+
+            <FormField
+              label={'Phone'}
+              type='number' required
+              onChange={handleChange}
+              name='phone'
+              autoComplete="true"
+              value={formFields.phone}
             />
 
             <FormField

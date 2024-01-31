@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
+import { useAlert } from "../../../../contexts/alert.context";
+import { useLoading } from '../../../../contexts/loading.context';
 import { signInWithEmail } from "../../../../utils/firebase.utils";
 
 const defaultFormFields = { email: '', password: '' }
@@ -11,7 +13,10 @@ const defaultFormFields = { email: '', password: '' }
 // This component embodies the first creation of sign-in (logic and UI) before rendering on other components
 const SignInForm = () => {
   const navigate = useNavigate();
+  const addAlert = useAlert().addAutoCloseAlert;
+  const { showLoading, hideLoading } = useLoading();
   const [formFields, setFormFields] = useState(defaultFormFields);
+
   const { email, password } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) }
   
@@ -21,19 +26,24 @@ const SignInForm = () => {
     event.preventDefault()
 
     try {
+      showLoading();
       await signInWithEmail(email, password);
+
       resetFormFields();
-      alert('Signed in successfully. Happy Shopping!!!')
+      addAlert("success", 'Signed in successfully. Happy Shopping!!!')
+      
+      hideLoading();
       navigate(path);
     } catch (error) {
+      hideLoading();
       switch (error.code) {
         case 'auth/user-not-found':
-          alert('User not found !')
+          addAlert("danger", 'User not found!')
           break
-        case 'auth/wrong-password':
-          alert('Email or Password incorrect !!')
+        case 'auth/invalid-login-credentials':
+          addAlert("danger", 'Email or password incorrect!!')
           break
-        default: alert('Something went wrong !!!');
+        default: addAlert("danger", 'Something went wrong!!!');
       }
     }
   }
@@ -73,9 +83,7 @@ const SignInForm = () => {
             />
 
             <div className='buttons-container'>
-              <Button type='submit'>
-                Sign In
-              </Button>
+              <Button type='submit'>Sign In</Button>
               <Button
                 type='button'
                 buttonType='google'

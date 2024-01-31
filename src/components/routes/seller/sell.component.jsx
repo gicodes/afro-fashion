@@ -1,10 +1,12 @@
 import { UserContext } from "../../../contexts/user.context";
 import Button from "../../buttons/button.component";
 import { SellerCreateCard } from "./s-create-card";
-import { Container } from "react-bootstrap";
+import { SellerProducts } from "./s-products-card";
 import { useState, useContext } from 'react';
+import { Container } from "react-bootstrap";
 
 import "./seller.styles.scss";
+
 const date = new Date();
 const today = date.toLocaleString().split(",")[0];
 
@@ -12,6 +14,7 @@ const Seller = () => {
   const [ createItem, setCreateItem ] = useState(false);
   const [ editItem, setEditItem]  = useState(false);
   const { currentUser } = useContext(UserContext);
+  const sellerName = currentUser?.displayName;
 
   const toggleCreateItem = () => {
     setCreateItem(!createItem);
@@ -25,7 +28,7 @@ const Seller = () => {
      <Container className="mt-2">
         <div className="card p-1 col-md-6 mx-auto bg-gray">
           <div className="card-title mt-3 mb-2">
-            <span className="-welcome">Welcome, {currentUser?.displayName}</span>
+            <span className="-welcome">Welcome, {sellerName}</span>
             <span className="-date">{today}</span>
           </div>
           <hr/>
@@ -42,9 +45,14 @@ const Seller = () => {
           </section>
 
           <br/>
-          <Button onClick={toggleEditItem}>
+          <section id="edit">
+            <Button onClick={toggleEditItem}>
             Edit an existing Product!
-          </Button>
+            </Button>
+            <div className="p-1">
+              {editItem && <SellerProducts sellerName={sellerName} />}
+            </div>
+          </section>
         </div>
       <div className="lg-div"></div>
      </Container>

@@ -6,27 +6,32 @@ import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './contexts/user.context';
 import { CartProvider } from './contexts/cart.context';
 import { BrandProvider } from './contexts/brand.context';
+import { LoadingProvider } from './contexts/loading.context';
 import { CategoriesProvider } from './contexts/categories.context';
 
 import App from './App';
 import './index.scss';
+import { AlertProvider } from './contexts/alert.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <CategoriesProvider>
-          <BrandProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </BrandProvider>
-        </CategoriesProvider>
-      </UserProvider>
+      <AlertProvider>
+        <UserProvider>
+          <CategoriesProvider>
+            <BrandProvider>
+              <CartProvider>
+                <LoadingProvider>
+                  <App />
+                </LoadingProvider>
+              </CartProvider>
+            </BrandProvider>
+          </CategoriesProvider>
+        </UserProvider>
+      </AlertProvider>
     </BrowserRouter>
-
   </React.StrictMode>
 );
 

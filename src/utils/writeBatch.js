@@ -1,5 +1,5 @@
 // seller specific modules and dependencies from writeBatch to firestore
-import { getStorage, ref,  getDownloadURL, uploadBytes } from 'firebase/storage';
+import { deleteObject, getStorage, ref,  getDownloadURL, uploadBytes } from 'firebase/storage';
 import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
 import { db, firebaseApp } from "./firebase.utils";
 
@@ -34,7 +34,6 @@ export const addSellerItems = async (category, itemsToAdd) => {
       batch.update(categoryRef, { items: updatedItems });
       await batch.commit();
 
-      alert("You've successfully created products!");
     } else {
       throw new Error("Category document not found");
     }
@@ -44,7 +43,7 @@ export const addSellerItems = async (category, itemsToAdd) => {
   }
 };
 
-// upload images to Firebase Storage
+// helper function to upload images to Firebase Storage
 export const uploadImages = async (imagesArray, itemId) => {
   const imageUrls = [];
 
@@ -58,6 +57,94 @@ export const uploadImages = async (imagesArray, itemId) => {
     imageUrls.push(imageUrl);
   }
 
-  alert("Re: Images uploaded!")
   return imageUrls;
+};
+
+// edit items from a db collection
+export const editSellerItem = async (category, itemId, updatedItem) => {
+  const batch = writeBatch(db);
+  const collectionId = "categories";
+
+  try {
+    const categoryRef = doc(collection(db, collectionId), category);
+    const categoryDoc = await getDoc(categoryRef);
+
+    if (categoryDoc.exists()) {
+      const existingItems = categoryDoc.data().items || [];
+      const updatedItems = existingItems.map((item) => {
+        if (item.id === itemId) {
+          // validate properties in updatedItem before updating
+          const { name, price, info } = updatedItem;
+          // you can add additional validation logic as needed
+          if (name !== undefined && price !== undefined && info !== undefined) {
+            return { ...item, name, price, info };
+          } else {
+            throw new Error("Invalid properties in updatedItem");
+          }
+        } else {
+          return item;
+        }
+      });
+
+      batch.update(categoryRef, { items: updatedItems });
+      await batch.commit();
+
+    } else {
+      throw new Error("Category document not found");
+    }
+  } catch (err) {
+    console.error('Error during batch.update:', err);
+    throw new Error(err.message);
+  }
+};
+
+
+// delete items from a db collection along with images from storage
+export const deleteSellerItem = async (category, itemId) => {
+  const batch = writeBatch(db);
+  const collectionId = "categories";
+
+  try {
+    const categoryRef = doc(collection(db, collectionId), category);
+    const categoryDoc = await getDoc(categoryRef);
+
+    if (categoryDoc.exists()) {
+      const existingItems = categoryDoc.data().items || [];
+      const deletedItem = existingItems.find((item) => item.id === itemId);
+
+      if (deletedItem) {
+        // delete images from Firebase Storage
+        await deleteImages(itemId, deletedItem.images);
+        // update the database by removing the item
+        const updatedItems = existingItems.filter((item) => item.id !== itemId);
+        batch.update(categoryRef, { items: updatedItems });
+
+        await batch.commit();
+      } else {
+        throw new Error(`Item with ID ${itemId} not found in category ${category}`);
+      }
+    } else {
+      throw new Error(`Category document ${category} not found`);
+    }
+  } catch (err) {
+    console.error('Error during batch.update:', err);
+    throw new Error(err.message);
+  }
+};
+
+// helper function to delete images from Firebase Storage
+const deleteImages = async (itemId, imageUrls) => {
+  try {
+    if (imageUrls && imageUrls.length > 0) {
+      const promises = imageUrls.map(async (imageUrl) => {
+        const imageRef = ref(storage, imageUrl);
+        await deleteObject(imageRef);
+      });
+
+      await Promise.all(promises);
+    }
+  } catch (err) {
+    console.error('Error during image deletion:', err);
+    throw new Error(err.message);
+  }
 };

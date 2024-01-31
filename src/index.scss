@@ -61,7 +61,6 @@ a {
 
   // y-axis margin
 .y-m { margin-top: 20px }
-
 .y-mb { margin-bottom: 20px }
 
   // negative margin bottom
@@ -85,6 +84,15 @@ a {
   justify-content: center;
 }
   
+.bl-ordered {
+  border: 1px solid #909090;
+  padding: 5%;
+}
+
+.font-awesome {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .lg-fullWidth {
   // used on search results
   width: 100% 

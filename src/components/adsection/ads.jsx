@@ -20,7 +20,7 @@ const AdSection = () => {
             <ul>
               <li>Register as a buyer</li> 
               <li>Highlight your favorite items</li>
-              <li>Subscribe to newsletters for email notifications</li>
+              <li>Subscribe to newsletters or email notifications</li>
               <li>Proceed to <Link className="ad-link" to={'/shop'}>Shop</Link> amazing tailored products for you!</li>
             </ul>
           </div>
@@ -29,7 +29,7 @@ const AdSection = () => {
             <h6>Do you own a fashion store?</h6> 
             <ul>
               <li>Register as a seller </li> 
-              <li>Read the Terms of contract</li>
+              <li>Read the terms of contract</li>
               <li>If you agree to it, sign the seller contract </li>
               <li>Proceed to <Link className="ad-link" to={'/seller#upload'}>upload</Link> amazing products for your buyers!</li>
             </ul> 

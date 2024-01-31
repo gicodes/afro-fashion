@@ -5,11 +5,11 @@ const auth = getAuth();
 const actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: 'https://www.afrofashionng.com',
+  url: 'https://www.afrofashion.pro',
   // This must be true.
   handleCodeInApp: true,
 
-  dynamicLinkDomain: 'https://www.afrofashionng.com'
+  dynamicLinkDomain: 'https://www.afrofashion.pro'
 };
 
 export const sendVerification = (email) => {

@@ -45,8 +45,7 @@ export const signInWithEmail = async (email, password) => {
 
 // Sign out user
 export const SignOutUser = () => { 
-  alert("Signing out from Afro Fashion?")
-  signOut(auth) 
+ signOut(auth) 
 };
 
 // Sign up user with Email and Password
@@ -54,7 +53,9 @@ export const customCreateUserWithEmail = async (
   email, 
   password, 
   displayName, 
-  userType ) => {
+  phone,
+  userType
+  ) => {
   try {
     // create user in Firebase Authentication
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -71,6 +72,7 @@ export const customCreateUserWithEmail = async (
             email,
             createdAt,
             displayName,
+            phone,
             userType,
           }); // ... store sellerDocRef in firestore
         } catch (error) {
@@ -79,6 +81,7 @@ export const customCreateUserWithEmail = async (
       } else {
         const userId = userCredential.user.uid;
         const userDocRef = doc(db, 'users', userId);
+
         try {
           await setDoc(userDocRef, {
             email,

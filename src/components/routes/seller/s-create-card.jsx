@@ -1,6 +1,8 @@
 import { addSellerItems, uploadImages } from '../../../utils/writeBatch';
 import FormField from '../authentication/sign-up/form.component';
+import { useLoading } from '../../../contexts/loading.context';
 import { UserContext } from '../../../contexts/user.context';
+import { useAlert } from '../../../contexts/alert.context';
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
@@ -16,9 +18,14 @@ const defaultFormFields = {
 }
 
 export const SellerCreateCard = () => {
+  
   const navigate = useNavigate();
+  const addAlert = useAlert().addAutoCloseAlert;
   const { currentUser } = useContext(UserContext);
+  const { showLoading, hideLoading } = useLoading();
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
+
   const { category, name, price, info } = formFields;
 
   const generateRandomId = () => {
@@ -26,8 +33,9 @@ export const SellerCreateCard = () => {
     const randomNumber = Math.floor(Math.random() * 1000000);
     return `${timestamp}-${randomNumber}`;
   }
+
   const brand = currentUser?.displayName;
-  const path = `/seller/${brand}`;
+  const path = `/seller/${brand.toLowerCase()}`;
   const id = generateRandomId();
 
   const handleChange = (event) => {
@@ -53,14 +61,21 @@ export const SellerCreateCard = () => {
         price: price,
         info: info,
         seller: brand,
+        category: category,
         imageUrls: imageUrls,
       };
-  
+      
+      setIsSubmitting(true);
+      showLoading();
       await addSellerItems(category, itemsToAdd);
-  
-      alert('Product created successfully. Happy sales!!!');
+
+      addAlert("success", "You've successfully created a product!");
+
+      setIsSubmitting(false);
+      hideLoading();
       navigate(path);
     } catch (err) {
+      hideLoading();
       console.error('Error adding items:', err.message);
     }
   };
@@ -71,6 +86,7 @@ export const SellerCreateCard = () => {
         <div className='card-header flex-just-center bg-ws'>
           Add a Product to your Collection
         </div>
+
         <div className='card-body'>
           <form onSubmit={handleSubmit} action=''>
             <select onChange={handleChange} name='category'
@@ -97,6 +113,7 @@ export const SellerCreateCard = () => {
               value={formFields.name}
               name="name"
             />
+
             <section className="bg-ws">
                 <div className="row">
                   <div className="col-md-12">
@@ -138,7 +155,7 @@ export const SellerCreateCard = () => {
             />
 
             <div className='mt-3 flex-just-center'>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={isSubmitting}>Submit</Button>
             </div>
           </form>
         </div> 
