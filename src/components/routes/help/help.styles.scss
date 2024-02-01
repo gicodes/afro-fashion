@@ -1,0 +1,48 @@
+.formWidth {
+  width: 50%;
+  margin: auto;
+}
+
+.help-container { 
+  padding-top: 4rem;
+  text-align: left;
+  padding-bottom: 8rem;
+}
+
+.helpCenter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.fixed-width-button {
+  width: 200px; 
+  text-align: center;
+  margin-top: 2rem;
+}
+.helpList ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  border-left: 2px solid #ccc; 
+}
+
+.helpList li {
+  padding-left: 10px; 
+  margin-bottom: 10px; 
+}
+
+.helpList li:hover {
+  background-color: #f0f0f0; 
+}
+.helpListCard{
+  background: white;
+  box-shadow: #ccc inset;
+  padding-left: 5rem;
+  padding-top: 2rem;
+}
