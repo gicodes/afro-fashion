@@ -18,11 +18,11 @@ export const Help = () => {
     <Container className="no-padding-container">
       <div className="card container help-container">
         <div className="p-4 text-center">
-          <section>
+          <section className="help-heading">
             <h3>Welcome to Afro Shop Support</h3>
             <p>We're here to help</p>
             <Form className="formWidth">
-              <InputGroup className="mb-3">
+              <InputGroup className="mb-4 mt-4">
                 <FormControl
                   placeholder="Search for help..."
                   aria-label="Search for support"
@@ -72,7 +72,7 @@ export const Help = () => {
           </section>
         </div>
         <hr />
-        <div className="d-flex mt-4">
+        <div className="d-lg-flex mt-4">
           <HelpList />
           <HelpListCard />
         </div>
