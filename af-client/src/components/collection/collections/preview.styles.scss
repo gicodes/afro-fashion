@@ -1,0 +1,41 @@
+.category-preview {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    cursor: pointer;
+    font-size: 28px;
+    align-self: center;
+    margin: 20px 0 10px 0;
+    justify-content: center;
+  }
+
+  .preview-container-df {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    & > * {
+      flex: 0 0 calc(33% - 20px);    
+    }
+  }
+
+  .preview-container-dg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+    padding: 30px;
+  }
+
+  .lg-mb {
+    margin-bottom: 10px;
+  }
+}  
+
+.btm-col {
+  border-bottom: 1px solid white;
+  margin-bottom: 1px;
+}

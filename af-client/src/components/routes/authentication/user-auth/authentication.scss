@@ -1,0 +1,46 @@
+// the auth container is redudant for the current design in place
+.auth-container {
+  display: flex;
+  margin: 50px auto;
+  justify-content: space-around;
+
+  .auth-sign-in-form {
+    width: 50%;  
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    justify-content: flex-start;
+  }
+
+  .auth-sign-up-form { 
+    width: 50%;  
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    justify-content: flex-end;  
+  }
+}
+
+.centered {
+  align-self: center;
+
+  .title { 
+    display: flex;
+    color: #101010;
+    justify-content: center;
+  }
+}
+
+.z-footer {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  font-size: medium;
+
+  .zf-link {
+    color: #1100ff;
+    font-weight: 500;
+  }
+}

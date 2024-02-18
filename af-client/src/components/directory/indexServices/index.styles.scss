@@ -1,0 +1,45 @@
+.categories-container {
+  background: #FAF9F6;
+  width: 100%; 
+  overflow-x: auto; 
+
+  .categories-slider {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .category-column {
+      .category-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .img-box {
+          min-width: 100px;
+          min-height: 111px;
+          border-radius: 50%; 
+          background-size: cover; 
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+
+.hot-and-trending {
+  background: whitesmoke;
+  width: 100%;
+  
+  .item-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .item-img {
+      min-width: 180px;
+      min-height: 120px;
+      background-size: cover; 
+      background-position: center;
+    }
+  }
+  
+}

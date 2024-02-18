@@ -1,0 +1,57 @@
+// feel free to add custom button styles here 
+// with comments like this on top the class names
+
+
+// used for adsection mobile
+.button-frame {
+  width: 100%;
+  height: 50px;
+  border: none;
+  display: flex;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+// used throughout auth containers and pages
+// 16 -55
+.button-container {
+  width: 100%;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 0.5px 0 0.5px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  font-weight: light;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  &.google-sign-in {
+    background-color: #4285fa;
+    color: white;
+
+    &:hover {
+      background-color: #357ac8;
+      border: none;
+    }
+
+    &.inverted {
+      background-color: white;
+      color: black;
+      border: none;
+    }
+  }
+}

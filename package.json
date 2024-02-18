@@ -1,0 +1,34 @@
+{
+  "name": "afro-fashion-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd af-client && npm start",
+    "server": "cd af-server && node server.js",
+    "dev": "npm-run-all --parallel client server",
+    "build:client": "cd af-client && npm run build",
+    "build": "npm-run-all build:client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gicodes/afro-fashion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gicodes/afro-fashion/issues"
+  },
+  "homepage": "https://github.com/gicodes/afro-fashion#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "flutterwave-node-v3": "^1.1.7",
+    "path": "^0.12.7"
+  }
+}

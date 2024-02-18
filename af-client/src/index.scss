@@ -1,0 +1,146 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/bootstrap/scss/mixins";
+
+// custom body styles used throughout
+body {
+  background: #1a1a1a url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D");
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// custom background colors used throughout
+.bg-dark { background: #1a1a1a; }
+.bg-kiwi { background: black; }
+.bg-lg { background: lightgrey; }
+.bg-gray { background: grey; }
+.bg-gw { background: ghostwhite; }
+.bg-ws { background: whitesmoke; }
+.bg-white { background: white; }
+.bg-trans { background: transparent; }
+
+// existing container styles
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.no-padding-container {
+// custom class to override .container padding
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.lr-padding {
+  // left-right padding
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+  // y-axis padding
+.yb-p { padding-bottom: 20px }
+.y-p1 { padding-top: 10px }
+.y-p { padding-top: 20px }
+
+  // y-axis margin
+.y-m { margin-top: 20px }
+.y-mb { margin-bottom: 20px }
+
+  // negative margin bottom
+.-mt { margin-top: -10px }
+.-mt2 { margin-top: -20px }
+
+.-mb { margin-bottom: -10px }
+.-mb2 { margin-bottom: -20px }
+  
+  // negative padding bottom
+.-pt { padding-top: -10px }
+.-pb { padding-bottom: -10px }
+
+.lr-margin {
+  // left-right margin
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+  // flex and justify content styles
+.flex-just-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-space-bet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.block {
+  display: block;
+  // used in brand.route
+  width: 100%;
+}
+  
+.w-75 { width: 75%; }
+
+.fw { width: 100%; }
+
+.bl-ordered {
+  // border light 
+  border: 1px solid #909090;
+  padding: 5%;
+}
+
+.font-awesome {
+  // used in a couple of components
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.lg-fullWidth {
+  // used on search results
+  width: 100% 
+}
+
+.dis-non {
+  // used to hide a div
+  display: none;
+}
+
+.v-center {
+  // center along the y axis
+  align-self: center;
+}
+
+// set space at the bottom for large viewports
+.lg-div { height: 120px }
+
+// custom font and color styles
+.fs-smaller { font-size: smaller }
+.fs-tiny { font-size: xx-small }
+.fs-large { font-size: larger }
+
+.s-bold { font-weight: 525 }
+.c-50 { color: #505050 } 
+.c-90 { color: #909090 }
