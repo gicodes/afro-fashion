@@ -74,7 +74,9 @@ const ProductCard = ({ product }) => {
 
   return (
     <section id={id}>
-      <div className='card container product-card-container mb-1'>
+      <div 
+        id={id}
+        className='card container product-card-container mb-1'>
         <div className='p-1'>
           <div className='image-container'>
             <img loading="lazy" src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} alt={name} />

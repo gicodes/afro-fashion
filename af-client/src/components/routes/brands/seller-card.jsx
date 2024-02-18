@@ -7,9 +7,9 @@ const SellerCard= ({sellerInfo}) => {
   return (
     <div style={{background: "whitesmoke"}} className='card container -lg mt-4'>
     <div className='brand-card'>
-      <div className='card p-2 mt-2 brand-info v-center text-secondary'>
+      <div className='card p-3 mt-2 brand-info v-center fs-smaller text-secondary'>
         <p className='mt-3'> &nbsp; 
-          <FaCircleInfo size={20} className='v-center' fill='black'/>
+          <FaCircleInfo className='v-center' fill='black'/>
           <span style={{display: "block", textAlign: "left", marginLeft: "10px"}}>
             {sellerInfo?.bio || "Not available"}
           </span> 
@@ -27,7 +27,7 @@ const SellerCard= ({sellerInfo}) => {
           className='rounded-circle profile-image'
           loading='lazy'
           src={sellerInfo?.imageUrl || blankAvi}
-          alt={`${sellerInfo?.email}'s brand`}
+          alt={`brand logo`}
         />
       </div>
     </div>

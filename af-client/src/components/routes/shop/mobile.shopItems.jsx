@@ -1,7 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { useContext } from 'react';
-import CollectionPreview from './mobile.preview';
+import CollectionPreview from '../../collection/collections/mobile.preview';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
 // collections mapped to shop route
@@ -26,7 +26,7 @@ const Collections = () => {
       })}
 
       {!hasProducts && (
-        <div className="mt-2 card container bg-ws">
+        <div className="card container bg-ws">
           <hr className='-mt'/>
           <p className='mx-auto'>No product available now... Try again later</p>
         </div>

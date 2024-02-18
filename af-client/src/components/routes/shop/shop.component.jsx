@@ -3,7 +3,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Category from '../category/category.route';
-import Collections from '../../collection/collections/shopItems';
+import Collections from './shopItems';
 
 const Shop = () => {
   return (

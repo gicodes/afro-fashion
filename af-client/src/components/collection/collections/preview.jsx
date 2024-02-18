@@ -11,7 +11,7 @@ const CollectionPreview = ({ title, products }) => {
   return (
     <> 
       { products.length !== 0 ?  
-        <section id={title.toLowerCase()}>
+        <section>
           <Container className='card no-padding-container bg-dark category-preview mb-1'>
             <h2 className='title'>
               <Link to={title}>
@@ -24,10 +24,13 @@ const CollectionPreview = ({ title, products }) => {
               {
                 products
                   .filter((_, idx) => idx < 4)
-                  .map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                ))
-              }
+                  .map((product, index) => (
+                    <section key={index} id={product.id}>
+                      <ProductCard 
+                      key={index} product={product} 
+                      />
+                    </section>
+                ))}
             </div>
           </Container>
         </section>

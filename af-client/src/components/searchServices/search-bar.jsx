@@ -7,14 +7,15 @@ import { FormControl, InputGroup, ListGroup } from 'react-bootstrap';
 import './search.styles.scss';
 
 export const SearchBar = ({ searchSx, resultSx }) => {
-  const { showLoading } = useLoading();
   const [search, setSearch] = useState('');
   const [searchBox, setSearchBox] = useState(false);
+  const { showLoading, hideLoading } = useLoading();
   const { searchItemsByBrand } = useContext(BrandContext);
   const [aggregatedResult, setAggregatedResult] = useState([]);
 
   const handleSearch = async (event) => {
     const value = event.target.value;
+
     setSearch(value);
     setSearchBox(true);
 
@@ -25,14 +26,14 @@ export const SearchBar = ({ searchSx, resultSx }) => {
       setAggregatedResult([]);
     }
 
-    if (value === '') {
-      setSearchBox(false);
-    }
+    if (value === '') setSearchBox(false);
   };
 
   const handleSearchClick = () => {
     showLoading();
     setSearchBox(false);
+
+    setInterval(() => hideLoading(), 3000)
   };
 
   const searchResult = aggregatedResult?.map((brandObject, index) => (
@@ -49,7 +50,7 @@ export const SearchBar = ({ searchSx, resultSx }) => {
         <InputGroup>
           <FormControl
             type="text"
-            placeholder="Search for a brand"
+            placeholder=" Search for a brand or seller..."
             value={search}
             onChange={handleSearch}
           />
@@ -58,7 +59,9 @@ export const SearchBar = ({ searchSx, resultSx }) => {
       </div>
       {searchBox && 
         <ListGroup className={`${resultSx} search-results mb-2`}>
-          {searchResult.length ? searchResult : (<span>No results found...</span>)}
+          { searchResult.length ? searchResult : (
+            <span>No results found...</span>
+          )}
         </ListGroup>
       }
     </>

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Card, Container } from 'react-bootstrap';
 import { getTrendingItems } from '../../../utils/firebase.utils';
 
 import './index.styles.scss';
 
 const TrendingIndex = () => {
+  const navigate = useNavigate();
+  const onRouteHandler = (route) => { navigate(route) }
   const [trendingItems, setTrendingItems] = useState([]);
 
   useEffect(() => {
@@ -25,7 +28,9 @@ const TrendingIndex = () => {
       <Container className='no-padding-container'>
         <div className='hot-and-trending'>
           <h6 className='flex-just-center m-2'>
-            Featured: Hot and Trending 🔥
+            Featured: &nbsp;<span className='text-success'> 
+              Hot and Trending 🔥
+            </span>
           </h6>
           <div className='items-row'>
           {trendingItems.map((item, index) => (
@@ -36,19 +41,17 @@ const TrendingIndex = () => {
               <div key={index} className='item-box'>
                 <div 
                   className='item-img'
+                  onClick={() => onRouteHandler(`/shop#${item.id}`)}
                   style={{
                   backgroundImage: `url(${item.imageUrl})`
                   }}
                 />
                 <div className='name-price'>
-                  <a 
-                    href={`/shop/#${item.id}`}
-                    className='mt-2 fs-smaller text-success'
-                  >
+                  <span className='mt-2 fs-smaller text-success'>
                   {item.name}
-                  </a>
+                  </span>
                   <span 
-                    className='v-center fs-smaller text-gray'
+                    className='v-center fs-smaller'
                   >
                     ${item.price}
                   </span>

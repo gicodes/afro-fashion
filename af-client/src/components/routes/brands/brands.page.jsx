@@ -23,9 +23,15 @@ const BrandsPage = () => {
             <Link key={index} to={`/seller/${brandName}`}>
               <div className="m-2 block">
                 <div className='p-2 flex-space-bet'>
-                  <span className='text-black v-center'>({index})</span>
-                  <Button className='ml-2' variant='info'>{brandName.toUpperCase()} </Button>
-                  <span className='text-success v-center'>verified</span>
+                  <span className='text-black v-center'>
+                    ({index})
+                  </span>
+                  <Button className='ml-2' variant='info'>
+                    {brandName.toUpperCase()} 
+                  </Button>
+                  <span className='text-success v-center'>
+                    verified
+                  </span>
                 </div>
               </div>
             </Link>

@@ -32,28 +32,33 @@ const BrandCollection = () => {
     fetchData();
     hideLoading();
   }, [showLoading, seller, brandsMap, hideLoading, brands]);
+  const sellerName = seller[0].toUpperCase() + seller.slice(1);
 
   return (
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
       <Container className="card container bg-ws mx-auto">
-        <h1 className='mt-5 mx-auto'>
-          {seller?.toUpperCase()}
-        </h1>
+        <h6 className='mt-3 mx-auto'>
+          Welcome to {sellerName}'s online store! 
+        </h6>
 
         {brands && Object.keys(brands)?.length > 0 ? (
           <>
             <SellerCard sellerInfo={sellerInfo}/>
             
             {/* scaling: brands can return more info i.e. Number of products, number of sales */}
-            <p className='mt-5 mx-auto font-awesome'>
-              <span>Browse {seller} products from {Object.keys(brands)?.length} {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}</span>
-            </p>
+            <div className='card p-2 mt-2'>
+              <span className='mt-2 mx-auto'>Hey, thanks for checking out my page!</span>
+              <p className='mt-2 fs-smaller mx-auto text-secondary'>
+                I'm looking to make more sales. You can find my products in 
+                <b> {Object.keys(brands)?.length}</b> {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}
+              </p>
+            </div>
             
             <div className='brand-route-container mb-2'>
               {Object.entries(brands).map(([category, categoryProducts]) => (
               <div key={category}>
-                <h6 className='btn btn-primary p-2 fw'>
+                <h6 className='btn btn-warning p-2 fw'>
                   {category.toUpperCase()}
                 </h6>
 
@@ -67,7 +72,7 @@ const BrandCollection = () => {
         </>
         ) : (
         <>
-          <hr className='-mt' />
+          <hr className='mt-2' />
           <p className='mx-auto'>No {seller} items are available at the moment...</p>
         </>
         )}

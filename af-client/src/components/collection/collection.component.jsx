@@ -1,6 +1,6 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import './collections/collection.styles.scss';
+import './collection.styles.scss';
 import Directory from '../directory/directory.component';
 
 export const categories = [

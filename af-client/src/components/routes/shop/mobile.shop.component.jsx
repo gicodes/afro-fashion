@@ -3,7 +3,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Category from '../category/mobile.category.route';
-import Collections from '../../collection/collections/mobile.shopItems';
+import Collections from './mobile.shopItems';
 
 const Shop = () => {
   return (

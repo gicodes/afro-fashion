@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import CollectionPreview from './preview';
+import CollectionPreview from '../../collection/collections/preview';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
 // collections as categories mapped to shop route
@@ -28,7 +28,7 @@ const Collections = () => {
 
       {
         !hasProducts && (
-        <div className="mt-1 p-2 card container bg-ws lg-div">
+        <div className="card container p-2 bg-ws lg-div">
           <hr className='-mt'/>
           <p className='mx-auto fs-large'>No product available now... Try again later</p>
         </div>
