@@ -233,11 +233,11 @@ export const getSellerBankInfo = async (seller) => {
   return sellerBankInfo;
 };
 
+// get trending items from users collection by aggregating savedItems 
 export const getTrendingItems = async () => {
   try {
     const usersRef = collection(db, 'users');
     const snapshot = await getDocs(usersRef);
-
     const itemMap = {};
 
     snapshot.forEach(doc => {
@@ -249,11 +249,10 @@ export const getTrendingItems = async () => {
               itemMap[item.id].count++;
             } else {
               itemMap[item.id] = {
-                count: 1,
                 id: item.id,
                 name: item.name,
-                imageUrl: item.imageUrl,
                 price: item.price,
+                imageUrl: item.imageUrl,
               };
             }
           }
@@ -262,10 +261,40 @@ export const getTrendingItems = async () => {
 
     const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.count - a.count);    
     const topTrendingItems = trendingItemsArray.slice(0, 4);
-    
+
     return topTrendingItems;
   } catch (error) {
-    console.error('Error fetching trending items:', error);
-    throw error;
+    throw new Error('Could not fetch trending items because', error);
   }
 }
+
+// Get the latest items uploaded to categories collection
+export const getLatestItems = async () => {
+  try {
+    const categoriesRef = collection(db, 'categories');
+    const categoriesSnapshot = await getDocs(categoriesRef);
+    const latestItemsMap = {};
+
+    categoriesSnapshot.forEach(categoryDoc => {
+      const { items } = categoryDoc.data();
+
+      if (Array.isArray(items)) {
+        items.forEach(item => {
+          if (!latestItemsMap[item.id] || item.updatedAt > latestItemsMap[item.id].updatedAt) {
+            latestItemsMap[item.id] = {
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              imageUrl: item.imageUrl
+            };
+          }
+      })}
+    });
+
+    const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => b.updatedAt - a.updatedAt);
+    
+    return latestItemsArray;
+  } catch (error) {
+    throw new Error('Could not fetch latest items because', error);
+  }
+};
