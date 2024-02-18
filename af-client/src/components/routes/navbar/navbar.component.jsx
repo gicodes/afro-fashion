@@ -82,6 +82,7 @@ const NavBarComponent = () => {
                 <Logo/>
               </Link>
 
+              <div></div>
               <Navbar.Brand href="/" className="nav-brand v-center shake">
                 <h1 className="-mt2">
                   <span className="green">A</span><span>fro</span>

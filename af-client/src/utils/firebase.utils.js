@@ -249,9 +249,11 @@ export const getTrendingItems = async () => {
               itemMap[item.id].count++;
             } else {
               itemMap[item.id] = {
+                count: 1,
                 id: item.id,
                 name: item.name,
-                count: 1
+                imageUrl: item.imageUrl,
+                price: item.price,
               };
             }
           }

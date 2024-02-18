@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { getTrendingItems } from '../../../utils/firebase.utils';
+
+import './index.styles.scss';
 
 const TrendingIndex = () => {
   const [trendingItems, setTrendingItems] = useState([]);
@@ -22,11 +24,14 @@ const TrendingIndex = () => {
     <>
       <Container className='no-padding-container'>
         <div className='hot-and-trending'>
-          <h6>Featured: Hot and Trending 🔥</h6>
+          <h6 className='flex-just-center m-2'>
+            Featured: Hot and Trending 🔥
+          </h6>
+          <div className='items-row'>
           {trendingItems.map((item, index) => (
-            <div 
+            <Card 
               key={index} 
-              className='card container'
+              className='card mt-1 mb-3'
               >
               <div key={index} className='item-box'>
                 <div 
@@ -35,15 +40,23 @@ const TrendingIndex = () => {
                   backgroundImage: `url(${item.imageUrl})`
                   }}
                 />
-                <a 
-                  href={`/shop/#${item.link}`}
-                  className='mt-2 fs-smaller'
-                >
+                <div className='name-price'>
+                  <a 
+                    href={`/shop/#${item.id}`}
+                    className='mt-2 fs-smaller text-success'
+                  >
                   {item.name}
-                </a>
+                  </a>
+                  <span 
+                    className='v-center fs-smaller text-gray'
+                  >
+                    ${item.price}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            </Card>
+            ))}
+          </div>
         </div>
       </Container>
     </>

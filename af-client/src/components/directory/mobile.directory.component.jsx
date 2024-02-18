@@ -1,11 +1,13 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
-import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
-
-import './directory.styles.scss'
+import { useNavigate } from "react-router-dom";
 import AdSection from "../adsection/mobile.ads";
 import { SearchBar } from "../searchServices/search-bar";
+
+import './directory.styles.scss';
+import TrendingIndex from "./indexServices/hot&trending";
+import CategoryIndex from "./indexServices/categories";
 
 // This component is rendered on the landing page
 const Directory = ({categories}) => {
@@ -15,31 +17,12 @@ const Directory = ({categories}) => {
 
   return (
     <>
-      <Container className="no-padding-container mb-5">
+      <Container className="no-padding-container mb-3">
         <SearchBar resultSx={"-mt pt-2"}/>
         <AdSection />
-        {
-          categories.map(
-          ({ title, id, imageUrl, route }) => (
-            <div key={id} className="directory card bg-gw">
-            <div key={id} className="category-container"
-              onClick={() => onRouteHandler(route)}
-            >
-              <div className='background-image'
-                style={{
-                  backgroundImage: `url(${imageUrl})`
-                }} />
-              <div className='category-body-container'>
-                <div className='title-container container'>
-                  <h2>{title}</h2>
-                </div>
-              </div>
-            </div>
-            </div>
-          ))
-        }
+        <CategoryIndex categories={categories} />
+        <TrendingIndex />
       </Container>
-      <br/>
     </>
   )
 }
