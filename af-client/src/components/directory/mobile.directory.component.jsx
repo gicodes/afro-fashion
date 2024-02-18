@@ -1,20 +1,15 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import AdSection from "../adsection/mobile.ads";
 import { SearchBar } from "../searchServices/search-bar";
-
-import './directory.styles.scss';
 import TrendingIndex from "./indexServices/hot&trending";
 import CategoryIndex from "./indexServices/categories";
 
+import './directory.styles.scss';
+
 // This component is rendered on the landing page
 const Directory = ({categories}) => {
-
-  const navigate = useNavigate();
-  const onRouteHandler = (route) => { navigate(route) }
-
   return (
     <>
       <Container className="no-padding-container mb-3">
