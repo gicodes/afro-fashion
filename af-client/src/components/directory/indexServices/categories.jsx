@@ -10,7 +10,7 @@ const CategoryIndex = ({categories}) => {
   return (
     <>
       <Container className='no-padding-container'>
-        <div className='categories-container'>
+        <div className='categories-index-container'>
           <div className='mx-auto m-2'>
             <h6>Explore Popular Categories</h6>
           </div>
