@@ -56,7 +56,11 @@ const ProductCard = ({ product }) => {
   const handleDislike = () => addAutoCloseAlert("danger", `We'll try to show you less of this content`)
 
   const handleSaveItem = () => {
-    const imageUrl = imageUrls[0];
+    let imageUrl;
+    if(imageUrls.length > 1){
+      imageUrl = imageUrls[0];
+    } else imageUrl = imageUrls;
+    
     const itemToAdd = {name, price, id, imageUrl};
 
     addToSavedItems(userId, itemToAdd, "savedItems")

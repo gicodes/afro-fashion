@@ -12,7 +12,7 @@ import './directory.styles.scss';
 const Directory = ({categories}) => {
   return (
     <>
-      <Container className="no-padding-container mb-3">
+      <Container className="no-padding-container bg-gray mb-3">
         <SearchBar resultSx={"-mt pt-2"}/>
         <AdSection />
         <CategoryIndex categories={categories} />

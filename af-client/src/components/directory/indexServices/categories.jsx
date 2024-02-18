@@ -11,8 +11,8 @@ const CategoryIndex = ({categories}) => {
     <>
       <Container className='no-padding-container'>
         <div className='categories-index-container'>
-          <div className='mx-auto m-2'>
-            <h6>Explore Popular Categories</h6>
+          <div className='flex-just-center pt-3 p-2'>
+            <h6>Explore Popular Categories 🛍️</h6>
           </div>
           <div className='categories-slider'>
             { categories.map(
@@ -30,6 +30,7 @@ const CategoryIndex = ({categories}) => {
                 </div>
               </div>
             ))}
+            <hr style={{ color: 'black' }}/>
           </div>
         </div>
       </Container>
