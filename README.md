@@ -30,8 +30,8 @@ The main components of this application can be found under the _src_ directory l
 
 - af-client
 
-  - public
-  - src
+  - public/
+  - src/
   - App.js
   - App.test.js
   - index.js
@@ -46,7 +46,7 @@ The main components of this application can be found under the _src_ directory l
 
 - af-server
 
-  - utils
+  - utils/
   - server.js
 
 # Tech Stack
