@@ -20,7 +20,7 @@
   > `af-client` 
   > `af-server`
 
-- Most of the application logic and code-base can be found in the af-server directory as it houses the front-end components, pages and other react dependencies.
+- Most of the application logic and code-base can be found in the af-client directory as it houses the front-end components, pages and other react dependencies.
 - The server-side is a simple and light-weight express.js application that handles back-end operations such as nodejs API logic or other third-party api operations.
 - Rewriting this tree structure would mean that the existing logic and data-flow would be compromised. Therefore, such actions can only be permitted in cases such as migrations or extreme app scaling.
 
@@ -32,20 +32,12 @@ The main components of this application can be found under the _src_ directory l
 
   - public
   - src
-
-    - > components
-    - > contexts
-    - > redirect
-    - > utils
-
   - App.js
   - App.test.js
   - index.js
   - index.scss
   - reportWebVitals.js
   - setupTests.js
-  -
-  - .gitignore
   - package-lock.json
   - package.json
   - App.test.js
@@ -55,7 +47,6 @@ The main components of this application can be found under the _src_ directory l
 - af-server
 
   - utils
-  -
   - server.js
 
 # Tech Stack
