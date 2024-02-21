@@ -17,7 +17,8 @@
 - The routing and data-flow of this app depends on how it is structured.
 - You can find two (2) app directories under the main or foot directory:
 
-  > `af-client` > `af-server`
+  > `af-client` 
+  > `af-server`
 
 - Most of the application logic and code-base can be found in the af-server directory as it houses the front-end components, pages and other react dependencies.
 - The server-side is a simple and light-weight express.js application that handles back-end operations such as nodejs API logic or other third-party api operations.
