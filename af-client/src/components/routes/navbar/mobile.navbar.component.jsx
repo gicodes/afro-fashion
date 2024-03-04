@@ -3,12 +3,12 @@
 import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import { Fragment, useContext, useState, useEffect } from "react";
+import { Container, Navbar, CloseButton } from "react-bootstrap";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { LuLogIn, LuUserCheck } from "react-icons/lu";
-import { Container, Navbar, CloseButton } from "react-bootstrap";
 import BurgerMenu from './nav-drop.mobile';
 import { SideNav } from "./auth-nav";
 
@@ -142,7 +142,7 @@ const MobileNavBar = () => {
           {cartOpen && <CartDropdown />}
         </nav>
         <Outlet />
-      {isBurger && <BurgerMenu/>}
+        {isBurger && <BurgerMenu/>}
       </Container>
     </Fragment>
   )

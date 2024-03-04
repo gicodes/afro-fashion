@@ -4,9 +4,11 @@ import { Card, Container } from 'react-bootstrap';
 import { getTrendingItems } from '../../../utils/firebase.utils';
 
 import './index.styles.scss';
+import { Loading } from './new&latest';
 
 const TrendingIndex = () => {
   const navigate = useNavigate();
+  const [ isLoading, setLoading ] = useState(true);
   const onRouteHandler = (route) => { navigate(route) }
   const [trendingItems, setTrendingItems] = useState([]);
 
@@ -15,6 +17,7 @@ const TrendingIndex = () => {
       try {
         const items = await getTrendingItems();
         setTrendingItems(items);
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching trending items:', error);
       }
@@ -33,6 +36,7 @@ const TrendingIndex = () => {
             </span>
           </h6>
           <div className='items-row'>
+          {isLoading && <Loading />}
           {trendingItems.map((item, index) => (
             <Card 
               key={index} 

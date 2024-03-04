@@ -14,36 +14,36 @@ const MarketPlace = () => {
   return (
     <>
       {
-        Object.keys(categoriesMap).map((title) => {
+        Object.keys(categoriesMap).map((title, index) => {
           const products = categoriesMap[title];
 
           if (products && products.length > 0) {
             hasProducts = true;
             
             return ( 
-        <section>
-          <Container className='card no-padding-container bg-dark category-preview mb-1'>
-            <h2 className='title'>
-              <Link to={title}>
-                <span className='p-2 text-white'>
-                  {title.toUpperCase()}
-                </span>
-              </Link>
-            </h2>
-            <div className={products?.length < 3 ? 'preview-container-df' : `preview-container-dg`}>
-              {
-                products
-                  .filter((_, idx) => idx < 4)
-                  .map((product, index) => (
-                    <section key={index} id={product.id}>
-                      <ProductCard 
-                        key={index} product={product} 
-                      />
-                    </section>
-                ))}
-            </div>
-          </Container>
-        </section>
+              <div key={index}>
+                <Container className='card no-padding-container bg-dark category-preview mb-1'>
+                  <h2 className='title'>
+                    <Link to={title}>
+                      <span className='p-2 text-white'>
+                        {title.toUpperCase()}
+                      </span>
+                    </Link>
+                  </h2>
+                  <div key={index} className={products?.length < 3 ? 'preview-container-df' : `preview-container-dg`}>
+                    {
+                      products
+                        .filter((_, idx) => idx < 4)
+                        .map((product, index) => (
+                          <section key={index} id={product.id}>
+                            <ProductCard 
+                              key={index} product={product} 
+                            />
+                          </section>
+                        ))}
+                  </div>
+                </Container>
+              </div>
             )
           }
 

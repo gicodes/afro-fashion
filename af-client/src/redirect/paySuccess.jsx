@@ -29,7 +29,7 @@ const PaymentSuccessful = () => {
           <div className="mt-5">     
             <img loading="lazy" 
               alt="Payment Successful media"
-              className="mt-5 lg-fullWidth" 
+              className="mt-5 fullWidth" 
               src="https://img.freepik.com/premium-photo/mobile-phone-transaction-payment-successful-screen-bank-credit-card-woman-hand-background_526934-75.jpg"
             /> 
           </div>

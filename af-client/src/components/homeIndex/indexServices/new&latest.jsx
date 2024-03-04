@@ -5,16 +5,24 @@ import { getLatestItems } from '../../../utils/firebase.utils';
 
 import './index.styles.scss';
 
+export const Loading = () => (
+  <span className='m-2'>
+    Abeg chill make ei load...
+  </span>
+)
+
 const LatestIndex = () => {
   const navigate = useNavigate();
-  const onRouteHandler = (route) => { navigate(route) }
+  const [ isLoading, setLoading ] = useState(true);
   const [latestItems, setLatestItems] = useState([]);
+  const onRouteHandler = (route) => { navigate(route) }
 
   useEffect(() => {
     const fetchLatestItems = async () => {
       try {
         const items = await getLatestItems();
         setLatestItems(items);
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching Latest items:', error);
       }
@@ -33,6 +41,9 @@ const LatestIndex = () => {
             </span>&nbsp; 🆕
           </h6>
           <div className='items-row'>
+
+          {isLoading && <Loading/>}
+
           {latestItems.map((item, index) => (
             <Card 
               key={index} 

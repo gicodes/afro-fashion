@@ -29,7 +29,7 @@ const FailedOperation = () => {
           <div className="mt-5">     
             <img loading="lazy" 
               alt="Transaction failed media"
-              className="mt-5 lg-fullWidth" 
+              className="mt-5 fullWidth" 
               src="https://media.licdn.com/dms/image/C5112AQGiR7AdalYNjg/article-cover_image-shrink_600_2000/0/1582176281444?e=2147483647&v=beta&t=QVzBFLJpbDlQMX_H5iKXr7Jr1w6Pm60tOJb47rjpX6Q"
             /> 
           </div>

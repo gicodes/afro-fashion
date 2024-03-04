@@ -1,6 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Container, ListGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const navLinks = [
   {
@@ -41,7 +42,9 @@ const BurgerMenu = () => {
                 key={nav.id}
                 className={`${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
               >
-                <a href={nav.href} className='text-white m-1'>{nav.title}</a>
+                <Link to={nav.href} className='nav-link'>
+                  {nav.title}
+                </Link>
               </div>
             ))}
         </ListGroup>

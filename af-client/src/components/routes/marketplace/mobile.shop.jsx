@@ -13,14 +13,14 @@ const Collections = () => {
 
   return (
     <>
-      {Object.keys(categoriesMap).map((title) => {
+      {Object.keys(categoriesMap).map((title, index) => {
         const products = categoriesMap[title];
 
         if (products && products.length > 0) {
           hasProducts = true;
           
           return (
-              <section>
+              <div key={index}>
                 <Container className='card no-padding-container bg-dark btm-col'>
                   <h2 className='title mx-auto y-p'>
                     <Link to={title}>
@@ -29,7 +29,7 @@ const Collections = () => {
                       </span>
                     </Link>
                   </h2>
-                  <div className='preview p-1'>
+                  <div key={index} className='preview p-1'>
                   {
                     products
                       .filter((_, idx) => idx < 4)
@@ -42,7 +42,7 @@ const Collections = () => {
                     ))}
                   </div>
                 </Container>
-              </section>  
+              </div>  
           )
         }
 

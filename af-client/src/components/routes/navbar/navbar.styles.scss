@@ -139,18 +139,25 @@
 
 .burger-menu {
   position: absolute;
-  min-width: 140px;
+  min-width: 150px;
   display: flex;
   padding: 5%;
-  left: 1%;
+  left: 3%;
   top: 10%;
+
+  .nav-link { 
+    margin: 2px;
+    cursor: pointer; 
+    color: #fff;
+    font-size: 15px;
+  }
 }
 
 .shake {
-  animation-name: shake-animation;  /* Refers to the name of your @keyframes element below */
-  animation-duration: 2s;        /* Change to speed up or slow down */
-  animation-iteration-count: 3;  /* Stop waving after 4 times:) */
-  transform-origin: 10% 20%; /* Pivot around the bottom-left palm */
+  animation-name: shake-animation; 
+  animation-duration: 2s;       
+  animation-iteration-count: 3;  
+  transform-origin: 10% 20%; 
   display: inline-block;
 }
 

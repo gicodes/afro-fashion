@@ -29,7 +29,7 @@ const Page404 = () => {
           <div className="mt-5">     
             <img loading="lazy" 
               alt="Page Not Found media"
-              className="mt-5 lg-fullWidth" 
+              className="mt-5 fullWidth" 
               src="https://media.istockphoto.com/id/687810238/photo/pug-dog-with-yellow-constructor-safety-helmet-and-cone-and-404-error-and-dead-end-sign-on.jpg?s=612x612&w=0&k=20&c=DbvLxH_RhgH90S12YOBuYD2TDBLuiRC7SUy69Enm_g4="
             /> 
           </div>

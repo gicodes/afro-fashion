@@ -11,12 +11,15 @@ export const SavedItems = ({ savedItems, item }) => {
   } else 
   return (
     <>
-      <div className='card container'>
+      <div className='card container pt-2'>
         {savedItems?.map((item, index) => (
-          <div key={index} className="saved-items">
-            <span className='text-secondary'>{item.name}</span>
-            <span className='text-black'><a href={`marketplace/#${item.id}`}>${item.price}</a></span>
-          </div>
+          <>
+            <div key={index} className="saved-items">
+              <span className='text-secondary'>{item.name}</span>
+              <span className='text-black'><a href={`marketplace/#${item.id}`}>${item.price}</a></span>
+            </div>
+            <hr/>
+          </>
         ))}
       </div>
     </>
