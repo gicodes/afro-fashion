@@ -24,7 +24,7 @@ const BrandsPage = () => {
               <div className="m-2 block">
                 <div className='p-2 flex-space-bet'>
                   <span className='text-black v-center'>
-                    ({index})
+                    ({index + 1})
                   </span>
                   <Button className='ml-2' variant='info'>
                     {brandName.toUpperCase()} 
