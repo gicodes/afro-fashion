@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import { Help } from "../help/help.component.jsx";
 import BrandsPage from '../brands/brands.page.jsx';
 import BrandCollection from '../brands/brands.route.jsx';
-import ShopStore from "../shop/mobile.shop.component.jsx";
+import ShopStore from "../marketplace/mobile.shop.jsx";
 import NavBar from "../navbar/mobile.navbar.component.jsx";
 import Seller from "../profile/seller/seller.component.jsx";
 import UserProfile from "../profile/user/user.component.jsx";
@@ -17,7 +17,7 @@ import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
-import Collection from "../../collection/mobile.collection.component.jsx";
+import HomeIndex from "../../homeIndex/mobile.home.component.jsx";
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
@@ -29,10 +29,10 @@ const Home = () => {
   return (
     <Routes>
       <Route path='/' element={<NavBar />} >
-        <Route index element={<Collection />} />
+        <Route index element={<HomeIndex />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp/>} />
-        <Route path="shop/*" element={<ShopStore />} />
+        <Route path="marketplace/*" element={<ShopStore />} />
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />

@@ -30,7 +30,6 @@ const CategoryIndex = ({categories}) => {
                 </div>
               </div>
             ))}
-            <hr style={{ color: 'black' }}/>
           </div>
         </div>
       </Container>

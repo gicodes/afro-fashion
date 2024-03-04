@@ -8,7 +8,7 @@ import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { LuLogIn, LuUserCheck } from "react-icons/lu";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar, CloseButton } from "react-bootstrap";
 import BurgerMenu from './nav-drop.mobile';
 import { SideNav } from "./auth-nav";
 
@@ -94,11 +94,11 @@ const MobileNavBar = () => {
                 onClick={toggleMenu}
                 className="navbar-toggler burger-button"
               >
-                <div className="animated-icon1">                      
+                {isBurger ? <CloseButton/> : <div className="animated-icon1">                      
                   <span></span>
                   <span></span>    
                   <span></span>
-                </div>
+                </div>}
               </button>
 
               <div className="force-af-center"></div>
@@ -141,8 +141,8 @@ const MobileNavBar = () => {
           </div>
           {cartOpen && <CartDropdown />}
         </nav>
-        {isBurger && <BurgerMenu />}
         <Outlet />
+      {isBurger && <BurgerMenu/>}
       </Container>
     </Fragment>
   )

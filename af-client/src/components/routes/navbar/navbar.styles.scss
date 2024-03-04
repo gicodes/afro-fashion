@@ -138,12 +138,12 @@
 }
 
 .burger-menu {
-  border: 1px solid gray;
-  background: transparent;
-  border-radius: 5%;
+  position: absolute;
+  min-width: 140px;
   display: flex;
-  margin: 10px;
-  width: 50%;
+  padding: 5%;
+  left: 1%;
+  top: 10%;
 }
 
 .shake {

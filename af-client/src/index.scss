@@ -149,3 +149,21 @@ a {
 .s-bold { font-weight: 525 }
 .c-50 { color: #505050 } 
 .c-90 { color: #909090 }
+
+.bg-black-gradient {
+  background: linear-gradient(144.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%);
+}
+
+// custom text colors and bg
+.text-primary {
+  background: radial-gradient(skyblue 0.89%, green 89%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  // text-fill-color: transparent;
+}
+
+.text-white { color: white }

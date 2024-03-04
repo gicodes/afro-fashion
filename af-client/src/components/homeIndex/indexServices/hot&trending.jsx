@@ -25,7 +25,7 @@ const TrendingIndex = () => {
 
   return (
     <>
-      <Container className='no-padding-container'>
+      <Container className='no-padding-container featured-container'>
         <div className='hot-and-trending'>
           <h6 className='flex-just-center m-2'>
             Featured: &nbsp;<span className='text-success'> 
@@ -41,13 +41,13 @@ const TrendingIndex = () => {
               <div key={index} className='item-box'>
                 <div 
                   className='item-img'
-                  onClick={() => onRouteHandler(`/shop#${item.id}`)}
+                  onClick={() => onRouteHandler(`/marketplace#${item.id}`)}
                   style={{
                   backgroundImage: `url(${item.imageUrl})`
                   }}
                 />
-                <div className='name-price'>
-                  <span className='mt-2 fs-smaller text-success'>
+                <div className='name-price mt-2'>
+                  <span className='fs-smaller text-success flex-wrap'>
                   {item.name}
                   </span>
                   <span 

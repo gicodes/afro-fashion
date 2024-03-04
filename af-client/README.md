@@ -130,8 +130,8 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > shop
         >
-        > - mobile.shop.component.jsx
-        > - shop.component.jsx
+        > - mobile.shop.jsx
+        > - shop.jsx
       - > user
         >
         > - profile-card.jsx

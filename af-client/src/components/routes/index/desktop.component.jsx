@@ -6,7 +6,7 @@ import CreditsPage from '../credits/credits.jsx';
 import { Route, Routes } from 'react-router-dom';
 import { Help } from '../help/help.component.jsx';
 import BrandsPage from '../brands/brands.page.jsx';
-import ShopStore from '../shop/shop.component.jsx';
+import ShopStore from '../marketplace/shop.jsx';
 import NavBar from '../navbar/navbar.component.jsx';
 import BrandCollection from '../brands/brands.route.jsx';
 import Seller from '../profile/seller/seller.component.jsx';
@@ -15,7 +15,7 @@ import Checkout from '../../checkout/checkout.component.jsx';
 import FailedOperation from '../../../redirect/failedOp.jsx';
 import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
-import Collection from '../../collection/collection.component.jsx';
+import HomeIndex from '../../homeIndex/home.component.jsx';
 import SignIn from '../authentication/user-auth/sign-in.component.jsx';
 import SignUp from '../authentication/user-auth/sign-up.component.jsx';
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
@@ -30,10 +30,10 @@ const Index = () => {
     <Routes>
       <Route path='/' element={<NavBar />}>
         <Route path="help" element={<Help />} />
-        <Route index element={<Collection />} />
+        <Route index element={<HomeIndex />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp />} />
-        <Route path="shop/*" element={<ShopStore />} />
+        <Route path="marketplace/*" element={<ShopStore />} />
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />

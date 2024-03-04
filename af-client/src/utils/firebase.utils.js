@@ -277,21 +277,21 @@ export const getLatestItems = async () => {
 
     categoriesSnapshot.forEach(categoryDoc => {
       const { items } = categoryDoc.data();
-
+ 
       if (Array.isArray(items)) {
         items.forEach(item => {
+          const imageUrl = item.imageUrls && item.imageUrls.length > 0 ? item.imageUrls[0] : null;
           if (!latestItemsMap[item.id] || item.updatedAt > latestItemsMap[item.id].updatedAt) {
             latestItemsMap[item.id] = {
               id: item.id,
               name: item.name,
               price: item.price,
-              imageUrl: item.imageUrl
+              imageUrl: imageUrl,
             };
-          }
-      })}
+        }})}
     });
 
-    const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => b.updatedAt - a.updatedAt);
+    const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
     
     return latestItemsArray;
   } catch (error) {

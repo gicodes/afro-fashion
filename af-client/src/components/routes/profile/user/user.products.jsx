@@ -15,7 +15,7 @@ export const SavedItems = ({ savedItems, item }) => {
         {savedItems?.map((item, index) => (
           <div key={index} className="saved-items">
             <span className='text-secondary'>{item.name}</span>
-            <span className='text-black'><a href={`shop/#${item.id}`}>${item.price}</a></span>
+            <span className='text-black'><a href={`marketplace/#${item.id}`}>${item.price}</a></span>
           </div>
         ))}
       </div>

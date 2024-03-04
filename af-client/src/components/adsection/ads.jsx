@@ -17,8 +17,8 @@ const AdSection = () => {
           <div>
             <h6>Like to see the latest fashion styles across the continent?</h6> 
             <ul>
-              <li>Register as a <Link className="ad-link" to={'/auth/register'}>buyer</Link> to gain full access to <b>AF</b></li> 
-              <li>Login, surf the <Link className="ad-link" to={'/shop'}>marketplace</Link> or visit your favorite brand</li>
+              <li>Register as a <Link className="ad-link" to={'/auth/register'}>buyer</Link> to gain full access to <b>AF</b> marketplace</li> 
+              <li>Login, surf the <Link className="ad-link" to={'/marketplace'}>marketplace</Link> or visit your favorite brand</li>
               <li>Save the products and items you like to your profile</li>
             </ul>
           </div>

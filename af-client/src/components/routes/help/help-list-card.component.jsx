@@ -31,7 +31,7 @@ export const HelpListCard = () => {
         </p>
         <p>
           {" "}
-          If you do not have any particular product or brand in mind, you can view all AfroFashion products from the <a  className="link" href="/shop">shop</a> page.
+          If you do not have any particular product or brand in mind, you can view all AfroFashion products from the <a  className="link" href="/marketplace">shop</a> page.
         </p>
       </div>
       <br />
