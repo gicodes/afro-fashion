@@ -1,10 +1,37 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Card, Container } from 'react-bootstrap';
+import { Loading, NoInternet } from './new&latest';
 import { getTrendingItems } from '../../../utils/firebase.utils';
 
 import './index.styles.scss';
-import { Loading } from './new&latest';
+
+export const FeaturedCard = ({item, index, onRouteHandler}) => (
+  <Card 
+    key={index} 
+    className='card mt-1 mb-3'
+  >
+    <div key={index} className='item-box'>
+      <div 
+        className='item-img'
+        onClick={() => onRouteHandler(`/marketplace#${item.id}`)}
+        style={{
+          backgroundImage: `url(${item.imageUrl})`
+        }}
+      />
+      <div className='name-price mt-2'>
+        <span className='fs-smaller text-success flex-wrap'>
+          {item.name}
+        </span>
+        <span 
+          className='v-center fs-smaller'
+        >
+          ${item.price}
+        </span>
+      </div>
+    </div>
+  </Card>
+)
 
 const TrendingIndex = () => {
   const navigate = useNavigate();
@@ -36,33 +63,16 @@ const TrendingIndex = () => {
             </span>
           </h6>
           <div className='items-row'>
-          {isLoading && <Loading />}
-          {trendingItems.map((item, index) => (
-            <Card 
-              key={index} 
-              className='card mt-1 mb-3'
-              >
-              <div key={index} className='item-box'>
-                <div 
-                  className='item-img'
-                  onClick={() => onRouteHandler(`/marketplace#${item.id}`)}
-                  style={{
-                  backgroundImage: `url(${item.imageUrl})`
-                  }}
-                />
-                <div className='name-price mt-2'>
-                  <span className='fs-smaller text-success flex-wrap'>
-                  {item.name}
-                  </span>
-                  <span 
-                    className='v-center fs-smaller'
-                  >
-                    ${item.price}
-                  </span>
-                </div>
-              </div>
-            </Card>
-            ))}
+
+            {isLoading && <Loading />}
+
+            {trendingItems ? trendingItems.map((item, index) => (
+              <FeaturedCard 
+                item={item} index={index} 
+                onRouteHandler={onRouteHandler}
+              />
+            )) : <NoInternet />
+            }
           </div>
         </div>
       </Container>

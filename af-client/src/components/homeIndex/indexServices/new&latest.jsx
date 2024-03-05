@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { Card, Container } from 'react-bootstrap';
 import { getLatestItems } from '../../../utils/firebase.utils';
 
 import './index.styles.scss';
+import { FeaturedCard } from './hot&trending';
 
 export const Loading = () => (
+  <span className='mt-2 mb-2'>
+    Abeg chill, e dey load..
+  </span>
+)
+
+export const NoInternet = () => (
   <span className='m-2'>
-    Abeg chill make ei load...
+    No vex but the internet no gree
   </span>
 )
 
@@ -42,34 +49,15 @@ const LatestIndex = () => {
           </h6>
           <div className='items-row'>
 
-          {isLoading && <Loading/>}
+            {isLoading && <Loading/>}
 
-          {latestItems.map((item, index) => (
-            <Card 
-              key={index} 
-              className='card mt-1 mb-3'
-              >
-              <div key={index} className='item-box'>
-                <div 
-                  className='item-img'
-                  onClick={() => onRouteHandler(`/marketplace#${item.id}`)}
-                  style={{
-                  backgroundImage: `url(${item.imageUrl})`
-                  }}
-                />
-                <div className='name-price mt-2'>
-                  <span className='fs-smaller text-success flex-wrap'>
-                  {item.name}
-                  </span>
-                  <span 
-                    className='v-center fs-smaller'
-                  >
-                    ${item.price}
-                  </span>
-                </div>
-              </div>
-            </Card>
-            ))}
+            {latestItems.map((item, index) => (
+              <FeaturedCard 
+                item={item} index={index} 
+                onRouteHandler={onRouteHandler}
+              />
+              )) || <NoInternet/>
+            }
           </div>
         </div>
       </Container>
