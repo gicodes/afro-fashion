@@ -1,55 +1,55 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
-import { Container, ListGroup } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const navLinks = [
   {
     id: 1,
     title: 'Marketplace',
-    href: '/marketplace',
+    link: '/marketplace',
   },
   {
     id: 2,
     title: 'AF Brands',
-    href: '/brands',
+    link: '/brands',
   },
   {
     id: 3,
     title: 'My Profile',
-    href: '/profile',
+    link: '/profile',
   },
   {
     id: 4,
     title: 'Credits',
-    href: '/credits',
+    link: '/credits',
   },
   {
     id: 5,
     title: 'Help Desk',
-    href: '/help',
+    link: '/help',
   },
 ]
 
 const BurgerMenu = () => {
   return (
-    <nav className="burger-menu bg-black-gradient z-index-9999">
-      <Container>
-        <ListGroup className="flex-column justify-content-end align-items-center flex-1">
+    <Container>
+      <nav className="burger-menu bg-black-gradient z-index-9999">
+        <div className="flex-column justify-content-end align-items-center flex-1">
           {  
-            navLinks.map((nav, index) => (
+            navLinks.map((item, index) => (
               <div
-                key={nav.id}
+                key={item.id}
                 className={`${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
               >
-                <Link to={nav.href} className='nav-link'>
-                  {nav.title}
+                <Link to={item.link} className='nav-link flex-just-center'>
+                  {item.title}
                 </Link>
               </div>
             ))}
-        </ListGroup>
-      </Container>
-    </nav>
+        </div>
+      </nav>
+    </Container>
   )
 }
 

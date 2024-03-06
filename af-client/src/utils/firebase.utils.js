@@ -127,6 +127,32 @@ export const getCollectionAndDocuments = async () => {
   return categoryMap;
 }
 
+// Get all items in every category
+export const getAllItemsInCategories = async () => {
+  const myQuery = query(collection(db, "categories"));
+  const querySnapshot = await getDocs(myQuery);
+
+  const allItems = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const data = docSnapshot.data();
+
+    if (data.items) {
+      acc.push(...data.items);
+    }
+
+    return acc;
+  }, []);
+
+  return allItems;
+};
+
+// Get a product by its ID
+export const getProductById = async (productId) => {
+  const allItems = await getAllItemsInCategories();
+  const product = allItems.find(item => item.id === productId);
+
+  return product;
+};
+
 // Get snapshot and collection data with sellers query
 export const getItemsBySellers = async () => {
   const categoriesQuery = query(collection(db, "categories"));

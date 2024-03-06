@@ -1,7 +1,7 @@
 import SellerCard from './seller-card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import ProductCard from '../../products/product-card';
+import ProductCard from '../products/product-card';
 import { useContext, useState, useEffect } from 'react';
 import { getSellerInfo } from '../../../utils/firebase.utils';
 import { useLoading } from '../../../contexts/loading.context';

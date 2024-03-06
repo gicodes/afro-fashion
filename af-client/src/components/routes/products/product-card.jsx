@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setPrice } from '../checkout/checkout';
-import Button from '../buttons/button.component';
-import { useAlert } from '../../contexts/alert.context';
-import { addToSavedItems } from '../../utils/writeBatch';
-import { CartContext } from '../../contexts/cart.context';
-import { UserContext } from '../../contexts/user.context';
-import { useLoading } from '../../contexts/loading.context';
+import { setPrice } from '../../checkout/checkout';
+import Button from '../../buttons/button.component';
+import { useAlert } from '../../../contexts/alert.context';
+import { addToSavedItems } from '../../../utils/writeBatch';
+import { CartContext } from '../../../contexts/cart.context';
+import { UserContext } from '../../../contexts/user.context';
+import { useLoading } from '../../../contexts/loading.context';
 
 import { 
   BsCreditCard, 

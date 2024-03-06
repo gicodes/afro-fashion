@@ -5,7 +5,7 @@ export const categories = [
     id: 1,
     title: 'Kids Clothing',
     imageUrl: 'https://images.unsplash.com/photo-1570545917537-873e36d4f64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
-    route: 'marketplace/kids',
+    route: '/marketplace/kids',
   },
   {
     id: 2,

@@ -8,13 +8,13 @@ import './index.styles.scss';
 
 export const FeaturedCard = ({item, index, onRouteHandler}) => (
   <Card 
-    key={index} 
+    key={`card-${index}`} 
     className='card mt-1 mb-3'
   >
-    <div key={index} className='item-box'>
+    <div key={`item-box-${index}`} className='item-box'>
       <div 
         className='item-img'
-        onClick={() => onRouteHandler(`/marketplace#${item.id}`)}
+        onClick={() => onRouteHandler(`/marketplace/${item.id}`)}
         style={{
           backgroundImage: `url(${item.imageUrl})`
         }}
@@ -62,17 +62,19 @@ const TrendingIndex = () => {
               Hot and Trending 🔥
             </span>
           </h6>
+          
+          {isLoading && <Loading key="loading" />}
+          {!isLoading && trendingItems.length === 0 && <NoInternet key="noInternet" />}
+
           <div className='items-row'>
-
-            {isLoading && <Loading />}
-
-            {trendingItems ? trendingItems.map((item, index) => (
+            {trendingItems.map((item, index) => (
               <FeaturedCard 
-                item={item} index={index} 
+                key={`featured-card-${index}`} 
+                item={item} 
+                index={index} 
                 onRouteHandler={onRouteHandler}
               />
-            )) : <NoInternet />
-            }
+            ))}
           </div>
         </div>
       </Container>

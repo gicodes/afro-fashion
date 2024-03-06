@@ -7,12 +7,12 @@ import { Route, Routes } from "react-router-dom";
 import { Help } from "../help/help.component.jsx";
 import BrandsPage from '../brands/brands.page.jsx';
 import BrandCollection from '../brands/brands.route.jsx';
-import ShopStore from "../marketplace/mobile.shop.jsx";
 import NavBar from "../navbar/mobile.navbar.component.jsx";
 import Seller from "../profile/seller/seller.component.jsx";
 import UserProfile from "../profile/user/user.component.jsx";
 import Checkout from '../../checkout/checkout.component.jsx';
 import FailedOperation from '../../../redirect/failedOp.jsx';
+import MarketPlace from '../marketplace/marketplace.route.jsx';
 import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
@@ -32,7 +32,7 @@ const Home = () => {
         <Route index element={<HomeIndex />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp/>} />
-        <Route path="marketplace/*" element={<ShopStore />} />
+        <Route path="marketplace/*" element={<MarketPlace />} />      
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />

@@ -1,5 +1,5 @@
-import Mobile from "./components/routes/index/mobile.component";
-import PC from "./components/routes/index/desktop.component";
+import Mobile from "./components/routes/App/mobile.component";
+import PC from "./components/routes/App/desktop.component";
 import { useTheme, useMediaQuery } from '@mui/material';
 
 const App = () => {

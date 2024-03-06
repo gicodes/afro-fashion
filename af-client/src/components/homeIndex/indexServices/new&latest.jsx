@@ -7,14 +7,14 @@ import './index.styles.scss';
 import { FeaturedCard } from './hot&trending';
 
 export const Loading = () => (
-  <span className='mt-2 mb-2'>
-    Abeg chill, e dey load..
+  <span key="loading" className='mt-5 flex-just-center'>
+    Abeg chill, make e load finish
   </span>
 )
 
 export const NoInternet = () => (
-  <span className='m-2'>
-    No vex but the internet no gree
+  <span key="nointernet" className='mt-5 flex-just-center'>
+    No vex boss, e be like network no too solid
   </span>
 )
 
@@ -47,17 +47,18 @@ const LatestIndex = () => {
               New and Latest
             </span>&nbsp; 🆕
           </h6>
+          {isLoading && <Loading key="loading" />}
+          {!isLoading && latestItems.length === 0 && <NoInternet key="noInternet" />}
+
           <div className='items-row'>
-
-            {isLoading && <Loading/>}
-
             {latestItems.map((item, index) => (
               <FeaturedCard 
-                item={item} index={index} 
+                key={index} 
+                item={item} 
+                index={index} 
                 onRouteHandler={onRouteHandler}
               />
-              )) || <NoInternet/>
-            }
+            ))}
           </div>
         </div>
       </Container>

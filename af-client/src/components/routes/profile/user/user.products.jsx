@@ -16,7 +16,7 @@ export const SavedItems = ({ savedItems, item }) => {
           <>
             <div key={index} className="saved-items">
               <span className='text-secondary'>{item.name}</span>
-              <span className='text-black'><a href={`marketplace/#${item.id}`}>${item.price}</a></span>
+              <span className='text-black'><a href={`marketplace/${item.id}`}>${item.price}</a></span>
             </div>
             <hr/>
           </>
