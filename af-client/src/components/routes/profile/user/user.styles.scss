@@ -1,6 +1,14 @@
-.saved-items {
-  width: 100%;
-  padding: 2px;
-  display: flex;
-  justify-content: space-between;
+.user-products {
+  .saved-items {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+  }
+  
+  hr {
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
 }

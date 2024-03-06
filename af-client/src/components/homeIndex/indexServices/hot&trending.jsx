@@ -14,7 +14,7 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => (
     <div key={`item-box-${index}`} className='item-box'>
       <div 
         className='item-img'
-        onClick={() => onRouteHandler(`/marketplace/${item.id}`)}
+        onClick={() => onRouteHandler(`/marketplace/products/${item.id}`)}
         style={{
           backgroundImage: `url(${item.imageUrl})`
         }}
