@@ -29,8 +29,8 @@ const Index = () => {
   return (
     <Routes>
       <Route path='/' element={<NavBar />}>
-        <Route path="help" element={<Help />} />
         <Route index element={<HomeIndex />} />
+        <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp />} />
         <Route path="marketplace/*" element={<MarketPlace />} />

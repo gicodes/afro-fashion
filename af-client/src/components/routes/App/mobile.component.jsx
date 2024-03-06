@@ -30,6 +30,7 @@ const Home = () => {
     <Routes>
       <Route path='/' element={<NavBar />} >
         <Route index element={<HomeIndex />} />
+        <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp/>} />
         <Route path="marketplace/*" element={<MarketPlace />} />      
@@ -41,11 +42,10 @@ const Home = () => {
         ) : (
           <Route path="profile" element={<ProtectedUserRoute element={<UserProfile />} />} />
         )}
-        <Route path="auth/accept-seller-terms"
+        <Route 
+          path="auth/accept-seller-terms"
           element={<AcceptTerms />}
         />
-        <Route path="seller/:seller" element={<BrandCollection/>} />
-        <Route path="help" element={<Help />} />
         <Route path="seller/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>

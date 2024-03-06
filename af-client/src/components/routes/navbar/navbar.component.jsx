@@ -93,7 +93,7 @@ const NavBarComponent = () => {
 
               <ul className="nav nav-tabs justify-content-end">
                 <li className="nav-item" title="Marketplace">
-                  <Link className="nav-link" to='shop'>
+                  <Link className="nav-link" to='marketplace'>
                     <span className="nav-title">
                       <TbShoppingBagDiscount size={22} color="black"/>
                     </span>
