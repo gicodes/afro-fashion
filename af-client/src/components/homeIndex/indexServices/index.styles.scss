@@ -29,6 +29,11 @@
 
 @media (min-width: 768px) {
   .categories-index-container {
+    .title {
+      font-size: larger;
+      margin: 10px;
+    }
+
     .categories-slider {
       .category-column {
         .category-box {
