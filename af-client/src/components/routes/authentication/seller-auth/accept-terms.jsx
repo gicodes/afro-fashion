@@ -54,40 +54,44 @@ export const AcceptTerms = () => {
   };
 
   return (
-    <Container className="terms-card flex-just-center">
+    <Container className="no-padding-container terms-card">
       <div className="card p-1 col-md-6 bg-gray">
         <div className='card-title'>
-          <h6 className='mx-auto'>Let's create and model your brand, Together!</h6>
+          <h6 className='mx-auto'>
+            Let's create and model your brand, Together!
+          </h6>
         </div>
         <hr/>
 
         <Form>
           <Form.Group controlId="acceptTermsCheckbox" className='card-body'>
             <div className='form-check'>
-              <Form.Check
+              <Form.Check 
                 type="checkbox"
                 label="Select All"
                 checked={isChecked.selectAll}
                 onChange={() => handleCheckboxChange('selectAll')}
               />
 
+              <br/>
+
               <Form.Check
                 type="checkbox"
-                label="I am a business owner"
+                label="I own a fashion business"
                 checked={isChecked.businessOwner}
                 onChange={() => handleCheckboxChange('businessOwner')}
               />
 
               <Form.Check
                 type="checkbox"
-                label="I'm looking to make sales with this platform"
+                label="I am looking to make sales with this platform"
                 checked={isChecked.makeSales}
                 onChange={() => handleCheckboxChange('makeSales')}
               />
 
               <Form.Check
                 type="checkbox"
-                label="I'll consistently upload and update my products"
+                label="I will consistently upload and update my products"
                 checked={isChecked.uploadProducts}
                 onChange={() => handleCheckboxChange('uploadProducts')}
               />
@@ -101,7 +105,7 @@ export const AcceptTerms = () => {
 
               <Form.Check
                 type="checkbox"
-                label="Use my brand name as an AfroFashion brand"
+                label="I will adhere to Afro-fashion user policy"
                 checked={isChecked.useDisplayName}
                 onChange={() => handleCheckboxChange('useDisplayName')}
               />

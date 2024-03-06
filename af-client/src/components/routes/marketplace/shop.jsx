@@ -63,7 +63,7 @@ const Collections = () => {
       {hasProducts && <div className='lg-div'></div>}
 
       {!hasProducts && (
-        <div className='card container p-2 bg-ws'>
+        <div className='card container p-2 bg-ws vh-100'>
           <hr className='-mt' />
           <p className='mx-auto fs-large'>
             No product available now... Try again later

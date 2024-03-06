@@ -8,13 +8,13 @@ import { FeaturedCard } from './hot&trending';
 
 export const Loading = () => (
   <span key="loading" className='mt-4 flex-just-center'>
-    Abeg chill, make e load finish
+    Abeg chill, make e load finish..
   </span>
 )
 
 export const NoInternet = () => (
   <span key="nointernet" className='mt-4 flex-just-center'>
-    No vex boss, e be like network no too solid
+    No vex boss, e be like network no too solid o..
   </span>
 )
 

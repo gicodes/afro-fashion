@@ -10,10 +10,10 @@ const BrandsPage = () => {
   // scaling: brandsMap can return more brand information for BrandsPage to work with i.e ranking
   return (
     <>
-      <div className="card p-2 mb-2">
+      <div className="card brands-page vh-100">
         <div className="card-title">
           <h2 className="text-center mx-auto bg-ws p-3">
-            Verified AF Brands
+            Verified Afro-Fashion Brands
           </h2>
         </div>
 

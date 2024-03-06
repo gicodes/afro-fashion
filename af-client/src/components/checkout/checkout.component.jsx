@@ -1,4 +1,5 @@
 import { setPrice } from './checkout';
+import { Link } from 'react-router-dom';
 import CheckoutContent from './checkout';
 import PaymentCard from './payment.card';
 import { useContext, useState } from 'react';
@@ -100,7 +101,9 @@ const Checkout = () => {
               </p>
             </div>
             <div className='v-center'>
-              <Button href='/profile' className='btn btn-success fullWidth'>Update Address</Button>
+              <Button className='btn btn-success fullWidth'>
+                <Link to="/profile" className='text-warning'>Update Address</Link>
+              </Button>
             </div>
           </div>
           {

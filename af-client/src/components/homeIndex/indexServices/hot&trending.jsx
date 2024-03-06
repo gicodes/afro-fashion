@@ -58,9 +58,9 @@ const TrendingIndex = () => {
       <Container className='no-padding-container featured-container'>
         <div className='hot-and-trending'>
           <h6 className='flex-just-center m-2'>
-            Featured: &nbsp;<span className='text-success'> 
-              Hot and Trending 🔥
-            </span>
+            Featured: &nbsp;<span className='text-primary'> 
+              Hot and Trending 
+            </span> &nbsp;🔥
           </h6>
           
           {isLoading && <Loading key="loading" />}

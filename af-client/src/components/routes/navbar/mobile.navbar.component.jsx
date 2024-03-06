@@ -89,17 +89,17 @@ const MobileNavBar = () => {
 
           <div className="container-fluid">
             <div className="nav-burger">
-              <button 
+              <div 
                 type="button" 
                 onClick={toggleMenu}
-                className="navbar-toggler burger-button"
+                className="open-close-nav"
               >
                 {isBurger ? <CloseButton/> : <div className="animated-icon1">                      
                   <span></span>
                   <span></span>    
                   <span></span>
                 </div>}
-              </button>
+              </div>
 
               <div className="force-af-center"></div>
               <Navbar.Brand className="nav-brand">

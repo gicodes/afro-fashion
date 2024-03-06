@@ -37,15 +37,15 @@ const Index = () => {
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route
+          path="auth/accept-seller-terms"
+          element={<ProtectedSellerRoute element={<AcceptTerms />} />}
+        />
         {userType === 'seller' ? (
           <Route path="profile" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (
           <Route path="profile" element={<ProtectedUserRoute element={<UserProfile />} />} />
         )}
-        <Route
-          path="auth/accept-seller-terms"
-          element={<AcceptTerms />}
-        />
         <Route path="seller/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>
