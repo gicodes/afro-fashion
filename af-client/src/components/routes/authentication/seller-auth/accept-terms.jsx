@@ -1,12 +1,11 @@
+import { UserContext } from "../../../../contexts/user.context";
 import { useAlert } from '../../../../contexts/alert.context';
 import { Button, Container, Form } from 'react-bootstrap';
+import { sendVerification } from './verification';
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 
 import './terms.styles.scss';
-
-import { sendVerification } from './verification';
-import { UserContext } from "../../../../contexts/user.context";
 
 export const AcceptTerms = () => {
   const { currentUser } = useContext(UserContext);
@@ -37,6 +36,7 @@ export const AcceptTerms = () => {
       }));
     }
   };
+  
   const navigate = useNavigate();
 
   const handleAgreeButtonClick = async () => {
@@ -44,7 +44,7 @@ export const AcceptTerms = () => {
       Object.values(isChecked).filter((value) => value === true).length === 6;
 
     if (allChecked) {
-      addAlert("info", 'Verification link sent... Verify your account to commence commerce!');
+      addAlert("info", 'Verification link sent to your email. Verify your account to commence commerce!');
       
       await sendVerification(currentUser?.email);
       navigate('/profile');
@@ -54,7 +54,8 @@ export const AcceptTerms = () => {
   };
 
   return (
-    <Container className="no-padding-container terms-card">
+      <div className='terms-card'>
+    <Container className="no-padding-container flex-just-center">
       <div className="card p-1 col-md-6 bg-gray">
         <div className='card-title'>
           <h6 className='mx-auto'>
@@ -77,14 +78,14 @@ export const AcceptTerms = () => {
 
               <Form.Check
                 type="checkbox"
-                label="I own a fashion business"
+                label="I own a fashion business or clothing line"
                 checked={isChecked.businessOwner}
                 onChange={() => handleCheckboxChange('businessOwner')}
               />
 
               <Form.Check
                 type="checkbox"
-                label="I am looking to make sales with this platform"
+                label="I am looking to make sales using this platform"
                 checked={isChecked.makeSales}
                 onChange={() => handleCheckboxChange('makeSales')}
               />
@@ -98,7 +99,7 @@ export const AcceptTerms = () => {
 
               <Form.Check
                 type="checkbox"
-                label="I give this platform rights to brand my products"
+                label="I give Afro-fashion rights to brand my products"
                 checked={isChecked.brandProducts}
                 onChange={() => handleCheckboxChange('brandProducts')}
               />
@@ -119,6 +120,6 @@ export const AcceptTerms = () => {
           </div>
         </Form>
       </div>
-    </Container>
+    </Container></div>
   );
 };

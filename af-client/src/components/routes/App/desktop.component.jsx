@@ -21,6 +21,7 @@ import SignUp from '../authentication/user-auth/sign-up.component.jsx';
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
+import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);
@@ -49,6 +50,7 @@ const Index = () => {
         <Route path="seller/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>
+        <Route path="seller/verification-success" element={<VerificationSuccess />} />
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
       </Route>

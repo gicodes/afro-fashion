@@ -1,16 +1,20 @@
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../../../../contexts/user.context";
 
 const ProtectedUserRoute = ({ element }) => {
   const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   // check if the user is authenticated and has the userType 'buyer'
   const isBuyer = currentUser && currentUser?.userType === 'buyer';
   
-  return (
-      isBuyer ? element : <Navigate to="/auth" />
-  )
+  if (!isBuyer) {
+    navigate('/auth'); 
+    return null;
+  }
+
+  return element;
 };
 
 export default ProtectedUserRoute;

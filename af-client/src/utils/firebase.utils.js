@@ -313,8 +313,11 @@ export const getLatestItems = async () => {
               name: item.name,
               price: item.price,
               imageUrl: imageUrl,
+              updatedAt: item.updatedAt,
             };
-        }})}
+          }
+        });
+      }
     });
 
     const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));

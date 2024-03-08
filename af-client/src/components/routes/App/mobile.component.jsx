@@ -21,6 +21,7 @@ import HomeIndex from "../../homeIndex/mobile.home.component.jsx";
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
+import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -49,6 +50,7 @@ const Home = () => {
         <Route path="seller/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>
+        <Route path="seller/verification-success" element={<VerificationSuccess />} />
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
       </Route>

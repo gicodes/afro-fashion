@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RedirectTemplate } from './template';
 
-const PaymentSuccessful = () => {
+const VerificationSuccess = () => {
   const navigate = useNavigate();
   const [countdown, setCountdown] = useState(10);
 
@@ -16,20 +16,21 @@ const PaymentSuccessful = () => {
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate('/');
+      navigate('/auth');
     }
   }, [countdown, navigate]);
 
   return (
     <>
-      <RedirectTemplate
-        title={"Payment Successful!"}
-        body={`Redirecting to the home page in ${countdown} seconds..`}
-        imgSrc={"https://img.freepik.com/premium-photo/mobile-phone-transaction-payment-successful-screen-bank-credit-card-woman-hand-background_526934-75.jpg"}
-        imgAlt={"Payment Successful media"}
+      <RedirectTemplate 
+        title={"Verification Successful!"}
+        body={`Redirecting to login in ${countdown} seconds..`}
+        imgSrc={"https://media.licdn.com/dms/image/C5112AQGiR7AdalYNjg/article-cover_image-shrink_600_2000/0/1582176281444?e=2147483647&v=beta&t=QVzBFLJpbDlQMX_H5iKXr7Jr1w6Pm60tOJb47rjpX6Q"}
+        imgAlt={"Verification successful media"}
       />
     </>
   );
 };
 
-export default PaymentSuccessful;
+export default VerificationSuccess;
+
