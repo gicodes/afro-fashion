@@ -17,11 +17,12 @@ export const UserProvider = ({ children }) => {
     showLoading()
   
     const fetchData = async (user) => {
-
       if (!user) {
         setCurrentUser(null);
         return;
       }
+
+      const isVerified = user.emailVerified;
 
       try {
         const userData = await fetchUserData(user.uid, 'users');
@@ -42,7 +43,7 @@ export const UserProvider = ({ children }) => {
           setUserId(user.uid);
         } else {
           const sellerData = await fetchUserData(user.uid, 'sellers');
-    
+
           if (sellerData) {
             setCurrentUser({
               displayName: sellerData.displayName,
@@ -55,6 +56,7 @@ export const UserProvider = ({ children }) => {
               bankAcct: sellerData?.bankAcct || "",
               bank: sellerData?.bank || "",
               imageUrl: sellerData?.imageUrl || "",
+              isVerified: isVerified
               // add other properties if needed
             });
             setUserId(user.uid);

@@ -1,5 +1,6 @@
-import {  SellerProfileCard } from "./s-profile/s-profile-card"
+import {  SellerProfileCard } from "./s-profile/s-profile-card";
 import { UserContext } from "../../../../contexts/user.context";
+import { useAlert } from "../../../../contexts/alert.context";
 import { SellerCreateCard } from "./s-profile/s-create-card";
 import { SellerProducts } from "./s-profile/s-products-card";
 import Button from "../../../buttons/button.component";
@@ -7,22 +8,21 @@ import { useState, useContext } from 'react';
 
 import "../profile.styles.scss";
 
-const date = new Date();
-const today = date.toLocaleString().split(",")[0];
+const today =  new Date().toLocaleString().split(",")[0];
 
 const Seller = () => {
+  const { addAutoCloseAlert } = useAlert();
   const [ createItem, setCreateItem ] = useState(false);
   const [ editItem, setEditItem]  = useState(false);
   const { currentUser } = useContext(UserContext);
-  const {  bio, brandName, displayName, phone, address, bankAcct, bank, imageUrl } = currentUser
+  const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, } = currentUser
 
   const toggleCreateItem = () => {
+    if (!isVerified) addAutoCloseAlert("warning", 'To upload a product, you must be verified!')
     setCreateItem(!createItem);
   }
   
-  const toggleEditItem = () => {
-    setEditItem(!editItem);
-  }
+  const toggleEditItem = () => setEditItem(!editItem);
 
    return (
     <>
@@ -41,15 +41,16 @@ const Seller = () => {
               bankAcct={bankAcct}
               bank={bank}
               imageUrl={imageUrl}
+              isVerified={isVerified}
             />
           </section>
           <section id="product-upload" className="mt-1">
             <Button onClick={toggleCreateItem}>
               Upload a new Product
             </Button>
-            <div>
+            {isVerified && <div>
               {createItem && <SellerCreateCard/>}
-            </div>
+            </div>}
           </section>
           <section id="product-edit" className="mt-1 mb-2">
             <Button onClick={toggleEditItem}>
@@ -65,5 +66,4 @@ const Seller = () => {
     </>
   )
 }
-
 export default Seller;

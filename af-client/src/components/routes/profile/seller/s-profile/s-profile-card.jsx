@@ -3,7 +3,7 @@ import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
 import { useAlert } from "../../../../../contexts/alert.context";
 import { Card, ListGroup, Container } from "react-bootstrap"; 
-import { MdUpload, MdCloudDone } from "react-icons/md";
+import { MdUpload, MdCloudDone, MdVerified } from "react-icons/md";
 import { blankAvi } from "../../../brands/brands.route";
 import { useState, useContext } from 'react';
 
@@ -13,9 +13,9 @@ export const SellerProfileCard = ({
   phone, 
   address, 
   imageUrl, 
-  badge, 
   bankAcct,
   bank,
+  isVerified
 }) => {
   const { showLoading, hideLoading } = useLoading();
   const [ inputFields, setInputFields ] = useState({
@@ -105,8 +105,9 @@ export const SellerProfileCard = ({
                 className="rounded-circle profile-image"
                 alt="profile avatar"
               />
+              <div>{isVerified && <MdVerified fill="green"/>}</div>
             </div>
-          
+            
             <div className="p-1 mx-auto">
               <div className="image-upload">
                 <div className="choose-file">

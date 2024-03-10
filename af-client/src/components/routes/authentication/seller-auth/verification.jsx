@@ -5,7 +5,7 @@ const auth = getAuth();
 const actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: 'https://afrofashion.site/auth/verification-success/',
+  url: 'https://afrofashion.site/auth/verify-seller/',
   // This must be true.
   handleCodeInApp: true,
   dynamicLinkDomain: 'afrofashion.page.link'
@@ -29,7 +29,7 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
   // Additional state parameters can also be passed via URL.
   // This can be used to continue the user's intended action before triggering the sign-in operation.
   // Get the email if available. This should be available if the user completes the flow on the same device where they started it.
-  let email = window.localStoragEg.etItem('emailForSignIn');
+  let email = window.localStorage.getItem('emailForSignIn');
   if (!email) {
     // User opened the link on a different device. To prevent session fixation attacks, ask the user to provide the associated email again. For example:
     email = window.prompt('Please provide your email for confirmation');
