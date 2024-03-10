@@ -105,8 +105,8 @@ export const SellerProfileCard = ({
                 className="rounded-circle profile-image"
                 alt="profile avatar"
               />
-              <div>{isVerified && <MdVerified fill="green"/>}</div>
             </div>
+            <div className="verified">{isVerified && <MdVerified size={20} fill="green"/>}</div>
             
             <div className="p-1 mx-auto">
               <div className="image-upload">
