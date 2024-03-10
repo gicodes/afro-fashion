@@ -42,6 +42,7 @@ const Index = () => {
           path="auth/accept-seller-terms"
           element={<ProtectedSellerRoute element={<AcceptTerms />} />}
         />
+        <Route path="auth/verify-seller" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
           <Route path="profile" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (
@@ -53,7 +54,6 @@ const Index = () => {
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
       </Route>
-      <Route path="/auth/verify-seller" element={<VerificationSuccess />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   );
