@@ -50,7 +50,7 @@ const Home = () => {
         <Route path="seller/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>
-        <Route path="seller/verification-success" element={<VerificationSuccess />} />
+        <Route path="auth/verification-success/:verificationToken" element={<VerificationSuccess />} />
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
       </Route>
