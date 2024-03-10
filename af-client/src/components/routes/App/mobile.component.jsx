@@ -41,7 +41,8 @@ const Home = () => {
         <Route
           path="auth/accept-seller-terms"
           element={<ProtectedSellerRoute element={<AcceptTerms />} />}
-        />
+        />      
+        <Route path="auth/verify-seller" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
           <Route path="profile" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (
@@ -53,7 +54,6 @@ const Home = () => {
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
       </Route>        
-      <Route path="/auth/verify-seller/:verificationToken" element={<VerificationSuccess />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   )
