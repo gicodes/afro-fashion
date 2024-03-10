@@ -1,6 +1,6 @@
-import { useEffect, useParams, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { RedirectTemplate } from './template';
+import { useEffect, useState } from 'react';
 
 const VerificationSuccess = () => {
   const navigate = useNavigate();
