@@ -15,17 +15,17 @@ const CreditsPage = () => {
                 <p>The captivating visuals within this platform have been made possible by the talented photographers and artists who share their work with the world. </p>
                 <p>Special thanks to the following platforms:</p>
                 <ul>
-                  <li>
-                    <a className="s-bold" href="https://unsplash.com"><u>Unsplash</u>:</a>{" "}
+                  <li className="mb-1">
+                    <a className="s-bold" href="https://unsplash.com">Unsplash:</a>{" "}
                     Generous community of photographers providing high-quality, royalty-free images that breathe life into this project.
                   </li>
-                  <li>
-                    <a className="s-bold" href="https://istockphoto.com"><u>iStockPhoto</u>:</a>{" "}
+                  <li className="mb-1">
+                    <a className="s-bold" href="https://istockphoto.com">iStockPhoto:</a>{" "}
                     Premium source for stock photos, illustrations, and videos that enhance the visual appeal of this application.
                   </li>
-                  <li>Any other mentions we may be forgetting – We deeply appreciate the contributions from all other sources that have played a role in creating the visual experience of this application.</li>
+                  <li>Any other mentions we may be forgetting– we deeply appreciate the contributions from all other sources that have played a role in creating the visual experience of this application.</li>
                 </ul>
-                <p>Your creativity enriches our project, and we are grateful for the opportunity to showcase your amazing work.</p>
+                <p>Creativity enriches this project, and we are grateful for the opportunity to showcase these amazing works on our platform.</p>
               </div>
             </div>
           </div>
@@ -39,10 +39,12 @@ const CreditsPage = () => {
               <p>
                 This app was developed by <a className="s-bold" href="https://github.com/gicodes" target="_blank" rel="noopener noreferrer">
                 Gideon Iduma
-                </a> in collaboration with  <a className="s-bold" href="https://github.com/KrownWealth" target="_blank" rel="noopener noreferrer">
-                Adeola Abdulramon
-                </a>.
+                </a> – who is also the founder and pioneer of Afro Fashion.
               </p>
+
+              <p>There are other notable mentions who have contributed to the development of this project such as <a className="s-bold" href="https://github.com/KrownWealth" target="_blank" rel="noopener noreferrer">
+                Adeola Abdulramon
+                </a>, Chinwendu Oji, etc.</p>
               <span>You can find more about this Project from the  <a className="s-bold" href="https://github.com/gicodes/afro-fashion" target="_blank" rel="noopener noreferrer">
               source code
                 </a>.</span>

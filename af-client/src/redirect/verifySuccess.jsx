@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useParams, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RedirectTemplate } from './template';
 
 const VerificationSuccess = () => {
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(10);
+  const { verificationToken } = useParams();
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,9 +26,10 @@ const VerificationSuccess = () => {
       <RedirectTemplate 
         title={"Verification Successful!"}
         body={`Redirecting to login in ${countdown} seconds..`}
-        imgSrc={"https://media.licdn.com/dms/image/C5112AQGiR7AdalYNjg/article-cover_image-shrink_600_2000/0/1582176281444?e=2147483647&v=beta&t=QVzBFLJpbDlQMX_H5iKXr7Jr1w6Pm60tOJb47rjpX6Q"}
+        imgSrc={"https://media.istockphoto.com/id/1501391321/photo/user-authentication-system-login-success-symbol-password-cybersecurity.jpg?s=612x612&w=0&k=20&c=BJWDJuLyWxwbbi8d2Z0PLUPXtPP7A4MwUfQycmjVb2E="}
         imgAlt={"Verification successful media"}
       />
+      <p className='hidden'>{verificationToken}</p>
     </>
   );
 };

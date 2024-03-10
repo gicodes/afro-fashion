@@ -14,7 +14,7 @@ export const categories = [
   {
     id: 2,
     title: 'Women Clothing',
-    imageUrl: 'https://images.unsplash.com/photo-1614899381752-61015a57adfa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjQ2fHx3b21lbiUyMGNsb3RoaW5nfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1499709453582-ba507bcee46b?q=80&w=1452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     route: 'marketplace/category/women',
   },
   {
@@ -25,21 +25,21 @@ export const categories = [
   },
   {
     id: 4,
-    title: 'Senegalese',
-    imageUrl: 'https://media.istockphoto.com/id/1384884976/photo/young-black-woman-playing-with-her-daughter.jpg?s=612x612&w=0&k=20&c=bnGaBdQfImLCwVyit2WMCK5lEk3S585Xfq2WEKHFrj4=',
-    route: 'marketplace/category/senegalese',
+    title: 'Jackets & Coats',
+    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+    route: 'marketplace/category/jackets',
   },
   {
     id: 5,
-    title: 'Hair & Wigs',
-    imageUrl: 'https://images.unsplash.com/photo-1634315775834-3e1ac73de6b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    route: 'marketplace/category/hair',
+    title: 'Senegalese',
+    imageUrl: 'https://res.cloudinary.com/kusnap/image/upload/v1615896042/pvqb93f381890qugokw0.jpg',
+    route: 'marketplace/category/senegalese',
   },
   {
     id: 6,
-    title: 'Boots',
-    imageUrl: 'https://i.ibb.co/Mhh6wBg/timberlands.png',
-    route: 'marketplace/category/boots',
+    title: 'Hair & Wigs',
+    imageUrl: 'https://images.unsplash.com/photo-1634315775834-3e1ac73de6b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    route: 'marketplace/category/hair',
   },
   {
     id: 7,
@@ -79,9 +79,9 @@ export const categories = [
   },
   {
     id: 14,
-    title: 'Jackets & Coats',
-    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-    route: 'marketplace/category/jackets',
+    title: 'Unisex',
+    imageUrl: 'https://images.unsplash.com/photo-1673822585299-d6f6a0a1ee5f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHVuaXNleHxlbnwwfHwwfHx8MA%3D%3D',
+    route: 'marketplace/category/unisex',
   },
   {
     id: 15,

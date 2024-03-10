@@ -1,5 +1,3 @@
-/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
-
 import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import { Fragment, useContext, useState, useEffect } from "react";
@@ -50,17 +48,17 @@ const MobileNavBar = () => {
   }
 
   function toggleMenu() {
-    if (isBurger) {
-      setBurger(false);
-    }
-    else { setBurger(true)}
+    setBurger(!isBurger);
+  }
+  function closeMenu() {
+    setBurger(false);
   }
 
   function toggleCart() {
     if (cartOpen) {
       setCartOpen(false);
     }
-    else { setCartOpen(true)}
+    else setCartOpen(true);
   }
 
   const handleSignOut = (event) => {
@@ -121,8 +119,7 @@ const MobileNavBar = () => {
                       <LuUserCheck color="white"/>                       
                     </span>
                     ) : (
-                    <Link className="nav-link"
-                      to='/auth'>
+                      <Link className="nav-link" to='/auth'>
                         <LuLogIn/>
                       </Link>
                    )}
@@ -141,8 +138,10 @@ const MobileNavBar = () => {
           </div>
           {cartOpen && <CartDropdown />}
         </nav>
+
         <Outlet />
-        {isBurger && <BurgerMenu/>}
+        {isBurger && <BurgerMenu closeMenu={closeMenu}/>}
+        
       </Container>
     </Fragment>
   )

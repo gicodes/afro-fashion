@@ -31,7 +31,7 @@ export const navLinks = [
   },
 ]
 
-const BurgerMenu = () => {
+const BurgerMenu = ({closeMenu}) => {
   return (
     <Container>
       <nav className="burger-menu bg-black-gradient z-index-9999">
@@ -42,7 +42,11 @@ const BurgerMenu = () => {
                 key={item.id}
                 className={`${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
               >
-                <Link to={item.link} className='nav-link flex-just-center'>
+                <Link 
+                  to={item.link} 
+                  onClick={closeMenu}
+                  className='nav-link flex-just-center'
+                >
                   {item.title}
                 </Link>
               </div>
