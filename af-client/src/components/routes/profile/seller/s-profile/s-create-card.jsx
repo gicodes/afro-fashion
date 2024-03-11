@@ -1,4 +1,4 @@
-import { addSellerItems, uploadImages } from '../../../../../utils/writeBatch';
+import { addSellerItems, sellerProductCount, uploadImages } from '../../../../../utils/writeBatch';
 import FormField from '../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
@@ -21,8 +21,8 @@ const defaultFormFields = {
 export const SellerCreateCard = () => {
   const navigate = useNavigate();
   const addAlert = useAlert().addAutoCloseAlert;
-  const { currentUser } = useContext(UserContext);
   const { showLoading, hideLoading } = useLoading();
+  const { currentUser, userId } = useContext(UserContext);
   const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
 
@@ -34,9 +34,9 @@ export const SellerCreateCard = () => {
     return `${timestamp}-${randomNumber}`;
   }
 
-  const brand = currentUser?.brandName;
-  const path = `/seller/${brand.toLowerCase()}`;
   const id = generateRandomId();
+  const brand = currentUser?.brandName;
+  const path = `/brands/${brand.toLowerCase()}`;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -55,6 +55,8 @@ export const SellerCreateCard = () => {
       return;
     }
 
+    const countOk = await sellerProductCount(currentUser, userId)
+
     try {
       const imagesArray = formFields.images;
       const imageUrls = await uploadImages(imagesArray, id);
@@ -71,17 +73,22 @@ export const SellerCreateCard = () => {
       
       setIsSubmitting(true);
       showLoading();
-      await addSellerItems(category, itemsToAdd);
 
-      addAlert("success", 
-      'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
+      if (countOk) {
+        await addSellerItems(category, itemsToAdd);
+        
+        addAlert("success", 
+        'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
 
-      setIsSubmitting(false);
-      hideLoading();
-      navigate(path);
+        setIsSubmitting(false);
+        hideLoading();
+        navigate(path);
+      } else 
+      addAlert("danger", 'You have exceeded your limit for products. You may want to upgarde your subscription to continue creating products!')
     } catch (err) {
-      hideLoading();
       addAlert("danger", 'something went wrong. Try again later!!')
+    } finally {
+      hideLoading()
     }
   }
 
@@ -105,18 +112,21 @@ export const SellerCreateCard = () => {
               className="form-select centered-dropdown"
             >
               <option>Select item category</option>
-              <option value="kids">Kids</option>
-              <option value="women">Women</option>
-              <option value="men">Men</option>
-              <option value="jerseys">Jersey</option>
-              <option value="hats">Hats</option>
               <option value="accessories">Accessories</option>
-              <option value="jackets">Jackets</option>
-              <option value="sneakers">Sneakers</option>
-              <option value="shoes">Shoes</option>
-              <option value="slippers">Slippers</option>
-              <option value="bags">Bags</option>
+              <option value="bags">Bags</option>          
+              <option value="hair">Hair & Wigs</option>
+              <option value="hats">Hats</option>
+              <option value="jackets">Jackets & Coats</option>
+              <option value="jerseys">Jerseys</option>
+              <option value="kids">Kids Clothing</option>
+              <option value="men">Men Clothing</option>
               <option value="senegalese">Senegalese</option>
+              <option value="shoes">Shoes</option>
+              <option value="slippers">Slippers & Slides</option> 
+              <option value="sneakers">Sneakers</option>  
+              <option value="underwears">Underwears</option> 
+              <option value="unisex">Unisex Wears</option>
+              <option value="women">Women Clothing</option>
             </select>
 
             <FormField 
@@ -128,7 +138,7 @@ export const SellerCreateCard = () => {
 
             <div className="bg-ws">
               <p className='flex-just-center fs-smaller pt-3 c-50'>
-                <i>* Upload different clear images of this item*</i>
+                <i>*Upload at least 2 clear photos, less than 2MB*</i>
               </p>
               <div className="p-1 m-1">
 	              <input 

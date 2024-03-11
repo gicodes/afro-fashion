@@ -38,6 +38,42 @@ export const addSellerItems = async (category, itemsToAdd) => {
   }
 };
 
+// critical function to track seller subscription and product count
+export const sellerProductCount = async (seller, userId) => {
+
+  let maxProductCount;
+  let productCount = seller?.products || 0; 
+  const subscription = seller?.subscription;
+
+  switch (subscription) {
+    case "basic":
+      maxProductCount = 25;
+      break;
+    case "business":
+      maxProductCount = 50;
+      break;
+    case "premium":
+      maxProductCount = 100;
+      break;
+    default:
+      maxProductCount = 5;
+  }
+
+  // check if the productCount is within the subscription limit
+  if (productCount < maxProductCount) {
+    productCount++;
+
+    try {
+      await db.collection('sellers').doc(userId).update({
+        products: productCount
+      });
+    } catch (error) {
+      throw new Error("An error occurred while updating product count.");
+    }
+    return true;
+  } else return null;
+};
+
 // helper function to upload images to Firebase Storage
 export const uploadImages = async (imagesArray, itemId) => {
   const imageUrls = [];
@@ -124,7 +160,7 @@ export const deleteSellerItem = async (category, itemId) => {
 };
 
 // helper function to delete images from Firebase Storage
-const deleteImages = async (itemId, imageUrls) => {
+const deleteImages = async (imageUrls) => {
   try {
     if (imageUrls && imageUrls.length > 0) {
       const promises = imageUrls.map(async (imageUrl) => {

@@ -25,7 +25,7 @@ const Collections = () => {
 
           return (
             <div key={index}>
-              <Container className='card no-padding-container bg-dark category-preview mb-1'>
+              <Container className='card no-padding-container category-preview'>
                 <h2 className='title'>
                   <Link to={title}>
                     <span className='p-2 text-white'>

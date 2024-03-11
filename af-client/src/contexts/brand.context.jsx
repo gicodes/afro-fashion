@@ -12,7 +12,8 @@ export const BrandProvider = ({ children }) => {
   const { showLoading, hideLoading } = useLoading();
 
   useEffect(() => {
-      showLoading();
+    showLoading();
+    
     const getBrandName = async () => {
       const brandMap = await getItemsBySellers();
 

@@ -20,7 +20,7 @@ const BrandsPage = () => {
         <section className="fw" id="brands-page">
           <div className="card-body mx-auto -lg">
             {Object.keys(brandsMap).map((brandName, index) => (
-            <Link key={index} to={`/seller/${brandName}`}>
+            <Link key={index} to={`/brands/${brandName}`}>
               <div className="m-2 block">
                 <div className='p-2 flex-space-bet'>
                   <span className='text-black v-center'>

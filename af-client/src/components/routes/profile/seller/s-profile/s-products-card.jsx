@@ -27,7 +27,7 @@ export const SellerProducts = ({ sellerName }) => {
 
       addAutoCloseAlert("success", 'Product Deleted!' )
       hideLoading();
-      navigate(`/seller/${seller}`);
+      navigate(`/brands/${seller}`);
     };
 
     const handleNo = () => {
@@ -64,7 +64,7 @@ export const SellerProducts = ({ sellerName }) => {
       addAutoCloseAlert("success", 'Product edited successfully!')
 
       hideLoading();
-      navigate(`/seller/${seller}`);
+      navigate(`/brands/${seller}`);
     };
 
     return (
@@ -168,7 +168,7 @@ export const SellerProducts = ({ sellerName }) => {
         <>
           <hr className="-mt" />
           <p className="mx-auto">
-            No {sellerName} items are available at the moment...
+            You do not have any active product at the moment...
           </p>
         </>
       )}

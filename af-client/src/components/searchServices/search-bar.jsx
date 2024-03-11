@@ -38,7 +38,7 @@ export const SearchBar = ({ searchSx, resultSx }) => {
 
   const searchResult = aggregatedResult?.map((brandObject, index) => (
     <ListGroup.Item key={index}>
-      <Link to={`/seller/${brandObject}`} onClick={handleSearchClick}>
+      <Link to={`/brands/${brandObject}`} onClick={handleSearchClick}>
         {brandObject}
       </Link>
     </ListGroup.Item>

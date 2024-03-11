@@ -56,7 +56,9 @@ export const UserProvider = ({ children }) => {
               bankAcct: sellerData?.bankAcct || "",
               bank: sellerData?.bank || "",
               imageUrl: sellerData?.imageUrl || "",
-              isVerified: isVerified
+              isVerified: isVerified,
+              subscription: sellerData?.subscription || null,
+              products: sellerData?.products 
               // add other properties if needed
             });
             setUserId(user.uid);

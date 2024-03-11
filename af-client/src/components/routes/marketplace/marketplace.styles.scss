@@ -1,6 +1,7 @@
 .category-preview {
   display: flex;
   flex-direction: column;
+  background: transparent;
 
   .title {
     display: flex;
@@ -29,13 +30,4 @@
     padding: 30px;
     display: grid;
   }
-
-  .lg-mb {
-    margin-bottom: 10px;
-  }
 }  
-
-.btm-col {
-  border-bottom: 1px solid white;
-  margin-bottom: 1px;
-}

@@ -25,7 +25,7 @@ const HomeIndex = () => {
           <LatestIndex />
         </div>
       </Container>
-      <div className="mt-5"></div>
+      <div className="lg-div"></div>
     </>
   )
 }

@@ -48,7 +48,7 @@ const Index = () => {
         ) : (
           <Route path="profile" element={<ProtectedUserRoute element={<UserProfile />} />} />
         )}
-        <Route path="seller/:seller" element={<BrandCollection />}>
+        <Route path="brands/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
