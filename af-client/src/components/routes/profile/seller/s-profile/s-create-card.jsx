@@ -31,6 +31,7 @@ export const SellerCreateCard = () => {
   const generateRandomId = () => {
     const timestamp = new Date().getTime();
     const randomNumber = Math.floor(Math.random() * 1000000);
+
     return `${timestamp}-${randomNumber}`;
   }
 
@@ -82,9 +83,11 @@ export const SellerCreateCard = () => {
 
         setIsSubmitting(false);
         hideLoading();
+
         navigate(path);
-      } else 
-      addAlert("danger", 'You have exceeded your limit for products. You may want to upgarde your subscription to continue creating products!')
+      } else {
+        addAlert("danger", 'You have exceeded your limit. Upgrade your subscription to continue creating products!')
+      }
     } catch (err) {
       addAlert("danger", 'something went wrong. Try again later!!')
     } finally {
@@ -99,9 +102,10 @@ export const SellerCreateCard = () => {
           <form onSubmit={handleSubmit} action=''>
             <div className='card mb-2 fs-smaller'>
               <button disabled className='btn btn-warning m-2'>Important notice for <b>ALL</b> sellers!</button>
+
               <div className='p-2'>
-                <p>You have to create or update your <b>Brand Name</b>, before creating your very first product!</p>
-                <p>Brand names are used throughout the marketplace to <b>ID</b> sellers product. 
+                <p>You have to create or update your <b>Brand Name</b> before creating your very first product!</p>
+                <p>Brand names are used throughout the marketplace to identify a seller's product. 
                   It is important to use a unique name and keep it consistent.</p>
                 <p>To avoid conflicts when a user tries to purchase your product, update 
                   your <b>Bank</b> information with the listed banks available.</p>
@@ -138,8 +142,14 @@ export const SellerCreateCard = () => {
 
             <div className="bg-ws">
               <p className='flex-just-center fs-smaller pt-3 c-50'>
-                <i>*Upload at least 2 clear photos, less than 2MB*</i>
+                <i>*Upload at least 2 different photos of this item*</i>       
               </p>
+              <div className='m-3 fs-smaller'>
+                <li>Each photo must be less than 1MB</li> 
+                <li>The photos must be clear and distinctive</li>
+                <li>The photos must maintain same background (preferably white background)</li>
+              </div>
+
               <div className="p-1 m-1">
 	              <input 
                   onChange={handleImgChange}

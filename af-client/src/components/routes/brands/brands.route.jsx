@@ -47,7 +47,7 @@ const BrandCollection = () => {
             <SellerCard sellerInfo={sellerInfo}/>
             
             {/* scaling: brands can return more info i.e. Number of products, number of sales */}
-            <div className='card p-2 mt-2'>
+            <div className='card p-2 mt-2 col-md-8 mx-auto'>
               <span className='mt-2 mx-auto'>Hey, thanks for checking out my page!</span>
               <p className='mt-2 fs-smaller mx-auto text-secondary'>
                 I'm looking to make more sales. You can find my products in 
@@ -58,10 +58,9 @@ const BrandCollection = () => {
             <div className='brand-route-container mb-2'>
               {Object.entries(brands).map(([category, categoryProducts]) => (
               <div key={category}>
-                <h6 className='btn btn-warning p-2 fw'>
-                  {category.toUpperCase()}
+                <h6 className='btn btn-secondary p-3 mt-2 -mb fullWidth'>
+                  <span>{category.toUpperCase()}</span>
                 </h6>
-
                 {categoryProducts.map((brand) => (
                   <ProductCard key={brand.id} product={brand} />
                 ))}

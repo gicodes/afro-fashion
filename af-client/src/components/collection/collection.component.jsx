@@ -61,7 +61,7 @@ export const categories = [
   },
   {
     id: 11,
-    title: 'Bag Packs',
+    title: 'Bags',
     imageUrl: 'https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80',
     route: 'marketplace/category/bags',
   },

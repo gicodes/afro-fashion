@@ -42,7 +42,7 @@ const Checkout = () => {
       (total, itemTotal) => total + itemTotal, 0
     )
 
-  const todaysBMRate = GetExchangeRate() + 400;
+  const todaysBMRate = GetExchangeRate() + 300;
   let USDtoNGNRate = (todaysBMRate) || 1600;
   const cartTotalinNaira = setPrice(cartTotal * USDtoNGNRate);
 

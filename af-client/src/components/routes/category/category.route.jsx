@@ -19,7 +19,7 @@ const Category = () => {
   return (
     // section id issues a category with a dynamic link to target
     <section id={category}>
-      <Container className="card no-padding-container bg-dark">
+      <Container className="card no-padding-container bg-trans">
         { !products?.length > 0 ? (
           <>
             <p className='mx-auto m-3 text-warning'>

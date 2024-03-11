@@ -22,6 +22,7 @@ import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
+import Subscription from '../profile/seller/subscriptions/subscription.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);
@@ -50,6 +51,9 @@ const Index = () => {
         )}
         <Route path="brands/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
+        </Route>
+        <Route path="subscriptions" element={<Subscription />}>
+          <Route path="subscriptions/:seller" element={<ProtectedSellerRoute />} />
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />

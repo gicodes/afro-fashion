@@ -7,6 +7,7 @@ import Button from "../../../buttons/button.component";
 import { useState, useContext } from 'react';
 
 import "../profile.styles.scss";
+import { Link } from "react-router-dom";
 
 const today =  new Date().toLocaleString().split(",")[0];
 
@@ -48,11 +49,13 @@ const Seller = () => {
             <Button onClick={toggleCreateItem}>
               Upload a new Product
             </Button>
-            {isVerified && <div>
+            {
+              isVerified && 
+            <div>
               {createItem && <SellerCreateCard/>}
             </div>}
           </section>
-          <section id="product-edit" className="mt-1 mb-2">
+          <section id="product-edit" className="mt-1">
             <Button onClick={toggleEditItem}>
               Edit an existing Product
             </Button>
@@ -60,6 +63,15 @@ const Seller = () => {
               {editItem && <SellerProducts sellerName={displayName} />}
             </div>
           </section>
+          <hr/>
+          {
+            // isVerified && 
+            <section id="manage-subscription" className="mb-2">
+              <Link to='/subscriptions'><Button>
+                Manage Subscriptions
+              </Button>
+            </Link>
+          </section>}
         </div>
       </div>
       <div className="lg-div"></div>

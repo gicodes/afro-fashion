@@ -19,6 +19,7 @@ import HomeIndex from "../../homeIndex/mobile.home.component.jsx";
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
+import Subscription from '../profile/seller/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
@@ -50,6 +51,9 @@ const Home = () => {
         )}
         <Route path="brands/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />
+        </Route>
+        <Route path="subscriptions" element={<Subscription />}>
+          <Route path="subscriptions/:seller" element={<ProtectedSellerRoute />} />
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />

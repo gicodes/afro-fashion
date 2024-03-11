@@ -2,6 +2,9 @@ import { deleteObject, getStorage, getDownloadURL, ref, uploadBytes } from 'fire
 import { collection, doc, getDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { db, firebaseApp } from "./firebase.utils";
 
+// Most of the following code functions use the Firebase SDK (version 9+) for modular approach: 
+// Allowing tree shaking, type safety and smaller bundle sizes resulting in imporoved performance.
+
 const storage = getStorage(firebaseApp);
 
 // create collections and documents in db
@@ -40,7 +43,7 @@ export const addSellerItems = async (category, itemsToAdd) => {
 
 // critical function to track seller subscription and product count
 export const sellerProductCount = async (seller, userId) => {
-
+  // this code function uses Firebase SDK (version 8) for a straightforward and concise API Op.
   let maxProductCount;
   let productCount = seller?.products || 0; 
   const subscription = seller?.subscription;
@@ -67,8 +70,8 @@ export const sellerProductCount = async (seller, userId) => {
       await db.collection('sellers').doc(userId).update({
         products: productCount
       });
-    } catch (error) {
-      throw new Error("An error occurred while updating product count.");
+    } catch (err) {
+      throw new Error(err.message);
     }
     return true;
   } else return null;
@@ -196,7 +199,7 @@ export const updateSeller = async (sellerId, inputField, value) => {
 };
 
 // Add or update user properties
-export const updateUser = async (userId, inputField, value) => {
+export const updateUser = async (userId, inputField, value) => {  
   if (!userId || !inputField || !value) return;
   const collectionId = "users";
 
