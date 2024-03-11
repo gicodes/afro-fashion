@@ -3,8 +3,8 @@ import { FaCheck } from 'react-icons/fa';
 import { MdCancel } from 'react-icons/md';
 
 const SubscriptionTable = () => {
-  const Yes = <FaCheck className='flex-just-center' fill='green' />
-  const No = <MdCancel className='flex-just-center' fill='tomato' size={18} />
+  const Yes = <span className='flex-just-center'><FaCheck fill='green' /></span>
+  const No = <span className='flex-just-center'><MdCancel fill='tomato' size={18} /></span>
   const numContent = (num) => <span className='flex-just-center text-gray'>{num}</span>
   const textSuccess = (text) => <span className='flex-just-center text-success'>{text}</span>
   const textContent = (text) => <span className='flex-just-center text-gray fs-smaller'>{text}</span>
