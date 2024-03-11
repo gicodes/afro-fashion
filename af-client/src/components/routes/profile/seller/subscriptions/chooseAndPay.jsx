@@ -89,7 +89,7 @@ const ChooseAndPay = () => {
             type="radio"
             name="subscription"
             value="premium"
-            checked={subscription === "Premium"}
+            checked={subscription === "premium"}
             onChange={handleRadioChange}
           />
           <label className="form-check-label" htmlFor="premiumSubscription">
