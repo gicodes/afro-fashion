@@ -1,0 +1,31 @@
+.subscription {
+  width: 100%;
+  height: max-content;
+}
+
+.dropdown {
+  padding: 5%;
+  background: whitesmoke;
+
+  .sub-checkout {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      text-decoration: underline;
+      color: forestgreen;
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .subscription {
+    margin-bottom: 100px;
+      
+    .sub {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

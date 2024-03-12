@@ -65,7 +65,7 @@ const Seller = () => {
           </section>
           <hr/>
           {
-            isVerified && 
+            // isVerified && 
             <section id="manage-subscription" className="mb-2">
               <Link to='/subscriptions'><Button>
                 Manage Subscriptions

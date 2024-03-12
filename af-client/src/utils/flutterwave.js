@@ -36,9 +36,6 @@ export default function Flutterwave(
     callback: async (response) => {
       if (response.status === 'successful') {
         for (const item of items) {
-          console.log(item.seller.toLowerCase(), 
-            await getSellerBankInfo(item.seller.toLowerCase()
-          ))
           const sellerBankInfo = await getSellerBankInfo(item.seller.toLowerCase());
 
           const txRef = Date.now();

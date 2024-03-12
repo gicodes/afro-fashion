@@ -20,7 +20,7 @@ export const sendVerification = (email) => {
   })
   .catch((error) => {
     const errorMessage = error.message;
-    console.log(errorMessage);
+    console.error(errorMessage);
   });
 }
 

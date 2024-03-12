@@ -56,7 +56,8 @@ export const SellerCreateCard = () => {
       return;
     }
 
-    const countOk = await sellerProductCount(currentUser, userId)
+    const { uid } = userId;
+    const countOk = await sellerProductCount(currentUser, uid)
 
     try {
       const imagesArray = formFields.images;
@@ -101,8 +102,8 @@ export const SellerCreateCard = () => {
         <div className='p-2'>
           <form onSubmit={handleSubmit} action=''>
             <div className='card mb-2 fs-smaller'>
-              <button disabled className='btn btn-warning m-2'>Important notice for <b>ALL</b> sellers!</button>
 
+              <div disabled className='btn btn-warning m-2'>Important notice for <b>ALL</b> sellers!</div>
               <div className='p-2'>
                 <p>You have to create or update your <b>Brand Name</b> before creating your very first product!</p>
                 <p>Brand names are used throughout the marketplace to identify a seller's product. 

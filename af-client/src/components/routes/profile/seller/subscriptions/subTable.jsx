@@ -11,9 +11,9 @@ const SubscriptionTable = () => {
 
   return (
     <Table striped bordered hover responsive>
-    <thead>
+    <thead className='text-center'>
       <tr>
-        <th></th>
+        <th><span className='fs-smaller text-gray'>Monthly Perks</span></th>
         <th>Basic</th>
         <th>Business</th>
         <th>Premium</th>
@@ -29,7 +29,7 @@ const SubscriptionTable = () => {
     </tr>
 
     <tr>
-      <td>Regular sales</td>
+      <td>Regular Sales</td>
       <td>{Yes}</td>
       <td>{Yes}</td>
       <td>{Yes}</td>
@@ -43,14 +43,14 @@ const SubscriptionTable = () => {
     </tr>
 
     <tr>
-      <td>Featuring</td>
+      <td>Featured</td>
       <td>{No}</td>
       <td>{textContent('twice per week')}</td>
       <td>{textContent('once per day')}</td>
     </tr>
    
     <tr>
-      <td>Inbound sales</td>
+      <td>Inbound Sales</td>
       <td>{No}</td>
       <td>{No}</td>
       <td>{Yes}</td>
@@ -59,12 +59,12 @@ const SubscriptionTable = () => {
     <tr>
       <td>Free Delivery</td>
       <td>{No}</td>
+      <td>{textSuccess(2)}</td>
       <td>{textSuccess(5)}</td>
-      <td>{textSuccess(10)}</td>
     </tr>
 
     <tr>
-      <td>Sales range</td>
+      <td>Sales Range</td>
       <td>{textContent('100km')}</td>
       <td>{textContent('nation-wide')}</td>
       <td>{textContent('world-wide')}</td>

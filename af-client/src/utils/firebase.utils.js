@@ -246,7 +246,6 @@ export const getSellerBankInfo = async (seller) => {
     const bank = sellerData?.bank
     const bankAcct = sellerData?.bankAcct
 
-    console.log(bank, bankAcct)
     if (bank && bankAcct) {
       sellerBankInfo = {
         account_bank: bank,
