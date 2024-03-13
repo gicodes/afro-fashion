@@ -24,7 +24,7 @@ const SubscriptionTable = () => {
     <tr>
       <td className='-lg'>
         Instant Sales
-        <span className='-a block'>Complete sales and get money instantly</span>
+        <span className='-a block'>Complete sales and get payments instantly</span>
       </td>
       <td>{Yes}</td>
       <td>{Yes}</td>
@@ -44,7 +44,7 @@ const SubscriptionTable = () => {
     <tr>
       <td className='-lg'>
         Featured
-        <span className='-a block'>Get Featured on <b>AF</b> platforms & media pages</span>
+        <span className='-a block'>Feature on <b>AF</b> platforms & media pages</span>
       </td>
       <td>{No}</td>
       <td>{textContent('twice per week')}</td>
@@ -64,7 +64,7 @@ const SubscriptionTable = () => {
     <tr>
       <td className='perks'>
         Sales Reach
-        <span className='-a block'>Audience reach and distance for inbound sales</span>
+        <span className='-a block'>Audience reach and range for inbound sales</span>
       </td>
       <td>
         <span className='text-gray'>100</span>

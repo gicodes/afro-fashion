@@ -42,7 +42,7 @@ const Subscription = () => {
             
             <div className='col-md-8 mx-auto'><Button variant='primary' className='fullWidth' onClick={handleSubscribe}>Subscribe</Button>  
             {
-              // currentUser?.userType === "seller" && 
+              currentUser?.userType === "seller" && 
               <div className='mt-1'>
                 {chooseAndPay && <ChoosAndPay uid={userId} />}
               </div>}

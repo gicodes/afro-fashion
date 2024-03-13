@@ -75,7 +75,7 @@ const ChooseAndPay = (userId) => {
     <div className="subscription card">
       <div className="sub card-body">
         <div className='form-group'>
-          <span className='block'>Choosing a subscription Package </span>
+          <span className='block'>Choosing a subscription package </span>
           <span className='fs-smaller'>Will initiate a payment window valid for 1 hour</span>
         <div className="form-check mt-3">
           <input

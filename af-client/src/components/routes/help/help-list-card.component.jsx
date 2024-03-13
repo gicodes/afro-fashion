@@ -45,7 +45,7 @@ export const HelpListCard = () => {
           <span className="block mt-2 mb-2">Verified accounts can automatically and securely <a href="/auth/login" className="link">sign in</a> when connected, 
             using Google's firebase-auth providers.
           </span>
-            There are paid and limited services on AfroFashion, however, 
+            There are limited and paid services on AfroFashion, however, 
             verified sellers can create or upload up to 5 products from their <a href="/profile" className="link">profile</a> on a free version.
           <span className="block mt-2 mb-2">See the pros & conditions for our paid <a href="/subscriptions" className="link">subscription</a> services,
             and how they can help sellers to grow and manage their fashion business on a Brand level.
@@ -61,7 +61,7 @@ export const HelpListCard = () => {
           AfroFashion offer users a good number of fast and seemless payment methods with
           <a className="link" href="https://flutterwave.com"> Flutterwave</a> and <a className="link" href="https://paystack.com">Paystack</a>.
           <span className="block mt-2 mb-2">
-            Sellers are required to upload their payment information from the profile, to instantly receive
+            Sellers are required to upload and verify their bank information from profile (with 10+ supported banks), to instantly receive
             payments from buyers who use these in-built payment solutions for item purchase.
           </span>
           When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure solutions in place.

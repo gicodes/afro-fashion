@@ -39,17 +39,17 @@ export const Help = () => {
           <section className="helpCenter">
             <Row>
               <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
+                <Button variant="outline-secondary" href="/marketplace" className="fixed-width-button">
                   Products
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
+                <Button variant="outline-secondary" href="/subscriptions" className="fixed-width-button">
                   Subscription
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
+                <Button variant="outline-secondary" href="/https://wa.me/2348025746773" className="fixed-width-button">
                   Contact Us
                 </Button>
               </Col>
