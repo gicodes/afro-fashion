@@ -6,62 +6,50 @@ export const HelpListCard = () => {
       <div id="getting-started">
         <h4>Getting Started</h4>
 
-        <h6 className="pt-2"><u>What is Afro Fashion?</u></h6>
+        <h6 className="pt-2 text-secondary font-awesome"><b>Introduction</b></h6><br/>
         <p>
-          Afro Fashion is a complete e-commerce platform that lets you enjoy shopping services 
-          and also start, grow and manage your own business.
-        </p>
-        <p>Join and shop for your favorite items- from the most affordable shops across Africa</p>
-        <p>
-          Sell in multiple places, including web, mobile, social media, online
-          marketplaces without worrying about your customer base
+          AfroFashion is an African-first online platform that connect buyers to sellers, 
+          offer complete e-commerce services and help small-scale african brands grow and manage their businesses.
+        
+          <span className="block mt-2 mb-2">Fashion-instas can take e-shopping to the next level with services from over 25 brands, 
+            1000+ unique products & up to 15 item categories to choose from.
+          </span>
+          New and experienced vendors can both benefit from Afro Fashion branding and marketing thier products.
+          Considering cross-functionality of our web, mobile and social media platforms,
+          vendors are bound to make 5x the normal sales without worrying about customer base.
         </p>
       </div>
       <br/>
       
       <div id="buying">
-        <h6><u>What do I need, to start buying?</u></h6>
+        <h6><u>What do I need to start buying?</u></h6>
         <p>
-          To start buying on AfroFashion, you&apos;ll need an AfroFashion account and
-          a subscription. There is a free and a paid version.{" "}
-        </p>
-        <p>
-          Get started by signing up for AfroFashion. Then set up your account by
-          adding your favorite items.{" "}
-        </p>
-        <p>
-          {" "}
-          If you do not have any particular product or brand in mind, you can view all AfroFashion products from the <a  className="link" href="/marketplace">shop</a> page.
+          Start buying on AfroFashion by signing up as a <a href="/auth/register" className="link">buyer</a>, 
+          with email - password or by using a <a href="/auth/register#google" className="link">google-mail </a>account. 
+          <span className="block mt-2 mb-2"> Users can browse products randomly, 
+            shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers for free.
+          </span> 
+          There are also other extended services. Users with paid subscriptions can opt for personalized products and services.
         </p>
       </div>
       <br />
      
       <div id="selling">
-        <h6><u>What do I need, to start selling?</u></h6>
+        <h6><u>What do I need to start selling?</u></h6>
         <p>
-          To start selling on AfroFashion, you&apos;ll need an AfroFashion account and
-          real products to sell.{" "}
-        </p>
-        <p>
-          Get started by signing up as a <a href="/seller" className="link">seller</a> on AfroFashion. Then set up your brand and add
-          your products.
-        </p>
-        <p>
-          If you don&apos;t have products to sell yet, dropshipping might be a
-          good option for you.
-        </p>
-      </div>
-      <br />
-
-      <div id="shipping">
-        <h6><u>Shipping with Afro Fashion</u></h6>
-        <p>
-          To start shipping with AfroFashion, you&apos;ll need a Courier service that is registered and available within the 
-          the region (Africa).
-        </p>
-        <p>Get started by contacting Customer care with the neccessary details about your shipping plan and services.</p>
-        <p>
-          <b>Please Note</b>: AfroFashion will not be responsible for the shipping cost and safety unless insured.
+          To start selling on AfroFashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
+          and verify your account with email or phone.
+          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, 
+            on their prefered (primary) device, after which the sign-up credentials become void. 
+          </span>  
+          <span className="block mt-2 mb-2">Verified accounts can automatically and securely <a href="/auth/login" className="link">sign in</a> when connected, 
+            using Google's firebase-auth providers.
+          </span>
+            There are paid and limited services on AfroFashion, however, 
+            verified sellers can create or upload up to 5 products from their <a href="/profile" className="link">profile</a> on a free version.
+          <span className="block mt-2 mb-2">See the pros & conditions for our paid <a href="/subscriptions" className="link">subscription</a> services,
+            and how they can help sellers to grow and manage their fashion business on a Brand level.
+          </span>
         </p>
       </div>
       <br />
@@ -69,16 +57,33 @@ export const HelpListCard = () => {
       <div id="payments">
         <h6><u>Payments on Afro Fashion</u></h6>
         <p>
-          To receive and send payments on AfroFashion, you&apos;ll need to setup a payment method with 
-          either <a className="link" href="https://flutterwave.com">Flutterwave</a> or <a className="link" href="https://paystack.com">Paystack</a>
+          Completing payments on e-commerce platforms don't come simpler than this. 
+          AfroFashion offer users a good number of fast and seemless payment methods with
+          <a className="link" href="https://flutterwave.com"> Flutterwave</a> and <a className="link" href="https://paystack.com">Paystack</a>.
+          <span className="block mt-2 mb-2">
+            Sellers are required to upload their payment information from the profile, to instantly receive
+            payments from buyers who use these in-built payment solutions for item purchase.
+          </span>
+          When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure solutions in place.
+          This also means that the vendors involved are subject to tax, and therefore the transactions will incur some value-added-amounts.
         </p>
+      </div>
+      <br />
+
+      <div id="shipping">
+        <h6><u>Shipping with Afro Fashion</u></h6>
         <p>
-          After this setup is complete, add your payment information to your profile (as a seller) to receive
-          payment from buyers.
-        </p>
-        <p>
-          Alternatively, you are free to use your own accounts (as a buyer) to send money through these 
-          payment channels on the AfroFashion payment portals.
+          To start shipping with AfroFashion, 
+          you will need a reliable courier service that is regulated and operational within the buyer-and-seller region.
+          <span className="block mt-2 mb-2">Buyers and sellers use close-proximity services to enhance sales experience, 
+            and ultimately bridge the gap between purchase and delivery of said products.
+          </span>
+          <span className="block mt-2 mb-2">Delivery for regular sales are handled between buyer and seller, 
+            with Afro Fashion acting as the escrow for these transactions. However, milestone sales e.g.
+            Sellers who complete 25 sales in one day, and Buyers with $1000+ spent at-a-go, etc.
+            will earn free delivery with AfroFashion's Business Subscription. Premium version gets 3 free deliveries per month.
+          </span>
+          <b>Please Note</b>: AfroFashion does NOT bear responsibility for the shipping safety of items shipped without our delivery service.
         </p>
       </div>
     </section>

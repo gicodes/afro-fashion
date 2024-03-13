@@ -21,8 +21,8 @@ export const Help = () => {
       <div className="card container help-container">
         <div className="p-3 text-center">
           <section className="help-heading -mt2">
-            <h3>Welcome to Afro Fashion Docs</h3>
-            <p>We are here to guide you</p>
+            <h4>Welcome to AfroFashion Docs</h4>
+            <p>Documentation and References</p>
             <Form className="formWidth">
               <InputGroup className="mb-4 mt-4">
                 <FormControl

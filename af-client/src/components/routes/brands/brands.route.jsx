@@ -38,20 +38,21 @@ const BrandCollection = () => {
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
       <Container className="card container bg-ws mx-auto">
-        <h6 className='mt-3 mx-auto'>
-          Welcome to {sellerName}'s online store! 
-        </h6>
+        <h5 className='mx-auto mt-4 font-awesome'>
+          Welcome to {sellerName}'s Brand 
+        </h5>
 
         {brands && Object.keys(brands)?.length > 0 ? (
           <>
             <SellerCard sellerInfo={sellerInfo}/>
             
             {/* scaling: brands can return more info i.e. Number of products, number of sales */}
-            <div className='card p-2 mt-2 col-md-8 mx-auto'>
-              <span className='mt-2 mx-auto'>Hey, thanks for checking out my page!</span>
-              <p className='mt-2 fs-smaller mx-auto text-secondary'>
-                I'm looking to make more sales. You can find my products in 
-                <b> {Object.keys(brands)?.length}</b> {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}
+            <div className='mx-auto mt-4 col-md-8'>
+              <span className='mx-auto text-success'>
+                Thanks for checking out my page 
+              </span>  🤗
+              <p className='mx-auto mt-2 font-awesome'>
+                I currently have items in <u>{Object.keys(brands)?.length} {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}</u>
               </p>
             </div>
             

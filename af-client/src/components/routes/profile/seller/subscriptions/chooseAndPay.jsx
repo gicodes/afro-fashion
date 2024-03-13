@@ -37,8 +37,10 @@ const ChooseAndPay = (userId) => {
   const expiresAt = new Date(today);
   expiresAt.setMonth(expiresAt.getMonth() + 1);
 
-  todaysRate = GetExchangeRate() + 300 || 1600;
-
+  todaysRate = GetExchangeRate() + 300;
+  if (todaysRate < 1000) {
+    todaysRate = 1600;
+  }
 
   switch (subscription) {
     case "basic":

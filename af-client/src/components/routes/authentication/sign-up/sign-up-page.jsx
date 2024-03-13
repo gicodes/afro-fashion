@@ -173,13 +173,14 @@ const SignUp = () => {
               <Button type="submit">
                 Sign Up
               </Button>
+              <section id="google">
               {buyer && <Button
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
               >
                 Google Sign-up
-              </Button>}
+              </Button>}</section>
             </div>
           </div>
           </div>

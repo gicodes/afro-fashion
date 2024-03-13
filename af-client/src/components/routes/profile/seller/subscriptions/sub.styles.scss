@@ -3,6 +3,25 @@
   height: max-content;
 }
 
+.-a {
+  font-size: 11px;
+  color: #505050;
+}
+
+.perks {
+  width: 36%;
+}
+
+.r2p {
+  // raise to power
+  font-size: 12px;
+  font-weight: 400;
+  color: orange;
+  margin-left: 2px;
+  position: absolute;
+  text-decoration: solid;
+}
+
 .dropdown {
   padding: 5%;
   background: whitesmoke;
