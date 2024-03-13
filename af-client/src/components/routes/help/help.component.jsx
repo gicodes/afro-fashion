@@ -49,7 +49,7 @@ export const Help = () => {
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="/https://wa.me/2348025746773" className="fixed-width-button">
+                <Button variant="outline-secondary" href="https://wa.me/2349021486959" className="fixed-width-button">
                   Contact Us
                 </Button>
               </Col>

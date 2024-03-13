@@ -24,7 +24,7 @@ const SubscriptionTable = () => {
     <tr>
       <td className='-lg'>
         Instant Sales
-        <span className='-a block'>Complete sales and get payments instantly</span>
+        <span className='-a block'>Complete sales and get payment instantly</span>
       </td>
       <td>{Yes}</td>
       <td>{Yes}</td>

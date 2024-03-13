@@ -12,18 +12,18 @@ const CreditsPage = () => {
                 <h5 className="fw flex-just-center">Contents</h5>
               </div>
               <div className="mx-auto">
-                <p>The captivating visuals within this platform have been made possible by the talented photographers and artists who share their work with the world. </p>
-                <p>Special thanks to the following platforms:</p>
+                <p>The captivating media pictures within this platform have been made possible by photographers, artists and content creators who share their work with the world.</p>
+                <p>Outsourcing from the following platforms...</p>
                 <ul>
                   <li className="mb-1">
                     <a className="s-bold" href="https://unsplash.com">Unsplash:</a>{" "}
-                    Generous community of photographers providing high-quality, royalty-free images that breathe life into this project.
+                    In appreciation to this community of photographers who provide royalty-free images that bring quality to AfroFashion.
                   </li>
                   <li className="mb-1">
                     <a className="s-bold" href="https://istockphoto.com">iStockPhoto:</a>{" "}
-                    Premium source for stock photos, illustrations, and videos that enhance the visual appeal of this application.
+                    Some of the stock photos on this platform are from this media outlet with premium, high-quality contents.
                   </li>
-                  <li>Any other mentions we may be forgetting– we deeply appreciate the contributions from all other sources that have played a role in creating the visual experience of this application.</li>
+                  <li>Other worthy mentions– we deeply appreciate the contributions from i.ibb, cloudnairy and every other source that have featured or had a role in the visual experience of this platform.</li>
                 </ul>
                 <p>Creativity enriches this project, and we are grateful for the opportunity to showcase these amazing works on our platform.</p>
               </div>
