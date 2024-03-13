@@ -29,13 +29,20 @@ const ChooseAndPay = (userId) => {
     setSubscription(event.target.value);
   };
 
+  const today = new Date();
+
   let todaysRate;
+  let expiresAt;
   let amount;
   let bank;
 
-  const today = new Date();
-  const expiresAt = new Date(today);
-  expiresAt.setMonth(expiresAt.getMonth() + 1);
+  const format = 'MM/DD/YY'; // change this to 'DD/MM/YY' for the other format
+
+  if (format === 'MM/DD/YY') {
+    expiresAt = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+  } else if (format === 'DD/MM/YY') {
+    expiresAt = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+  }
 
   todaysRate = GetExchangeRate() + 300;
   if (todaysRate < 1000) {
