@@ -13,7 +13,7 @@ const SubscriptionTable = () => {
     <Table striped bordered hover responsive>
     <thead className='text-center'>
       <tr>
-        <th className='-lg'></th>
+        <th className='perks'></th>
         <th>Basic</th>
         <th>Business</th>
         <th>Premium</th>
@@ -22,7 +22,7 @@ const SubscriptionTable = () => {
     
     <tbody className="align-middle text-center">
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Instant Sales
         <span className='-a block'>Complete sales and get payment instantly</span>
       </td>
@@ -32,7 +32,7 @@ const SubscriptionTable = () => {
     </tr>
 
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Items Range
         <span className='-a block'>Max number of items a seller can upload</span>
       </td>
@@ -42,17 +42,17 @@ const SubscriptionTable = () => {
     </tr>
 
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Featured
         <span className='-a block'>Feature on <b>AF</b> platforms & media pages</span>
       </td>
       <td>{No}</td>
-      <td>{textContent('twice per week')}</td>
-      <td>{textContent('once per day')}</td>
+      <td>{textContent('2x weekly')}</td>
+      <td>{textContent('1x daily')}</td>
     </tr>
    
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Ad-bound Sales
         <span className='-a block'>Reach new audience with <b>AF</b> targeted Ads</span>
       </td>
@@ -70,12 +70,12 @@ const SubscriptionTable = () => {
         <span className='text-gray'>100</span>
         <i>{textContent('km')}</i>
       </td>
-      <td>{textContent('nation-wide')}</td>
-      <td>{textContent('world-wide')}</td>
+      <td>{textContent('nationwide')}</td>
+      <td>{textContent('worldwide')}</td>
     </tr>
     
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Free Delivery <span className='r2p'> <FaExclamation/></span>
         <span className='-a block'>Claim free delivery fee on milestone sales</span> 
       </td>
@@ -85,7 +85,7 @@ const SubscriptionTable = () => {
     </tr>
 
     <tr>
-      <td className='-lg'>
+      <td className='perks'>
         Price <span className='fs-smaller text-gray'>&nbsp; (Monthly)</span></td>
       <td>{numContent('$10')}</td>
       <td>{numContent('$25')}</td>
