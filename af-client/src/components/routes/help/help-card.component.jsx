@@ -101,18 +101,19 @@ export const HelpCard = () => {
       <div id="selling">
         <h6><u>What do I need to start selling?</u></h6>
         <p>
-          To start selling on AfroFashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
-          and verify your account with email or <span className="text-gray">phone</span>.
+          To start selling on Afrofashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
+          and verify your account with email <span className="text-gray">or phone</span>. You'll be redirected to a Terms & Conditions page, 
+          and then you are sent an email to complete email verification.
           <div id="seller-registration">
           <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
-            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095;...</b>" 
-            - clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
+            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095;</b> 
+            - Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
           <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
           </span>  
           <span className="block mt-2 mb-2">The verification process is complete when you're redirected back to a "Verification Successful" url on Afrofashion page.
             From this point onwards, your account will automatically and securely sign in when you have an active browser session and connected to the internet, 
-            using Google's firebase-auth providers. You can manually turn of this feature by contacting support.
+            thanks to Google's firebase-auth providers. You can manually turn of this feature by contacting support.
           </span>
           </div>
         </p>
@@ -122,14 +123,14 @@ export const HelpCard = () => {
           <p>
             Brands management is a critical and integral aspect of our eco-system. 
             There are limited and paid services a seller can enjoy, however the most essential is branding.
-            <span className="block mt-1 mb-1">Verified sellers can experience starting a brand collection, create or upload up to 5 products from their <a href="/profile" className="link">profile</a> on a free version.
-            This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
+            <span className="block mt-1 mb-1">Verified sellers can experience starting a brand collection, create and upload up to 5 products on a free version.
+              We aim to achieve plenty by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
            <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, in order to boost confidence and trust.</li>
            <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand potential and value.</li>
            <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience.</li>
-           <li> Loyalty Packages: Cash and prize incentives is on for grabs as we want to reward milestone sales and motivate the common business man</li>
+           <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate every business brand</li>
           </p>
         </section>
       </div>
@@ -139,10 +140,10 @@ export const HelpCard = () => {
         <h6><u>Payments on Afro Fashion</u></h6>
         <p>
           Completing payments on e-commerce platforms don't come simpler than this. 
-          AfroFashion offer users a good number of fast and seemless payment methods with
+          Afrofashion offer users a good number of fast and seemless payment methods with
           <a className="link" href="https://flutterwave.com"> Flutterwave</a> and <a className="link" href="https://paystack.com">Paystack</a>.
           <span className="block mt-2 mb-2">
-            Sellers are required to upload and verify their bank information from profile (with 10+ supported banks), to instantly receive
+            Sellers are required to upload and verify their bank information from their profile (with 10+ supported banks), to instantly receive
             payments from buyers who use these in-built payment solutions for item purchase.
           </span>
           When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure solutions in place.
@@ -170,7 +171,7 @@ export const HelpCard = () => {
             <span className="block mt-1 mb-2"> 
               Verified sellers can now directly navigate to subscribe, through Profile - Manage Subscription.
             </span>
-            <span className="block mt-2 mb-3">Check out our <a href="/subscriptions" className="link">subscriptions</a> in detail.</span>
+            <span className="block mt-2 mb-3">Check out our <a href="/subscriptions" className="link">subscriptions</a> in detail</span>
             <li>Basic Package</li>
             <li>Business Package</li>
             <li>Premium Package</li>
@@ -193,7 +194,7 @@ export const HelpCard = () => {
           <span className="block mt-2 mb-2">Delivery for regular sales are handled between buyer and seller, 
             with Afro Fashion acting as the escrow for these transactions. However, milestone sales e.g.
             Sellers who complete 25 sales in one day, and Buyers with $1000+ spent at-a-go, etc.
-            will earn free delivery with AfroFashion's Business Subscription. Premium version gets 3 free deliveries per month.
+            will earn free delivery with Afrofashion's Business Subscription. Premium version gets 3 free deliveries per month.
           </span>
           <b>Please Note</b>: Afrofashion will NOT be responsible for the cost and safety of items shipped without our delivery service.
         </p>
