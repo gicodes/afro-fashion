@@ -90,8 +90,8 @@ export const HelpCard = () => {
             however, with the management features in place, a user can easily do regular and routine actions from their comfort zone. 
             <span className="block mt-1 mb-2">Some interesting user-management features include:
             </span>
-            <li><u>Save item for later</u>: Go to your profile to view all saved items</li>
-            <li><u>Track orders</u>: Users can easily track their purchased items</li>
+            <li><u>Save item for later</u>: Save an item from anywhere, and Go to profile to view all the saved items</li>
+            <li><u>Track orders</u>: Users can easily track their purchased items and past orders</li>
             <li><u>Personalized Ads</u>: Control what you see and only see what you like</li>
           </p>
         </section>
