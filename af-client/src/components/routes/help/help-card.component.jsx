@@ -108,7 +108,7 @@ export const HelpCard = () => {
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
             A verification link will be sent to the registered email with title "Sign-in to Afro Fashion requested at &#10094;Date&#10095;;". 
             Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
-          <span className="font-awesome fs-smaller"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for sellers accounts</i>*</span>
+          <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
           </span>  
           <span className="block mt-2 mb-2">The verification process is complete when you're redirected back to a "Verification Successful" url on Afrofashion page.
             From this point onwards, your account will automatically and securely sign in when you have an active browser session and connected to the internet, 
