@@ -105,13 +105,13 @@ export const HelpCard = () => {
           and verify your account with email or <span className="text-gray">phone</span>.
           <div id="seller-registration">
           <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
-          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once on their prefered (primary) device. 
-            A verification link will be sent to the registered email with title "Sign-in to Afro Fashion requested at &#12297; Date &#x3009;". 
+          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
+            A verification link will be sent to the registered email with title "Sign-in to Afro Fashion requested at &#10094;Date&#10095;;". 
             Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
-          <span className="text-gray">(This is our A-ok security feature-- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for sellers accounts).</span>
+          <span className="font-awesome fs-smaller">(<i>This is our A-ok security feature-- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for sellers accounts</i>).</span>
           </span>  
           <span className="block mt-2 mb-2">The verification process is done when you're redirected back to a "Verification Successful" page.
-            From this point, your account will be automatically and securely <a href="/auth/login" className="link">signed in</a> when connected, 
+            From this point, your account will be automatically and securely signed in when you have an active browser session and connected to the internet, 
             using Google's firebase-auth providers. You can manually turn of this feature by contacting support.
           </span>
           </div>
