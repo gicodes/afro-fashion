@@ -88,7 +88,7 @@ export const HelpCard = () => {
           <p>
             User management is a key aspect of user-experence. Needless to say, we may not always be on time in serving user-specific demands,
             however, with the management features in place, a user can easily do regular and routine actions from their comfort zone. 
-            <span className="block mb-2">Some interesting user-management features include:
+            <span className="block mt-1 mb-2">Some interesting user-management features include:
             </span>
             <li><u>Save item for later</u>: Go to your profile to view all saved items</li>
             <li><u>Track orders</u>: Users can easily track their purchased items</li>
@@ -119,8 +119,8 @@ export const HelpCard = () => {
         <section id="brands-management">
           <h6 className="pt-4 text-secondary"><b>Brands Management</b></h6>
           <p>
-            Brands management is a critical and integral aspect of our eco-system. At Afrofasion, we care to enhance product visibility, authenticity, and consumer trust.
-          <span className="block mt-3 mb-1">Simple strategies for brands management</span>
+            Brands management is a critical and integral aspect of our eco-system. This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
+          <span className="block mt-2 mb-1">Simple strategies for brands management</span>
            <li> Brand Integrity: Stringent measures are in place to verify product authenticity, bolstering consumer confidence.</li>
            <li> Brand Promotion: Proactive marketing initiatives spotlight a brand's unique value and potential.</li>
            <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience.</li>
@@ -177,7 +177,7 @@ export const HelpCard = () => {
             Sellers who complete 25 sales in one day, and Buyers with $1000+ spent at-a-go, etc.
             will earn free delivery with AfroFashion's Business Subscription. Premium version gets 3 free deliveries per month.
           </span>
-          <b>Please Note</b>: Afrofashion will NOT be responsible for the shipping safety of items shipped without our delivery service.
+          <b>Please Note</b>: Afrofashion will NOT be responsible for the cost and safety of items shipped without our delivery service.
         </p>
       </div>
     </section>
