@@ -35,17 +35,23 @@ const Subscription = () => {
               )}
             </div>}
             
-            <Button variant='info' onClick={handleSubTable}>See Subscription Packages</Button>  
-            <div className='mb-2'>
+            <Button className='col-md-7 mx-auto' variant='info' onClick={handleSubTable}>
+              See Subscription Packages
+            </Button>  
+            <div className='mt-1 mb-2'>
               {subTable && <SubscriptionTable />}
             </div>
             
-            <div className='col-md-8 mx-auto'><Button variant='primary' className='fullWidth' onClick={handleSubscribe}>Subscribe</Button>  
-            {
-              currentUser?.userType === "seller" && 
-              <div className='mt-1'>
-                {chooseAndPay && <ChoosAndPay uid={userId} />}
-              </div>}
+            <div className='col-md-7 mx-auto'>
+              <Button variant='primary' className='fullWidth' onClick={handleSubscribe}>
+                Subscribe Now
+              </Button>  
+              {
+                currentUser?.userType === "seller" && 
+                <div className='mt-1'>
+                  {chooseAndPay && <ChoosAndPay uid={userId} />}
+                </div>
+              }
             </div>
           </div>
         </div>

@@ -50,11 +50,10 @@ export const SearchBar = ({ searchSx, resultSx }) => {
         <InputGroup>
           <FormControl
             type="text"
-            placeholder=" Search for a brand or seller..."
+            placeholder=" Search for a vendor or seller.."
             value={search}
             onChange={handleSearch}
           />
-          <button type="button" className="btn btn-info" onClick={handleSearch}>Go</button>
         </InputGroup>
       </div>
       {searchBox && 

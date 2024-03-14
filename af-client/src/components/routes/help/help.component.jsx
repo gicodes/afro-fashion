@@ -10,7 +10,7 @@ import {
 import { FaSearch } from "react-icons/fa";
 import "./help.styles.scss";
 import { HelpList } from "./help-list.component";
-import { HelpListCard } from "./help-list-card.component";
+import { HelpCard } from "./help-card.component";
 
 export const Help = () => {
   return (
@@ -39,35 +39,35 @@ export const Help = () => {
           <section className="helpCenter">
             <Row>
               <Col>
-                <Button variant="outline-secondary" href="/marketplace" className="fixed-width-button">
+                <Button variant="outline-secondary" href="#products" className="fixed-width-button">
                   Products
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="/subscriptions" className="fixed-width-button">
-                  Subscription
+                <Button variant="outline-secondary" href="#brands-management" className="fixed-width-button">
+                  Brands
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="https://wa.me/2349021486959" className="fixed-width-button">
-                  Contact Us
+                <Button variant="outline-secondary" href="#subscription" className="fixed-width-button">
+                  Subscriptions
                 </Button>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
-                  Track Your Order
+                <Button variant="outline-secondary" href="#user-management" className="fixed-width-button">
+                  Track past Orders
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
+                <Button variant="outline-secondary" href="https://wa.me/2349021486959" className="fixed-width-button">
+                  Chat with an Agent 
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-secondary" href="#shipping" className="fixed-width-button">
                   Shopping and Delivery
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="outline-secondary" className="fixed-width-button">
-                  Speak With An Agent 
                 </Button>
               </Col>
             </Row>
@@ -76,7 +76,7 @@ export const Help = () => {
         <hr />
         <div className="d-lg-flex mt-4">
           <HelpList />
-          <HelpListCard />
+          <HelpCard />
         </div>
       </div>
     </div>

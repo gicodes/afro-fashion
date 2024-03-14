@@ -36,7 +36,7 @@ const ChooseAndPay = (userId) => {
   let amount;
   let bank;
 
-  const format = 'MM/DD/YY'; // change this to 'DD/MM/YY' for the other format
+  const format = 'MM/DD/YY'; // || 'DD/MM/YY' format
 
   if (format === 'MM/DD/YY') {
     expiresAt = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;

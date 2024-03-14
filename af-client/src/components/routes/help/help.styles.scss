@@ -27,24 +27,25 @@
   text-align: center;
   margin-top: 2rem;
 }
-.helpList ul {
+.help-list ul {
   list-style-type: none;
   padding: 0;
+  width: max-content;
   margin-left: 2rem;
   margin-top: 2rem;
   border-left: 2px solid #ccc; 
 }
 
-.helpList li {
+.help-list li {
   padding-left: 10px; 
   margin-bottom: 10px; 
 }
 
-.helpList li:hover {
+.help-list li:hover {
   background-color: #f0f0f0; 
 }
 
-.helpListCard{
+.help-list-card{
   background: white;
   box-shadow: #ccc inset;
   padding: 2rem;
@@ -57,7 +58,7 @@
     width: 50%;
     margin: auto;
   }
-  .helpListCard{
+  .help-list-card{
     padding-left: 5rem;
   }
   .help-heading h3{
@@ -74,7 +75,7 @@
   .fixed-width-button {
     width: 200px; 
   }
-  .helpListCard{
+  .help-list-card{
     padding-left: 5rem;
   }
   .help-heading h3{
@@ -92,7 +93,7 @@
   .fixed-width-button {
     width: 200px; 
   } 
-  .helpListCard{
+  .help-list-card{
     padding-left: 5rem;
   }
   .help-heading h3{

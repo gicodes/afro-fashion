@@ -7,7 +7,6 @@ import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
 import { React, useContext, useState , Fragment} from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../contexts/user.context";
-import { CartContext } from "../../../contexts/cart.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { Navbar, Container } from 'react-bootstrap';
@@ -19,35 +18,35 @@ import './navbar.styles.scss'
 
 const NavBarComponent = () => {
   const navigate = useNavigate();
-  const { isCartOpen } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
-  const [ sideNav, showSideNav ] = useState(false);
+  const [ sideNav, setSideNav ] = useState(false);
+  const [ closeBtn, setCloseBtn ] = useState(false);
   const [ cartOpen, setCartOpen ] = useState(false);
-  const { addAutoCloseAlert, addOptionsAlert } = useAlert();
+  const { addAutoCloseAlert, addOptionsAlert } = useAlert();; 
 
   const authIconStyle = {
-    backgroundColor: currentUser ? 'white' : 'yellow',
+    backgroundColor: currentUser ? 'white' : 'yellow'
   }
 
-  const setSideNav = () => {
-    showSideNav(!sideNav)
+  const toggleCart = () => setCartOpen(!cartOpen);
+
+  const autoCloseSideNav = () => {
+    if (cartOpen) setCartOpen(false);
+    setCloseBtn(!closeBtn);
+    setSideNav(true);
   }
 
-  const toggleCart = () => {
-    if (cartOpen) setCartOpen(false)
-    else setCartOpen(true)
-  }
-
-  const handleSignOut = (event) => {
-    event.preventDefault();
-
+  const handleSignOut = () => {
+    // navbar sign out flow
     const handleYes = () => {
       SignOutUser();
+      setSideNav(false);
       addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`)
       navigate('/auth')
     };
 
     const handleNo = () => {
+      setSideNav(false);
       addAutoCloseAlert("warning", `Sign out operation cancelled!`)
     };
     
@@ -55,7 +54,7 @@ const NavBarComponent = () => {
       'warning', 'Are you signing out?',
       handleYes, handleNo
     );
-  }
+  }  
 
   return (
     <Fragment>
@@ -63,15 +62,16 @@ const NavBarComponent = () => {
 
         <Outlet />
         <Navbar fixed="bottom" bg="light">
-
-          {isCartOpen && <CartDropdown />}
+          {cartOpen && <CartDropdown />}
           
           {sideNav && (
             <div fixed="bottom" className="bottom-nav">
               <SideNav
                 displayName={currentUser?.displayName}
+                onClose={() => setSideNav(!sideNav)}
                 onSignOut={handleSignOut}
-                device_class={"-lg"}
+                device_class={"-lg"}                
+                isOpen={closeBtn}
               />
             </div>
           )}
@@ -107,9 +107,7 @@ const NavBarComponent = () => {
                 </li>
 
                 <li onClick={toggleCart} className="nav-item" title="Cart">
-                  <span>
-                    <CartIcon/>
-                  </span>
+                  <span><CartIcon/></span>
                 </li>
 
                 <li className="nav-item" title="Help Desk">
@@ -128,10 +126,10 @@ const NavBarComponent = () => {
                  {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
-                      onClick={setSideNav}>
+                      onClick={autoCloseSideNav}>
                       <TbUserCheck color="green" filled="black"/>
                     </Link>
-                  ) : (
+                    ) : (
                     <Link className="nav-link" aria-current="page" to='auth'>
                       <TbUserExclamation fill="gray"/> 
                     </Link>
@@ -140,11 +138,11 @@ const NavBarComponent = () => {
               </ul>
             </div>
           </nav>
+          
         </Navbar>
       </Container>
     </Fragment>
   )
 }
-
 
 export default NavBarComponent;

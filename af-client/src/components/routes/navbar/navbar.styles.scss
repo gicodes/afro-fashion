@@ -114,11 +114,12 @@
   justify-content: flex-end;
   
   .drop {
-    top: 66%;
+    top: 10%;
     width: 100px;
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    position: fixed;
     text-align: center;
-    position: absolute;
     background: ghostwhite;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
@@ -148,7 +149,7 @@
   min-width: 180px;
   display: flex;
   padding: 5%;
-  left: 3%;
+  left: 1%;
   top: 11%;
 
   .nav-link { 

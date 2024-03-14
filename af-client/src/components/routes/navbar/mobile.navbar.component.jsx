@@ -1,11 +1,11 @@
 import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
-import { Fragment, useContext, useState, useEffect } from "react";
 import { Container, Navbar, CloseButton } from "react-bootstrap";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
+import { Fragment, useContext, useState } from "react";
 import { LuLogIn, LuUserCheck } from "react-icons/lu";
 import BurgerMenu from './nav-drop.mobile';
 import { SideNav } from "./auth-nav";
@@ -16,25 +16,10 @@ const MobileNavBar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
   const [ isBurger, setBurger ] = useState(false);
+  const [ sideNav, setSideNav ] = useState(false);
+  const [ closeBtn, setCloseBtn ] = useState(false);
   const [ cartOpen, setCartOpen ] = useState(false);
-  const [ showSideNav, setShowSideNav ] = useState(false);
   const { addAutoCloseAlert, addOptionsAlert } = useAlert();
-
-  const handleSideNav = () => {
-    setShowSideNav(!showSideNav);
-  };
-  
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (showSideNav) {
-        setShowSideNav(false);
-      }
-    }, 4999);
-  
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [showSideNav]);
 
   const authIconStyle = {
     backgroundColor: currentUser ? 'green' : 'yellow',
@@ -47,28 +32,24 @@ const MobileNavBar = () => {
     padding: '0',         
   }
 
-  function toggleMenu() {
-    setBurger(!isBurger);
-  }
-  function closeMenu() {
-    setBurger(false);
+  const closeMenu =()=> setBurger(false);
+  const toggleMenu =()=> setBurger(!isBurger);
+  const toggleCart =()=> setCartOpen(!cartOpen);
+
+  const autoCloseSideNav = () => {
+    if (cartOpen) setCartOpen(false);
+    setCloseBtn(!closeBtn);
+    setSideNav(true);
   }
 
-  function toggleCart() {
-    if (cartOpen) {
-      setCartOpen(false);
-    }
-    else setCartOpen(true);
-  }
-
-  const handleSignOut = (event) => {
-    event.preventDefault();
-  
+  const handleSignOut = () => {
+    // nav-drop sign out flow
     const handleYes = () => {
       SignOutUser();
       addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`)
       navigate('/auth')
     };
+
     const handleNo = () => {
       addAutoCloseAlert("warning", `Sign out operation cancelled!`)
     };
@@ -115,7 +96,7 @@ const MobileNavBar = () => {
                 <div className={"auth-icon"} style={authIconStyle}>
                   {currentUser ? (
                     <span className="nav-link"                       
-                      onClick={handleSideNav}>
+                      onClick={autoCloseSideNav}>
                       <LuUserCheck color="white"/>                       
                     </span>
                     ) : (
@@ -127,21 +108,23 @@ const MobileNavBar = () => {
               </div>
             </div>
           </div>
-          <div className={currentUser ? "side-nav" : "dis-non"}>
-          {showSideNav && (
-            <SideNav
-              displayName={currentUser?.displayName}
-              onSignOut={handleSignOut}
-              device_class={"drop"}
-            />
-          )}
-          </div>
           {cartOpen && <CartDropdown />}
         </nav>
-
         <Outlet />
-        {isBurger && <BurgerMenu closeMenu={closeMenu}/>}
-        
+
+        <div className={currentUser ? "side-nav" : "dis-non"}>
+          {sideNav && (
+            <SideNav
+              displayName={currentUser?.displayName}
+              onClose={() => setSideNav(!sideNav)}
+              onSignOut={handleSignOut}
+              device_class={"drop"}
+              isOpen={closeBtn}
+            />
+          )}
+        </div>
+
+        {isBurger && <BurgerMenu closeMenu={closeMenu}/>} 
       </Container>
     </Fragment>
   )
