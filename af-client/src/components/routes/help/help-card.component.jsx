@@ -126,13 +126,12 @@ export const HelpCard = () => {
             This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, so as to bolster consumer confidence and trust.</li>
-           <li> Brand Promotion: Afrofashion's business promotions, targeted Ads, and other marketing strategies will be used to drive brand potential and value.</li>
-           <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience.</li>
-           <li> Loyalty Programs: Cash and prize incentives will be organized to motivate milestone sales and reward loyalty with royalty-free services.</li>
+           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, in order to boost confidence and trust.</li>
+           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand potential and value.</li>
+           <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience.</li>
+           <li> Loyalty Packages: Cash and prize incentives is on for grabs as we want to reward milestone sales and motivate the common business man</li>
           </p>
         </section>
-
       </div>
       <br />
 
@@ -150,6 +149,20 @@ export const HelpCard = () => {
           This also means that the vendors involved are subject to commission, and therefore the transactions will incur value-added-tax (VAT).
         </p>
 
+        <section id="exchange-rates">
+          <h6 className="pt-4 text-secondary"><b>Exchange Rates</b></h6>
+          <p>
+            What's a good business without real and stable market rates? 
+          </p>
+          <p>The default currency used to checkout payments on Afrofashion platforms is NGN, albeit products are listed and valued in USD. 
+              We have taken initiative to balance the spread on the exchange rates with accurate data from live markets. 
+              At the moment, our only supported currency-exchange pair is USD/NGN (US Dollar - Nigerian Naira).
+          </p>
+          In Collaboration with the best payment platforms, we can easily serve our users with up-to-date rates and seamless conversion between fiat amounts,
+          when checking out, purchasing products or balancing point of sales.
+          Some of the platforms responsible for these services include ForexAPI, Flutterwave, etc.
+        </section>
+
         <section id="subscription">
           <h6 className="pt-4 text-secondary"><b>Subscription</b></h6>
           <p>
@@ -162,8 +175,8 @@ export const HelpCard = () => {
             <li>Business Package</li>
             <li>Premium Package</li>
             <br/>
-            <b>Please note:</b> clicking on <b>Subscribe Now</b> initiates a payment window, 
-            so please do not start the process if you are not ready to pay
+            <b>Please note:</b> clicking on <span className="text-gray"><b>Subscribe Now</b></span> will initiate a payment window. 
+              You are advised not start this process if you are not ready to pay for your subscription.
           </p>
         </section>
       </div>
