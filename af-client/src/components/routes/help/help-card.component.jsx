@@ -76,7 +76,7 @@ export const HelpCard = () => {
         <h6><u>What do I need to start buying?</u></h6>
         <p>
           Start buying on AfroFashion by signing up as a <a href="/auth/register" className="link">buyer</a>, 
-          with email - password or by using a <a href="/auth/register#google" className="link">google-mail </a>account. 
+          with email - password or by using a <a href="/auth/register#google" className="link">G-mail </a>account. 
           <span className="block mt-2 mb-2"> Users can browse products randomly, 
             shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers for free.
           </span> 
@@ -107,8 +107,8 @@ export const HelpCard = () => {
           <div id="seller-registration">
           <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
-            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095;</b> 
-            - Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
+            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095; </b>  
+            - clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
           <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
           </span>  
           <span className="block mt-2 mb-2">The verification process is complete when you're redirected back to a "Verification Successful" url on Afrofashion page.
@@ -155,12 +155,12 @@ export const HelpCard = () => {
           <p>
             What's a good business without real and stable market rates? 
           </p>
-          <p>The default currency used to checkout payments on Afrofashion platforms is NGN, albeit products are listed and valued in USD. 
+          <span className="block mt-2 mb-1">The default currency used to checkout payments on Afrofashion platforms is NGN, albeit products are listed and valued in USD. 
               We have taken initiative to balance the spread on the exchange rates with accurate data from live markets. 
               At the moment, our only supported currency-exchange pair is USD/NGN (US Dollar - Nigerian Naira).
-          </p>
-          In Collaboration with the best payment platforms, we can easily serve our users with up-to-date rates and seamless conversion between fiat amounts,
-          when checking out, purchasing products or balancing point of sales.
+          </span>
+          In Collaboration with the best payment platforms, we can easily serve our users with up-to-date rates and seamless conversion between fiat amounts.
+          Checking out, purchasing products or balancing point of sales can now be in local fiat (Naira).
           Some of the platforms responsible for these services include ForexAPI, Flutterwave, etc.
         </section>
 
@@ -171,7 +171,7 @@ export const HelpCard = () => {
             <span className="block mt-1 mb-2"> 
               Verified sellers can now directly navigate to subscribe, through Profile - Manage Subscription.
             </span>
-            <span className="block mt-2 mb-3">Check out our <a href="/subscriptions" className="link">subscriptions</a> in detail</span>
+            <span className="block mt-2 mb-3">Check out the Pros & Compare our <a href="/subscriptions" className="link">subscriptions</a> in detail</span>
             <li>Basic Package</li>
             <li>Business Package</li>
             <li>Premium Package</li>

@@ -45,13 +45,13 @@ const BrandCollection = () => {
         {brands && Object.keys(brands)?.length > 0 ? (
           <>
             <SellerCard sellerInfo={sellerInfo}/>
-            
+            <br/>
             {/* scaling: brands can return more info i.e. Number of products, number of sales */}
-            <div className='mx-auto mt-4 col-md-8'>
-              <span className='mx-auto text-success'>
+            <div className='text-center fullWidth mt-4 col-md-8'>
+              <span className='text-success'>
                 Thanks for checking out my page 
               </span>  🤗
-              <p className='mx-auto mt-2 font-awesome'>
+              <p className='mt-2 font-awesome'>
                 I currently have items in <u>{Object.keys(brands)?.length} {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}</u>
               </p>
             </div>

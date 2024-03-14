@@ -40,7 +40,7 @@ export const SideNav = ({
         className="-mb p-1 text-primary" 
         title="click to view profile"
         >
-        {displayName}
+        {displayName.split(" ")[0] || displayName}
       </Link>
       <hr/>       
       <div onClick={handleSignOut}>Logout</div>
