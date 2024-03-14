@@ -126,10 +126,10 @@ export const HelpCard = () => {
             This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-           <li> Brand Integrity: Stringent measures are in place to verify product authenticity, bolstering consumer confidence.</li>
-           <li> Brand Promotion: Proactive marketing initiatives will be the spotlight for a brand's unique value and potential.</li>
-           <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience across the world.</li>
-           <li> Loyalty Programs: Cash and prize incentives are given to motivate milestone sales and reward loyalty with royalty-free services.</li>
+           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, so as to bolster consumer confidence and trust.</li>
+           <li> Brand Promotion: Afrofashion's business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential.</li>
+           <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience.</li>
+           <li> Loyalty Programs: Cash and prize incentives will be organized to motivate milestone sales and reward loyalty with royalty-free services.</li>
           </p>
         </section>
 
@@ -147,7 +147,7 @@ export const HelpCard = () => {
             payments from buyers who use these in-built payment solutions for item purchase.
           </span>
           When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure solutions in place.
-          This also means that the vendors involved are subject to tax, and therefore the transactions will incur some value-added-amounts.
+          This also means that the vendors involved are subject to commission, and therefore the transactions will incur value-added-tax (VAT).
         </p>
 
         <section id="subscription">
