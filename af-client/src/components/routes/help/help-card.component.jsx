@@ -103,6 +103,8 @@ export const HelpCard = () => {
         <p>
           To start selling on AfroFashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
           and verify your account with email or phone.
+          <div id="seller-registration">
+          <h6 className="pt-4 text-secondary"><b>Seller Registration</b></h6>
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, 
             on their prefered (primary) device, after which the sign-up credentials become void. 
           </span>  
@@ -114,6 +116,7 @@ export const HelpCard = () => {
           <span className="block mt-2 mb-2">See the pros & conditions for our paid <a href="/subscriptions" className="link">subscription</a> services,
             and how they can help sellers to grow and manage their fashion business on a Brand level.
           </span>
+          </div>
         </p>
 
         <section id="brands-management">
@@ -122,9 +125,9 @@ export const HelpCard = () => {
             Brands management is a critical and integral aspect of our eco-system. This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
           <span className="block mt-2 mb-1">Simple strategies for brands management</span>
            <li> Brand Integrity: Stringent measures are in place to verify product authenticity, bolstering consumer confidence.</li>
-           <li> Brand Promotion: Proactive marketing initiatives spotlight a brand's unique value and potential.</li>
-           <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience.</li>
-           <li> Loyalty Programs: Tailored incentives motivate milestone sales and reward loyalty with royalty-free.</li>
+           <li> Brand Promotion: Proactive marketing initiatives will be the spotlight for a brand's unique value and potential.</li>
+           <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience across the world.</li>
+           <li> Loyalty Programs: Cash and prize incentives are given to motivate milestone sales and reward loyalty with royalty-free services.</li>
           </p>
         </section>
 
