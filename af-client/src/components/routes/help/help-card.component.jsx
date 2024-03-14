@@ -102,19 +102,17 @@ export const HelpCard = () => {
         <h6><u>What do I need to start selling?</u></h6>
         <p>
           To start selling on AfroFashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
-          and verify your account with email or phone.
+          and verify your account with email or <span className="text-gray">phone</span>.
           <div id="seller-registration">
-          <h6 className="pt-4 text-secondary"><b>Seller Registration</b></h6>
-          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, 
-            on their prefered (primary) device, after which the sign-up credentials become void. 
+          <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
+          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once on their prefered (primary) device. 
+            A verification link will be sent to the registered email with title "Sign-in to Afro Fashion requested at &#12297; Date &#x3009;". 
+            Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
+          <span className="text-gray">(This is our A-ok security feature-- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for sellers accounts).</span>
           </span>  
-          <span className="block mt-2 mb-2">Verified accounts can automatically and securely <a href="/auth/login" className="link">sign in</a> when connected, 
-            using Google's firebase-auth providers.
-          </span>
-            There are limited and paid services on AfroFashion, however, 
-            verified sellers can create or upload up to 5 products from their <a href="/profile" className="link">profile</a> on a free version.
-          <span className="block mt-2 mb-2">See the pros & conditions for our paid <a href="/subscriptions" className="link">subscription</a> services,
-            and how they can help sellers to grow and manage their fashion business on a Brand level.
+          <span className="block mt-2 mb-2">The verification process is done when you're redirected back to a "Verification Successful" page.
+            From this point, your account will be automatically and securely <a href="/auth/login" className="link">signed in</a> when connected, 
+            using Google's firebase-auth providers. You can manually turn of this feature by contacting support.
           </span>
           </div>
         </p>
@@ -122,8 +120,12 @@ export const HelpCard = () => {
         <section id="brands-management">
           <h6 className="pt-4 text-secondary"><b>Brands Management</b></h6>
           <p>
-            Brands management is a critical and integral aspect of our eco-system. This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
-          <span className="block mt-2 mb-1">Simple strategies for brands management</span>
+            Brands management is a critical and integral aspect of our eco-system. 
+            There are limited and paid services a seller can enjoy, however the most essential is branding.
+            <span className="block mt-1 mb-1">Verified sellers can experience starting a brand collection, create or upload up to 5 products from their <a href="/profile" className="link">profile</a> on a free version.
+            This is mostly achieved by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
+            </span>
+          <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
            <li> Brand Integrity: Stringent measures are in place to verify product authenticity, bolstering consumer confidence.</li>
            <li> Brand Promotion: Proactive marketing initiatives will be the spotlight for a brand's unique value and potential.</li>
            <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience across the world.</li>
