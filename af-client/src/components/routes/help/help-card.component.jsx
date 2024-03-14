@@ -106,8 +106,8 @@ export const HelpCard = () => {
           <div id="seller-registration">
           <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
-            A verification link will be sent to the registered email with title "Sign-in to Afro Fashion requested at &#10094;Date&#10095;;". 
-            Clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
+            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095;...</b>" 
+            - clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
           <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
           </span>  
           <span className="block mt-2 mb-2">The verification process is complete when you're redirected back to a "Verification Successful" url on Afrofashion page.
@@ -127,7 +127,7 @@ export const HelpCard = () => {
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
            <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, so as to bolster consumer confidence and trust.</li>
-           <li> Brand Promotion: Afrofashion's business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential.</li>
+           <li> Brand Promotion: Afrofashion's business promotions, targeted Ads, and other marketing strategies will be used to drive brand potential and value.</li>
            <li> Collaboration: Strategic partnerships can expand brand reach and resonate with diverse audience.</li>
            <li> Loyalty Programs: Cash and prize incentives will be organized to motivate milestone sales and reward loyalty with royalty-free services.</li>
           </p>
@@ -162,7 +162,7 @@ export const HelpCard = () => {
             <li>Business Package</li>
             <li>Premium Package</li>
             <br/>
-            <b>Please note:</b> clicking on '<b>Subscribe Now</b>' initiates a payment window, 
+            <b>Please note:</b> clicking on <b>Subscribe Now</b> initiates a payment window, 
             so please do not start the process if you are not ready to pay
           </p>
         </section>
