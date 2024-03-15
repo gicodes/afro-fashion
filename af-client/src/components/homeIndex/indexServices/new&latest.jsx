@@ -13,7 +13,7 @@ export const Loading = () => (
 )
 
 export const NoInternet = () => (
-  <span key="nointernet" className='mt-4 flex-just-center'>
+  <span key="nointernet" className='mt-4 flex-just-center mb-4'>
     No vex boss, e be like network no too solid o..
   </span>
 )

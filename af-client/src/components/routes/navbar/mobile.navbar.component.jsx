@@ -68,16 +68,21 @@ const MobileNavBar = () => {
 
           <div className="container-fluid">
             <div className="nav-burger">
-              <div 
+              <div
                 type="button" 
                 onClick={toggleMenu}
                 className="open-close-nav"
               >
-                {isBurger ? <CloseButton/> : <div className="animated-icon1">                      
-                  <span></span>
-                  <span></span>    
-                  <span></span>
-                </div>}
+                {isBurger ? 
+                  (<div className="btm-nav-close-btn">
+                    <CloseButton />
+                  </div>) : 
+                  <div className="animated-icon1">                      
+                    <span></span>
+                    <span></span>    
+                    <span></span>
+                  </div>
+                }
               </div>
 
               <div className="force-af-center"></div>
@@ -124,8 +129,9 @@ const MobileNavBar = () => {
           )}
         </div>
 
-        {isBurger && <BurgerMenu closeMenu={closeMenu}/>} 
       </Container>
+      {isBurger && <BurgerMenu closeMenu={closeMenu}/>} 
+
     </Fragment>
   )
 }

@@ -76,7 +76,7 @@ export const HelpCard = () => {
         <h6><u>What do I need to start buying?</u></h6>
         <p>
           Start buying on AfroFashion by signing up as a <a href="/auth/register" className="link">buyer</a>, 
-          with email - password or by using a <a href="/auth/register#google" className="link">G-mail </a>account. 
+          with email - password or by using a <a href="/auth/register#google" className="link">g-mail </a>account. 
           <span className="block mt-2 mb-2"> Users can browse products randomly, 
             shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers for free.
           </span> 
@@ -100,14 +100,14 @@ export const HelpCard = () => {
      
       <div id="selling">
         <h6><u>What do I need to start selling?</u></h6>
-        <p>
+        
           To start selling on Afrofashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
           and verify your account with email <span className="text-gray">or phone</span>. You'll be redirected to a Terms & Conditions page, 
-          and then you are sent an email to complete email verification.
+          and then sent an email to complete an email verification.
           <div id="seller-registration">
           <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
           <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
-            A verification link will be sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095; </b>  
+            A verification link is sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095; </b>  
             - clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
           <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
           </span>  
@@ -116,7 +116,6 @@ export const HelpCard = () => {
             thanks to Google's firebase-auth providers. You can manually turn of this feature by contacting support.
           </span>
           </div>
-        </p>
 
         <section id="brands-management">
           <h6 className="pt-4 text-secondary"><b>Brands Management</b></h6>
@@ -127,9 +126,9 @@ export const HelpCard = () => {
               We aim to achieve plenty by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, in order to boost confidence and trust.</li>
-           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand potential and value.</li>
-           <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience.</li>
+           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, in order to boost confidence and trust</li>
+           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential</li>
+           <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</li>
            <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate every business brand</li>
           </p>
         </section>

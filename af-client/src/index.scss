@@ -111,6 +111,7 @@ a {
 .w-75 { width: 75%; }
 
 .vh-100 { height: max-content }
+.vh-20 { min-height: max-content }
 
 .bl-ordered {
   // border light 
@@ -123,10 +124,7 @@ a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.fullWidth {
-  // used on search results
-  width: 100% 
-}
+.fullWidth { width: 100% }
 
 .dis-non {
   // used to hide a div

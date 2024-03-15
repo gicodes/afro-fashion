@@ -34,8 +34,9 @@ export const navLinks = [
 const BurgerMenu = ({closeMenu}) => {
   return (
     <Container>
-      <nav className="burger-menu bg-black-gradient z-index-9999">
-        <div className="flex-column justify-content-end align-items-center flex-1">
+      <nav className="burger-menu bg-black-gradient">
+        <div className="m-2">
+          <div className='h-5'></div>
           {  
             navLinks.map((item, index) => (
               <div
@@ -45,12 +46,20 @@ const BurgerMenu = ({closeMenu}) => {
                 <Link 
                   to={item.link} 
                   onClick={closeMenu}
-                  className='nav-link flex-just-center'
+                  className='nav-link mb-3'
                 >
                   {item.title}
                 </Link>
               </div>
             ))}
+
+          <div className='burger-bottom'>
+            <h1 className='mr-3 nav-brand'>
+              <span className="green">A</span><span className='text-primary'>fro</span>
+              <span className="green">F</span><span className='text-primary'>ash</span><span className="green">ion</span>
+            </h1>
+            <p>EST. 2022 - 2024</p>
+          </div>
         </div>
       </nav>
     </Container>
