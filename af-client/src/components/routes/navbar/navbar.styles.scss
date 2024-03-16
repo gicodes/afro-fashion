@@ -144,7 +144,7 @@
 }
 
 .btm-nav-close-btn {
-  background-color: rgba(255, 217, 0, 0.648);
+  background-color: rgba(255, 217, 0, 0.816);
   border: 1px solid gray;
   border-radius: 50%;
   position: absolute;
@@ -163,11 +163,11 @@
   height: 100%;
   display: flex;
   padding: 5%;
-  left: 0.1%;
+  left: 0;
   top: 0;
 
   .h-5 {
-    min-height: 50px;
+    min-height: 55.5px;
   }
 
   .nav-link { 
@@ -183,7 +183,7 @@
 
   .burger-bottom {
     position: fixed;
-    bottom: 10%;
+    bottom: 5%;
     left: 25px;
 
     p {
