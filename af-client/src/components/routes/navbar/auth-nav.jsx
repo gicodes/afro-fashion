@@ -38,7 +38,7 @@ export const SideNav = ({
       >
       <Link onClick={onClose} to="profile" 
         className="-mb p-1 text-primary" 
-        title="click to view profile"
+        title="view profile"
         >
         {displayName.split(" ")[0] || displayName}
       </Link>
