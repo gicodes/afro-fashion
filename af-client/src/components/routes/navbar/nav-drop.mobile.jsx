@@ -1,6 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { Container } from 'react-bootstrap';
+import { useEffect, useRef } from 'react'; 
 import { Link } from 'react-router-dom';
 
 export const navLinks = [
@@ -31,9 +32,29 @@ export const navLinks = [
   },
 ]
 
-const BurgerMenu = ({closeMenu}) => {
+const BurgerMenu = ({isOpen, onClose}) => {
+  const sideNavRef = useRef(null); 
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sideNavRef.current 
+          && !sideNavRef.current.contains(event.target)
+        ) onClose()
+    };
+
+    if (isOpen) document.body.style.overflow = "hidden";
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <Container>
+    <Container
+      ref={sideNavRef}
+    >
       <nav className="burger-menu bg-black-gradient">
         <div className="m-2">
           <div className='h-5'></div>
@@ -45,7 +66,7 @@ const BurgerMenu = ({closeMenu}) => {
               >
                 <Link 
                   to={item.link} 
-                  onClick={closeMenu}
+                  onClick={onClose}
                   className='nav-link mb-3'
                 >
                   {item.title}

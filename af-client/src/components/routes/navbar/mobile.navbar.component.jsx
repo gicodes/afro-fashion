@@ -1,3 +1,5 @@
+/* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
+
 import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import { Container, Navbar, CloseButton } from "react-bootstrap";
@@ -105,9 +107,9 @@ const MobileNavBar = () => {
                       <LuUserCheck color="white"/>                       
                     </span>
                     ) : (
-                      <Link className="nav-link" to='/auth'>
-                        <LuLogIn/>
-                      </Link>
+                    <Link className="nav-link" to='/auth'>
+                      <LuLogIn/>
+                    </Link>
                    )}
                 </div>
               </div>
@@ -130,8 +132,12 @@ const MobileNavBar = () => {
         </div>
 
       </Container>
-      {isBurger && <BurgerMenu closeMenu={closeMenu}/>} 
-
+      {isBurger && (
+        <BurgerMenu 
+          isOpen={isBurger} 
+          onClose={closeMenu}
+        />
+      )} 
     </Fragment>
   )
 }
