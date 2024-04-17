@@ -1,0 +1,46 @@
+.cart-icon-container {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  .shopping-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .fill {
+    fill-opacity: 0.95;
+    color: burlywood;
+  }
+
+  .expand {
+    animation-name: expand-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    display: inline-block;
+  }
+
+  @keyframes expand-animation {
+    0% { transform: rotate( 0.0deg) }
+    10% { transform: rotate(14.0deg) }  
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate( 0.0deg) } 
+   100% { transform: rotate( 0.0deg) }
+  }
+
+  .item-count {
+    position: absolute;
+    font-weight: bold;
+    font-size: 10px;
+    bottom: 27px;
+    right: 40%;
+  }
+}

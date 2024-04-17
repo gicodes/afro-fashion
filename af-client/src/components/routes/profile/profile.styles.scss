@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
+button:focus,
+input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+a,
+a:hover{
+  text-decoration: none;
+}
+
+.-pc {
+  height: max-content;
+  background: whitesmoke;
+}
+  
+@media (min-width: 992px){
+  .-pc {
+    width: 50%;
+    margin: 0 auto;
+    
+    .profile-comp {
+      max-width: 696px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.card-title {
+  padding: 5px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+  .-welcome {
+    font-size: large;
+    padding-left: 1%;
+    color: green;
+  }
+
+  .-date {
+    color: #202020;
+    font-size: small;
+    padding-right: 2%;
+  }
+}
+
+.profile-card {
+  height: 250px;
+  width: 100%;
+}
+
+.profile-info {
+  text-align: center;
+  font-weight: 345;
+}
+
+.avatar {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 250px;
+  width: 100%;
+    
+  .profile-image {
+    min-width: 250px;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+.verified {
+  position: absolute;
+  right: 5%;
+  top: 1%;
+}
+
+.image-upload {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .choose-file {
+    width: 75%;
+    margin-bottom: 10px;
+  }
+}
+
+body { font-family: 'Roboto', sans-serif }
+
+.centered-dropdown {
+  margin: auto;
+  display: flex;
+  text-align: center;
+}
+
+.category-card {
+  border: 1px solid #707070;
+  margin-bottom: 10px;
+  border-radius: 2%;
+  margin-top: 5px;
+
+  .product-bar {
+    justify-content: space-between;
+    display: flex;
+    margin: 10px;
+
+    .product-name {
+      align-self: center;
+    }
+  }
+}

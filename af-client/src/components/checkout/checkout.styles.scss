@@ -1,0 +1,176 @@
+.checkout-table {
+  width: 100%;
+  display: table;
+}
+
+.t-header {  
+  margin: 0 10px 0 10px;
+  text-align: center;  
+}
+
+@media (max-width: 600px) {
+  tr.align-middle > td {  
+    display: inline-block; 
+    background: white;
+    border: 0;
+
+    .w-25{ 
+      max-width: 100%; 
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  tr.total {
+    width: 100%;
+    position: absolute;
+  }
+
+  .pay-button {
+    margin-top: 40px;
+  }
+
+  .lr-lg{
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+.w-25 {
+  text-align: center;
+  width: 25%;
+
+  .checkout-img {
+    object-fit: contain;
+    max-height: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.checkout-qty {
+  margin: auto;
+
+  .increment,
+  .decrement {
+    cursor: pointer;
+    width: max-content;
+    padding: 5%;
+  }
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  background: lightgrey;
+  justify-content: flex-end;
+
+  .sub-total {
+    display: flex;
+    width: max-content;
+    background: lightgray;
+    justify-content: flex-end;
+  }
+}
+
+.pay-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pay-gap { height: 100px }
+
+.items-card {
+  margin-top: 20px;
+  max-width: 500px;
+  padding: 10px;
+  width: 100%;
+
+  .items-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .item-row {
+      padding: 5px;
+      display: flex;
+      flex-direction: column; 
+      align-items: flex-start;
+    }
+  }
+}
+
+.pay-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  .close-btn {
+    top: 2%;
+    right: 1%;
+    padding: 2px;
+    font-size: smaller;
+    position: absolute;
+  }
+
+  .pay-card-col {
+    width: auto;
+    display: inline-flex;
+
+    .fullWidth { width: 100% }
+
+    .i-2 {
+      width: 100%;
+      text-wrap: nowrap;
+      margin: 0 10px 0 10px;
+      padding: 0 20px 0 20px;
+    }
+  }
+
+  .pay-services-icon {
+    width: 100%;
+    height: 75px;
+  }
+
+  .pay-service-logo {
+    width: 100%;
+    height: 100px;
+    min-width: 100px;
+    align-self: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .i-1, .i-2 {
+      width: min-content;
+    }
+
+    width: 100%;
+    flex: 1;
+    flex-wrap: nowrap;
+    display: inline-flex;
+  }
+
+  @media (max-width: 768px) {
+    .i-1 {
+      display: none;
+    } 
+
+    .i-2 {
+      width: 100%;
+    }
+
+    .pay-services-icon {
+      width: 75%;
+      height: auto;
+      margin-top: 10px;
+    }
+  
+    .flutter,
+    .paystack,
+    .v-center {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+import { CreditsList } from "./credit-list";
+import CreditsCard from "./credits-card";
+
+const CreditsPage = () => {
+  return (
+      <>
+        <div className="card p-2 mb-2">
+          <div className="card-title">
+            <h3 className="text-center mx-auto bg-ws p-3">Credits</h3>
+          </div>
+          <div className="card p-1">
+            <div className="d-lg-flex mt-4">
+              <CreditsList />
+              <CreditsCard />
+          </div>
+        </div>
+          
+        </div>
+    </>
+  );
+};
+
+export default CreditsPage;

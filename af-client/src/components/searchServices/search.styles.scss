@@ -1,0 +1,26 @@
+.search-bar {
+  padding: 1%;
+  width: 100%;
+  display: flex;
+
+  input {
+    margin-right: 1px;
+    padding-left: 2%;
+  }
+
+  button {
+    display: inline;
+  }
+}
+
+.search-results {
+  margin: 1%;
+  padding: 2%;
+  margin-top: -2px;
+  background-color: white;
+  
+  span {
+    display: flex;
+    justify-content: center;
+  }
+}
