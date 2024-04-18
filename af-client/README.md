@@ -11,7 +11,10 @@
 - Once the packages are installed and your package.json file is updated, to start the app, run `npm start`
 - This app would start on the `process.env.PORT` or the defaulted port: 3000 (unless modified).
 - If you're not redirected to your browser to view this app, you can visit http://localhost:3000
-![alt text](Screenshot_localhost:3000_lg.png)
+Larger Screen Display:
+![alt text](Screenshot_localhost:3000_lg.png) 
+
+Mobile Display:
 ![alt text](Screenshot_localhost:3000_sm.png)
 
 ## Render Structure
