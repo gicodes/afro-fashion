@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../../contexts/user.context';
 
@@ -6,11 +6,15 @@ const ProtectedSellerRoute = ({ element }) => {
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // check if the user is authenticated and has the userType 'seller'
-  const isSeller = currentUser && currentUser.userType === 'seller';
+  useEffect(() => {
+    if (!currentUser) {
+      navigate('/auth'); 
+    } else if (currentUser.userType !== 'seller') {
+      navigate('/auth'); 
+    }
+  }, [currentUser, navigate]);
 
-  if (!isSeller) {
-    navigate('/auth');
+  if (!currentUser || currentUser.userType !== 'seller') {
     return null;
   }
 
