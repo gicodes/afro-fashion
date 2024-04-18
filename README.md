@@ -6,11 +6,13 @@
 
 ## How to Start App
 
-- Make sure you are in the correct working directory - `cd` into the project root folder `Afro-fashion-main/`
-- To install the projects required packges and dependencies, run `npm install`.
-  Make sure to do this for both `af-client `and `af-server`
-- This app is configured to run/ start the client simultenously with the server, using a run-all --parrallel package that is installed as a dependency for this app.
+- Make sure you are in the correct working directory - `cd` into the project root folder `Afro-fashion-main/`packages and dependencies, run `npm install`.![alt text](<Screenshot_npm_install.png>)
+- The previous command should install npm packages for both directories, however in case it does NOT achieve that, you may want to manually install the packages by navigating to the directory: client or server or both (via terminal) and run `npm install`
+- When all the necessary dependencies, packages and scripts are installed, you can start the apps, individually (Higher systen resource - Not recommended), or you can start them simultenously (from the root directory)
+- This app is configured to run the client start-script simultenously with the server, using a run-all --parrallel package that is installed as a dependency for this app.
 - Once the packages are installed and your package.json files are updated, to start the app, go to the root directory and run `npm run dev`
+![alt text](<Screenshot_npm_run_dev.png>)
+
 
 ## Render Structure
 
@@ -20,9 +22,10 @@
   > `af-client` 
   > `af-server`
 
-- Most of the application logic and code-base can be found in the af-client directory as it houses the front-end components, pages and other react dependencies.
-- The server-side is a simple and light-weight express.js application that handles back-end operations such as nodejs API logic or other third-party api operations.
-- Rewriting this tree structure would mean that the existing logic and data-flow would be compromised. Therefore, such actions can only be permitted in cases such as migrations or extreme app scaling.
+- Over 80% of the application's program and code-base can be found in the `af-client` directory as it houses the client-side react app.
+- The `af-server` directory is a server-side light-weight express.js app that handles the back-end logic and other api-specific operations.
+- Re-writing this tree structure may require a major change to the existing logics and data-flow. Therefore, such action can only be permitted in cases such as migrations or extreme app scaling.
+
 
 ## Component Structure
 
@@ -48,6 +51,7 @@ The main components of this application can be found under the _src_ directory l
 
   - utils/
   - server.js
+
 
 # Tech Stack
 
