@@ -23,6 +23,7 @@ import ProtectedSellerRoute from '../profile/seller/protected-route.jsx';
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import Subscription from '../profile/seller/subscriptions/subscription.jsx';
+import { PrivacyPolicy } from '../../homeIndex/indexServices/learnAboutAf.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);
@@ -34,6 +35,7 @@ const Index = () => {
         <Route index element={<HomeIndex />} />
         <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
+        <Route path='privacy-policy' element={<PrivacyPolicy/>} />
         <Route path="auth/register" element={<SignUp />} />
         <Route path="marketplace/*" element={<MarketPlace />} />
         <Route path='brands' element={<BrandsPage />} />

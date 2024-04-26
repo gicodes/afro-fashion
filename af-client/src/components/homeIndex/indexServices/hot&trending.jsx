@@ -20,7 +20,7 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => (
         }}
       />
       <div className='name-price mt-2'>
-        <span className='fs-smaller text-success flex-wrap'>
+        <span className='name fs-smaller text-success flex-wrap'>
           {item.name}
         </span>
         <span 
@@ -56,12 +56,16 @@ const TrendingIndex = () => {
   return (
     <>
       <Container className='no-padding-container featured-container'>
-        <div className='hot-and-trending'>
-          <h6 className='flex-just-center m-2'>
-            Featured: &nbsp;<span className='text-primary'> 
-              Hot and Trending 
-            </span> &nbsp;🔥
-          </h6>
+        <div className='card hot-and-trending'>
+          <div className='card-header'>
+            <span className='lead-title text-primary'>FEATURED</span>
+            <div className='flex-just-center'>
+              <img className='icon-img' src='https://img.icons8.com/?size=96&id=4g9D6i4Tppwe&format=png' alt='hot category icon'/>
+              <span className='lead-caption'> 
+                Most popular items are featured randomly in this category
+              </span>
+            </div>
+          </div>
           
           {isLoading && <Loading key="loading" />}
           {!isLoading && trendingItems.length === 0 && <NoInternet key="noInternet" />}

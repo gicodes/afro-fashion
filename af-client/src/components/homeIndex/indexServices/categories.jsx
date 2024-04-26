@@ -10,9 +10,11 @@ const CategoryIndex = ({categories}) => {
   return (
     <>
       <Container className='no-padding-container'>
-        <div className='categories-index-container'>
-          <div className='flex-just-center pt-3 p-2 -mb'>
-            <h6 className='title'>Explore Popular Categories 🛍️</h6>
+        <div className='card categories-index-container'>
+          <div className='card-header flex-just-center -mb2 p-3 pt-3'>
+            <h6 className='title'>
+              Explore Popular Categories 🛍️
+            </h6>
           </div>
           <hr/>
           <div className='categories-slider'>

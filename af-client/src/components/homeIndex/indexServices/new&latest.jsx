@@ -41,12 +41,17 @@ const LatestIndex = () => {
   return (
     <>
       <Container className='no-padding-container featured-container'>
-        <div className='new-and-latest'>
-          <h6 className='flex-just-center m-2'>
-            Featured: &nbsp;<span className='text-primary'> 
-              New and Latest
-            </span>&nbsp; 🆕
-          </h6>
+        <div className='card new-and-latest'>
+          <div className='card-header'>
+            <span className='lead-title text-primary'>FEATURED</span>
+            <div className='flex-just-center'>
+              <img className='icon-img' src='https://img.icons8.com/?size=96&id=z6am0h0aTiXX&format=png' alt='new category icon'/>
+              <span className='lead-caption'> 
+                New and most recent items are featured in this category
+              </span>
+            </div>
+          </div>
+
           {isLoading && <Loading key="loading" />}
           {!isLoading && latestItems.length === 0 && <NoInternet key="noInternet" />}
 

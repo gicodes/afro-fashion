@@ -23,6 +23,7 @@ import Subscription from '../profile/seller/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
+import { PrivacyPolicy } from '../../homeIndex/indexServices/learnAboutAf.jsx';
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -33,6 +34,7 @@ const Home = () => {
       <Route path='/' element={<NavBar />} >
         <Route index element={<HomeIndex />} />
         <Route path="help" element={<Help />} />
+        <Route path='privacy-policy' element={<PrivacyPolicy/>} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp/>} />
         <Route path="marketplace/*" element={<MarketPlace />} />      
