@@ -1,0 +1,43 @@
+.footer {
+    width: 100%;
+    display: grid;
+
+    .footer-links {
+        display: grid;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: center;
+
+        .links {
+          margin-top: 15px;
+          font-size: smaller;
+        }
+    }
+
+    .copyright {
+        margin: 5%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 5%;
+        width: 100%;
+        display: inline;
+        background: silver;
+
+        .footer-links {
+            width: 100%;
+            display: flex;
+            margin-top: 25px;
+            justify-content: space-evenly;
+        }
+
+        .copyright {
+            display: grid;
+            justify-content: center;
+        }
+    }
+}

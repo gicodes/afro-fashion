@@ -15,6 +15,7 @@ const ProtectedUserRoute = ({ element }) => {
   }, [currentUser, navigate]);
 
   if (!currentUser || currentUser.userType !== 'buyer') {
+
     return null;
   }
 

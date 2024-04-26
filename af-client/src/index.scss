@@ -8,7 +8,9 @@ html {
 
 // custom body styles used throughout
 body {
-  background: #1a1a1a url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D");
+  background: #1a1a1a 
+  // url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D")
+  ;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -111,7 +113,8 @@ a {
 .w-75 { width: 75%; }
 
 .vh-100 { height: max-content }
-.vh-20 { min-height: max-content }
+.vh-max { min-height: max-content }
+.vh-250 { min-height: 250px }
 
 .bl-ordered {
   // border light 
@@ -136,6 +139,12 @@ a {
   align-self: center;
 }
 
+.h-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // set space at the bottom for large viewports
 .lg-div { height: 120px }
 
@@ -158,6 +167,12 @@ a {
 // custom text colors and bg
 .text-primary {
   background: radial-gradient(skyblue 0.89%, green 89%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-danger { background: radial-gradient(tomato 0.89%, salmon 4.5%, burlywood 84%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -3,6 +3,7 @@ import './user.styles.scss';
 // savedItems.savedItems can be modified to include links to products and/or checkout
 // savedItems.savedItems can use options alerts to control flow to product routing
 // savedItems.savedItems can use a delete button to minimize user data
+
 export const SavedItems = ({ savedItems, item }) => {
   if (item === "orders"){
     return;

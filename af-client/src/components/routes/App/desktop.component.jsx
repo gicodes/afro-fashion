@@ -1,6 +1,7 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useContext } from 'react';
+import Footer from '../navbar/footer.jsx';
 import Page404 from '../../../redirect/404.jsx';
 import CreditsPage from '../credits/credits.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -23,6 +24,7 @@ import ProtectedSellerRoute from '../profile/seller/protected-route.jsx';
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import Subscription from '../profile/seller/subscriptions/subscription.jsx';
+import { PrivacyPolicy } from '../../homeIndex/indexServices/learnAboutAf.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);
@@ -34,6 +36,7 @@ const Index = () => {
         <Route index element={<HomeIndex />} />
         <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
+        <Route path='privacy-policy' element={<PrivacyPolicy/>} />
         <Route path="auth/register" element={<SignUp />} />
         <Route path="marketplace/*" element={<MarketPlace />} />
         <Route path='brands' element={<BrandsPage />} />
@@ -57,6 +60,7 @@ const Index = () => {
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
+        <Route path='/' element={<Footer/>} />
       </Route>
       <Route path="*" element={<Page404 />} />
     </Routes>

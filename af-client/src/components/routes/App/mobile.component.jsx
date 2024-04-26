@@ -1,6 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
 import { useContext } from 'react';
+import Footer from '../navbar/footer.jsx';
 import Page404 from '../../../redirect/404.jsx';
 import CreditsPage from "../credits/credits.jsx";
 import { Route, Routes } from "react-router-dom";
@@ -23,6 +24,7 @@ import Subscription from '../profile/seller/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
+import { PrivacyPolicy } from '../../homeIndex/indexServices/learnAboutAf.jsx';
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -33,6 +35,7 @@ const Home = () => {
       <Route path='/' element={<NavBar />} >
         <Route index element={<HomeIndex />} />
         <Route path="help" element={<Help />} />
+        <Route path='privacy-policy' element={<PrivacyPolicy/>} />
         <Route path="auth" element={<SignIn />} />
         <Route path="auth/register" element={<SignUp/>} />
         <Route path="marketplace/*" element={<MarketPlace />} />      
@@ -57,6 +60,7 @@ const Home = () => {
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
+        <Route path='/' element={<Footer/>} />
       </Route>        
       <Route path="*" element={<Page404 />} />
     </Routes>

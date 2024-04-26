@@ -58,8 +58,7 @@ const NavBarComponent = () => {
 
   return (
     <Fragment>
-      <Container className="container no-padding-container">
-
+      <Container className="no-padding-container">
         <Outlet />
         <Navbar fixed="bottom" bg="light">
           {cartOpen && <CartDropdown />}

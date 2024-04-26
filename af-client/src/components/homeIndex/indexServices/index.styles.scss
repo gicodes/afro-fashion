@@ -30,7 +30,7 @@
 @media (min-width: 768px) {
   .categories-index-container {
     .title {
-      font-size: larger;
+      font-size: large;
       margin: 10px;
     }
 
@@ -49,7 +49,6 @@
   .featured-container {
     padding: 1%;
     display: flex;
-    margin-bottom: 1%;
     background: whitesmoke;
 
     .hot-and-trending {
@@ -144,5 +143,37 @@
     display: flex;
     row-gap: 10px;
     justify-content: space-between;
+
+    .name {
+      width: 80%;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .price {
+      letter-spacing: 0.333px;
+      font-weight: 420;
+    }
+  }
+
+  .lead-title {
+    display: flex;
+    margin-top: 8px;
+    font-weight: 720;
+    font-size: smaller;
+    letter-spacing: 5px;
+    justify-content: center;
+  }
+
+  .lead-caption {
+    display: flex;
+    font-size: x-small;
+    align-items: center;
+    font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+  .icon-img {
+    margin: 10px;
+    max-width: 45px;
+    max-height: 45px;
   }
 }
