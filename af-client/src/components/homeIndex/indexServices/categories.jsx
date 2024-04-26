@@ -13,7 +13,7 @@ const CategoryIndex = ({categories}) => {
         <div className='card categories-index-container'>
           <div className='card-header flex-just-center -mb2 p-3 pt-3'>
             <h6 className='title'>
-              Explore Popular Categories 🛍️
+              Explore Popular Categories &nbsp; 🛍️
             </h6>
           </div>
           <hr/>
