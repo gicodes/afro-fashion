@@ -58,7 +58,9 @@ const TrendingIndex = () => {
       <Container className='no-padding-container featured-container'>
         <div className='card hot-and-trending'>
           <div className='card-header'>
-            <span className='lead-title text-primary'>FEATURED</span>
+            <span className='lead-title text-danger'>
+              FEATURED
+            </span>
             <div className='flex-just-center'>
               <img className='icon-img' src='https://img.icons8.com/?size=96&id=4g9D6i4Tppwe&format=png' alt='hot category icon'/>
               <span className='lead-caption'> 
