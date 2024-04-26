@@ -22,10 +22,6 @@
   > `af-client` 
   > `af-server`
 
-- Over 80% of the application's program and code-base can be found in the `af-client` directory as it houses the client-side react app.
-- The `af-server` directory is a server-side light-weight express.js app that handles the back-end logic and other api-specific operations.
-- Re-writing this tree structure may require a major change to the existing logics and data-flow. Therefore, such action can only be permitted in cases such as migrations or extreme app scaling.
-
 
 ## Component Structure
 
