@@ -15,7 +15,7 @@ import { categories } from "../collection/collection.component";
 const HomeIndex = () => {
   return (
     <>
-      <Container className="no-padding-container bg-lg mb-3">
+      <Container className="no-padding-container bg-lg">
         <SearchBar resultSx={"-mt pt-2"}/>
         {/* <AdSection /> */}
         <CategoryIndex categories={categories} />
