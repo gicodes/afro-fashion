@@ -24,7 +24,7 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => (
           {item.name}
         </span>
         <span 
-          className='v-center fs-smaller'
+          className='price v-center fs-smaller'
         >
           ${item.price}
         </span>

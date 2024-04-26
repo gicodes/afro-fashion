@@ -17,7 +17,9 @@ const HomeIndex = () => {
     <>
       <Container className="no-padding-container categories-container">
         <AdSection />
-        <SearchBar searchSx={"mt-1"} resultSx={"fullWidth"} />
+        <section id="search">
+          <SearchBar searchSx={"mt-1"} resultSx={"fullWidth"} />
+        </section>
         <CategoryIndex categories={categories}/>
         <div className="featured-container">
           <TrendingIndex />

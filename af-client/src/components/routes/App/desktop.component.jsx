@@ -1,6 +1,7 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useContext } from 'react';
+import Footer from '../navbar/footer.jsx';
 import Page404 from '../../../redirect/404.jsx';
 import CreditsPage from '../credits/credits.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -59,6 +60,7 @@ const Index = () => {
         </Route>
         <Route path="payments/success" element={<PaymentSuccessful />} />
         <Route path="payments/failed" element={<FailedOperation />} />
+        <Route path='/' element={<Footer/>} />
       </Route>
       <Route path="*" element={<Page404 />} />
     </Routes>

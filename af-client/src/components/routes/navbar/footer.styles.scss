@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    display: grid;
+
+    .footer-links {
+        display: grid;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: center;
+
+        .links {
+          margin-top: 15px;
+          font-size: smaller;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-links {
+        display: inline;
+    }
+}

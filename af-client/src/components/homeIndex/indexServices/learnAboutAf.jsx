@@ -10,8 +10,8 @@ export const PrivacyPolicy = () => (
           <h4>Privacy Policy</h4>
         </div>
 
-        <div className='card-body fs-smaller text-center'>
-          <div className='p-2'>
+        <div className='card-body text-center'>
+          <div className='m-2 p-2'>
             <p>This Privacy Policy describes how Afrofashion (referred to as "we", "us", or "our") 
               collects, uses, and discloses your Personal Information when you visit or make a purchase from the Afrofashion platform.</p>
           </div>
@@ -22,6 +22,9 @@ export const PrivacyPolicy = () => (
             <h6>
               Information Collection and Use  &nbsp; <span className='fs-tiny'>[ 1.0 ]</span>
             </h6>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
               When you interact with Afrofashion, we collect certain information about your device, 
               your interaction with the platform, and information necessary to process your purchases. 
@@ -64,6 +67,9 @@ export const PrivacyPolicy = () => (
             <h6>
               Minors  &nbsp; <span className='fs-tiny'>[ 2.0 ]</span>
             </h6>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
               Afrofashion is not intended for individuals under the age of <b>12</b>. &nbsp; We do not intentionally collect Personal Information from children. If you are the parent or guardian and believe your child has provided us with Personal Information, please contact us to request deletion.
             </p>
@@ -75,6 +81,9 @@ export const PrivacyPolicy = () => (
             <h6>
               Lawful Basis  &nbsp; <span className='fs-tiny'>[ 3.0 ]</span>
             </h6>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
               We process your personal information under various lawful bases, including consent, the performance of contracts, compliance with legal obligations, protection of vital interests, tasks carried out in the public interest, and our legitimate interests.
             </p>
@@ -107,6 +116,9 @@ export const PrivacyPolicy = () => (
             <h6>
               Cookies  &nbsp; <span className='fs-tiny'>[ 4.0 ]</span>
             </h6>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
               We use cookies to optimize your experience on our platform. You can control and manage cookies in various ways, but please note that blocking cookies may impact your user experience.
             </p>
@@ -125,13 +137,19 @@ export const PrivacyPolicy = () => (
             <h6>
               Changes &nbsp; <span className='fs-tiny'>[ 5.0 ]</span>
             </h6>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
             We may update this Privacy Policy from time to time. We encourage you to review this policy periodically for any changes.
             </p>
           </div>
 
           <div className='p-1 m-5'>
-            <h4>Contact</h4>
+            <h4>CONTACT US</h4>
+            <div className='h-center'>
+                <hr className='w-25'/>
+            </div>
             <p>
               For more information about our privacy practices or if you have questions, please contact us at <b>info@afrofashion.site</b>.
             </p>  If you are not satisfied with our response to your complaint, you have the right to lodge your complaint with the relevant data protection authority.
