@@ -26,7 +26,7 @@ const Collections = () => {
 
           return (
             <div key={index}>
-              <Container className='card category-preview bg-silver'>
+              <Container className='card category-preview'>
                 <h2 className='title'>
                   <Link to={title}>
                     <RoundCircleCard title={title.toUpperCase()} />
