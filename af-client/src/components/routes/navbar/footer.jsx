@@ -4,8 +4,8 @@ import './footer.styles.scss';
 const Footer = () => {
   return (
     <>
-        <div className='footer container'>
-          <div className='mt-5 flex-just-center'>
+        <div className='-footer container'>
+          <div className='flex-just-center mb-5'>
             <div className='w-25'>
                 <hr className='h-center'/>
             </div>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='mb-5 font-awesome copyright'>
+          <div className='mt-5 mb-3 font-awesome copyright'>
             <h6>© Afrofashion, 2024</h6>
           </div>
         </div>
