@@ -587,7 +587,7 @@ export const TermsOfService = () => (
                 <hr className='w-25'/>
             </div>
             <p>
-              Questions about the Terms of Service should be sent to us at <a href=''>info@afrofashion.site</a>
+              Questions about the Terms of Service should be sent to us at <a href='mailto:info@afrofashion.site'>info@afrofashion.site</a>
             </p>
           </div>
         </div>
