@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
         <div className='-footer container'>
-          <div className='flex-just-center mb-5'>
+          <div className='flex-just-center'>
             <div className='w-25'>
                 <hr className='h-center'/>
             </div>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <p className='h-center'><a href='/'>Terms Of Service</a></p>
             </div> 
 
-            <div className='h-center'>
+            <div className='h-center hide-in-bg'>
                 <hr className='w-25'/>
             </div>
           </div>

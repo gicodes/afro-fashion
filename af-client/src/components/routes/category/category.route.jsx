@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 import './category.styles.scss';
+import RoundCircleCard from '../../assets/circle/round-circle';
 
 // category route is rendered when users click on a category from the index page
 const Category = () => {
@@ -19,10 +20,10 @@ const Category = () => {
   return (
     // section id issues a category with a dynamic link to target
     <section id={category}>
-      <Container className="card no-padding-container bg-trans">
+      <Container className="card vh-100 bg-silver">
         { !products?.length > 0 ? (
           <>
-            <p className='mx-auto m-3 text-warning'>
+            <p className='mx-auto m-3 text-secondary'>
               Nothing on {category} right now. Try again later!
             </p>
           </>
@@ -37,7 +38,7 @@ const Category = () => {
         </div>
         )}
         <h1 className='category-title'>
-          <span className='p-2 text-white'>{category?.toUpperCase()}</span>
+          <RoundCircleCard title={category?.toUpperCase()} />
         </h1>
       </Container>
     </section>

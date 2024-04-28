@@ -25,10 +25,10 @@ const Collections = () => {
 
           return (
             <div key={index}>
-              <Container className='card no-padding-container category-preview'>
+              <Container className='card category-preview'>
                 <h2 className='title'>
                   <Link to={title}>
-                    <span className='p-2 text-white'>
+                    <span className='p-2'>
                       {title.toUpperCase()}
                     </span>
                   </Link>

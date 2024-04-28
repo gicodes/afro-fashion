@@ -1,4 +1,4 @@
-.footer {
+.-footer {
     width: 100%;
     display: grid;
 
@@ -39,5 +39,9 @@
             display: grid;
             justify-content: center;
         }
+    }
+
+    .hide-in-bg {
+        display: none;
     }
 }
