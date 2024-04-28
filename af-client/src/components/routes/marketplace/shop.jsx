@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { CategoriesContext } from '../../../contexts/categories.context';
 
 import './marketplace.styles.scss';
+import RoundCircleCard from '../../assets/circle/round-circle';
 
 // collections mapped to shop route
 const Collections = () => {
@@ -25,12 +26,10 @@ const Collections = () => {
 
           return (
             <div key={index}>
-              <Container className='card category-preview'>
+              <Container className='card category-preview bg-silver'>
                 <h2 className='title'>
                   <Link to={title}>
-                    <span className='p-2'>
-                      {title.toUpperCase()}
-                    </span>
+                    <RoundCircleCard title={title.toUpperCase()} />
                   </Link>
                 </h2>
                 <div
