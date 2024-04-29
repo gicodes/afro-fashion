@@ -220,7 +220,7 @@ export const TermsOfService = () => (
               </p>
           </div>
 
-          <div className='card m-1 p-5'>
+          <div className='m-1 p-5'>
             <h6>
               SECTION 1 - ONLINE STORE TERMS
             </h6>
@@ -239,7 +239,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='card m-1 p-5'>
+          <div className='m-1 p-5'>
             <h6>
               SECTION 2 - GENERAL CONDITIONS
             </h6>
@@ -248,7 +248,7 @@ export const TermsOfService = () => (
             </div>
             <p>
               We reserve the right to refuse service to anyone for any reason at any time.
-              You understand that your content (not including credit card information), may be transferred unencrypted and involve 
+              You understand that your content (not including credit information), may be transferred unencrypted and involve 
               (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. 
               Credit card information is always encrypted during transfer over networks.
               You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, 
@@ -257,7 +257,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='card m-1 p-5'>
+          <div className='m-1 p-5'>
             <h6>
               SECTION 3 - ACCURACY, COMPLETENESS AND TIMELINESS OF INFORMATION
             </h6>
@@ -266,13 +266,7 @@ export const TermsOfService = () => (
             </div>
           </div>
 
-          <div className='card m-1 p-5'>
-            <h6>
-              Cookies  &nbsp; <span className='fs-tiny'>[ 4.0 ]</span>
-            </h6>
-            <div className='h-center'>
-                <hr className='w-25'/>
-            </div>
+          <div className='m-1 p-5'>
             <p>
               We are not responsible if information made available on this site is not accurate, complete or current. 
               The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete, or more timely sources of information. Any reliance on the material on this site is at your own risk.
@@ -285,7 +279,7 @@ export const TermsOfService = () => (
 
           <br/> 
 
-          <div className='card m-1 p-5'>
+          <div className='m-1 p-5'>
             <h6>
               SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES
             </h6>
@@ -304,9 +298,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 5 - PRODUCTS OR SERVICES (if applicable)
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -329,9 +323,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 6 - ACCURACY OF BILLING AND ACCOUNT INFORMATION
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -351,9 +345,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 7 - OPTIONAL TOOLS
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -371,9 +365,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 8 - THIRD-PARTY LINKS
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -390,9 +384,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 9 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -412,9 +406,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 10 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -424,9 +418,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 11 - ERRORS, INACCURACIES AND OMISSIONS
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -442,9 +436,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 12 - PROHIBITED USES
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -459,9 +453,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 13 - DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -486,9 +480,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 14 - INDEMNIFICATION
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -499,9 +493,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 15 - SEVERABILITY
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -512,9 +506,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 16 - TERMINATION
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -529,9 +523,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 17 - ENTIRE AGREEMENT
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -545,9 +539,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 18 - GOVERNING LAW
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -557,18 +551,18 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 18 - CHANGES TO TERMS OF SERVICE
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 19 - GOVERNING LAW
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
@@ -580,9 +574,9 @@ export const TermsOfService = () => (
           </div>
 
           <div className='p-1 m-5'>
-            <h4>
+            <h6>
               SECTION 20 - CONTACT INFORMATION
-            </h4>
+            </h6>
             <div className='h-center'>
                 <hr className='w-25'/>
             </div>
