@@ -5,6 +5,14 @@
   justify-content: space-between;
 }
 
+.fixed {
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
 .force-af-center {
   width: 12%;
 }

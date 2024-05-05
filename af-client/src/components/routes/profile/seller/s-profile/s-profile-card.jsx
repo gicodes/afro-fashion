@@ -32,12 +32,15 @@ export const SellerProfileCard = ({
   const { userId } = useContext(UserContext);
   const { addAutoCloseAlert } = useAlert();
 
+  // extract userId for seller actions
   const sellerId = userId;
 
+  // handle edit without before saving
   const handleInputChange = (field, value) => {
     setInputFields({ ...inputFields, [field]: value });
   };
   
+  // handle saving before and after edit
   const handleSaveInfo = async (inputField, value) => {
     if (!inputField || !value) {
       addAutoCloseAlert("warning", `Empty ${inputField} field`)
@@ -61,6 +64,7 @@ export const SellerProfileCard = ({
     }
   }
 
+  // handle image edit
   const handleImgChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -68,6 +72,7 @@ export const SellerProfileCard = ({
     } else setImgFile(image)
   };
 
+  // handle image upload
   const handleImgUpload = async (imageFile) => {
     if (!imageFile) {
       addAutoCloseAlert("warning", 'Empty image field');
@@ -106,7 +111,9 @@ export const SellerProfileCard = ({
                 alt="profile avatar"
               />
             </div>
-            <div className="verified">{isVerified && <MdVerified size={20} fill="green"/>}</div>
+            <div className="verified">
+              {isVerified && <MdVerified size={20} fill="green"/>}
+            </div>
             
             <div className="p-1 mx-auto">
               <div className="image-upload">
@@ -185,7 +192,7 @@ export const SellerProfileCard = ({
                   <input type="text" 
                     className="form-control m-1" 
                     value={inputFields.address}
-                    placeholder="Eg.  #1 Afro street, Lagos, Nigeria"
+                    placeholder="Eg.  #69 Ozumba Mbadiwe, Lagos, Nigeria"
                     onChange={(e) => handleInputChange('address', e.target.value)}
                   />
                   <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">

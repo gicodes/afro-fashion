@@ -29,6 +29,8 @@ export default function Flutterwave(
     },
   };
 
+  // fwConfig comes as a template. 
+  // However the following code has been tailored down to suit Afro-fashion's flutterwave flow
   const fwConfig = {
     ...config,
     redirectUrl: 'payments/success' || 'payments/failed',

@@ -66,8 +66,7 @@ const MobileNavBar = () => {
   return (
     <Fragment>
       <Container className="container no-padding-container">
-        <nav className="nav bg-gw">
-
+        <nav className="nav bg-gw fixed">
           <div className="container-fluid">
             <div className="nav-burger">
               <div
@@ -117,6 +116,7 @@ const MobileNavBar = () => {
           </div>
           {cartOpen && <CartDropdown />}
         </nav>
+        <div className="vh-93"/>
         <Outlet />
 
         <div className={currentUser ? "side-nav" : "dis-non"}>

@@ -54,72 +54,88 @@ export const AcceptTerms = () => {
   };
 
   return (
-      <div className='terms-card'>
-    <Container className="no-padding-container flex-just-center">
-      <div className="card p-1 col-md-6 bg-gray">
-        <div className='card-title'>
-          <h6 className='mx-auto'>
-            Let's create and model your brand, Together!
-          </h6>
-        </div>
-        <hr/>
-
-        <Form>
-          <Form.Group controlId="acceptTermsCheckbox" className='card-body'>
-            <div className='form-check'>
-              <Form.Check 
-                type="checkbox"
-                label="Select All"
-                checked={isChecked.selectAll}
-                onChange={() => handleCheckboxChange('selectAll')}
-              />
-
-              <br/>
-
-              <Form.Check
-                type="checkbox"
-                label="I own a fashion business or clothing line"
-                checked={isChecked.businessOwner}
-                onChange={() => handleCheckboxChange('businessOwner')}
-              />
-
-              <Form.Check
-                type="checkbox"
-                label="I am looking to make sales using this platform"
-                checked={isChecked.makeSales}
-                onChange={() => handleCheckboxChange('makeSales')}
-              />
-
-              <Form.Check
-                type="checkbox"
-                label="I will consistently upload and update my products"
-                checked={isChecked.uploadProducts}
-                onChange={() => handleCheckboxChange('uploadProducts')}
-              />
-
-              <Form.Check
-                type="checkbox"
-                label="I give Afro-fashion rights to brand my products"
-                checked={isChecked.brandProducts}
-                onChange={() => handleCheckboxChange('brandProducts')}
-              />
-
-              <Form.Check
-                type="checkbox"
-                label="I will adhere to Afro-fashion user policy"
-                checked={isChecked.useDisplayName}
-                onChange={() => handleCheckboxChange('useDisplayName')}
-              />
-            </div>
-          </Form.Group>
-
-          <div className='card-actions'>
-            <Button onClick={handleAgreeButtonClick}>
-              I agree to these terms of use
-            </Button>
+    <div className='terms-card'>
+      <Container className="no-padding-container flex-just-center">
+        <div className="card p-1 col-md-6 bg-gray">
+          <div className='card-title'>
+            <h6 className='mx-auto'>
+              Let's create and model your brand, Together!
+            </h6>
           </div>
-        </Form>
-      </div>
-    </Container></div>
+          <br/>
+
+          <div className="card bg-ws">
+            <div className="card-body fs-smaller text-center">
+              In order to start operating in the marketplace... sellers are required to comply with our Business' terms of service
+            </div>
+          </div>
+          <br/>
+
+          <Form>
+            <Form.Group controlId="acceptTermsCheckbox" className='card-body'>
+              <div className='form-check'>
+                <Form.Check 
+                  type="checkbox"
+                  label="Select All"
+                  checked={isChecked.selectAll}
+                  onChange={() => handleCheckboxChange('selectAll')}
+                />
+
+                <hr/>
+
+                <Form.Check
+                  type="checkbox"
+                  label="I own a fashion business or clothing line"
+                  checked={isChecked.businessOwner}
+                  onChange={() => handleCheckboxChange('businessOwner')}
+                />
+
+                <Form.Check
+                  type="checkbox"
+                  label="I am looking to make sales using this platform"
+                  checked={isChecked.makeSales}
+                  onChange={() => handleCheckboxChange('makeSales')}
+                />
+
+                <Form.Check
+                  type="checkbox"
+                  label="I will consistently upload and update my products"
+                  checked={isChecked.uploadProducts}
+                  onChange={() => handleCheckboxChange('uploadProducts')}
+                />
+
+                <Form.Check
+                  type="checkbox"
+                  label="I give Afro-fashion rights to brand my products"
+                  checked={isChecked.brandProducts}
+                  onChange={() => handleCheckboxChange('brandProducts')}
+                />
+
+                <Form.Check
+                  type="checkbox"
+                  label="I will adhere to Afro-fashion user policy"
+                  checked={isChecked.useDisplayName}
+                  onChange={() => handleCheckboxChange('useDisplayName')}
+                />
+              </div>
+            </Form.Group>
+
+            <div className='card-actions'>
+              <Button onClick={handleAgreeButtonClick}>
+                I agree to these terms of use
+              </Button>
+            </div>
+          </Form>
+
+          <div className="card bg-wheat">
+            <div className="card-footer fs-smaller text-center">
+                When you are redirected, your verification progress is saved with the email associated to this account (on a seller profile)
+                
+                <p></p>You still have to continue verification from your email address to complete this process and get a seller badge
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 };

@@ -43,10 +43,7 @@ const Home = () => {
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route
-          path="auth/accept-seller-terms"
-          element={<ProtectedSellerRoute element={<AcceptTerms />} />}
-        />      
+        <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
         <Route path="auth/verify-seller" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
           <Route path="profile" element={<ProtectedSellerRoute element={<Seller />} />} />
