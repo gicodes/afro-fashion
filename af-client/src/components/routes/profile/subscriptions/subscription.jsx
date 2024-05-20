@@ -26,18 +26,15 @@ const Subscription = () => {
     return `${year}-${month}-${day}`;
   };
 
-  // use regular expressions to extract seconds and nanoseconds
-  const secondsMatch = expires?.match(/seconds=(\d+)/);
-  const nanosecondsMatch = expires?.match(/nanoseconds=(\d+)/);
-  const seconds = secondsMatch ? parseInt(secondsMatch[1], 10) : 0;
-  const nanoseconds = nanosecondsMatch ? parseInt(nanosecondsMatch[1], 10) : 0;
+  const seconds = expires?.seconds;
+  const nanoseconds = expires?.nanoseconds;
  
   // convert seconds to milliseconds
   const milliseconds = seconds * 1000;
   // convert nanoseconds to milliseconds and add to the previous value
   const additionalMilliseconds = nanoseconds / 1e6;
   const totalMilliseconds = milliseconds + additionalMilliseconds;
-  
+
   // create a Date object
   const date = new Date(totalMilliseconds);
 
