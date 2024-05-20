@@ -8,6 +8,7 @@ import { useState, useContext } from 'react';
 
 import "../profile.styles.scss";
 import { Link } from "react-router-dom";
+import { VerifyNow } from "../verifyNow/profile-verify";
 
 const today =  new Date().toLocaleString().split(",")[0];
 
@@ -19,7 +20,7 @@ const Seller = () => {
   const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, } = currentUser
 
   const toggleCreateItem = () => {
-    if (!isVerified) addAutoCloseAlert("warning", 'To upload a product, you must be verified!')
+    if (!isVerified) addAutoCloseAlert("warning", 'Verify your account to continue!'); 
     setCreateItem(!createItem);
   }
   
@@ -60,18 +61,23 @@ const Seller = () => {
               Edit an existing Product
             </Button>
             <div>
-              {editItem && <SellerProducts sellerName={displayName} />}
+              {
+                editItem && <SellerProducts sellerName={displayName} />
+              }
             </div>
           </section>
           <hr/>
           {
             isVerified && 
             <section id="manage-subscription" className="mb-2">
-              <Link to='/subscriptions'><Button>
-                Manage Subscriptions
-              </Button>
-            </Link>
-          </section>}
+              <Link to='/subscriptions'>
+                <Button>
+                  Manage Subscriptions
+                </Button>
+              </Link>
+            </section>
+            }
+            {!isVerified && <VerifyNow />}
         </div>
       </div>
       <div className="lg-div"></div>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import GetExchangeRate from '../../../../../utils/rate.utils';
-import { updateSeller } from '../../../../../utils/writeBatch';
-import { useAlert } from '../../../../../contexts/alert.context';
+import GetExchangeRate from '../../../../utils/rate.utils';
+import { updateSeller } from '../../../../utils/writeBatch';
+import { useAlert } from '../../../../contexts/alert.context';
 
 const ChooseAndPay = (userId) => {
   const navigate = useNavigate();

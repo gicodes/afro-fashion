@@ -112,7 +112,10 @@ a {
   // used in brand.route
   width: 100%;
 }
+
+.dis-non { display: none }
   
+.fullWidth { width: 100% }
 .w-75 { width: 75%; }
 .vh-100 { height: max-content }
 .vh-max { min-height: max-content }
@@ -124,37 +127,25 @@ a {
   padding: 5%;
 }
 
-.font-awesome {
-  // used in a couple of components
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.fullWidth { width: 100% }
-
-.dis-non { display: none }
-
 .v-center {
-  // center along the y-axis
+  // center across the y-axis
   align-self: center;
 }
 
 .h-center {
-  // center along the x-axis
+  // center across the x-axis
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-// set space at the bottom for large viewports
-.lg-div { height: 120px }
-
 // custom font and color styles
 .fs-smaller { font-size: smaller }
 .fs-tiny { font-size: xx-small }
 .fs-large { font-size: larger }
-.s-bold { font-weight: 525 }
-.c-50 { color: #505050 } 
-.c-90 { color: #909090 }
+.fw-bold { font-weight: 525 }
+.co-50 { color: #505050 } 
+.co-90 { color: #909090 }
 
 .bg-black-gradient {
   background: linear-gradient(144.39deg,
@@ -179,3 +170,11 @@ a {
 
 .text-white { color: white }
 .text-gray { color: #6d6d6d }
+
+.font-awesome {
+  // used in a couple of components
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+// set space at the bottom for large viewports
+.lg-div { height: 120px }

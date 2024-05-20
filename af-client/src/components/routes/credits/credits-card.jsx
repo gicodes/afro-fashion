@@ -25,11 +25,11 @@ const CreditsCard = () => {
               <p> We have often outsourced these contents from;</p>
               <ul>
                 <li className="mb-1">
-                  <a className="s-bold" href="https://unsplash.com">Unsplash:</a>{" "}
+                  <a className="fw-bold" href="https://unsplash.com">Unsplash:</a>{" "}
                     In appreciation to this community of photographers who provide royalty-free images that bring quality to AfroFashion.
                 </li>
                 <li className="mb-1">
-                  <a className="s-bold" href="https://istockphoto.com">iStockPhoto:</a>{" "}
+                  <a className="fw-bold" href="https://istockphoto.com">iStockPhoto:</a>{" "}
                    Some of the stock photos on this platform are from this media outlet with premium, high-quality contents.
                 </li>
                 <li>Other worthy mentions– we deeply appreciate the contributions from i.ibb, cloudnairy and every other source that have featured or had a role in the visual experience of this platform.</li>

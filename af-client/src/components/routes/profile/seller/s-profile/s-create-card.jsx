@@ -142,7 +142,7 @@ export const SellerCreateCard = () => {
             />
 
             <div className="bg-ws">
-              <p className='flex-just-center fs-smaller pt-3 c-50'>
+              <p className='flex-just-center fs-smaller pt-3co-50'>
                 <i>*Upload at least 2 different photos of this item*</i>       
               </p>
               <div className='m-3 fs-smaller'>

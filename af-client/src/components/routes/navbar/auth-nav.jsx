@@ -36,14 +36,32 @@ export const SideNav = ({
       ref={sideNavRef} 
       className={isOpen ? `card ${device_class}` : "dis-non"}
       >
-      <Link onClick={onClose} to="profile" 
-        className="-mb p-1 text-primary" 
-        title="view profile"
-        >
-        {displayName.split(" ")[0] || displayName}
-      </Link>
-      <hr/>       
-      <div onClick={handleSignOut}>Logout</div>
+      <div className='card-header text-gray'>
+        <span className='fs-smaller font-awesome'>
+          Self services
+        </span>
+      </div>
+      <div className='card-body'>
+      
+      <div>
+        <div>
+          <Link title="view profile" onClick={onClose} to="profile">
+            View Profile
+          </Link>
+        </div>
+        <hr/>
+        <div>
+          <Link title="subscriptions" onClick={onClose} to="subscriptions">
+            Subscriptions
+          </Link>
+        </div>
+      </div>
+      <div className='flex-just-center'>
+        <hr className='w-50'/>
+      </div>   
+      <div onClick={handleSignOut}>
+        <span className='text-warning'>Logout</span>
+      </div></div>
     </div>
   );
 };

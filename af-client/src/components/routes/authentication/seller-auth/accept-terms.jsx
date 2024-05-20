@@ -129,7 +129,7 @@ export const AcceptTerms = () => {
 
           <div className="card bg-wheat">
             <div className="card-footer fs-smaller text-center">
-                When you are redirected, your verification progress is saved with the email associated to this account (on a seller profile)
+                When you are redirected, your verification progress is saved with the email associated to this account
                 
                 <p></p>You still have to continue verification from your email address to complete this process and get a seller badge
             </div>

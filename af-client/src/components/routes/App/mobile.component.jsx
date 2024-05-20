@@ -20,7 +20,7 @@ import HomeIndex from "../../homeIndex/mobile.home.component.jsx";
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
-import Subscription from '../profile/seller/subscriptions/subscription.jsx';
+import Subscription from '../profile/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";

@@ -129,7 +129,7 @@ export const UserProfileCard = ({
               <ListGroup variant="flush">
                 <ListGroup.Item className="d-flex justify-content-between">
                   <span className="fs-smaller v-center">
-                    <b className="s-bold">Name</b>
+                    <b className="fw-bold">Name</b>
                   </span> 
                   <input type="text" 
                     className="form-control m-1" 
@@ -144,7 +144,7 @@ export const UserProfileCard = ({
 
                 <ListGroup.Item className="d-flex justify-content-between">
                   <span className="fs-smaller v-center">
-                    <b className="s-bold">Bio</b>
+                    <b className="fw-bold">Bio</b>
                   </span>
                   <input type="text" 
                     className="form-control m-1" 
@@ -159,7 +159,7 @@ export const UserProfileCard = ({
           
                 <ListGroup.Item className="d-flex justify-content-between">
                   <span className="fs-smaller v-center">
-                    <b className="s-bold">Phone</b>
+                    <b className="fw-bold">Phone</b>
                   </span>
                   <input type="text" 
                     className="form-control m-1" 
@@ -174,7 +174,7 @@ export const UserProfileCard = ({
           
                 <ListGroup.Item className="d-flex justify-content-between">
                   <span className="fs-smaller v-center">
-                    <b className="s-bold">Address</b>
+                    <b className="fw-bold">Address</b>
                   </span> 
                   <input type="text" 
                     className="form-control m-1" 

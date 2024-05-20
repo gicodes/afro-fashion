@@ -23,7 +23,7 @@ import ProtectedUserRoute from '../profile/user/protected-route.jsx';
 import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
-import Subscription from '../profile/seller/subscriptions/subscription.jsx';
+import Subscription from '../profile/subscriptions/subscription.jsx';
 import { PrivacyPolicy, TermsOfService } from '../../homeIndex/indexServices/learnAboutAf.jsx';
 
 const Index = () => {
