@@ -11,10 +11,10 @@ export const CreditsList = () => {
           <a href="#picture-credit">Contents</a>
         </li>
         <li>
-          <a href="#management-credit">Management</a>
+          <a href="#management">Management</a>
         </li>
         <li>
-          <a href="#sponsorship-credit">Sponsorship</a>
+          <a href="#sponsorship">Sponsorship</a>
         </li>
         <li>
           <a href="#developer-credit">Developer</a>

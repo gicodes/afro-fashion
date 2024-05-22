@@ -50,7 +50,7 @@ const Subscription = () => {
 
           <div className="card p-1 mt-1" id="subscription-table">
             {currentUser && 
-              <div className='m-1 p-2 mx-auto'>
+              <div className='m-1 p-2 text-center'>
                 { subsOn === null ? (<p>You currently have no active subscription</p>)
                 :(
                   <p>You have {pending ? `a *${pending}* ` : "an active "} {subsOn} subscription. {expires ? `Expires on: ${formattedDate}` 
