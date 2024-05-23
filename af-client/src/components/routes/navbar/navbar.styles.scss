@@ -1,96 +1,4 @@
-.bottom {
-  width: 100%;
-  display: flex;
-  max-height: 88px;
-  justify-content: space-between;
-}
-
-.fixed {
-  position: fixed;
-  z-index: 9999;
-  right: 0;
-  left: 0;
-  top: 0;
-}
-
-.force-af-center {
-  width: 12%;
-}
-
-.nav-brand {
-  margin-top: 10px;
-  font-style: italic;
-  font-weight: bolder;
-  font-family: Cambria;
-
-  .green {
-    color: green;
-  }
-
-  .link-icon:hover::before {
-    content: attr(title);
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: large;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-  }
-}
-
-.nav-menu {
-  font-family: Arial, Helvetica, sans-serif; 
-  border-bottom-right-radius: 3%;
-  border-bottom-left-radius: 3%;  
-  opacity: 0.85;
-  line-height: 25px;
-  color: black;
-
-  .menu-list {
-    display: block;
-      width: 100%;
-
-    .ml-icon {
-      color: lightgreen;
-    }
-    .ml-title {
-      color: white;
-      margin-left: 20px;
-      font-size: smaller;
-      letter-spacing: 0.5px;
-    }
-  }
-}
-
-.navigation {
-  height: 70px;
-  display: flex;
-  margin-bottom: 10px;
-
-  .logo {
-    padding-left: 50px;
-  }
-
-  .nav-link {
-    padding: 20px;
-    font-size: large;
-    font-weight: lighter;      
-    border: 0 solid transparent;
-  }
-
-  .nav-title {
-    color: white;
-  }
-     
-  .nav-cart {
-    color: #e3f2fd;
-  }
-}
-
+// mobile-specific styles for mobile-first devices
 .nav-burger {
   justify-content: space-between;
   margin: 20px auto 20px auto;
@@ -115,6 +23,10 @@
   }
 }
 
+.force-af-center {
+  width: 12%;
+}
+
 .side-nav {
   display: flex;
   cursor: pointer;
@@ -123,32 +35,15 @@
   
   .drop {
     top: 92px;
-    width: 100px;
+    min-width: 180px;
     padding: 10px;
     display: flex;
     position: fixed;
     text-align: center;
     background: ghostwhite;
+    border-bottom: 1px solid #707070;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
-}
-
-  .-lg {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    background: ghostwhite;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-
-.bottom-nav {
-  right: 0; 
-  bottom: 99%;
-  display: flex;
-  cursor: pointer;
-  min-width: 100px;
-  position: absolute;
-  justify-content: flex-end;
 }
 
 .btm-nav-close-btn {
@@ -203,6 +98,8 @@
   }
 }
 
+
+// shared styles between xs, sm, md and lg
 .shake {
   animation-name: shake-animation; 
   animation-duration: 2s;       
@@ -304,4 +201,91 @@
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+
+.nav-brand {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: bolder;
+  font-family: Cambria;
+
+  .green {
+    color: green;
+  }
+
+  .link-icon:hover::before {
+    content: attr(title);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: large;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+  }
+}
+
+
+// md - lg specific styles for desktop devices
+.navigation {
+  height: 70px;
+  display: flex;
+  margin-bottom: 10px;
+
+  .logo {
+    padding-left: 50px;
+  }
+
+  .nav-link {
+    padding: 20px;
+    font-size: large;
+    font-weight: lighter;      
+    border: 0 solid transparent;
+  }
+
+  .nav-title {
+    color: white;
+  }
+     
+  .nav-cart {
+    color: #e3f2fd;
+  }
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  max-height: 88px;
+  justify-content: space-between;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.-lg {
+  width: 100%;
+  padding: 10px;
+  min-width: 180px;
+  text-align: center;
+  background: ghostwhite;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-nav {
+  right: 0; 
+  bottom: 99%;
+  display: flex;
+  cursor: pointer;
+  min-width: 100px;
+  position: absolute;
+  justify-content: flex-end;
 }

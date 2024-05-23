@@ -1,10 +1,25 @@
 .user-products {
   .saved-items {
     width: 100%;
-    padding: 2px;
     display: flex;
     margin-top: 5px;
     justify-content: space-between;
+    
+    .index {
+      width: 10%;
+      font-size: smaller;
+    }
+
+    .name {
+      width: 80%;
+      color: gray;
+      font-size: small;
+    }
+    
+    .price {
+      font-size: smaller;
+      color: black;
+    }
   }
   
   hr {
