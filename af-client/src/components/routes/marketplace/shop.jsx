@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import ProductCard from '../products/product-card';
 import { useContext } from 'react';

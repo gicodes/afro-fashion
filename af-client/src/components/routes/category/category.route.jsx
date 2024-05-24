@@ -2,8 +2,6 @@ import { CategoriesContext } from '../../../contexts/categories.context';
 import { useContext, useState, useEffect } from 'react';
 import ProductCard from '../products/product-card';
 import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-
 import './category.styles.scss';
 import RoundCircleCard from '../../assets/circle/round-circle';
 
