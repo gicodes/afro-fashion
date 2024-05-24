@@ -1,5 +1,6 @@
 .category-preview {
   display: flex;
+  background: whitesmoke;
   flex-direction: column;
 
   .title {
@@ -7,12 +8,12 @@
     cursor: pointer;
     font-size: 28px;
     align-self: center;
-    margin: 20px 0 10px 0;
+    margin: 0 0 25px 0;
     justify-content: center;
   }
 
+  // num of products rendered determines how preview-container would be displayed
   .preview-container-df {
-    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -26,7 +27,7 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     row-gap: 40px;
-    padding: 30px;
+    // padding: 30px;
     display: grid;
   }
 }  

@@ -26,7 +26,7 @@ const Collections = () => {
 
           return (
             <div key={index}>
-              <Container className='card category-preview'>
+              <div className='category-preview vh-100'>
                 <h2 className='title'>
                   <Link to={title}>
                     <RoundCircleCard title={title.toUpperCase()} />
@@ -52,7 +52,7 @@ const Collections = () => {
                       </section>
                     ))}
                 </div>
-              </Container>
+              </div>
             </div>
           );
         }

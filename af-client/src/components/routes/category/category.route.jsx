@@ -20,13 +20,13 @@ const Category = () => {
   return (
     // section id issues a category with a dynamic link to target
     <section id={category}>
-      <Container className="card vh-100">
+      <div className="category-route vh-100">
         <h1 className='category-title'>
           <RoundCircleCard title={category?.toUpperCase()} />
         </h1>
         { !products?.length > 0 ? (
           <>
-            <p className='mx-auto m-3 text-secondary'>
+            <p className='text-center mt-5 text-secondary'>
               Nothing on {category} right now. Try again later!
             </p>
           </>
@@ -40,7 +40,7 @@ const Category = () => {
           }
         </div>
         )}
-      </Container>
+      </div>
     </section>
   )
 }
