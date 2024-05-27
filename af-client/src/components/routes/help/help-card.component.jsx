@@ -34,8 +34,8 @@ export const HelpCard = () => {
             <span className="block mb-2"><b>Categories</b>: The most distinctive class to identify or classify a product with is category. 
               There are currently over 15 product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
             </span>
-             <span className="block mb-2"><b>AF Brands</b>: As we run mass business, we care about originality and genuinity. It is imperative for product to be traced to a source, 
-              and that means <span className="fs-smaller">*</span>sellers<span className="fs-smaller">*</span> are a major class of products. Sellers with multiple product categories can be known as <b>AF</b> brands.
+             <span className="block mb-2"><b>AF Brands</b>: As we run mass business, we look out for originality and genuinity. It's imperative that a product is linked to its source, 
+              and that means <span className="fs-smaller">*</span>sellers<span className="fs-smaller">*</span> are a major class of products. Furthermore, sellers with products in multiple categories can be known as <b>AF</b> Brands.
             </span>
             <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.
               Users can search for vendors or brands closeby, or in a particular location.
@@ -54,16 +54,16 @@ export const HelpCard = () => {
         <section id="services">
           <h6 className="pt-4 text-secondary"><b>Services</b></h6>
             <p>
-              Get ahead of the line by getting started with our services that ensure a smooth and satisfying experience for the clients.
+              Get ahead of the line by getting started with our services that ensure a smooth and satisfying experience for clients.
               Our commitment to excellence extends beyond what you buy, to why and how you buy it.
               
               <span className="block mt-2 mb-2"> Explore our range of services</span>
-              <span className="block mb-2"><b>Secure Solutions</b>: Afrofashion system and services are built with client and server security in mind. 
-                We have adopted various modernized tools and technology to ensure our users enjoy secure solutions.</span>
+              <span className="block mb-2"><b>Secure Solutions</b>: Afrofashion system and services are built with client-server security in mind,
+              by adopting various modernized tools and technology to ensure users enjoy secure services.</span>
               <span className="block mb-2"><b>Self-services</b>: Clients like to be in control, and fortunately the customer is always right.
                 Afrofashion run a system that give users limited control over user-specific actions on the platform.</span>
               <span className="block mb-2"><b>Management</b>: In addition to self-services, Afrofashion also offer premium and express management solutions to both buyers and sellers.
-                This is ideal to meet certain user demands and preferences.</span>
+                This is ideal to meet specific client demands and preferences.</span>
               <span className="block mb-2"><b>Customer Support</b>: Afrofashion's business model puts a user's needs first. 
                 We have dedicated customer support to address any queries or concerns promptly and efficiently.
               </span>
@@ -74,14 +74,14 @@ export const HelpCard = () => {
       </div><br/>
       
       <div id="buying">
-        <h6><u>What do I need to start buying?</u></h6>
+        <h6><u>What do I need- to start buying?</u></h6>
         <p>
-          Start buying on Afrofashion by signing up as a <a href="/auth/register" className="link">buyer</a>, 
-          with email - password or by using a <a href="/auth/register#google" className="link">g-mail </a>account. 
-          <span className="block mt-2 mb-2"> Users can browse products randomly, 
-            shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers for free.
+          To start buying on Afrofashion, you must sign up as a <a href="/auth/register" className="link">buyer</a>, 
+          with email and password or by using a <a href="/auth/register#google" className="link">Gmail </a> sign-in. 
+          <span className="block mt-2 mb-2"> After sign-up, you can browse products randomly, 
+            shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers.
           </span> 
-          There are also other extended services. Users with paid subscriptions can opt for personalized products and services.
+          There are also other extended services, users with paid subscriptions can opt for personalized products and services.
         </p>
 
         <section id="user-management">
@@ -99,21 +99,26 @@ export const HelpCard = () => {
       </div><br/>
      
       <div id="selling">
-        <h6><u>What do I need to start selling?</u></h6>        
+        <h6><u>What do I need- to start selling?</u></h6>        
           To start selling on Afrofashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
-          and verify your account with email <span className="text-gray">or phone</span>. You'll be redirected to a Terms & Conditions page, 
-          and then sent an email to complete an email verification.
-          <div id="seller-registration">
-          <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
-          <span className="block mt-2 mb-2">Sellers are required to complete the verification process once, on their prefered (primary) device. 
-            A verification link is sent to the registered email with title <b>Sign-in to Afro Fashion requested at &#10094;Date&#10095; </b>  
-            - clicking on this link will eventually render the sign-up credentials void when the process is successful i.e. the email and password used to register will no longer work. 
-          <span className="font-awesome fs-smaller block"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
-          </span>  
-          <span className="block mt-2 mb-2">The verification process is complete when you're redirected back to a "Verification Successful" url on Afrofashion page.
-            From this point onwards, your account will automatically and securely sign in when you have an active browser session and connected to the internet, 
-            thanks to Google's firebase-auth providers. You can manually turn of this feature by contacting support.
+          and verify your account with email or <span className="text-gray">phone</span>. 
+          <span className="block"> After clicking the sign-up button, sellers are redirected to accept our seller Terms & Conditions, 
+            and then sent an email to complete (email) verification.
           </span>
+          <div id="seller-registration">
+            <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
+            Sellers are required to complete the verification process once, on their prefered/ primary device. 
+              <span className="block mt-2 mb-2">A verification link is sent to the email <b>`Sign-in to Afro Fashion requested..` </b>  
+              continue by clicking the dynamic link attached- Please remember to use your preferred device for this action as your sign-in credentials become void 
+              i.e. email-- password will no longer work for signing into www.afrofashion.site
+              </span> 
+            <span className="font-awesome fs-smaller block "><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
+              
+            <span className="block mt-2">The verification process is complete when you're redirected back to a "Verification Successful" webpage on Afrofashion.
+              From this point onwards, your account will automatically and securely sign in when you have an active browser session and connected to the internet, 
+              thanks to Google's firebase-auth providers. 
+            </span>
+            <span>You can manually turn of this feature by contacting support</span>.
           </div>
 
         <section id="brands-management">
@@ -121,14 +126,14 @@ export const HelpCard = () => {
           <p>
             Brands management is a critical and integral aspect of our eco-system. 
             There are limited and paid services a seller can enjoy, however the most essential is branding.
-            <span className="block mt-1 mb-1">Verified sellers can experience starting a brand collection, create and upload up to 5 products on a free version.
+            <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create/ upload up to 5 products on the FREE tier.
               We aim to achieve plenty by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-           <li> Authenticicty: Stringent measures are in place to verify sellers and their product authenticity, in order to boost confidence and trust</li>
-           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential</li>
+           <li> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</li>
+           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential up</li>
            <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</li>
-           <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate every business brand</li>
+           <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate brands and businesses</li>
           </p>
         </section>
       </div> <br/>
@@ -140,10 +145,10 @@ export const HelpCard = () => {
           Afrofashion offer users a good number of fast and seemless payment methods with
           <a className="link" href="https://flutterwave.com"> Flutterwave</a> and <a className="link" href="https://paystack.com">Paystack</a>.
           <span className="block mt-2 mb-2">
-            Sellers are required to upload and verify their bank information from their profile (with 10+ supported banks), to instantly receive
-            payments from buyers who use these in-built payment solutions for item purchase.
+            Sellers are required to upload and verify their bank information on their profile (with 10+ supported banks), to instantly receive
+            payments from buyers with our in-built payment solutions.
           </span>
-          When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure solutions in place.
+          When users (buyers, sellers) transact through our payment portals, they are inveherently leveraging the fast and secure services.
           This also means that the vendors involved are subject to commission, and therefore the transactions will incur value-added-tax (VAT).
         </p>
 
