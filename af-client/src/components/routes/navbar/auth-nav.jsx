@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./navbar.styles.scss";
 
 export const SideNav = ({ 
+  // displayName can be used to improve UX with a suitable implementation
   displayName, 
   onSignOut, 
   device_class, 
@@ -44,8 +45,8 @@ export const SideNav = ({
         </div>
         <div className='card-body fs-smaller'>
           <div className='hide-in-sm'>
-            <Link title="user profile" onClick={onClose} to="profile">
-              User Profile
+            <Link title="my profile" onClick={onClose} to="profile">
+              My Profile
             </Link>
           </div>
           <div className='flex-just-center hide-in-sm'> {/* remove hide-in-sm when new Link is available */}

@@ -1,5 +1,10 @@
 import './user.styles.scss';
 
+export const PastOrders = ({ pastOrders, orders }) => {
+  // savedItems.pastOrders can be modified to include a "buy again" option for users
+
+}
+
 // savedItems.savedItems can be modified to include links to products and/or checkout
 // savedItems.savedItems can use options alerts to control flow to product routing
 // savedItems.savedItems can use a delete button to minimize user data

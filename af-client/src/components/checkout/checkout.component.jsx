@@ -6,8 +6,8 @@ import { useContext, useState } from 'react';
 import { Card, Button, } from 'react-bootstrap';
 import GetExchangeRate from '../../utils/rate.utils';
 import { useAlert } from '../../contexts/alert.context';
-import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
+import { UserContext } from '../../contexts/user.context';
 
 import './checkout.styles.scss';
 
@@ -48,21 +48,20 @@ const Checkout = () => {
 
   return (
     <>
-      <table className="mt-1 card table table-light table-hover">
+      <table className="card table table-hover table-light mt-1">
         <thead className='checkout-table'>
           <tr className='t-header'>
             <th scope="col" className="w-25">Item</th>
             <th scope="col" className="w-25">Title</th>
-            <th scope="col" className="w-25">Quantity</th>
             <th scope="col" className="w-25">Price</th>
+            <th scope="col" className="w-25">Quantity</th>
           </tr>
         </thead>
 
         <tbody className='checkout-table'>
           {
             cartItems.map(
-              (item) =>
-                <CheckoutContent key={item.id} cartItem={item} />
+              (item) => <CheckoutContent key={item.id} cartItem={item} />
             )
           } 
           <tr className='total v-center'>
