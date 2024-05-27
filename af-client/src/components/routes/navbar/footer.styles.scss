@@ -21,6 +21,18 @@
     }
 }
 
+@media (max-width: 768px) {
+    .-footer {
+        .btm-gap {
+            margin-bottom: 15%;
+        } 
+
+        .hide-in-sm {
+            display: none;
+        }
+    }  
+}
+
 @media (min-width: 768px) {
     .-footer {
         padding: 5%;
@@ -45,15 +57,7 @@
         }
     }
 
-    .hide-in-bg {
+    .hide-in-lg {
         display: none;
     }
-}
-
-@media (max-width: 768px) {
-    .-footer {
-        .btm-gap {
-            margin-bottom: 25%;
-        } 
-    }  
 }

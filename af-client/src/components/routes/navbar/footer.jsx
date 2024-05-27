@@ -6,9 +6,10 @@ const Footer = () => {
     <>
         <div className='-footer container'>
           <div className='flex-just-center'>
-            <div className='w-25'>
+            <div className='w-25 hide-in-sm'>
                 <hr className='h-center'/>
             </div>
+            <br className='hide-in-lg' />
           </div>
           <div className='footer-links'>
             <div className='links'>
@@ -27,12 +28,13 @@ const Footer = () => {
                 <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
             </div> 
 
-            <div className='h-center hide-in-bg'>
+            <div className='h-center hide-in-lg'>
                 <hr className='w-25'/>
             </div>
           </div>
+          <br className='hide-in-sm'/>
 
-          <div className='mt-5 btm-gap font-awesome copyright'>
+          <div className='mt-3 btm-gap font-awesome copyright'>
             <h6>© Afrofashion, 2024</h6>
           </div>
         </div>
