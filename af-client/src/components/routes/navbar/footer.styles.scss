@@ -26,11 +26,7 @@
         .btm-gap {
             margin-bottom: 15%;
         } 
-
-        .hide-in-sm {
-            display: none;
-        }
-    }  
+    }
 }
 
 @media (min-width: 768px) {
@@ -55,9 +51,5 @@
         .btm-gap {
             margin-bottom: 0;
         }
-    }
-
-    .hide-in-lg {
-        display: none;
     }
 }

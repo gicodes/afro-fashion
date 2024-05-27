@@ -178,3 +178,17 @@ a {
 
 // set space at the bottom for large viewports
 .lg-div { height: 120px }
+
+
+// set specific styling for taget viewports
+@media (max-width: 768px) {
+    .hide-in-sm {
+        display: none;
+    } 
+}
+
+@media (min-width: 768px) {
+  .hide-in-lg {
+      display: none;
+  } 
+}

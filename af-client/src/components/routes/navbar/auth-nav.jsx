@@ -43,12 +43,12 @@ export const SideNav = ({
           </span>
         </div>
         <div className='card-body fs-smaller'>
-          <div>
+          <div className='hide-in-sm'>
             <Link title="user profile" onClick={onClose} to="profile">
               User Profile
             </Link>
           </div>
-          <div className='flex-just-center'>
+          <div className='flex-just-center hide-in-sm'> {/* remove hide-in-sm when new Link is available */}
             <hr className='w-50'/>
           </div>  
           <div>
