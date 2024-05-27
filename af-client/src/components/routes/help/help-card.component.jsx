@@ -6,15 +6,16 @@ export const HelpCard = () => {
       <div id="introduction">
         <h4 className="pb-3">Introduction</h4>
         <p>
-          Afrofashion is an African-first online platform that connect buyers to sellers, 
-          offer complete e-commerce services and help small-scale african brands grow and manage their businesses. 
-          <span className="block mt-1 mb-1">Fashion lovers can enjoy online shopping with services from over 25 brands, 
-            1000+ unique products and up to 15 item categories. 
+          Afrofashion is an African-first online platform that connect buyers to sellers. 
+          Both sets of users are offered products and services that are unique in many ways. E.g. 
+          bringing you amazing and affordable clothing nearby, helping small-scale vendors grow a brand,
+          or helping mid-size brands manage their businesses online. 
+          <span className="block mt-2"> To ensure the buyers, loyal customers and fashion enthusisasts get the best e-commerce experience, 
+            we are constantly adding and improving products from over 50 (seller) brands & collections, and in up to 15 different categories.
           </span>
-          Vendors on the other hand, can also take online sales to the next level. 
-          New and experienced sellers can both benefit from branding and marketing thier products with business services.
-          Given the cross-functionality of our web, mobile and social media platforms,
-          vendors can make 5x the normal sales without worrying about customer base.
+          <span className="block mt-2">On the other hand, vendors can take online sales to the next level. 
+            It could be that the business needs branding, or marketing or simply taking inventory and stocks. Business is made easy with Afrofashion.
+          </span>
         </p>
       </div>
       <br/>
@@ -25,22 +26,18 @@ export const HelpCard = () => {
         <section id="products">
           <h6 className="pt-4 text-secondary"><b>Products</b></h6>
           <p>
-            If our business offers are the hook to convert a client (buyer or seller), surely our products are the catch, right?
-            <span className="block mb-2">Fashion products are self-promoting, 
-              but it’s our job to set the hook right so that a customer is happy with the catch.
+            At Afrofashion, our products stand out as the desireable and the available, both on and off-season, so getting started is simple and user-friendly.
+            <span className="block mt-2"> Active products are generally listed in the <a href="/marketplace" className="link">marketplace</a>. 
+              However, given how diverse clothing and fashion products can be, our product range vary widely as they are classed into grouped collections to enhance engagement and maintain clarity in variety.
             </span>
-            <span className="block mb-2">Active products are listed in our <a href="/marketplace" className="link">marketplace</a>. 
-              However, these products can vary widely, considering how diverse people's fashion senses can be. 
-              This is why we have classed products into grouped collections to enhance user engagement and maintain clarity in variety.
-              <span className="block mt-2">Here are five (5) <b>classes</b> of products;</span>
-            </span>
+            <span className="block m-2">Here are five <b>(5) classes</b> of products</span>
             <span className="block mb-2"><b>Categories</b>: The most distinctive class to identify or classify a product with is category. 
               There are currently over 15 product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
             </span>
-             <span className="block mb-2"><b>AF Brands</b>: At Afrofashion, we care about commerce and originality. Since, every product has a vendor (seller), 
-              it's only organic for sellers to be a major class of products. Sellers with multiple product categories can be known as <b>AF</b> brands.
+             <span className="block mb-2"><b>AF Brands</b>: As we run mass business, we care about originality and genuinity. It is imperative for product to be traced to a source, 
+              and that means <span className="fs-smaller">*</span>sellers<span className="fs-smaller">*</span> are a major class of products. Sellers with multiple product categories can be known as <b>AF</b> brands.
             </span>
-            <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease e-commerce by closing the distance to a seamless service.
+            <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.
               Users can search for vendors or brands closeby, or in a particular location.
             </span>
             <span className="block mb-2"><b>Featured</b> (Hot): Items with the most hits are collated and classed in our featured products. 
@@ -48,7 +45,10 @@ export const HelpCard = () => {
             </span>
             <b>Featured</b> (New): New and recently updated items are collated and classed in our featured products. 
               These products can be very random and irrespective of the category, seller or location.
-          </p>
+          </p> 
+          <span className="block mt-2">Fashion products are self-promoting, 
+            but it’s our job to ensure that every customer is happy even when they are not <span className="fs-smaller">*</span>right<span className="fs-smaller">*</span> here.
+          </span>
         </section>
 
         <section id="services">
