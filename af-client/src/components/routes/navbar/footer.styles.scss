@@ -39,9 +39,21 @@
             display: grid;
             justify-content: center;
         }
+    
+        .btm-gap {
+            margin-bottom: 0;
+        }
     }
 
     .hide-in-bg {
         display: none;
     }
+}
+
+@media (max-width: 768px) {
+    .-footer {
+        .btm-gap {
+            margin-bottom: 25%;
+        } 
+    }  
 }

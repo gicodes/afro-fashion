@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='mt-5 mb-3 font-awesome copyright'>
+          <div className='mt-5 btm-gap font-awesome copyright'>
             <h6>© Afrofashion, 2024</h6>
           </div>
         </div>
