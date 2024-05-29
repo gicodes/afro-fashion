@@ -77,7 +77,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
           <div className='burger-bottom'>
             <h1 className='mr-3 nav-brand'>
               <span className="green">A</span><span className='text-primary'>fro</span>
-              <span className="green">F</span><span className='text-primary'>ash</span><span className="green">ion</span>
+              <span className="green">f</span><span className='text-primary'>ash</span><span className="green">ion</span>
             </h1>
             <p>EST. 2022 - 2024</p>
           </div>

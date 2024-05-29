@@ -26,7 +26,7 @@ export const HelpCard = () => {
         <section id="products">
           <h6 className="pt-4 text-secondary"><b>Products</b></h6>
           <p>
-            At Afrofashion, our products stand out as the desireable and the available, both on and off-season, so getting started is simple and user-friendly.
+            Afrofashion products are made to stand out as the desireable and the available, both on and off-season, so getting started have been made really simple and user-friendly.
             <span className="block mt-2"> Active products are generally listed in the <a href="/marketplace" className="link">marketplace</a>. 
               However, given how diverse clothing and fashion products can be, our product range vary widely as they are classed into grouped collections to enhance engagement and maintain clarity in variety.
             </span>
@@ -35,7 +35,7 @@ export const HelpCard = () => {
               There are currently over 15 product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
             </span>
              <span className="block mb-2"><b>AF Brands</b>: As we run mass business, we look out for originality and genuinity. It's imperative that a product is linked to its source, 
-              and that means <span className="fs-smaller">*</span>sellers<span className="fs-smaller">*</span> are a major class of products. Furthermore, sellers with products in multiple categories can be known as <b>AF</b> Brands.
+              and that classes products by sellers or brands. Furthermore, sellers with products in multiple categories are otherwise known as <b>AF</b> Brands.
             </span>
             <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.
               Users can search for vendors or brands closeby, or in a particular location.
@@ -99,16 +99,18 @@ export const HelpCard = () => {
       </div><br/>
      
       <div id="selling">
-        <h6><u>What do I need- to start selling?</u></h6>        
+        <h6><u>What do I need- to start selling?</u></h6>       
           To start selling on Afrofashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
           and verify your account with email or <span className="text-gray">phone</span>. 
           <span className="block"> After clicking the sign-up button, sellers are redirected to accept our seller Terms & Conditions, 
             and then sent an email to complete (email) verification.
           </span>
           <div id="seller-registration">
-            <h6 className="pt-4 text-secondary"><b>Seller Registration and Verification</b></h6>
+            <h6 className="pt-4 text-secondary">
+              <b>Seller Registration and Verification</b>
+            </h6>
             Sellers are required to complete the verification process once, on their prefered/ primary device. 
-              <span className="block mt-2 mb-2">A verification link is sent to the email <b>`Sign-in to Afro Fashion requested..` </b>  
+            <span className="block mt-2 mb-2">A verification link is sent to the email <b>`Sign-in to Afro Fashion requested..` </b>  
               continue by clicking the dynamic link attached- Please remember to use your preferred device for this action as your sign-in credentials become void 
               i.e. email-- password will no longer work for signing into www.afrofashion.site
               </span> 
@@ -169,9 +171,9 @@ export const HelpCard = () => {
         <section id="subscription">
           <h6 className="pt-4 text-secondary"><b>Subscription</b></h6>
           <p>
-            Afrofashion offer subscriptions that provide exclusive benefits for buyers and sellers.
+            Afrofashion subscriptions offer exclusive benefits for buyers and sellers.
             <span className="block mt-1 mb-2"> 
-              Verified sellers can now directly navigate to subscribe, through Profile - Manage Subscription.
+              To see our Subscriptions services, directly navigate to the far right button on the Navigation bar (Top for <span><i className="text-success">mobile</i></span>, Bottom for <i className="text-success">PC</i>), and follow the instructions on-- Manage Subscription.
             </span>
             <span className="block mt-2 mb-3">Check out the Pros & Compare our <a href="/subscriptions" className="link">subscriptions</a> in detail</span>
             <li>Basic Package</li>

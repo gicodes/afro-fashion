@@ -6,7 +6,7 @@ html {
   scroll-behavior: smooth;
 }
 
-// custom body styles used throughout
+// custom body styles used throughoutAfr
 body {
   background: #1a1a1a 
   // url("https://images.unsplash.com/photo-1524602997322-c1900e093d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjB0aGVtZXxlbnwwfHwwfHx8MA%3D%3D")
@@ -31,7 +31,7 @@ a {
   box-sizing: border-box;
 }
 
-// custom background colors used throughout
+  // custom background colors used throughout
 .bg-dark { background: #1a1a1a; }
 .bg-kiwi { background: black; }
 .bg-lg { background: lightgrey; }
@@ -41,19 +41,19 @@ a {
 .bg-white { background: white; }
 .bg-silver { background: silver;}
 .bg-trans { background: transparent; }
-.bg-wheat { background: wheat;}
+.bg-wheat { background: wheat; }
 
 // existing container styles
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
+  --bs-gutter-y: 0;
+  width: 100%;
 }
 
 .no-padding-container {
-// custom class to override .container padding
+  // custom class to override .container padding
   padding-right: 0;
   padding-left: 0;
 }
@@ -93,18 +93,18 @@ a {
 
   // flex and justify content styles
 .flex-just-center {
-  display: flex;
   justify-content: center;
+  display: flex;
 }
 
 .flex-space-bet {
-  display: flex;
   justify-content: space-between;
+  display: flex;
 }
 
 .flex-space-around {
-  display: flex;
   justify-content: space-around;
+  display: flex;
 }
 
 .block {
@@ -139,7 +139,7 @@ a {
   justify-content: center;
 }
 
-// custom font and color styles
+  // custom font and color styles
 .fs-smaller { font-size: smaller }
 .fs-tiny { font-size: xx-small }
 .fs-large { font-size: larger }
@@ -149,25 +149,24 @@ a {
 
 .bg-black-gradient {
   background: linear-gradient(144.39deg,
-      #ffffff -278.56%,
-      #6d6d6d -78.47%,
-      #11101d 91.61%);
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
 }
 
-// custom text colors and bg
+  // custom text colors and bg
 .text-primary {
   background: radial-gradient(skyblue 0.89%, green 89%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .text-danger { background: radial-gradient(tomato 0.89%, salmon 4.5%, burlywood 84%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
 }
-
 .text-white { color: white }
 .text-gray { color: #6d6d6d }
 
@@ -176,19 +175,17 @@ a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-// set space at the bottom for large viewports
-.lg-div { height: 120px }
-
-
-// set specific styling for taget viewports
+  // set specific styling for taget viewports
 @media (max-width: 768px) {
-    .hide-in-sm {
-        display: none;
-    } 
-}
-
-@media (min-width: 768px) {
-  .hide-in-lg {
-      display: none;
+  .hide-in-sm {
+    display: none;
   } 
 }
+@media (min-width: 768px) {
+  .hide-in-lg {
+    display: none;
+  } 
+}
+
+// set space at the bottom for large viewports
+.lg-div { height: 120px }
