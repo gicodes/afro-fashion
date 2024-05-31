@@ -267,3 +267,5 @@ export const reduceItemCount = async (item) => {
     throw new Error("Insufficient quantity available!");
   }
 };
+
+// deprecate item appearance for users who dislike an item

@@ -1,17 +1,22 @@
-import { createContext, useEffect, useState } from 'react';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChangedListener } from '../utils/firebase.utils';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLoading } from './loading.context';
 
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
+  intendedRoute: null,
+  setIntendedRoute: () => null,
 });
 
 export const UserProvider = ({ children }) => {
+  const [intendedRoute, setIntendedRoute] = useState(null);
   const [ currentUser, setCurrentUser ] = useState(null);
   const { showLoading, hideLoading } = useLoading();
   const [ userId, setUserId ] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     showLoading()
@@ -64,13 +69,17 @@ export const UserProvider = ({ children }) => {
               // add other properties if needed
             });
             setUserId(user.uid);
-          } else {
-            setCurrentUser(null);
-          }
+          } else setCurrentUser(null);  
+        }
+
+        if (intendedRoute) {
+          showLoading();
+          navigate(intendedRoute);
+          setIntendedRoute(null);
+          hideLoading();
         }
       } catch (error) {
         setCurrentUser(null);
-
         hideLoading();
       }
     };
@@ -79,7 +88,7 @@ export const UserProvider = ({ children }) => {
     
     const unsubscribe = onAuthStateChangedListener(fetchData);
     return unsubscribe;
-  }, [showLoading, hideLoading]);
+  }, [showLoading, hideLoading, intendedRoute, navigate]);
 
   const fetchUserData = async (uid, collection) => {
     const firestore = getFirestore();
@@ -93,7 +102,7 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const value = { currentUser, setCurrentUser, userId };
+  const value = { userId, setCurrentUser, currentUser, setIntendedRoute, intendedRoute };
 
   return (
     <UserContext.Provider value={value}>

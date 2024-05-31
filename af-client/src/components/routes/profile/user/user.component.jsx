@@ -11,7 +11,7 @@ const today = date.toLocaleString().split(",")[0];
 
 const UserProfile = () => {
   const [ savedItemsCard, setSavedItemsCard ] = useState(false);
-  const [ productOrders, setProductOrders]  = useState(false);
+  const [ pastOrdersCard, setPastOrdersCard]  = useState(false);
   const { currentUser } = useContext(UserContext);
   const { 
     bio, 
@@ -24,10 +24,9 @@ const UserProfile = () => {
     savedItems,
   } = currentUser
 
-  const toggleProductOrders = () => {
-    setProductOrders(!productOrders);
+  const togglePastOrders = () => {
+    setPastOrdersCard(!pastOrdersCard);
   }
-
   const toggleSavedItems = () => {
     setSavedItemsCard(!savedItemsCard);
   }
@@ -43,23 +42,24 @@ const UserProfile = () => {
           <section>
             <UserProfileCard 
               bio={bio}
-              name={displayName} 
               email={email} 
               phone={phone} 
               address={address} 
-              imageUrl={imageUrl}/>
+              name={displayName}
+              imageUrl={imageUrl}
+            />
           </section>
           <section id="product-orders">
-            <Button onClick={toggleProductOrders}>
-              See your orders
+            <Button onClick={togglePastOrders}>
+              past orders
             </Button>
             <div className="p-1">
-              {productOrders && <SavedItems savedItems={orders} item={"orders"} />}
+              {pastOrdersCard && <SavedItems savedItems={orders} item={"pastOrders"} />}
             </div>
           </section>
           <section id="saved-items">
             <Button onClick={toggleSavedItems}>
-              Saved Items
+              saved items
             </Button>
             <div className="p-1">
               {savedItemsCard && <SavedItems savedItems={savedItems} />}
