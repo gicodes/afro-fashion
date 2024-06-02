@@ -36,7 +36,8 @@ const Seller = () => {
           </div>
           <section id="image-edit">
             <SellerProfileCard 
-              sellerName={brandName || displayName} 
+              sellerName={displayName} 
+              brandTag={brandName}
               bio={bio}
               phone={phone} 
               address={address} 

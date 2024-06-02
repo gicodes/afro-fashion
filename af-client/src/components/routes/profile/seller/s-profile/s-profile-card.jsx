@@ -9,7 +9,8 @@ import { useState, useContext } from 'react';
 
 export const SellerProfileCard = ({ 
   bio,
-  sellerName, 
+  sellerName,
+  brandTag, 
   phone, 
   address, 
   imageUrl, 
@@ -142,13 +143,26 @@ export const SellerProfileCard = ({
               <ListGroup variant="flush">
                 <ListGroup.Item className="d-flex justify-content-between">
                   <span className="fs-smaller v-center">
-                    <b className="fw-bold">Brand Name</b> 
+                    <b className="fw-bold">Full Name</b> 
                   </span> 
-                  <input type="text" 
+                  <input type="text"
                     className="form-control m-1" 
                     value={inputFields.name}
-                    placeholder="Eg. luxury_boots"
                     onChange={(e) => handleInputChange('name', e.target.value)}
+                  />
+                   <span onClick={() => handleSaveInfo('brandName', inputFields.name)} className="v-center">
+                    <MdCloudDone size={20}/>
+                  </span>
+                </ListGroup.Item>
+                
+                <ListGroup.Item className="d-flex justify-content-between">
+                  <span className="fs-smaller v-center">
+                    <b className="fw-bold">Seller Tag</b> 
+                  </span> 
+                  <input 
+                    disabled
+                    className="form-control m-1" 
+                    value={inputFields.brandTag}
                   />
                    <span onClick={() => handleSaveInfo('brandName', inputFields.name)} className="v-center">
                     <MdCloudDone size={20}/>

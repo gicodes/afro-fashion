@@ -20,6 +20,7 @@ const SignUp = () => {
   const defaultFormFields = {
     userType: buyer ? 'buyer' : 'seller',
     displayName: '',
+    brandName: '@',
     email: '',
     phone: '',
     password: '',
@@ -28,12 +29,29 @@ const SignUp = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const resetFormFields = () => { setFormFields(defaultFormFields) };
-  const { userType, displayName, phone, email, password, confirmPassword } = formFields;
+  const { userType, displayName, brandName, phone, email, password, confirmPassword } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   }
+
+  const handleSellerTagChange = (event) => {
+    const { name, value } = event.target;
+    let formattedValue = value;
+
+    if (!value.startsWith('@')) {
+      formattedValue = '@' + value.replace(/@/g, '');
+    }
+
+    formattedValue = formattedValue.toLowerCase().replace(/\s+/g, '');
+    
+    setFormFields({
+      ...formFields,
+      [name]: formattedValue,
+    });
+
+  };
 
   const handleChangeUser = () => {
     if(buyer) {
@@ -59,7 +77,7 @@ const SignUp = () => {
 
     try {      
       showLoading();
-      await customCreateUserWithEmail(email, password, displayName.toLowerCase(), phone, userType);
+      await customCreateUserWithEmail(email, password, displayName, brandName.substring(1), phone, userType);
       
       if (userType === "seller"){
         resetFormFields();
@@ -125,13 +143,24 @@ const SignUp = () => {
 
             <div className="form-fields">
             <FormField
-              label={'Display Name'}
+              label={'Full Name'}
               type='text' required
               onChange={handleChange}
               name='displayName'
               autoComplete="true"
               value={formFields.displayName}
             />
+
+            {!buyer && 
+            <FormField
+              label={'Seller Tag'}
+              type='text' required
+              onChange={handleSellerTagChange}
+              name='brandName'
+              autoComplete="true"
+              value={formFields.brandName}
+            />
+            }
 
             <FormField
               label={'Phone'}

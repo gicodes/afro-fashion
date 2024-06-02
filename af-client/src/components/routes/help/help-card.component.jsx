@@ -128,8 +128,8 @@ export const HelpCard = () => {
           <p>
             Brands management is a critical and integral aspect of our eco-system. 
             There are limited and paid services a seller can enjoy, however the most essential is branding.
-            <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create/ upload up to 5 products on the FREE tier.
-              We aim to achieve plenty by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
+            <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create or upload up to 5 products on the FREE tier.
+              We aim to achieve plenty, by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
             </span>
           <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
            <li> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</li>

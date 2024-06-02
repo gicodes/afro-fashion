@@ -66,7 +66,7 @@ export const AcceptTerms = () => {
 
           <div className="card bg-ws">
             <div className="card-body fs-smaller text-center">
-              In order to start operating in the marketplace, sellers are required to comply with our Business' terms of service
+              In order to start operating in the marketplace, sellers are required to comply with our seller terms of service
             </div>
           </div>
           <br/>
