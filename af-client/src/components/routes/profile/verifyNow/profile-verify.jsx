@@ -1,13 +1,29 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useAlert } from "../../../../contexts/alert.context";
 
 // Link (in profile) to verify seller account
 export const VerifyNow = () => {
+    const { addAutoCloseAlert, addOptionsAlert } = useAlert();
+    const navigate = useNavigate();
+
+    const handleYes = () => {
+        navigate("/auth/accept-seller-terms")
+    }
+    const handleNo = () => {
+        addAutoCloseAlert("warning", `Check your email for Afrofashion sign-in link and continue!`);
+    };
+
+    const handleVerifyOption = () => {
+        addOptionsAlert(
+            'warning', 'A verification link was sent to your email during sign-up. Do you want to retry the process again?',
+            handleYes, handleNo
+        );
+    }
+
     return (
         <div className="container">
-            <div className="mb-4 text-center">
-                <Link to="/auth/accept-seller-terms">
-                    <span className="text-danger">Verify your account now</span>
-                </Link>
+            <div className="mb-4 text-center" onClick={handleVerifyOption}>
+                <span className="text-danger">Verify your account now</span>
             </div>
         </div>
     )

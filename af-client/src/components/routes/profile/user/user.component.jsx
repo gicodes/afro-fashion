@@ -67,8 +67,9 @@ const UserProfile = () => {
           </section>
         </div>
       </div>
-      
-      <div className="lg-div"></div>
+      <div className="hide-in-sm">
+        <div className="lg-div"></div>
+      </div>
     </>
   )
 }

@@ -3,20 +3,19 @@ import { UserContext } from "../../../../contexts/user.context";
 import { useAlert } from "../../../../contexts/alert.context";
 import { SellerCreateCard } from "./s-profile/s-create-card";
 import { SellerProducts } from "./s-profile/s-products-card";
+import { VerifyNow } from "../verifyNow/profile-verify";
 import Button from "../../../buttons/button.component";
 import { useState, useContext } from 'react';
-
-import "../profile.styles.scss";
 import { Link } from "react-router-dom";
-import { VerifyNow } from "../verifyNow/profile-verify";
+import "../profile.styles.scss";
 
 const today =  new Date().toLocaleString().split(",")[0];
 
 const Seller = () => {
   const { addAutoCloseAlert } = useAlert();
-  const [ createItem, setCreateItem ] = useState(false);
-  const [ editItem, setEditItem]  = useState(false);
   const { currentUser } = useContext(UserContext);
+  const [ editItem, setEditItem]  = useState(false);
+  const [ createItem, setCreateItem ] = useState(false);
   const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, } = currentUser
 
   const toggleCreateItem = () => {
@@ -37,7 +36,7 @@ const Seller = () => {
           <section id="image-edit">
             <SellerProfileCard 
               sellerName={displayName} 
-              brandTag={brandName}
+              brandName={brandName}
               bio={bio}
               phone={phone} 
               address={address} 
@@ -69,20 +68,22 @@ const Seller = () => {
           </section>
           <hr/>
           {
-            isVerified && 
+            isVerified ? (
             <section id="manage-subscription" className="mb-2">
               <Link to='/subscriptions'>
                 <Button>
                   Manage Subscriptions
                 </Button>
               </Link>
-            </section>
-            }
-            {!isVerified && <VerifyNow />}
+            </section>) : <VerifyNow />
+          }
+        </div>
+        <div className="hide-in-sm">
+          <div className="lg-div"></div>
         </div>
       </div>
-      <div className="lg-div"></div>
     </>
   )
 }
+
 export default Seller;

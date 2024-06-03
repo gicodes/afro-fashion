@@ -55,7 +55,9 @@ const CreditsCard = () => {
             </span>
           </div>
         <br/>
-        <div className='lg-div'></div>
+        <div className='hide-in-sm'>
+          <div className='lg-div'></div>
+        </div>
     </section>
   )
 }

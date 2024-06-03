@@ -77,7 +77,9 @@ const BrandCollection = () => {
         </>
         )}
       </Container>
-      <div className='lg-div'></div>
+      <div className='hide-in-sm'>
+        <div className='lg-div'></div>
+      </div>
     </section>
   );
 };

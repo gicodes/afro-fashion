@@ -58,7 +58,11 @@ const Collections = () => {
         return null;
       })}
 
-      {hasProducts && <div className='lg-div'></div>}
+      {hasProducts && (
+        <div className='hide-in-sm'> 
+          <div className='lg-div'></div>
+        </div>
+      )}
 
       {!hasProducts && (
         <div className='card container p-2 bg-ws vh-100'>

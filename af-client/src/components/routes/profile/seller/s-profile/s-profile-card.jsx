@@ -10,7 +10,7 @@ import { useState, useContext } from 'react';
 export const SellerProfileCard = ({ 
   bio,
   sellerName,
-  brandTag, 
+  brandName, 
   phone, 
   address, 
   imageUrl, 
@@ -23,6 +23,7 @@ export const SellerProfileCard = ({
     bio: bio || '',
     phone: phone || '',
     name: sellerName || '',
+    brandName: '@' + brandName,
     address: address || '',
     bankAcct: bankAcct || '',
     bank: bank || '',
@@ -150,7 +151,7 @@ export const SellerProfileCard = ({
                     value={inputFields.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                   />
-                   <span onClick={() => handleSaveInfo('brandName', inputFields.name)} className="v-center">
+                   <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
                     <MdCloudDone size={20}/>
                   </span>
                 </ListGroup.Item>
@@ -162,11 +163,8 @@ export const SellerProfileCard = ({
                   <input 
                     disabled
                     className="form-control m-1" 
-                    value={inputFields.brandTag}
+                    value={inputFields.brandName}
                   />
-                   <span onClick={() => handleSaveInfo('brandName', inputFields.name)} className="v-center">
-                    <MdCloudDone size={20}/>
-                  </span>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="d-flex justify-content-between">
