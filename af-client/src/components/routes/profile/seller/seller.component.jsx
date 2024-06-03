@@ -66,7 +66,7 @@ const Seller = () => {
               }
             </div>
           </section>
-          <hr/>
+          <br/>
           {
             isVerified ? (
             <section id="manage-subscription" className="mb-2">

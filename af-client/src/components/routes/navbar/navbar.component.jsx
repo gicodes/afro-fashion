@@ -121,11 +121,11 @@ const NavBarComponent = () => {
                   </Link>
                 </li>
 
-                <li className="nav-item" style={authIconStyle} title="Profile">
+                <li className="nav-item" style={authIconStyle} title="Account">
                  {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
-                      onClick={autoCloseSideNav}>
+                      onClick={autoCloseSideNav} to='profile'>
                       <TbUserCheck color="green" filled="black"/>
                     </Link>
                     ) : (

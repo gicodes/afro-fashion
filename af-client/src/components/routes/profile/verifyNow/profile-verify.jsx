@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "../../../../contexts/alert.context";
+import { Button } from "react-bootstrap";
 
 // Link (in profile) to verify seller account
 export const VerifyNow = () => {
@@ -23,7 +24,7 @@ export const VerifyNow = () => {
     return (
         <div className="container">
             <div className="mb-4 text-center" onClick={handleVerifyOption}>
-                <span className="text-danger">Verify your account now</span>
+                <Button className="btn-danger text-danger w-50">Verify your account now</Button>
             </div>
         </div>
     )
