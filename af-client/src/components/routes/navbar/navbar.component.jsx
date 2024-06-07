@@ -109,15 +109,15 @@ const NavBarComponent = () => {
                   <span><CartIcon/></span>
                 </li>
 
-                <li className="nav-item" title="Help Desk">
-                  <Link className="nav-link" to='help'>
-                    &nbsp;<LuHelpCircle size={22} color="black"/>
+                <li className="nav-item" title="Credits">
+                  <Link className="nav-link" to='credits'>
+                   &nbsp; <TbLicense size={22} color="black"/> 
                   </Link>
                 </li>
 
-                <li className="nav-item" title="Credits">
-                  <Link className="nav-link" to='credits'>
-                    <TbLicense size={22} color="black"/> &nbsp; &nbsp; 
+                <li className="nav-item" title="Help Desk">
+                  <Link className="nav-link" to='help'>
+                  <LuHelpCircle size={22} color="black"/> &nbsp; &nbsp; 
                   </Link>
                 </li>
 
