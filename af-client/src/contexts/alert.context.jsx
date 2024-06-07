@@ -66,7 +66,7 @@ export const AlertProvider = ({ children }) => {
                   {alert.message}
                 </div>
                 {alert.onYes && alert.onNo && (
-                  <div className="flex-space-bet">
+                  <div className="mt-3 flex-space-bet">
                     <Button variant="success" onClick={() => alert.onYes()}>
                       Yes
                     </Button>{' '}
