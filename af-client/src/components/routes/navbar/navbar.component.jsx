@@ -125,7 +125,7 @@ const NavBarComponent = () => {
                  {
                   currentUser ? (
                     <Link className="nav-link active" aria-current="page"
-                      onClick={autoCloseSideNav} to='profile'>
+                      onClick={autoCloseSideNav}>
                       <TbUserCheck color="green" filled="black"/>
                     </Link>
                     ) : (

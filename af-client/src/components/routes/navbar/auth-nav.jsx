@@ -49,7 +49,8 @@ export const SideNav = ({
               My Profile
             </Link>
           </div>
-          <div className='flex-just-center hide-in-sm'> {/* remove hide-in-sm when new Link is available */}
+          <div className='flex-just-center hide-in-sm'> {
+            /* remove hide-in-sm when new Link is available */}
             <hr className='w-50'/>
           </div>  
           <div>
