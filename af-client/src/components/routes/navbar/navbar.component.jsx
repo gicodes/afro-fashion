@@ -1,6 +1,6 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import { TbUserExclamation, TbLicense, TbShoppingBagDiscount, TbUserCheck } from "react-icons/tb";
+import { TbUserExclamation, TbLicense, TbShoppingBagDiscount } from "react-icons/tb";
 import CartDropdown from "../../cartServices/cart-dropdown/cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
@@ -15,6 +15,7 @@ import { PiTextBBold } from "react-icons/pi";
 import { SideNav } from "./auth-nav";
 
 import './navbar.styles.scss'
+import NavUserBadge from "./user-badge";
 
 const NavBarComponent = () => {
   const navigate = useNavigate();
@@ -55,6 +56,8 @@ const NavBarComponent = () => {
       handleYes, handleNo
     );
   }  
+
+  const imageUrl = currentUser?.imageUrl || "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
 
   return (
     <Fragment>
@@ -117,16 +120,16 @@ const NavBarComponent = () => {
 
                 <li className="nav-item" title="Help Desk">
                   <Link className="nav-link" to='help'>
-                  <LuHelpCircle size={22} color="black"/> &nbsp; &nbsp; 
+                  <LuHelpCircle size={22} color="black"/> &nbsp;
                   </Link>
                 </li>
 
                 <li className="nav-item" style={authIconStyle} title="Account">
                  {
                   currentUser ? (
-                    <Link className="nav-link active" aria-current="page"
+                    <Link aria-current="page"
                       onClick={autoCloseSideNav}>
-                      <TbUserCheck color="green" filled="black"/>
+                      <NavUserBadge imageUrl={imageUrl}/>
                     </Link>
                     ) : (
                     <Link className="nav-link" aria-current="page" to='auth'>

@@ -20,7 +20,7 @@ app.post('/api/payments', async (req, res) => {
       reference: tx_ref,
     };
 
-      // initiate transfer using Flutterwave SDK
+    // initiate transfer using Flutterwave SDK
     // const paymentResponse = await flw.Transfer.initiate(details);
     // console.log("Payment initiated:", paymentResponse);
 

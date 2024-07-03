@@ -8,8 +8,9 @@ import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { Fragment, useContext, useState } from "react";
-import { LuLogIn, LuUserCheck } from "react-icons/lu";
 import BurgerMenu from './nav-drop.mobile';
+import { LuLogIn } from "react-icons/lu";
+import NavUserBadge from "./user-badge";
 import { SideNav } from "./auth-nav";
 
 import './navbar.styles.scss'
@@ -63,6 +64,8 @@ const MobileNavBar = () => {
     );
   }
 
+  const imageUrl = currentUser?.imageUrl || "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+
   return (
     <Fragment>
       <Container className="container no-padding-container">
@@ -101,9 +104,11 @@ const MobileNavBar = () => {
                 
                 <div className={"auth-icon"} style={authIconStyle}>
                   {currentUser ? (
-                    <span className="nav-link"                       
+                    <span                       
                       onClick={autoCloseSideNav}>
-                      <LuUserCheck color="white"/>                       
+                      <NavUserBadge   
+                        imageUrl={imageUrl}                      
+                      />                      
                     </span>
                     ) : (
                     <Link className="nav-link" to='/auth'>
