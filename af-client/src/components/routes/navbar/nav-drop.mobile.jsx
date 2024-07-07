@@ -56,7 +56,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
       ref={sideNavRef}
     >
       <nav className="burger-menu bg-black-gradient">
-        <div className="m-2">
+        <div className="m-2 p-2">
           <div className='vh-93'/>
           {  
             navLinks.map((item, index) => (
