@@ -4,10 +4,17 @@
   border-radius: 50%;
 
   .user-avatar {
+    border: 1px solid greenyellow;
     border-radius: 50%;
     max-height: 44px;
     max-width: 44px;
+    cursor: pointer;
   }
+}
+
+.user-badge:focus {
+  border: 1px solid goldenrod;
+  cursor: pointer;
 }
 
 // mobile-specific styles for mobile-first devices
