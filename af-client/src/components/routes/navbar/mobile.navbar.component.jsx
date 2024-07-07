@@ -128,6 +128,7 @@ const MobileNavBar = () => {
           {sideNav && (
             <SideNav
               displayName={currentUser?.displayName}
+              displayEmail={currentUser?.email}
               onClose={() => setSideNav(!sideNav)}
               onSignOut={handleSignOut}
               device_class={"drop"}

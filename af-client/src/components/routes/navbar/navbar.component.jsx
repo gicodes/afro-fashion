@@ -1,6 +1,5 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import { TbUserExclamation, TbLicense, TbShoppingBagDiscount } from "react-icons/tb";
 import CartDropdown from "../../cartServices/cart-dropdown/cart-dropdown";
 import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
 import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
@@ -10,12 +9,14 @@ import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { Navbar, Container } from 'react-bootstrap';
-import { LuHelpCircle } from "react-icons/lu";
-import { PiTextBBold } from "react-icons/pi";
-import { SideNav } from "./auth-nav";
-
-import './navbar.styles.scss'
+import { TbUserExclamation } from "react-icons/tb";
+import { HiSpeakerphone } from "react-icons/hi";
+import { FcBusinessman } from "react-icons/fc";
+import { GrHelpBook } from "react-icons/gr";
+import { FaShopify } from "react-icons/fa6";
 import NavUserBadge from "./user-badge";
+import { SideNav } from "./auth-nav";
+import './navbar.styles.scss'
 
 const NavBarComponent = () => {
   const navigate = useNavigate();
@@ -25,9 +26,7 @@ const NavBarComponent = () => {
   const [ cartOpen, setCartOpen ] = useState(false);
   const { addAutoCloseAlert, addOptionsAlert } = useAlert();; 
 
-  const authIconStyle = {
-    backgroundColor: currentUser ? 'white' : 'yellow'
-  }
+  const authIconStyle = {backgroundColor: currentUser ? 'white' : 'yellow'};
 
   const toggleCart = () => setCartOpen(!cartOpen);
 
@@ -38,7 +37,6 @@ const NavBarComponent = () => {
   }
 
   const handleSignOut = () => {
-    // navbar sign out flow
     const handleYes = () => {
       SignOutUser();
       setSideNav(false);
@@ -97,30 +95,32 @@ const NavBarComponent = () => {
                 <li className="nav-item" title="Marketplace">
                   <Link className="nav-link" to='marketplace'>
                     <span className="nav-title">
-                      <TbShoppingBagDiscount size={22} color="black"/>
+                      <FaShopify size={24} color="black"/>
                     </span>
                   </Link>
                 </li>
 
                 <li className="nav-item" title="Brands">
                   <Link className="nav-link" to='brands'>
-                    <PiTextBBold size={23} color="black"/> 
+                    <FcBusinessman size={24} color="black"/> 
                   </Link>
                 </li>
 
-                <li onClick={toggleCart} className="nav-item" title="Cart">
+                <li className="nav-item" title="Cart" 
+                  onClick={toggleCart}
+                >
                   <span><CartIcon/></span>
                 </li>
 
                 <li className="nav-item" title="Credits">
                   <Link className="nav-link" to='credits'>
-                   &nbsp; <TbLicense size={22} color="black"/> 
+                   &nbsp; <HiSpeakerphone size={22} color="#C04000"/> 
                   </Link>
                 </li>
 
                 <li className="nav-item" title="Help Desk">
                   <Link className="nav-link" to='help'>
-                  <LuHelpCircle size={22} color="black"/> &nbsp;
+                    <GrHelpBook size={21} color="#FEBE10"/> &nbsp;
                   </Link>
                 </li>
 

@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from 'react';
 import ProductCard from '../products/product-card';
 import { useParams } from 'react-router-dom';
 import './category.styles.scss';
-import RoundCircleCard from '../../assets/circle/round-circle';
 
 // category route is rendered when users click on a category from the index page
 const Category = () => {
@@ -18,10 +17,11 @@ const Category = () => {
   return (
     // section id issues a category with a dynamic link to target
     <section id={category}>
-      <div className="category-route vh-100">
+      <div className="category-route">
         <h1 className='category-title'>
-          <RoundCircleCard title={category?.toUpperCase()} />
+          {category?.toUpperCase()}
         </h1>
+        <hr className='bg-white'/>
         { !products?.length > 0 ? (
           <>
             <p className='text-center mt-5 text-secondary'>

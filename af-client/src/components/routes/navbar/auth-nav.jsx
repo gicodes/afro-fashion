@@ -2,9 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import "./navbar.styles.scss";
 
+
+// This component controls both Mobile and Larger Screen Displays of the Auth Menu in the Navigation Bar
 export const SideNav = ({ 
-  // displayName can be used to improve UX with a suitable implementation
   displayName, 
+  displayEmail,
   onSignOut, 
   device_class, 
   isOpen, 
@@ -38,19 +40,22 @@ export const SideNav = ({
       className={isOpen ? `card ${device_class}` : "dis-non"}
       >
       <div>
-        <div className='card-header text-gray'>
-          <span className='fs-smaller font-awesome'>
-            Self services
-          </span>
+        <div className='card-header'>
+          <div className='fs-smaller font-awesome'>
+            {displayName}
+          </div>
+          <div className='fs-xs m-1 text-gray'>
+            {displayEmail}
+          </div>
         </div>
+        
         <div className='card-body fs-smaller'>
           <div className='hide-in-sm'>
             <Link title="my profile" onClick={onClose} to="profile">
               My Profile
             </Link>
           </div>
-          <div className='flex-just-center hide-in-sm'> {
-            /* remove hide-in-sm when new Link is available */}
+          <div className='flex-just-center hide-in-sm'>
             <hr className='w-50'/>
           </div>  
           <div>
@@ -58,8 +63,12 @@ export const SideNav = ({
               Subscriptions
             </Link>
           </div> 
+          <div className='flex-just-center -mb2'>
+            <hr className='w-50'/>
+          </div> 
         </div>
-        <div className='card-footer' onClick={handleSignOut}>
+        
+        <div onClick={handleSignOut}>
           <span className='text-warning'>
             Sign out
           </span>
