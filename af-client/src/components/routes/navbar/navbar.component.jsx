@@ -114,7 +114,7 @@ const NavBarComponent = () => {
 
                 <li className="nav-item" title="Credits">
                   <Link className="nav-link" to='credits'>
-                   &nbsp; <HiSpeakerphone size={22} color="#C04000"/> 
+                   &nbsp; <HiSpeakerphone size={22} color="darkgray"/> 
                   </Link>
                 </li>
 
