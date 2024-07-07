@@ -56,7 +56,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
       ref={sideNavRef}
     >
       <nav className="burger-menu bg-black-gradient">
-        <div className="m-2 p-2">
+        <div className="m-2 pt-5">
           <div className='vh-93'/>
           {  
             navLinks.map((item, index) => (
@@ -67,7 +67,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
                 <Link 
                   to={item.link} 
                   onClick={onClose}
-                  className='nav-link mb-3'
+                  className='nav-link mb-4'
                 >
                   {item.title}
                 </Link>
