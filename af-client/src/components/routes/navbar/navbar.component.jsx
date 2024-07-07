@@ -120,7 +120,7 @@ const NavBarComponent = () => {
 
                 <li className="nav-item" title="Help Desk">
                   <Link className="nav-link" to='help'>
-                    <GrHelpBook size={21} color="#FEBE10"/> &nbsp;
+                    <GrHelpBook size={21} color="goldenrod"/> &nbsp; &nbsp;
                   </Link>
                 </li>
 

@@ -15,7 +15,7 @@ const Footer = () => {
             <div className='links'>
                 <p className='h-center'><a href="mailto:info@afrofashion.site">Send Us a Message</a></p>
                 <p className='h-center'><a href='/#search'>Search Products</a></p>
-                <p className='h-center'><a href='/'>Size Variation</a></p>
+                <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
             </div>
             <div className='links'>
                 <p className='h-center'><a href='/help/#introduction'>About Afrofashion</a></p>
@@ -24,7 +24,8 @@ const Footer = () => {
             </div> 
             <div className='links'>
                 <p className='h-center'><a href='/privacy-policy'>Privacy Policy</a></p>
-                <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p>
+                {/* disabled privacy policy until pending further details */}
+                {/* <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> */}
                 <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
             </div> 
 

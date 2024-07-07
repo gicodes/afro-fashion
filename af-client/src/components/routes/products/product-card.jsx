@@ -12,6 +12,7 @@ import { BsBookmarkStarFill } from "react-icons/bs";
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
 
 import './product-card.styles.scss';
+import { ProductCategory } from './product-category';
 
 // productCard embodies the first creation of product card and is used throughout the marketplace
 const ProductCard = ({ product }) => {
@@ -23,7 +24,7 @@ const ProductCard = ({ product }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // destructuring may include seller if need be to include sellerName on productCard
-  const { id, name, price, info, count, imageUrls } = product;
+  const { id, name, price, info, count, imageUrls, } = product;
 
   const hasMultipleImages = (imageUrls) => Array.isArray(imageUrls) && imageUrls.length > 1;
   const multipleImages = hasMultipleImages(imageUrls);
@@ -83,17 +84,20 @@ const ProductCard = ({ product }) => {
             Add to Cart
           </Button>
 
-          <div className='footer'>
+          <div className='card-main'>
             <div className='name-price'>
               <span className='product-name'>{name}</span>
               <span className='product-price'>${setPrice(price)}</span>
             </div>
 
             <div className='info-content'>
-              <p>{info || "Description unavailable"}</p>
-              <p>
-                <span className='stock'> Stock:</span> &nbsp; {count || "N/A"}
-              </p>
+              <div className='description'>
+                <span>{info || "Description unavailable"}</span>
+              </div>
+              <div className='description flex-space-bet'>
+                <span className='stock'> Stock: {count || "N/A"}</span>
+                <span>{ProductCategory(product)}</span>
+              </div>
 
               <div className='w-75 mt-5 mx-auto bl-ordered c-border-r'>
                 <div className='footer-actions flex-space-bet'>

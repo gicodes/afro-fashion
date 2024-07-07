@@ -10,14 +10,6 @@
     align-items: center;
   }
 
-  .cp-card-footer {
-    background-color: lightgrey;
-    border-radius: 5px;
-    margin-top: -3px;
-    padding: 10px;
-    width: 98%;
-  }
-
   .btn {
     margin-top: 10px;
   }
@@ -26,15 +18,9 @@
 @media (min-width: 768px) {
   .marketplace-route {
     grid-template-columns: repeat(3, 1fr);
-
-    .cp-card-footer {
-      background-color: lightgrey;
-      border-radius: 5px;
-      margin-top: -3px;
-      padding: 10px;
-      width: 100%;
-    }
   }
+
+  section { margin-bottom: 10%;}
 }
 
 @media (max-width: 768px) {
