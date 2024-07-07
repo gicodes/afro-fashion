@@ -7,17 +7,9 @@ import { addToSavedItems } from '../../../utils/writeBatch';
 import { CartContext } from '../../../contexts/cart.context';
 import { UserContext } from '../../../contexts/user.context';
 import { useLoading } from '../../../contexts/loading.context';
-
-import { 
-  BsCreditCard, 
-  BsBookmarkStarFill
-} from "react-icons/bs";
-
-import { 
-  FaCircleChevronRight, 
-  FaCircleChevronLeft, 
-  FaRegThumbsDown 
-} from "react-icons/fa6";
+import { HiHandThumbDown } from "react-icons/hi2";
+import { BsBookmarkStarFill } from "react-icons/bs";
+import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
 
 import './product-card.styles.scss';
 
@@ -74,8 +66,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <section id={id}>
-      <div 
-        id={id}
+      <div id={id}
         className='card container product-card-container mb-1'>
         <div className='p-1'>
           <div className='image-container'>
@@ -100,14 +91,21 @@ const ProductCard = ({ product }) => {
 
             <div className='info-content'>
               <p>{info || "Description unavailable"}</p>
-              <p><span className='stock'>Stock:</span> &nbsp; {count || "N/A"}</p>
+              <p>
+                <span className='stock'> Stock:</span> &nbsp; {count || "N/A"}
+              </p>
 
-              <br/>
-              <div className='mt-2 flex-just-center'>
-                <div className='btn btn-warning bg-trans footer-actions'>
-                  <BsCreditCard onClick={handleInstantPay} fill='forestgreen'/> &nbsp;
-                  &nbsp; <BsBookmarkStarFill onClick={handleSaveItem} fill='#909090'/> &nbsp;
-                  &nbsp; <FaRegThumbsDown onClick={handleDislike} color='darkred' />
+              <div className='w-75 mt-5 mx-auto bl-ordered c-border-r'>
+                <div className='footer-actions flex-space-bet'>
+                  <div>
+                    <FaAmazonPay onClick={handleInstantPay} size={30} fill='forestgreen'/>
+                  </div>
+                  <div>
+                    <BsBookmarkStarFill onClick={handleSaveItem} size={25}/>
+                  </div>
+                  <div>
+                    <HiHandThumbDown onClick={handleDislike} size={28} fill='goldenrod'/>
+                  </div>
                 </div>
               </div>
             </div>

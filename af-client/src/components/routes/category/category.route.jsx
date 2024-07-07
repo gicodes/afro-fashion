@@ -24,7 +24,7 @@ const Category = () => {
         <hr className='bg-white'/>
         { !products?.length > 0 ? (
           <>
-            <p className='text-center mt-5 text-secondary'>
+            <p className='text-center mt-5 pb-4 text-secondary'>
               Nothing on {category} right now. Try again later!
             </p>
           </>

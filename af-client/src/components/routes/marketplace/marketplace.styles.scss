@@ -15,7 +15,7 @@
     border-radius: 5px;
     margin-top: -3px;
     padding: 10px;
-    width: 90%;
+    width: 98%;
   }
 
   .btn {
@@ -26,6 +26,14 @@
 @media (min-width: 768px) {
   .marketplace-route {
     grid-template-columns: repeat(3, 1fr);
+
+    .cp-card-footer {
+      background-color: lightgrey;
+      border-radius: 5px;
+      margin-top: -3px;
+      padding: 10px;
+      width: 100%;
+    }
   }
 }
 
