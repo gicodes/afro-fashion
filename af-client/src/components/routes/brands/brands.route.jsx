@@ -38,30 +38,32 @@ const BrandCollection = () => {
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
       <Container className="card container bg-ws mx-auto">
-        <h5 className='mx-auto mt-4 font-awesome'>
-          Welcome to {sellerName}'s Brand 
-        </h5>
+        <div className='mt-3 btn btn-outline-success'>
+          <span className='fs-smaller'>
+            You are in the <b>{sellerName}</b> brand. Happy exploring <b>!!</b> 
+          </span>
+        </div>
 
         {brands && Object.keys(brands)?.length > 0 ? (
           <>
             <SellerCard sellerInfo={sellerInfo}/>
             <br/>
-            {/* scaling: brands can return more info i.e. Number of products, number of sales */}
             <div className='text-center fullWidth mt-4 col-md-8'>
               <span className='text-success'>
                 Thanks for checking out my page 
               </span>  🤗
               <p className='mt-2 font-awesome'>
-                I currently have items in <u>{Object.keys(brands)?.length} {Object.keys(brands)?.length !== 1 ? ("categories") : ("category")}</u>
+                I currently have items in {" "}
+                <span>
+                  {Object.keys(brands)?.length} {Object.keys(brands)
+                  ?.length !== 1 ? ("categories") : ("category")}
+                </span>
               </p>
             </div>
             
             <div className='brand-route-container mb-2'>
               {Object.entries(brands).map(([category, categoryProducts]) => (
               <div key={category}>
-                <h6 className='btn btn-secondary p-3 mt-2 -mb fullWidth'>
-                  <span>{category.toUpperCase()}</span>
-                </h6>
                 {categoryProducts.map((brand) => (
                   <ProductCard key={brand.id} product={brand} />
                 ))}

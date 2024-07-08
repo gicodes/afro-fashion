@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HiHandThumbDown } from "react-icons/hi2";
 import { setPrice } from '../../checkout/checkout';
 import Button from '../../buttons/button.component';
+import { BsBookmarkStarFill } from "react-icons/bs";
 import { useAlert } from '../../../contexts/alert.context';
 import { addToSavedItems } from '../../../utils/writeBatch';
 import { CartContext } from '../../../contexts/cart.context';
 import { UserContext } from '../../../contexts/user.context';
 import { useLoading } from '../../../contexts/loading.context';
-import { HiHandThumbDown } from "react-icons/hi2";
-import { BsBookmarkStarFill } from "react-icons/bs";
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
 
 import './product-card.styles.scss';
@@ -78,11 +78,11 @@ const ProductCard = ({ product }) => {
                 <div className='chevron-right' onClick={nextImage}><FaCircleChevronRight /></div>
               </>
             )}
-          </div>
-
           <Button buttonType={'inverted'} onClick={productIn}>
             Add to Cart
           </Button>
+          </div>
+
 
           <div className='card-main'>
             <div className='name-price'>

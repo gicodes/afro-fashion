@@ -10,15 +10,20 @@ import CategoryIndex from "./indexServices/categories";
 import TrendingIndex from "./indexServices/hot&trending";
 import { SearchBar } from "../searchServices/search-bar";
 import { categories } from "../collection/collection.component";
-import Footer from "../routes/navbar/footer";
+import Footer from "../index/footer/footer";
 
 // This component is rendered on the landing page
 const HomeIndex = () => {
   return (
     <>
       <Container className="no-padding-container categories-container">
+
+        {/* AdSection disabled until further notice */}
         {/* <AdSection /> */}
-        <section id="search"></section>
+
+        <section id="search">
+          
+        </section>
         <SearchBar searchSx={"mt-1"} resultSx={"fullWidth"} />
         <CategoryIndex categories={categories}/>
         <div className="featured-container">

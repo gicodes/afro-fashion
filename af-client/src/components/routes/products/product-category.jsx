@@ -18,9 +18,9 @@ export const ProductCategory = (product) => {
           <b>Category:</b>
         </span> 
         <Link 
-          title='category link'  
-          to={product?.category} 
           className='text-link'
+          title='category link'  
+          to={`/marketplace/category/${product?.category}`} 
         >
           {product?.category[0].toUpperCase() + product?.category.slice(1)}
         </Link>
@@ -29,15 +29,16 @@ export const ProductCategory = (product) => {
           <b>{itemClass(product?.stock, product?.price)}</b>
         </span>
 
-        <p className='mt-3 fs-small text-center'>
+        {product?.seller && <p className='mt-3 fs-small text-center'>
           More from &nbsp; 
             <Link 
-              title='seller link'  
-              to={product?.seller}
               className='text-link'
-              >
-              <u>{product.seller}</u>
-            </Link></p>
+              title='seller link'  
+              to={`/brands/${product?.seller}`}
+            >
+              <u>{product?.seller}</u>
+            </Link>
+          </p>}
       </div>
     </>
   )

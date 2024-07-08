@@ -26,7 +26,7 @@ const Collections = () => {
       { allProducts.length > 0 ? (
         <div className='marketplace-route'>
           { allProducts.map((product, index) => (
-            <section key={index} id={product.id}>
+            <section key={index} id={product.id} className='product-section'>
               <ProductCard 
                 product={product} 
                 productId={productId} 

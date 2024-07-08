@@ -1,7 +1,7 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useContext } from 'react';
-import Footer from '../navbar/footer.jsx';
+import Footer from '../../index/footer/footer.jsx';
 import Page404 from '../../../redirect/404.jsx';
 import CreditsPage from '../credits/credits.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -16,7 +16,7 @@ import FailedOperation from '../../../redirect/failedOp.jsx';
 import MarketPlace from '../marketplace/marketplace.route.jsx';
 import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
-import HomeIndex from '../../homeIndex/home.component.jsx';
+import HomeIndex from '../../index/home.component.jsx';
 import SignIn from '../authentication/user-auth/sign-in.component.jsx';
 import SignUp from '../authentication/user-auth/sign-up.component.jsx';
 import ProtectedUserRoute from '../profile/user/protected-route.jsx';
@@ -24,7 +24,7 @@ import ProtectedSellerRoute from '../profile/seller/protected-route.jsx';
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import Subscription from '../profile/subscriptions/subscription.jsx';
-import { PrivacyPolicy, TermsOfService } from '../../homeIndex/indexServices/learnAboutAf.jsx';
+import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learnAboutAf.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);

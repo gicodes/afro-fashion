@@ -2,7 +2,7 @@
 
 import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
-import Footer from "../routes/navbar/footer";
+import Footer from "../index/footer/footer";
 // import AdSection from "../adsection/mobile.ads";
 import LatestIndex from "./indexServices/new&latest";
 import CategoryIndex from "./indexServices/categories";
