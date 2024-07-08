@@ -38,10 +38,13 @@ const BrandCollection = () => {
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
       <Container className="card container bg-ws mx-auto">
-        <div className='mt-3 btn btn-outline-success'>
-          <span className='fs-smaller'>
-            You are in the <b>{sellerName}</b> brand. Happy exploring <b>!!</b> 
-          </span>
+        <div className='mx-auto mt-3'>
+          <div className='btn btn-outline-success'>
+            <span className='p-2 fs-smaller'>
+              You have reached <i className='font-classic'>{" "}{sellerName}'s</i> brand. Happy exploring !!
+            </span>
+          </div>
+          
         </div>
 
         {brands && Object.keys(brands)?.length > 0 ? (
