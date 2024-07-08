@@ -36,7 +36,7 @@ export const ProductCategory = (product) => {
               title='seller link'  
               to={`/brands/${product?.seller}`}
             >
-              <u>{product?.seller}</u>
+              {product?.seller}
             </Link>
           </p>}
       </div>
