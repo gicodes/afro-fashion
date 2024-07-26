@@ -24,7 +24,7 @@ import Subscription from '../profile/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
-import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learnAboutAf.jsx';
+import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learn-about-af.jsx';
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);

@@ -2,12 +2,12 @@
 
 import "../collection/collection.styles.scss";
 
+import LatestIndex from "./new&latest";
+import CategoryIndex from "./categories";
+import TrendingIndex from "./hot&trending";
 // import AdSection from "../adsection/ads";
 import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
-import LatestIndex from "./indexServices/new&latest";
-import CategoryIndex from "./indexServices/categories";
-import TrendingIndex from "./indexServices/hot&trending";
 import { SearchBar } from "../searchServices/search-bar";
 import { categories } from "../collection/collection.component";
 import Footer from "../index/footer/footer";
@@ -28,7 +28,7 @@ const HomeIndex = () => {
         <CategoryIndex categories={categories}/>
         <div className="featured-container">
           <TrendingIndex />
-          <Divider orientation="vertical" variant="middle" flexItem sx={{backgroundColor:"#404040"}} />
+          <Divider className="hide-in-lg" orientation="vertical" variant="middle" flexItem sx={{backgroundColor:"#404040"}} />
           <LatestIndex />
         </div>
         <Footer/>

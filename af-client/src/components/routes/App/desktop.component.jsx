@@ -24,7 +24,7 @@ import ProtectedSellerRoute from '../profile/seller/protected-route.jsx';
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import Subscription from '../profile/subscriptions/subscription.jsx';
-import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learnAboutAf.jsx';
+import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learn-about-af.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);

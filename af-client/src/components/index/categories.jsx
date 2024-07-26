@@ -9,7 +9,9 @@ const CategoryIndex = ({categories}) => {
 
   return (
     <>
-      <Container className='no-padding-container'>
+      <Container 
+        className='no-padding-container'
+      >
         <div className='card categories-index-container'>
           <div className='card-header flex-just-center -mb2 p-3 pt-3'>
             <h6 className='title'>
@@ -25,14 +27,16 @@ const CategoryIndex = ({categories}) => {
                     className='m-2 category-box'
                     onClick={() => onRouteHandler(route)}
                   >
-                  <div 
-                    className='img-box' 
-                    style={{backgroundImage: `url(${imageUrl})`}}
-                  />
-                  <div className='mt-2 fs-smaller'>{title}</div>
+                    <img 
+                      src={imageUrl} 
+                      alt={`img ${id}`}
+                      className='img-res'
+                    />
+                    <div className='mt-2 fs-smaller'>{title}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </Container>

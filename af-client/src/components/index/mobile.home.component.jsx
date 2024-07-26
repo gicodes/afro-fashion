@@ -3,12 +3,11 @@
 import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
 import Footer from "../index/footer/footer";
+import LatestIndex from "./new&latest";
+import CategoryIndex from "./categories";
+import TrendingIndex from "./hot&trending";
 // import AdSection from "../adsection/mobile.ads";
-import LatestIndex from "./indexServices/new&latest";
-import CategoryIndex from "./indexServices/categories";
 import { SearchBar } from "../searchServices/search-bar";
-import TrendingIndex from "./indexServices/hot&trending";
-// import LearnAboutAF from "./indexServices/learnAboutAf";
 import { categories } from "../collection/collection.component";
 
 // This component is rendered on the landing page
@@ -21,7 +20,6 @@ const HomeIndex = () => {
         <CategoryIndex categories={categories} />
         <LatestIndex />
         <Divider />
-        {/* <LearnAboutAF/> */}
         <TrendingIndex />
         <Footer/>
       </Container>

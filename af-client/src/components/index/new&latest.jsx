@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { getLatestItems } from '../../../utils/firebase.utils';
+import { getLatestItems } from '../../utils/firebase.utils';
 
 import './index.styles.scss';
-import { FeaturedCard } from './hot&trending';
+import { FeaturedCard } from './indexServices/featured-card';
 
 export const Loading = () => (
   <>
@@ -62,7 +62,7 @@ const LatestIndex = () => {
           <div className='items-row'>
             {latestItems.map((item, index) => (
               <FeaturedCard 
-                key={index} 
+                key={index}   
                 item={item} 
                 index={index} 
                 onRouteHandler={onRouteHandler}

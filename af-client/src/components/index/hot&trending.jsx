@@ -1,37 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { Card, Container } from 'react-bootstrap';
 import { Loading, NoInternet } from './new&latest';
-import { getTrendingItems } from '../../../utils/firebase.utils';
+import { FeaturedCard } from './indexServices/featured-card';
+import { getTrendingItems } from '../../utils/firebase.utils';
 
 import './index.styles.scss';
 
-export const FeaturedCard = ({item, index, onRouteHandler}) => (
-  <Card 
-    key={`card-${index}`} 
-    className='card mt-1 mb-3'
-  >
-    <div key={`item-box-${index}`} className='item-box'>
-      <div 
-        className='item-img'
-        onClick={() => onRouteHandler(`/marketplace/products/${item.id}`)}
-        style={{
-          backgroundImage: `url(${item.imageUrl})`
-        }}
-      />
-      <div className='name-price mt-2'>
-        <span className='name fs-smaller text-success flex-wrap'>
-          {item.name}
-        </span>
-        <span 
-          className='price v-center fs-smaller'
-        >
-          ${item.price}
-        </span>
-      </div>
-    </div>
-  </Card>
-)
 
 const TrendingIndex = () => {
   const navigate = useNavigate();
