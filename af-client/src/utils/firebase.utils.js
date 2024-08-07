@@ -320,8 +320,10 @@ export const getLatestItems = async () => {
     });
 
     const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+    const topLatestItems = latestItemsArray.slice(0, 4);
+
     
-    return latestItemsArray;
+    return topLatestItems;
   } catch (error) {
     throw new Error('Could not fetch latest items because', error);
   }
