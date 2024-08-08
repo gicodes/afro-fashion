@@ -48,7 +48,7 @@ const CreditsCard = () => {
 
             <p>There are other notable mentions who have contributed to the development of this project such as <a className="link" href="https://github.com/KrownWealth" target="_blank" rel="noopener noreferrer">
                 Adeola Abdulramon
-              </a>, Chinwendu Oji, etc.</p>
+              </a>, Chinwendu Orji, etc.</p>
               <span>You can find more about this Project from the  <a className="link" href="https://github.com/gicodes/afro-fashion" target="_blank" rel="noopener noreferrer">
                 source code
               </a>.
