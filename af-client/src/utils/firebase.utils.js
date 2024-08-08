@@ -278,20 +278,23 @@ export const getTrendingItems = async () => {
                 name: item.name,
                 price: item.price,
                 imageUrl: item.imageUrl,
+                count: 1, // initialize count
               };
             }
           }
-      })}
+        });
+      }
     });
 
-    const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.count - a.count);    
+    // sort the items by count in descending order
+    const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.count - a.count);
     const topTrendingItems = trendingItemsArray.slice(0, 4);
 
     return topTrendingItems;
   } catch (error) {
-    throw new Error('Could not fetch trending items because', error);
+    throw new Error(`Could not fetch trending items: ${error.message}`);
   }
-}
+};
 
 // Get the latest items uploaded to categories collection
 export const getLatestItems = async () => {
@@ -321,7 +324,6 @@ export const getLatestItems = async () => {
 
     const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
     const topLatestItems = latestItemsArray.slice(0, 4);
-
     
     return topLatestItems;
   } catch (error) {

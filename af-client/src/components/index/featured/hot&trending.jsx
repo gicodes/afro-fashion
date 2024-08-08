@@ -1,12 +1,12 @@
+import { Loading } from './fc-loading';
+import { NoInternet } from './fc-noInt';
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { Loading, NoInternet } from './new&latest';
-import { FeaturedCard } from './indexServices/featured-card';
-import { getTrendingItems } from '../../utils/firebase.utils';
+import { FeaturedCard } from './featured-card';
+import { getTrendingItems } from '../../../utils/firebase.utils';
 
-import './index.styles.scss';
-
+import '../index.styles.scss';
 
 const TrendingIndex = () => {
   const navigate = useNavigate();

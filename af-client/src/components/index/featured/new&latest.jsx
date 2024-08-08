@@ -1,31 +1,17 @@
+import { Loading} from './fc-loading';
+import { NoInternet } from './fc-noInt';
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { FeaturedCard } from './featured-card';
 import { useNavigate } from "react-router-dom";
-import { getLatestItems } from '../../utils/firebase.utils';
+import { getLatestItems } from '../../../utils/firebase.utils';
 
-import './index.styles.scss';
-import { FeaturedCard } from './indexServices/featured-card';
-
-export const Loading = () => (
-  <>
-    <span key="loading" className='mt-4 flex-just-center mb-4 fs-smaller'>
-      🧐 &nbsp; Abeg relax, make e load finish ...
-    </span>
-  </>
-)
-
-export const NoInternet = () => (
-  <>
-    <span key="nointernet" className='mt-4 flex-just-center mb-4 fs-smaller'>
-      <span className='text-danger'>Customer, abeg restart your network then try again</span> &nbsp; 😟
-    </span>
-  </>
-)
+import '../index.styles.scss';
 
 const LatestIndex = () => {
   const navigate = useNavigate();
   const [ isLoading, setLoading ] = useState(true);
-  const [latestItems, setLatestItems] = useState([]);
+  const [ latestItems, setLatestItems] = useState([]);
   const onRouteHandler = (route) => { navigate(route) }
 
   useEffect(() => {

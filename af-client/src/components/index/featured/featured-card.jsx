@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 
-export const FeaturedCard = ({item, index, onRouteHandler}) => (
+export const FeaturedCard = ({item, index, onRouteHandler}) => {
+  return (
     <Card 
       key={`card-${index}`} 
       className='mt-1 mb-3'
@@ -25,3 +26,4 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => (
       </div>
     </Card>
   )
+}

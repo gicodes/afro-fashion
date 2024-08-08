@@ -1,16 +1,16 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import "../collection/collection.styles.scss";
 
-import LatestIndex from "./new&latest";
 import CategoryIndex from "./categories";
-import TrendingIndex from "./hot&trending";
-// import AdSection from "../adsection/ads";
 import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
+import Footer from "../index/footer/footer";
+import LatestIndex from "./featured/new&latest";
+import TrendingIndex from "./featured/hot&trending";
 import { SearchBar } from "../searchServices/search-bar";
 import { categories } from "../collection/collection.component";
-import Footer from "../index/footer/footer";
+
+import "../collection/collection.styles.scss";
 
 // This component is rendered on the landing page
 const HomeIndex = () => {
