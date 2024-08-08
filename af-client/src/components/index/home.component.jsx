@@ -1,6 +1,5 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-
 import CategoryIndex from "./categories";
 import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
