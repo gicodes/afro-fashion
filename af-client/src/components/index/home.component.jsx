@@ -16,12 +16,9 @@ const HomeIndex = () => {
   return (
     <>
       <Container className="no-padding-container categories-container">
-
         {/* AdSection disabled until further notice */}
         {/* <AdSection /> */}
-
-        <section id="search">
-          
+        <section id="search">   
         </section>
         <SearchBar searchSx={"mt-1"} resultSx={"fullWidth"} />
         <CategoryIndex categories={categories}/>
