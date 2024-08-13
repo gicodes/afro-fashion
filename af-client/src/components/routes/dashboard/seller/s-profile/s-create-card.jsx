@@ -1,4 +1,4 @@
-import { addSellerItems, sellerProductCount, uploadImages } from '../../../../../utils/writeBatch';
+import { addSellerItems, sellerProductCount, uploadProductImages } from '../../../../../utils/writeBatch';
 import FormField from '../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
@@ -35,8 +35,8 @@ export const SellerCreateCard = () => {
   }
 
   const id = generateRandomId();
-  const brand = currentUser?.brandName;
-  const path = `/brands/${brand.toLowerCase()}`;
+  const brandName = currentUser?.brandName;
+  const path = `/brands/${brandName.toLowerCase()}`;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,29 +45,29 @@ export const SellerCreateCard = () => {
 
   const handleImgChange = (event) => {
     const { name, files } = event.target;
-    setFormFields({ ...formFields, [name]: files });
+    if (files?.length > 1) {
+      setFormFields({ ...formFields, [name]: files });
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!brand){
-      addAlert("danger", 'You must have a unique brand name');
+    if (!brandName){
+      addAlert("danger", 'You must have a unique brandName!');
       return;
     }
 
-    const { uid } = userId;
-    const countOk = await sellerProductCount(currentUser, uid)
-
+    const countOk = await sellerProductCount(currentUser?.brandName, userId)
     try {
-      const imagesArray = formFields.images;
-      const imageUrls = await uploadImages(imagesArray, id);
+      const imagesArray = formFields?.images;
+      const imageUrls = await uploadProductImages(imagesArray, id);
       const itemsToAdd = {
         id: id,
         name: name,
         price: price,
         count: count,
         info: info,
-        seller: brand,
+        seller: brandName,
         category: category,
         imageUrls: imageUrls,
       };
@@ -76,7 +76,6 @@ export const SellerCreateCard = () => {
 
       if (countOk) {
         await addSellerItems(category, itemsToAdd);
-        
         addAlert("success", 
         'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
 
@@ -96,8 +95,11 @@ export const SellerCreateCard = () => {
     <>
       <div className='card container'>
         <div className='p-2'>
-          <form onSubmit={handleSubmit} action=''>
-            <select onChange={handleChange} name='category' 
+          <form onSubmit={handleSubmit}>
+            <select  
+              id="category"
+              name='category' 
+              onChange={handleChange} 
               className="form-select centered-dropdown"
             >
               <option>Select item category</option>
@@ -119,10 +121,12 @@ export const SellerCreateCard = () => {
             </select>
 
             <FormField 
-              label={'What would you name this item?'}
-              onChange={handleChange}
-              type="text" name="name"
+              id="name"
+              name="name"
+              type="text" 
               value={formFields.name}
+              onChange={handleChange}
+              label={'What is the name for this item?'}
             />
 
             <div className="bg-ws">
@@ -148,31 +152,36 @@ export const SellerCreateCard = () => {
             </div>
 
             <FormField 
-              label={'How much would this item cost?'}
-              onChange={handleChange}
-              type="number"
-              value={formFields.price}
+              id="price"
               name="price"
+              type="number"
+              onChange={handleChange}
+              value={formFields.price}
+              label={'How much does this item cost?'}
             />
 
             <FormField 
-              label={'How much stock do you currently have?'}
+              id="count"
+              name="count"
+              type="number" 
               onChange={handleChange}
-              type="number" name="count"
               value={formFields.count}  
+              label={'How much stock do you currently have?'}
             />
 
             <textarea
-              className='form-control' 
+              rows={3}
+              id="info"
+              name="info"
+              type="textarea"
+              value={formFields.info} 
+              className='form-control' autoComplete=''  
               placeholder={'Write a detailed information about this item. Eg. This shoe comes in size 8.'} 
               onChange={handleChange}
-              type="textarea" name="info"
-              value={formFields.info} 
-              rows={3}
             />
-            
+
             <div className='m-2 flex-just-center'>
-              <Button type="submit">Submit Me</Button>
+              <Button type="submit">Submit </Button>
             </div>
           </form>
         </div> 

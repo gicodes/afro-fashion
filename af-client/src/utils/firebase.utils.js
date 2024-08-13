@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-
 import {
   doc,
   getDoc,
@@ -18,7 +17,6 @@ import {
   query,
   where,
 } from 'firebase/firestore'
-
 import { firebaseConfig } from './config';
 import { initializeApp } from "firebase/app";
 
@@ -79,7 +77,6 @@ export const customCreateUserWithEmail = async (
             userType,
           }); // ... store sellerDocRef in firestore
         } catch (error) {
-          console.log("Error writing seller document")
           throw new Error("Error writing seller document: ", error);
         }
       }
@@ -182,8 +179,7 @@ export const getItemsBySellers = async () => {
           }
           itemsBySeller[sellerKey][categoryName].push(restOfItem);
         }
-      });
-    }
+    })}
   });
 
   return itemsBySeller;
@@ -196,11 +192,11 @@ export const getSellerInfo = async (seller) => {
     where("brandName", "==", seller),
   );
   const sellersSnapshot = await getDocs(sellersQuery);
-
   let sellerInfo = null;
 
   sellersSnapshot.forEach((sellerDoc) => {
     const sellerData = sellerDoc.data();
+
     sellerInfo = {
       bio: sellerData?.bio,
       phone: sellerData?.phone,
@@ -254,8 +250,7 @@ export const getSellerBankInfo = async (seller) => {
         account_bank: bank,
         account_number: bankAcct,
       };
-    } 
-    else throw new Error("Error finding bank account info!")
+    } else throw new Error("Error finding bank account info!")
   });
 
   return sellerBankInfo;

@@ -62,7 +62,7 @@ export const UserProvider = ({ children }) => {
               bank: sellerData?.bank || "",
               imageUrl: sellerData?.imageUrl || "",
               isVerified: isVerified,
-              products: sellerData?.products,
+              productCount: sellerData?.productCount,
               subscription: sellerData?.subscription || null,
               latestSubAction: sellerData?.latestSubAction,
               latestSubExpiry: sellerData?.latestSubExpiry,
