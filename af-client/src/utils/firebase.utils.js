@@ -54,6 +54,7 @@ export const customCreateUserWithEmail = async (
   email, 
   password, 
   displayName, 
+  brandName,
   phone,
   userType
   ) => {
@@ -73,10 +74,12 @@ export const customCreateUserWithEmail = async (
             email,
             createdAt,
             displayName,
+            brandName,
             phone,
             userType,
           }); // ... store sellerDocRef in firestore
         } catch (error) {
+          console.log("Error writing seller document")
           throw new Error("Error writing seller document: ", error);
         }
       }

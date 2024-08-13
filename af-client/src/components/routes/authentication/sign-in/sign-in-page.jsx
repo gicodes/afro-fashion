@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+
 import { useAlert } from "../../../../contexts/alert.context";
 import { useLoading } from '../../../../contexts/loading.context';
 import { signInWithEmail } from "../../../../utils/firebase.utils";
@@ -16,13 +18,17 @@ const SignInForm = () => {
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
   const [formFields, setFormFields] = useState(defaultFormFields);
-
+  const [ showPassword, setShowPassword ] = useState(false);
   const { email, password } = formFields;
   const resetFormFields = () => { setFormFields(defaultFormFields) }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
+  }
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword)
   }
   
   let path = '/'; 
@@ -76,12 +82,19 @@ const SignInForm = () => {
 
             <FormField
               label={'Password'}
-              type="password" required
+              type={showPassword ? "text" : "password"} required
               onChange={handleChange}
               name="password"
               autoComplete="true"
               value={password}
             />
+            <div 
+              onClick={handleShowPassword}
+              className="flex -mt2 mb-5 flex-end"
+              
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </div>
 
             <div className='buttons-container'>
               <Button type='submit'>Sign In</Button>
