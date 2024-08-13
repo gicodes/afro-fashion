@@ -105,19 +105,19 @@ export const SellerCreateCard = () => {
               <option>Select item category</option>
               <option value="accessories">Accessories</option>
               <option value="bags">Bags</option>          
-              <option value="hair">Hair</option>
-              <option value="hats">Hats</option>
-              <option value="jackets">Jackets</option>
+              <option value="hair">Hair & Accessories</option>
+              <option value="hats">Hats & Caps</option>
+              <option value="jackets">Jackets & Coats</option>
               <option value="jerseys">Jerseys</option>
-              <option value="kids">Kids</option>
-              <option value="men">Men</option>
+              <option value="kids">Kids Clothing</option>
+              <option value="men">Men Clothing</option>
               <option value="senegalese">Senegalese</option>
-              <option value="shoes">Shoes</option>
-              <option value="slippers">Slippers</option> 
-              <option value="sneakers">Cosmetics</option>  
+              <option value="shoes">Shoes & Sneakers</option>
+              <option value="slippers">Slippers & Sandals</option> 
+              <option value="cosmetics">Cosmetics</option>  
               <option value="underwears">Underwears</option> 
               <option value="unisex">Unisex</option>
-              <option value="women">Women</option>
+              <option value="women">Women Clothing</option>
             </select>
 
             <FormField 

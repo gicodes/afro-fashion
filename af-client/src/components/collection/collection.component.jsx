@@ -37,7 +37,7 @@ export const categories = [
   },
   {
     id: 6,
-    title: 'Hair & Wigs',
+    title: 'Hair & Accessories',
     imageUrl: 'https://images.unsplash.com/photo-1634315775834-3e1ac73de6b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     route: 'marketplace/category/hair',
   },
@@ -55,7 +55,7 @@ export const categories = [
   },
   {
     id: 9,
-    title: 'Slippers & Slides',
+    title: 'Slippers & Sandals',
     imageUrl: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2xpcHBlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
     route: 'marketplace/category/slippers',
   },
