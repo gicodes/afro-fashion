@@ -17,8 +17,8 @@ export const navLinks = [
   },
   {
     id: 3,
-    title: 'My Profile',
-    link: '/profile',
+    title: 'Dashboard',
+    link: '/dashboard',
   },
   {
     id: 4,

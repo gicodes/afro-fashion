@@ -101,7 +101,7 @@ const Checkout = () => {
             </div>
             <div className='v-center'>
               <Button className='btn btn-success fullWidth'>
-                <Link to="/profile" className='text-warning'>Update Address</Link>
+                <Link to="/dashboard" className='text-warning'>Update Address</Link>
               </Button>
             </div>
           </div>

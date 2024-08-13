@@ -1,11 +1,10 @@
 import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAlert } from "../../../../contexts/alert.context";
 import { useLoading } from '../../../../contexts/loading.context';
 import { signInWithEmail } from "../../../../utils/firebase.utils";
@@ -15,6 +14,7 @@ const defaultFormFields = { email: '', password: '' }
 // This component embodies the first creation of sign-in (logic and UI) before rendering on other components
 const SignInForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -31,7 +31,7 @@ const SignInForm = () => {
     setShowPassword(!showPassword)
   }
   
-  let path = '/'; 
+  let path = location.state?.from?.pathname || '/';
 
   const HandleSubmit = async (event) => {
     event.preventDefault()
@@ -44,7 +44,7 @@ const SignInForm = () => {
       addAlert("success", 'Welcome back to Afro Fashion! 😊 ')
       
       hideLoading();
-      navigate(path);
+      navigate(path, { replace: true });
     } catch (error) {
       hideLoading();
 

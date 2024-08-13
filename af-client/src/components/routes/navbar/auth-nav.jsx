@@ -51,8 +51,8 @@ export const SideNav = ({
         
         <div className='card-body fs-smaller'>
           <div className='hide-in-sm'>
-            <Link title="my profile" onClick={onClose} to="profile">
-              My Profile
+            <Link title="Dashboard" onClick={onClose} to="dashboard">
+              Dashboard
             </Link>
           </div>
           <div className='flex-just-center hide-in-sm'>

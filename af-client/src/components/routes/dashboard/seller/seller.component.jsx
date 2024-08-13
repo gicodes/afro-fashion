@@ -7,7 +7,7 @@ import { VerifyNow } from "../verifyNow/profile-verify";
 import Button from "../../../buttons/button.component";
 import { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
-import "../profile.styles.scss";
+import "../dashboard.styles.scss";
 
 const today =  new Date().toLocaleString().split(",")[0];
 

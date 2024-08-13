@@ -9,18 +9,18 @@ import { Help } from "../help/help.component.jsx";
 import BrandsPage from '../brands/brands.page.jsx';
 import BrandCollection from '../brands/brands.route.jsx';
 import NavBar from "../navbar/mobile.navbar.component.jsx";
-import Seller from "../profile/seller/seller.component.jsx";
-import UserProfile from "../profile/user/user.component.jsx";
+import Seller from "../dashboard/seller/seller.component.jsx";
+import UserProfile from "../dashboard/user/user.component.jsx";
 import Checkout from '../../checkout/checkout.component.jsx';
 import FailedOperation from '../../../redirect/failedOp.jsx';
 import MarketPlace from '../marketplace/marketplace.route.jsx';
 import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
 import HomeIndex from "../../index/mobile.home.component.jsx";
-import ProtectedUserRoute from '../profile/user/protected-route.jsx';
+import ProtectedUserRoute from '../dashboard/user/protected-route.jsx';
 import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
-import ProtectedSellerRoute from '../profile/seller/protected-route.jsx'; 
-import Subscription from '../profile/subscriptions/subscription.jsx';
+import ProtectedSellerRoute from '../dashboard/seller/protected-route.jsx'; 
+import Subscription from '../dashboard/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
 import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
 import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
@@ -46,9 +46,9 @@ const Home = () => {
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
         <Route path="auth/verify-seller" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
-          <Route path="profile" element={<ProtectedSellerRoute element={<Seller />} />} />
+          <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (
-          <Route path="profile" element={<ProtectedUserRoute element={<UserProfile />} />} />
+          <Route path="dashboard" element={<ProtectedUserRoute element={<UserProfile />} />} />
         )}
         <Route path="brands/:seller" element={<BrandCollection />}>
           <Route path="*" element={<Page404 />} />

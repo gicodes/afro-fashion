@@ -21,7 +21,7 @@ const ChooseAndPay = (userId) => {
   useEffect(() => {
     if (countdown === 0) {
       addAutoCloseAlert("warning", 'You did not complete the transaction within the specified time')
-      navigate('/profile');
+      navigate('/dashboard');
     }
   }, [countdown, navigate, addAutoCloseAlert]);
 

@@ -5,7 +5,7 @@ import { useAlert } from '../../../../../contexts/alert.context';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import '../../profile.styles.scss';
+import '../../dashboard.styles.scss';
 
 export const SellerProducts = ({ sellerName }) => {
   const navigate = useNavigate();

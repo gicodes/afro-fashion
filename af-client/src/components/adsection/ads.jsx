@@ -27,7 +27,7 @@ const AdSection = () => {
             <ul>
               <li>Register as a <Link className="ad-link" to={'/auth/register#seller'}>seller</Link> for access to <b>AF</b> marketplace</li> 
               <li>Read and agree to the terms of contract</li>
-              <li>Once verified, create your brand name and proceed to <Link className="ad-link" to={'/profile#product-upload'}>upload</Link> amazing products!</li>
+              <li>Once verified, create your brand name and proceed to <Link className="ad-link" to={'/dashboard#product-upload'}>upload</Link> amazing products!</li>
             </ul> 
           </div>
         </div>

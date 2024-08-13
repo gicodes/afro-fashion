@@ -47,7 +47,7 @@ export const AcceptTerms = () => {
       addAlert("info", 'Verification link sent to your email. Verify your account to commence commerce!');
       
       await sendVerification(currentUser?.email);
-      navigate('/profile');
+      navigate('/dashboard');
     } else {
       addAlert("warning", 'Accept our terms of use before proceeding!!!');
     }

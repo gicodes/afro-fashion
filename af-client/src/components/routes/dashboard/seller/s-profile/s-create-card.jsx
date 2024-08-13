@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 
-import '../../profile.styles.scss';
+import '../../dashboard.styles.scss';
 
 const defaultFormFields = {
   category: '',
@@ -23,7 +23,6 @@ export const SellerCreateCard = () => {
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
   const { currentUser, userId } = useContext(UserContext);
-  const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { category, name, price, count, info, } = formFields;
@@ -73,7 +72,6 @@ export const SellerCreateCard = () => {
         imageUrls: imageUrls,
       };
       
-      setIsSubmitting(true);
       showLoading();
 
       if (countOk) {
@@ -82,7 +80,6 @@ export const SellerCreateCard = () => {
         addAlert("success", 
         'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
 
-        setIsSubmitting(false);
         hideLoading();
 
         navigate(path);
@@ -176,7 +173,7 @@ export const SellerCreateCard = () => {
             />
 
             <div className='m-2 flex-just-center'>
-              <Button type="submit" disabled={isSubmitting}>Submit</Button>
+              <Button type="submit">Submit</Button>
             </div>
           </form>
         </div> 

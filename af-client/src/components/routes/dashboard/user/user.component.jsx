@@ -4,7 +4,7 @@ import {  UserProfileCard } from "./profile-card";
 import { useState, useContext } from 'react';
 import { SavedItems } from "./user.products";
 
-import "../profile.styles.scss";
+import "../dashboard.styles.scss";
 
 const date = new Date();
 const today = date.toLocaleString().split(",")[0];
