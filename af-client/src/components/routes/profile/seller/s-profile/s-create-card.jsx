@@ -101,37 +101,25 @@ export const SellerCreateCard = () => {
       <div className='card container'>
         <div className='p-2'>
           <form onSubmit={handleSubmit} action=''>
-            <div className='card mb-2 fs-smaller'>
-
-              <div disabled className='btn btn-warning m-2'>Important notice for <b>ALL</b> sellers!</div>
-              <div className='p-2'>
-                <p>You have to create or update your <b>Brand Name</b> before creating your very first product!</p>
-                <p>Brand names are used throughout the marketplace to identify a seller's product. 
-                  It is important to use a unique name and keep it consistent.</p>
-                <p>To avoid conflicts when a user tries to purchase your product, update 
-                  your <b>Bank</b> information with the listed banks available.</p>
-              </div>
-            </div>
-
             <select onChange={handleChange} name='category' 
               className="form-select centered-dropdown"
             >
               <option>Select item category</option>
               <option value="accessories">Accessories</option>
               <option value="bags">Bags</option>          
-              <option value="hair">Hair & Wigs</option>
+              <option value="hair">Hair</option>
               <option value="hats">Hats</option>
-              <option value="jackets">Jackets & Coats</option>
+              <option value="jackets">Jackets</option>
               <option value="jerseys">Jerseys</option>
-              <option value="kids">Kids Clothing</option>
-              <option value="men">Men Clothing</option>
+              <option value="kids">Kids</option>
+              <option value="men">Men</option>
               <option value="senegalese">Senegalese</option>
               <option value="shoes">Shoes</option>
-              <option value="slippers">Slippers & Slides</option> 
-              <option value="sneakers">Sneakers</option>  
+              <option value="slippers">Slippers</option> 
+              <option value="sneakers">Cosmetics</option>  
               <option value="underwears">Underwears</option> 
-              <option value="unisex">Unisex Wears</option>
-              <option value="women">Women Clothing</option>
+              <option value="unisex">Unisex</option>
+              <option value="women">Women</option>
             </select>
 
             <FormField 
