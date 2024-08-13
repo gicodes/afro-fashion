@@ -81,7 +81,6 @@ export const SellerCreateCard = () => {
         'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
 
         hideLoading();
-
         navigate(path);
       } else {
         addAlert("danger", 'You have exceeded your limit. Upgrade your subscription to continue creating products!')
@@ -171,9 +170,9 @@ export const SellerCreateCard = () => {
               value={formFields.info} 
               rows={3}
             />
-
+            
             <div className='m-2 flex-just-center'>
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Submit Me</Button>
             </div>
           </form>
         </div> 

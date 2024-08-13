@@ -215,14 +215,15 @@ const SignUp = () => {
               <Button type="submit">
                 Sign Up
               </Button>
-              <section id="google">
               {buyer && <Button
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
               >
-                Google Sign-up
-              </Button>}</section>
+                <section id="google">
+                  Google Sign-up
+                </section>
+              </Button>}
             </div>
           </div>
           </div>

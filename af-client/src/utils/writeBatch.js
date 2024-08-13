@@ -1,5 +1,5 @@
 import { deleteObject, getStorage, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { collection, doc, getDoc, updateDoc, writeBatch } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { db, firebaseApp } from "./firebase.utils";
 
 // Most of the following code functions use the Firebase SDK (version 9+) for modular approach: 
@@ -67,9 +67,9 @@ export const sellerProductCount = async (seller, userId) => {
     productCount++;
 
     try {
-      await db.collection('sellers').doc(userId).update({
-        products: productCount
-      });
+      await setDoc(doc(db, "sellers"), {
+        productCount: productCount
+      })
     } catch (err) {
       throw new Error(err.message);
     }

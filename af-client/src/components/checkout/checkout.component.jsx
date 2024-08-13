@@ -17,7 +17,7 @@ const Checkout = () => {
   const { currentUser } = useContext(UserContext);
   const [ payCard, setPayCard ] = useState(false);
 
-  const items = cartItems.map((item) => {return item})
+  const items = cartItems.map((item) => { return item })
   
   const { address, displayName, email, phone } = currentUser || {};
 
@@ -38,13 +38,13 @@ const Checkout = () => {
   }
 
   const cartTotal = cartItems.map(
-    (item) => item.price * item.quantity).reduce(
-      (total, itemTotal) => total + itemTotal, 0
-    )
+    (item) => item.price * item.quantity).reduce((total, itemTotal) => total + itemTotal, 0
+  )
 
-  const todaysBMRate = GetExchangeRate() + 300;
-  let USDtoNGNRate = (todaysBMRate) || 1600;
-  const cartTotalinNaira = setPrice(cartTotal * USDtoNGNRate);
+  const todaysBMRate = GetExchangeRate() + 300; 
+
+  const cartTotalinNaira = setPrice(cartTotal * 1500);
+  console.log(todaysBMRate)
 
   return (
     <>
