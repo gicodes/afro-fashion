@@ -2,6 +2,7 @@ import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import Button from '../../../buttons/button.component';
 import { useAlert } from "../../../../contexts/alert.context";
 import { useLoading } from '../../../../contexts/loading.context';
@@ -26,7 +27,7 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   }
-
+  const [ showPassword, setShowPassword ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
   const resetFormFields = () => { setFormFields(defaultFormFields) };
   const { userType, displayName, brandName, phone, email, password, confirmPassword } = formFields;
@@ -66,7 +67,11 @@ const SignUp = () => {
   let userPath = '/auth', sellerPath = '/auth/accept-seller-terms'
 
   const handleSuccessNavigate = (path) => navigate(path)
-
+  
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+  
   const HandleSubmit = async (event) => {
     event.preventDefault()
     
@@ -182,7 +187,7 @@ const SignUp = () => {
             
             <FormField
               label={'Password'}
-              type='password' required
+              type={showPassword ? 'text' : 'password'} required
               onChange={handleChange}
               name='password'
               value={formFields.password}
@@ -191,12 +196,20 @@ const SignUp = () => {
 
             <FormField
               label={'Confirm Password'}
-              type='password' required
+              type={showPassword ? 'text' : 'password'} required
               onChange={handleChange}
               name='confirmPassword'
               value={formFields.confirmPassword}
               autoComplete='true'
             />
+            
+            <div 
+              onClick={handleShowPassword}
+              className="flex -mt2 mb-5 flex-end"
+              
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </div>
         
             <div className='buttons-container'>
               <Button type="submit">

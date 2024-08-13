@@ -43,15 +43,15 @@ export const categories = [
   },
   {
     id: 7,
-    title: 'Shoes & Loafers',
+    title: 'Shoes & Sneakers',
     imageUrl: 'https://images.unsplash.com/photo-1576133385309-203e67da8e58?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxvYWZlcnN8ZW58MHx8MHx8fDA%3D',
     route: 'marketplace/category/shoes',
   },
   {
     id: 8,
-    title: 'Sneakers',
-    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-    route: 'marketplace/category/sneakers',
+    title: 'Cosmetics',
+    imageUrl: 'https://images.unsplash.com/photo-1599022509786-23794c1b68c2?q=80&w=2804&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    route: 'marketplace/category/cosmetics',
   },
   {
     id: 9,

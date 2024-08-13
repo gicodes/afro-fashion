@@ -2,9 +2,9 @@ import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
-import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 import { useAlert } from "../../../../contexts/alert.context";
 import { useLoading } from '../../../../contexts/loading.context';
