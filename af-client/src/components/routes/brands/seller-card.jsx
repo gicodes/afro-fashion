@@ -40,7 +40,7 @@ const SellerCard= ({sellerInfo}) => {
             </p>
 
             <p> 
-              &nbsp; <MdMyLocation size={18} fill='#909090'/> 
+              &nbsp; <MdMyLocation size={18}/> 
               &nbsp; {sellerInfo?.address || "Not available"}
             </p>
           </div>

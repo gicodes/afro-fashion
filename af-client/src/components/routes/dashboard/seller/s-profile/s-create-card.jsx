@@ -23,6 +23,7 @@ export const SellerCreateCard = () => {
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
   const { currentUser, userId } = useContext(UserContext);
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { category, name, price, count, info, } = formFields;
@@ -52,6 +53,9 @@ export const SellerCreateCard = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (isSubmitting) return; // prevent multiple submissions
+    setIsSubmitting(true); // disable the button
+
     if (!brandName){
       addAlert("danger", 'You must have a unique brandName!');
       return;
@@ -87,7 +91,8 @@ export const SellerCreateCard = () => {
     } catch (err) {
       addAlert("danger", 'something went wrong. Try again later!!')
     } finally {
-      hideLoading()
+      hideLoading();
+      setIsSubmitting(false);
     }
   }
 
@@ -181,7 +186,11 @@ export const SellerCreateCard = () => {
             />
 
             <div className='m-2 flex-just-center'>
-              <Button type="submit">Submit </Button>
+              <Button 
+                type="submit" disabled={isSubmitting}
+              >
+                Submit
+              </Button>
             </div>
           </form>
         </div> 

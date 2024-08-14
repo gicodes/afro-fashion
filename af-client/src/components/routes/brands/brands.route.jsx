@@ -41,7 +41,7 @@ const BrandCollection = () => {
         <div className='mx-auto mt-3'>
           <div className='btn btn-outline-success'>
             <span className='p-2 fs-smaller'>
-              You have reached <i className='font-classic'>{" "}{sellerName}'s</i> brand. Happy exploring !!
+              You have reached <i className='font-classic fs-large'>{" "}{sellerName}'s</i> brand. Enjoy Exploring!
             </span>
           </div>
           
