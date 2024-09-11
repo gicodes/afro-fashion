@@ -1,5 +1,96 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 
+.index-container {
+// holds the dashboard first or index backgound
+  background-color: beige;
+  padding: auto;
+}
+
+.opening-text {
+  padding: 20px 40px 20px 40px;
+}
+
+.body-container {
+  height: 100vh;
+  padding: 4% 8% 4% 8%;
+  background-color: whitesmoke;
+
+  p {
+    color: azure;
+    font-size: small;
+  }
+}
+
+.per-card {
+  background-color: rgb(72, 37, 105);
+  margin: auto;
+
+  .per-card-body {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border-bottom-left-radius: 5% ;
+    border-bottom-right-radius: 5%;
+    background-color: rgb(104, 70, 136);
+
+    .stat-set {
+      width: 100%;
+      display: flex;
+      padding: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      justify-content: space-between;
+
+      h5 {
+        color: lightgreen;
+      }
+      span {
+        color: bisque;
+      }
+    
+      .m-width {
+        width: 15%;
+        font-weight:bolder;
+        line-height: 2px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.p-card-header {
+  color: #909090;
+  padding: 20px 20px 0 20px;
+}
+
+.pro-card {
+  background-color: rgb(67, 157, 67);
+  margin: auto;
+
+  .img-av {
+    position: relative;
+    bottom: 10%;
+  }
+
+  img {
+    border: 1px solid khaki;
+    height: 69px;
+    width: 69px;
+  }
+      
+  .pro-card-body {
+    padding: 5%;
+    background: forestgreen;
+
+    .info-set {
+      font-family: Helvetica, sans-serif;
+      font-size: smaller;
+      margin: 0 0 0 20px;
+      color: white;
+      width: 100%;
+    }
+  }
+}
+
 button:focus,
 input:focus{
   outline: none;

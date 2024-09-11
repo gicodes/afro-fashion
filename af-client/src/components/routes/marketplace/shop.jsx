@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import ProductCard from '../products/product-card';
 import { useContext, useEffect, useState } from 'react';
 import { CategoriesContext } from '../../../contexts/categories.context';
+
 import './marketplace.styles.scss';
 
 const Collections = () => {
@@ -38,7 +39,7 @@ const Collections = () => {
         <div className='card container p-2 bg-ws vh-100'>
           <hr className='-mt' />
           <p className='mx-auto fs-large'>
-            No product available now... Try again later
+            Products Unavailable... Try again later
           </p>
         </div>
       )}

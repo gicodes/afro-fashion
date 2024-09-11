@@ -69,7 +69,7 @@ const MobileNavBar = () => {
   return (
     <Fragment>
       <Container className="container no-padding-container">
-        <nav className="nav bg-gw fixed">
+        <nav className="nav bg-gw-bb fixed">
           <div className="container-fluid">
             <div className="nav-burger">
               <div
@@ -91,7 +91,7 @@ const MobileNavBar = () => {
 
               <div className="force-af-center"></div>
               <Navbar.Brand className="nav-brand">
-                <Link to="/">
+                <Link to="/"> {/* Used as a global navigator to home :/ index */}
                   <h1 className="shake">
                     <span className="green">A</span>F
                   </h1>

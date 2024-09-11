@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "../../../../contexts/alert.context";
 import { Button } from "react-bootstrap";
+import { TbUserExclamation } from "react-icons/tb";
+import { useAlert } from "../../../../contexts/alert.context";
 
 // Link (in profile) to verify seller account
 export const VerifyNow = () => {
@@ -22,10 +23,10 @@ export const VerifyNow = () => {
     }
 
     return (
-        <div className="container">
-            <div className="mb-4 text-center" onClick={handleVerifyOption}>
-                <Button className="btn-danger text-danger w-50">Verify your account now</Button>
-            </div>
+        <div>
+            <Button className="btn btn-warning" onClick={handleVerifyOption}>
+                <TbUserExclamation fill="black"/>
+            </Button>
         </div>
     )
 }

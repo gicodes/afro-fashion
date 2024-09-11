@@ -51,10 +51,9 @@ const Seller = () => {
               Upload a new Product
             </Button>
             {
-              isVerified && 
-            <div>
-              {createItem && <SellerCreateCard/>}
-            </div>}
+              isVerified && // if verified, show >>>
+              <div>{createItem && <SellerCreateCard/>}</div> // create-item card
+            }
           </section>
           <section id="product-edit" className="mt-1">
             <Button onClick={toggleEditItem}>

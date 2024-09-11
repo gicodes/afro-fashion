@@ -57,7 +57,7 @@ export const SellerCreateCard = () => {
     setIsSubmitting(true); // disable the button
 
     if (!brandName){
-      addAlert("danger", 'You must have a unique brandName!');
+      addAlert("danger", 'You must have a unique brand name!');
       return;
     }
 

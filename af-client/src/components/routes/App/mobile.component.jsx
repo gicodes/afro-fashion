@@ -9,7 +9,7 @@ import { Help } from "../help/help.component.jsx";
 import BrandsPage from '../brands/brands.page.jsx';
 import BrandCollection from '../brands/brands.route.jsx';
 import NavBar from "../navbar/mobile.navbar.component.jsx";
-import Seller from "../dashboard/seller/seller.component.jsx";
+import Seller from "../dashboard/index/dash.index.jsx";
 import UserProfile from "../dashboard/user/user.component.jsx";
 import Checkout from '../../checkout/checkout.component.jsx';
 import FailedOperation from '../../../redirect/failedOp.jsx';

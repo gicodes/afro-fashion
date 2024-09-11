@@ -34,7 +34,7 @@ export const HelpCard = () => {
             <span className="block mb-2"><b>Categories</b>: The most distinctive class to identify or classify a product with is category. 
               There are currently over 15 product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
             </span>
-             <span className="block mb-2"><b>AF Brands</b>: As we run mass business, we look out for originality and genuinity. It's imperative that a product is linked to its source, 
+             <span className="block mb-2"><b>SAA Brand</b>: As we run mass business, we look out for originality and genuinity. It's imperative that a product is linked to its source, 
               and that classes products by sellers or brands. Furthermore, sellers with products in multiple categories are otherwise known as <b>AF</b> Brands.
             </span>
             <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.

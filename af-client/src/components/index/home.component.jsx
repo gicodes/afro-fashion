@@ -1,7 +1,6 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import CategoryIndex from "./categories";
-import { Container } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
 import Footer from "../index/footer/footer";
 import LatestIndex from "./featured/new&latest";
@@ -15,21 +14,28 @@ import "../collection/collection.styles.scss";
 const HomeIndex = () => {
   return (
     <>
-      <Container className="no-padding-container categories-container">
+      <div className="categories-container">
         {/* AdSection disabled until further notice */}
-        {/* <AdSection /> */}
-        <section id="search">   
-        </section>
-        <SearchBar searchSx={"mt-1"} resultSx={"fullWidth"} />
-        <CategoryIndex categories={categories}/>
+        <SearchBar 
+          searchSx={"mt-1"} 
+          resultSx={"fullWidth"} 
+        />
+        <CategoryIndex categories={categories} />
         <div className="featured-container">
           <TrendingIndex />
-          <Divider className="hide-in-lg" orientation="vertical" variant="middle" flexItem sx={{backgroundColor:"#404040"}} />
+          <Divider 
+            className="hide-in-lg" 
+            orientation="vertical"  
+            variant="middle" 
+            flexItem sx={{
+              backgroundColor:"#404040"
+              }} 
+            />
           <LatestIndex />
         </div>
         <Footer/>
-      </Container>
-      <div className="lg-div"></div>
+      </div>
+      <div className="lg-div" />
     </>
   )
 }

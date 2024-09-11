@@ -17,7 +17,7 @@ export const navLinks = [
   },
   {
     id: 2,
-    title: 'AF Brands',
+    title: 'SAA Brand',
     link: '/brands',
   },
   {

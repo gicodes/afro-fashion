@@ -30,7 +30,8 @@ googleProvider.setCustomParameters({
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+export const onAuthStateChangedListener = 
+  (callback) => onAuthStateChanged(auth, callback)
 export const db = getFirestore(firebaseApp);
 
 // Sign in user with Google Provider
