@@ -257,19 +257,36 @@ export const addToSavedItems = async (userId, newItems, docField) => {
   }
 }
 
-// reduce item count after a user purchases the item
-export const reduceItemCount = async (item) => {
+// Function to reduce item count after a user purchases the item
+export const reduceItemCount = async (item, sellerId) => {
   const { id, quantity, count, category } = item;
 
+  // check if the item has sufficient quantity available
   if (typeof count !== 'undefined' && count >= quantity) {
     const newCount = count - quantity;
-    
     const updatedItem = { count: newCount };
 
-    await editSellerItem(category, id, updatedItem);
+    try {
+      await editSellerItem(category, id, updatedItem);
+
+      const sellerRef = doc(collection(db, "sellers"), sellerId);
+      const sellerDoc = await getDoc(sellerRef);
+
+      if (sellerDoc.exists()) {
+        const sellerData = sellerDoc.data();
+        const newProductsSold = (sellerData.productSold || 0) + quantity;
+
+        await updateDoc(sellerRef, { productSold: newProductsSold });
+      } else {
+        throw new Error("Seller not found!");
+      }
+    } catch (err) {
+      throw new Error(err.message);
+    }
   } else {
     throw new Error("Insufficient quantity available!");
   }
 };
+
 
 // deprecate item appearance for users who dislike an item

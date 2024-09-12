@@ -1,5 +1,5 @@
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { getSellerBankInfo } from './firebase.utils';
+import { getSellerBankInfo, getSellerId } from './firebase.utils';
 import { reduceItemCount } from './writeBatch';
 
 const SERVER_URL = 'http://localhost:5000';
@@ -38,8 +38,8 @@ export default function Flutterwave(
     callback: async (response) => {
       if (response.status === 'successful') {
         for (const item of items) {
-          const sellerBankInfo = await getSellerBankInfo(item.seller.toLowerCase());
-
+          const sellerBankInfo = await getSellerBankInfo(item?.seller?.toLowerCase());
+          const sellerId = getSellerId(item?.seller?.toLowerCase())
           const txRef = Date.now();
 
           const requestBody = {
@@ -59,7 +59,7 @@ export default function Flutterwave(
             });
             
             if (response.ok) {
-              reduceItemCount(item);
+              reduceItemCount(item, sellerId);
             } else {
               console.error("Failed to dispatch payment:", response.statusText);
             }

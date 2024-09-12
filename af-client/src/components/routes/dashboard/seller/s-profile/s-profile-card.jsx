@@ -105,158 +105,158 @@ export const SellerProfileCard = ({
   return (
     <Container className="no-padding-container">            
       <div className="card">
-          <div className="mx-auto">
-            <div className="flex-just-center avatar"> 
-              <img loading="lazy"
-                src={imageUrl || blankAvi}
-                className="rounded-circle profile-image"
-                alt="profile avatar"
-              />
-            </div>
-            <div className="verified">
-              {isVerified && <MdVerified size={20} fill="green"/>}
-            </div>
-            
-            <div className="p-1 mx-auto">
-              <div className="image-upload">
-                <div className="choose-file">
-	                <input 
-                    onChange={handleImgChange}
-                    accept=".jpg, .jpeg, .png"
-                    id='file-input'
-                    name="image"
-                    type="file"
-                  />
-	              </div>
-                <span onClick={() => handleImgUpload(imgFile)}>
-                  <MdUpload size={25}/>
-                </span>
+        <div className="mx-auto">
+          <div className="flex-just-center avatar"> 
+            <img loading="lazy"
+              src={imageUrl || blankAvi}
+              className="rounded-circle profile-image"
+              alt="profile avatar"
+            />
+          </div>
+          <div className="verified">
+            {isVerified && <MdVerified size={20} fill="green"/>}
+          </div>
+          
+          <div className="p-1 mx-auto">
+            <div className="image-upload">
+              <div className="choose-file">
+                <input 
+                  onChange={handleImgChange}
+                  accept=".jpg, .jpeg, .png"
+                  id='file-input'
+                  name="image"
+                  type="file"
+                />
               </div>
+              <span onClick={() => handleImgUpload(imgFile)}>
+                <MdUpload size={25}/>
+              </span>
             </div>
           </div>
-
-          <Card className="mb-2">          
-            <div> 
-              <Card.Header className="profile-info">
-                <b>Personal Information</b>
-              </Card.Header>
-              
-              <ListGroup variant="flush">
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Full Name</b> 
-                  </span> 
-                  <input type="text"
-                    className="form-control m-1" 
-                    value={inputFields.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                  />
-                   <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
-                    <MdDone size={20}/>
-                  </span>
-                </ListGroup.Item>
-                
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Seller Tag</b> 
-                  </span> 
-                  <input 
-                    disabled
-                    className="form-control m-1" 
-                    value={inputFields.brandName}
-                  />
-                </ListGroup.Item>
-
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Bio</b>
-                  </span>
-                  <input type="text" 
-                    className="form-control m-1" 
-                    value={inputFields.bio}
-                    placeholder="Eg. I deal on kids clothing and sneakers"
-                    onChange={(e) => handleInputChange('bio', e.target.value)}
-                  />
-                  <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center">
-                    <MdDone size={20}/>
-                  </span>
-                </ListGroup.Item>
-          
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Phone</b>
-                  </span>
-                  <input type="text" 
-                    className="form-control m-1" 
-                    value={inputFields.phone}
-                    placeholder="Eg. (234)-812-3456-789"
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                  /> 
-                  <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center">
-                    <MdDone size={20}/>
-                  </span>
-                </ListGroup.Item>
-          
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Address</b>
-                  </span>
-                  <input type="text" 
-                    className="form-control m-1" 
-                    value={inputFields.address}
-                    placeholder="Eg.  #69 Ozumba Mbadiwe, Lagos, Nigeria"
-                    onChange={(e) => handleInputChange('address', e.target.value)}
-                  />
-                  <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">
-                    <MdDone size={20}/>
-                  </span>
-                </ListGroup.Item>
-
-                <ListGroup.Item className="d-flex justify-content-between">
-                  <span className="fs-smaller v-center">
-                    <b className="fw-bold">Bank&nbsp;</b>
-                  </span>
-                
-                  <select onChange={(e) => handleInputChange('bank', e.target.value)} 
-                  name='bank' className="form-select centered-dropdown"
-                  >
-                    <option>Select Bank</option>
-                    <option value="Access Bank">Access Bank</option>
-                    <option value="Ecobank">Ecobank</option>
-                    <option value="Fidelity Bank">Fidelity Bank</option>
-                    <option value="First Bank of Nigeria">First Bank of Nigeria</option>
-                    <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
-                    <option value="GTBank">GTBank</option>
-                    <option value="Heritage Bank">Heritage Bank</option>
-                    <option value="Keystone Bank">Keystone Bank</option>
-                    <option value="Stanbic IBTC Bank">Stanbic IBTC Bank</option>
-                    <option value="Sterling Bank">Sterling Bank</option>                    
-                    <option value="Union Bank">Union Bank</option>
-                    <option value="United Bank for Africa">United Bank for Africa</option>
-                    <option value="Unity Bank">Unity Bank</option>
-                    <option value="VFD Microfinance Bank">VFD Microfinance Bank</option>
-                    <option value="Wema Bank">Wema Bank</option>
-                    <option value="Zenith Bank">Zenith Bank</option>
-                  </select>
-
-                  <input type="text" 
-                    className="form-control m-1" 
-                    value={inputFields.bankAcct}
-                    placeholder="Eg. 0123456789"
-                    onChange={(e) => handleInputChange('bankAcct', e.target.value)}
-                  />
-                  <span onClick={() => { 
-                    handleSaveInfo('bankAcct', inputFields.bankAcct); 
-                    handleSaveInfo('bank', inputFields.bank)}
-                  } className="v-center"
-                  >
-                    <MdDone size={20}/>
-                  </span>
-                </ListGroup.Item>
-              </ListGroup>
-            </div>
-          </Card> 
         </div>
+
+        <Card className="mb-2">          
+          <div> 
+            <Card.Header className="profile-info">
+              <b>Personal Information</b>
+            </Card.Header>
+            
+            <ListGroup variant="flush">
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Full Name</b> 
+                </span> 
+                <input type="text"
+                  className="form-control m-1" 
+                  value={inputFields.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                />
+                  <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
+                  <MdDone size={20}/>
+                </span>
+              </ListGroup.Item>
+              
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Seller Tag</b> 
+                </span> 
+                <input 
+                  disabled
+                  className="form-control m-1" 
+                  value={inputFields.brandName}
+                />
+              </ListGroup.Item>
+
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Bio</b>
+                </span>
+                <input type="text" 
+                  className="form-control m-1" 
+                  value={inputFields.bio}
+                  placeholder="Eg. I deal on kids clothing and sneakers"
+                  onChange={(e) => handleInputChange('bio', e.target.value)}
+                />
+                <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center">
+                  <MdDone size={20}/>
+                </span>
+              </ListGroup.Item>
+        
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Phone</b>
+                </span>
+                <input type="text" 
+                  className="form-control m-1" 
+                  value={inputFields.phone}
+                  placeholder="Eg. (234)-812-3456-789"
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                /> 
+                <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center">
+                  <MdDone size={20}/>
+                </span>
+              </ListGroup.Item>
+        
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Address</b>
+                </span>
+                <input type="text" 
+                  className="form-control m-1" 
+                  value={inputFields.address}
+                  placeholder="Eg.  #69 Ozumba Mbadiwe, Lagos, Nigeria"
+                  onChange={(e) => handleInputChange('address', e.target.value)}
+                />
+                <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">
+                  <MdDone size={20}/>
+                </span>
+              </ListGroup.Item>
+
+              <ListGroup.Item className="d-flex justify-content-between">
+                <span className="fs-smaller v-center">
+                  <b className="fw-bold">Bank&nbsp;</b>
+                </span>
+              
+                <select onChange={(e) => handleInputChange('bank', e.target.value)} 
+                name='bank' className="form-select centered-dropdown"
+                >
+                  <option>Select Bank</option>
+                  <option value="Access Bank">Access Bank</option>
+                  <option value="Ecobank">Ecobank</option>
+                  <option value="Fidelity Bank">Fidelity Bank</option>
+                  <option value="First Bank of Nigeria">First Bank of Nigeria</option>
+                  <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+                  <option value="GTBank">GTBank</option>
+                  <option value="Heritage Bank">Heritage Bank</option>
+                  <option value="Keystone Bank">Keystone Bank</option>
+                  <option value="Stanbic IBTC Bank">Stanbic IBTC Bank</option>
+                  <option value="Sterling Bank">Sterling Bank</option>                    
+                  <option value="Union Bank">Union Bank</option>
+                  <option value="United Bank for Africa">United Bank for Africa</option>
+                  <option value="Unity Bank">Unity Bank</option>
+                  <option value="VFD Microfinance Bank">VFD Microfinance Bank</option>
+                  <option value="Wema Bank">Wema Bank</option>
+                  <option value="Zenith Bank">Zenith Bank</option>
+                </select>
+
+                <input type="text" 
+                  className="form-control m-1" 
+                  value={inputFields.bankAcct}
+                  placeholder="Eg. 0123456789"
+                  onChange={(e) => handleInputChange('bankAcct', e.target.value)}
+                />
+                <span onClick={() => { 
+                  handleSaveInfo('bankAcct', inputFields.bankAcct); 
+                  handleSaveInfo('bank', inputFields.bank)}
+                } className="v-center"
+                >
+                  <MdDone size={20}/>
+                </span>
+              </ListGroup.Item>
+            </ListGroup>
+          </div>
+        </Card> 
+      </div>
     </Container>
   );
 };

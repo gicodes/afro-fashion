@@ -329,3 +329,20 @@ export const getLatestItems = async () => {
     throw new Error('Could not fetch latest items because', error);
   }
 };
+
+// Function to get the seller ID by brand name
+export const getSellerId = async (seller) => {
+  const sellersQuery = query(
+    collection(db, "sellers"),
+    where("brandName", "==", seller)
+  );
+  const sellersSnapshot = await getDocs(sellersQuery);
+  let sellerId = null;
+
+  // Get the seller ID from the snapshot
+  sellersSnapshot.forEach((sellerDoc) => {
+    sellerId = sellerDoc.id; // Get the document ID, which is the seller ID
+  });
+
+  return sellerId;
+};

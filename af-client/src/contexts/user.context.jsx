@@ -63,6 +63,7 @@ export const UserProvider = ({ children }) => {
               imageUrl: sellerData?.imageUrl || "",
               isVerified: isVerified,
               productCount: sellerData?.productCount,
+              productSold: sellerData?.productSold,
               subscription: sellerData?.subscription || null,
               latestSubAction: sellerData?.latestSubAction,
               latestSubExpiry: sellerData?.latestSubExpiry,
