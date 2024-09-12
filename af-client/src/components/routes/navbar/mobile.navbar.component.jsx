@@ -124,7 +124,7 @@ const MobileNavBar = () => {
         <div className="vh-93"/>
         <Outlet />
 
-        <div className={currentUser ? "side-nav" : "dis-non"}>
+        <div className={currentUser ? "side-nav" : "hidden"}>
           {sideNav && (
             <SideNav
               displayName={currentUser?.displayName}

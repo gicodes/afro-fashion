@@ -4,7 +4,6 @@ import { BrandContext } from '../../../../../contexts/brand.context';
 import { useAlert } from '../../../../../contexts/alert.context';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import '../../dashboard.styles.scss';
 
 export const SellerProducts = ({ sellerName }) => {
@@ -30,9 +29,7 @@ export const SellerProducts = ({ sellerName }) => {
       navigate(`/brands/${seller}`);
     };
 
-    const handleNo = () => {
-      addAutoCloseAlert("warning", 'Delete operation failed!');
-    };
+    const handleNo = () => addAutoCloseAlert("warning", 'Delete operation failed!');
 
     addOptionsAlert(
       'danger',
@@ -69,77 +66,79 @@ export const SellerProducts = ({ sellerName }) => {
 
     return (
       <>
-      <div className="product-bar" key={`${category}-${product?.id}`}>
-        <span className="product-name">
-          <b>{product?.name}</b>
-        </span>
-        <div className="btn-group" role="group">
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={toggleEditProduct}
-          >
-            Edit
-          </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={() => handleDeleteProduct(product?.category, product?.id)}
-          >
-            Delete
-          </button>
-        </div>
-      </div>
-      {editProduct && (
-        <>
-          <div className="input-group p-2 bg-ws">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Description</span>
-            </div>
-            <input type="text" 
-              className="form-control" 
-              value={inputFields.info}
-              onChange={(e) => handleInputChange('info', e.target.value)}
-            />
-          </div>
-          <div className="input-group p-2 bg-ws">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Remaining</span>
-            </div>
-            <input type="number" 
-              className="form-control" 
-              value={inputFields.count}
-              onChange={(e) => handleInputChange('count', e.target.value)}
-            />
-            <div className="input-group-prepend">
-              <span className="input-group-text">Price</span>
-            </div>
-            <input
-              type="number"
-              className="form-control"
-              value={inputFields.price}
-              onChange={(e) => handleInputChange('price', e.target.value)}
-            />
-          </div>
-          <div className="input-group p-2 bg-ws">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Edit name</span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              value={inputFields.name}
-              onChange={(e) => handleInputChange('name', e.target.value)}
-            />
+        <div className="product-bar" key={`${category}-${product?.id}`}>
+          <span className="product-name">
+            <b>{product?.name}</b>
+          </span>
+          <div className="btn-group" role="group">
             <button
-              onClick={handleFormSubmit}
-              className="btn btn-outline-primary"
               type="button"
+              className="btn btn-warning"
+              onClick={toggleEditProduct}
             >
-              Submit Edit
+              Edit
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => handleDeleteProduct(product?.category, product?.id)}
+            >
+              Delete
             </button>
           </div>
-        </>)}
+        </div>
+
+        {  editProduct && (
+          <>
+            <div className="input-group p-2 bg-ws">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Description</span>
+              </div>
+              <input type="text" 
+                className="form-control" 
+                value={inputFields.info}
+                onChange={(e) => handleInputChange('info', e.target.value)}
+              />
+            </div>
+            <div className="input-group p-2 bg-ws">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Remaining</span>
+              </div>
+              <input type="number" 
+                className="form-control" 
+                value={inputFields.count}
+                onChange={(e) => handleInputChange('count', e.target.value)}
+              />
+              <div className="input-group-prepend">
+                <span className="input-group-text">Price</span>
+              </div>
+              <input
+                type="number"
+                className="form-control"
+                value={inputFields.price}
+                onChange={(e) => handleInputChange('price', e.target.value)}
+              />
+            </div>
+            <div className="input-group p-2 bg-ws">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Edit name</span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                value={inputFields.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
+              />
+              <button
+                onClick={handleFormSubmit}
+                className="btn btn-outline-primary"
+                type="button"
+              >
+                Submit Edit
+              </button>
+            </div>
+          </>
+        )}
       </>
     );
   };
@@ -166,10 +165,9 @@ export const SellerProducts = ({ sellerName }) => {
         </div>
       ) : (
         <>
-          <hr className="-mt" />
-          <p className="mx-auto">
-            You do not have any active product at the moment...
-          </p>
+          <div className="mx-auto p-3">
+            You have no Active Product ..
+          </div>
         </>
       )}
     </div>

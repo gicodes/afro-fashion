@@ -37,7 +37,7 @@ export const SideNav = ({
   return (
     <div 
       ref={sideNavRef} 
-      className={isOpen ? `card ${device_class}` : "dis-non"}
+      className={isOpen ? `card ${device_class}` : "hidden"}
       >
       <div>
         <div className='card-header'>

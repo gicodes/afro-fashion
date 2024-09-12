@@ -12,7 +12,7 @@ export const VerifyNow = () => {
         navigate("/auth/accept-seller-terms")
     }
     const handleNo = () => {
-        addAutoCloseAlert("warning", `Check your email for Afrofashion sign-in link and continue!`);
+        addAutoCloseAlert("warning", `Check your email for Afrofashion verification link and continue!`);
     };
 
     const handleVerifyOption = () => {
@@ -27,6 +27,9 @@ export const VerifyNow = () => {
             <Button className="btn btn-warning" onClick={handleVerifyOption}>
                 <TbUserExclamation fill="black"/>
             </Button>
+            <span className="block mt-2">
+                <b>Verify Now</b>
+            </span>
         </div>
     )
 }
