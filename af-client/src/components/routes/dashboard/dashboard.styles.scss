@@ -118,27 +118,45 @@
 }
 
 .p-action { 
-  margin-top: 5px;
+  margin: 2px 0 2px 0;
   width: 100%;
+}
+
+.sales-card {
+  background-color: antiquewhite;
+  color: black;
+
+  p { color: black;}
+
+  .sales-card-body {
+    border-top: 0.1px solid #505050;
+    padding: 12px 0 12px 0;
+    display: grid;
+  }
 }
 
 @media (min-width: 992px) {
   .paper-container { 
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
-  .pro-card, .per-card {
+  .pro-card, .per-card, .sales-card {
     max-width: 500px;
     min-width: 420px;
     height: 100%;
     width: 100%;
   }
 
-  .p-action {
-    max-width: 420px;
-    display: block;
+  .action-container {
+    display: flex;
+    justify-content: space-around;
+
+    .action-btn-group {
+      max-width: 420px;
+      width: 100%;
+    }
   }
 }
 

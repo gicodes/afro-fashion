@@ -2,7 +2,7 @@ import { updateSeller, uploadImageAndGetUrl } from "../../../../../utils/writeBa
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
 import { useAlert } from "../../../../../contexts/alert.context";
-import { MdUpload, MdDone, MdVerified } from "react-icons/md";
+import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
 import { Card, ListGroup, Container } from "react-bootstrap"; 
 import { blankAvi } from "../../../brands/brands.route";
 import { useState, useContext } from 'react';
@@ -152,7 +152,7 @@ export const SellerProfileCard = ({
                   onChange={(e) => handleInputChange('name', e.target.value)}
                 />
                   <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
-                  <MdDone size={20}/>
+                  <MdSaveAs size={20}/>
                 </span>
               </ListGroup.Item>
               
@@ -178,7 +178,7 @@ export const SellerProfileCard = ({
                   onChange={(e) => handleInputChange('bio', e.target.value)}
                 />
                 <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center">
-                  <MdDone size={20}/>
+                  <MdSaveAs size={20}/>
                 </span>
               </ListGroup.Item>
         
@@ -193,7 +193,7 @@ export const SellerProfileCard = ({
                   onChange={(e) => handleInputChange('phone', e.target.value)}
                 /> 
                 <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center">
-                  <MdDone size={20}/>
+                  <MdSaveAs size={20}/>
                 </span>
               </ListGroup.Item>
         
@@ -208,7 +208,7 @@ export const SellerProfileCard = ({
                   onChange={(e) => handleInputChange('address', e.target.value)}
                 />
                 <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">
-                  <MdDone size={20}/>
+                  <MdSaveAs size={20}/>
                 </span>
               </ListGroup.Item>
 
@@ -250,7 +250,7 @@ export const SellerProfileCard = ({
                   handleSaveInfo('bank', inputFields.bank)}
                 } className="v-center"
                 >
-                  <MdDone size={20}/>
+                  <MdSaveAs size={20}/>
                 </span>
               </ListGroup.Item>
             </ListGroup>

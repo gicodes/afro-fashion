@@ -10,6 +10,7 @@ import { useAlert } from "../../../../contexts/alert.context";
 import { VerifyNow } from "../verifyNow/profile-verify";
 import { Button, CloseButton } from "react-bootstrap";
 import { blankAvi } from "../../brands/brands.route";
+import { PieChart } from '@mui/x-charts/PieChart';
 import { FcAddressBook } from "react-icons/fc";
 import { useState, useContext } from 'react';
 import Paper from '@mui/material/Paper';
@@ -23,7 +24,7 @@ const Dashboard = () => {
   const [ editItem, setEditItem ] = useState(false);
   const [ createItem, setCreateItem ] = useState(false);
   const [ editProfile, setEditProfile ] = useState(false);
-  const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, productCount, productSold } = currentUser;
+  const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, productCount, productSold, subscription, latestSubExpiry } = currentUser;
 
   const performanceScore = (SellerPerformanceScore(currentUser))
   const numberOfCategories = Object.keys(brandsMap[currentUser?.brandName] || {}).length;
@@ -71,7 +72,7 @@ const Dashboard = () => {
             {createItem && <SellerCreateCard/>}
           </>
         }
-        { editProfile && <>
+        { editProfile && <div className="col-md-6 mx-auto">
             <RestoreIndexDash />
             <SellerProfileCard 
               sellerName={displayName} 
@@ -84,7 +85,7 @@ const Dashboard = () => {
               imageUrl={imageUrl}
               isVerified={isVerified}
             />
-          </>
+          </div>
         }
         <div className={createItem || editProfile ? "hidden" : "paper-container"}>
           <Paper elevation={8}>
@@ -113,10 +114,12 @@ const Dashboard = () => {
                     <p>Overall</p>
                   </div>
                 </div> 
+                {subscription ? <p className="fs-smaller">Your latest subscription expires {latestSubExpiry} </p> : " "}
               </div>
             </div>
           </Paper>
           <br/>
+
           <Paper elevation={8}>
             <div className="pro-card">
               <div className="p-card-header">
@@ -158,20 +161,49 @@ const Dashboard = () => {
             </div>
           </Paper>
         </div>
-        <Button  
-          onClick={toggleEditItem}
-          className="p-action btn btn-warning mt-4"
-        > 
-          Edit Product 
-        </Button>
-        <div className="p-action">{ editItem && <SellerProducts sellerName={displayName} /> }</div>
+        <br/>
 
-        <Button 
-          onClick={toggleCreateItem} 
-          className="p-action btn btn-secondary"
-        >
-          Create Product
-        </Button>
+        <div className={createItem || editProfile ? "hidden" : "action-container"}>
+          <Paper elevation={8}>
+            <div className="sales-card">
+              <div className="p-card-header">
+                <p> Sales Performance </p>
+              </div>
+
+              <div className="sales-card-body">
+                <PieChart
+                  series={[
+                    { data: [
+                        { id: 0, value: productSold, label: 'Sales' },
+                        { id: 1, value: productCount, label: 'Inventory' },
+                        { id: 2, value: 45, label: 'Max Capacity' }, 
+                    ], },
+                  ]}
+                  width={350}
+                  height={150}
+                />
+              </div>
+            </div>
+          </Paper>
+          <br/>
+          <div className="action-btn-group">
+            <Button  
+              onClick={toggleEditItem}
+              className="p-action btn btn-warning"
+            > 
+              Edit Active Product 
+            </Button>
+            <div className="p-action">
+              { editItem && <SellerProducts sellerName={displayName} /> }
+            </div>
+            <Button 
+              onClick={toggleCreateItem} 
+              className="p-action btn btn-secondary"
+            >
+              Create New Product
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   )
