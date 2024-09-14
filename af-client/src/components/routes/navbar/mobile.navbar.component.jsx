@@ -8,8 +8,8 @@ import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { Fragment, useContext, useState } from "react";
+import { LuLogIn, LuSearch } from "react-icons/lu";
 import BurgerMenu from './nav-drop.mobile';
-import { LuLogIn } from "react-icons/lu";
 import NavUserBadge from "./user-badge";
 import { SideNav } from "./auth-nav";
 
@@ -26,13 +26,13 @@ const MobileNavBar = () => {
 
   const authIconStyle = {
     backgroundColor: currentUser ? 'green' : 'yellow',
-    borderRadius: '50%',  
+    padding: '0',    
     width: '35px',        
     height: '35px',       
     display: 'flex',
-    justifyContent: 'center',
+    borderRadius: '50%',
     alignItems: 'center',
-    padding: '0',         
+    justifyContent: 'center',   
   }
 
   const closeMenu =()=> setBurger(false);
@@ -46,13 +46,11 @@ const MobileNavBar = () => {
   }
 
   const handleSignOut = () => {
-    // nav-drop sign out flow
     const handleYes = () => {
       SignOutUser();
       addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`)
       navigate('/auth')
     };
-
     const handleNo = () => {
       addAutoCloseAlert("warning", `Sign out operation cancelled!`)
     };
@@ -77,7 +75,7 @@ const MobileNavBar = () => {
                 onClick={toggleMenu}
                 className="open-close-nav"
               >
-                {isBurger ? 
+                { isBurger ? 
                   (<div className="btm-nav-close-btn">
                     <CloseButton />
                   </div>) : 
@@ -89,7 +87,7 @@ const MobileNavBar = () => {
                 }
               </div>
 
-              <div className="force-af-center"></div>
+              <div className="force-af-center" />
               <Navbar.Brand className="nav-brand">
                 <Link to="/"> {/* Used as a global navigator to home :/ index */}
                   <h1 className="shake">
@@ -97,9 +95,10 @@ const MobileNavBar = () => {
                   </h1>
                 </Link>
               </Navbar.Brand>
-              <div></div>
+              <div />
 
               <div className="burger-end">
+                <div className="p-1 v-center"><LuSearch size={24} fill="#efffff"/></div>
                 <span className="p-1" onClick={toggleCart}><CartIcon /></span>
                 
                 <div className={"auth-icon"} style={authIconStyle}>
@@ -121,6 +120,7 @@ const MobileNavBar = () => {
           </div>
           {cartOpen && <CartDropdown />}
         </nav>
+
         <div className="vh-93"/>
         <Outlet />
 
@@ -138,7 +138,7 @@ const MobileNavBar = () => {
         </div>
 
       </Container>
-      {isBurger && (
+      { isBurger && (
         <BurgerMenu 
           isOpen={isBurger} 
           onClose={closeMenu}
