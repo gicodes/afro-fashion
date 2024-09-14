@@ -19,8 +19,8 @@ const BrandsPage = () => {
 
         <section className="fw" id="brands-page">
           <div className="card-body mx-auto -lg">
-            <div className='card p-2'>
-              <p>Select a Brand to Patronize</p>
+            <div className='card p-2 fs-smaller'>
+              <span>Select a brand to patronize</span>
             </div>
             {Object.keys(brandsMap).map((brandName, index) => (
             <Link key={index} to={`/brands/${brandName}`}>

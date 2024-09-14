@@ -17,17 +17,17 @@ const Collections = () => {
     Object.values(categoriesMap).forEach((products) => {
       productsArray = [...productsArray, ...products];
     });
-    // shuffle products randomly-- fix bug for latest design 
+    // shuffle products randomly-- runs on latest design 
     productsArray.sort(() => Math.random() - 0.5);
     setAllProducts(productsArray);
   }, [categoriesMap]);
 
   return (
     <>
-      { allProducts.length > 0 ? (
+      { allProducts?.length > 0 ? (
         <div className='marketplace-route'>
           { allProducts.map((product, index) => (
-            <section key={index} id={product.id} className='products-area'>
+            <section key={index} id={product.id} className='product-section'>
               <ProductCard 
                 product={product} 
                 productId={productId} 
@@ -36,14 +36,12 @@ const Collections = () => {
           ))}
         </div>
       ) : (
-        <div className='card container p-2'>
-          <hr className='-mt' />
-          <p className='mx-auto fs-large'>
-            Products Unavailable... Try again later
+        <div className='card p-2'>
+          <p className='fs-mid mt-3 text-center'>
+            Products are unavailable... Try again later
           </p>
         </div>
       )}
-      <div className='hide-in-sm lg-div'/>
     </>
   );
 };

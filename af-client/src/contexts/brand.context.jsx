@@ -8,7 +8,7 @@ export const BrandContext = createContext({
 });
 
 export const BrandProvider = ({ children }) => {
-  const [brandsMap, setBrandsMap] = useState({});
+  const [ brandsMap, setBrandsMap ] = useState({});
   const { showLoading, hideLoading } = useLoading();
 
   useEffect(() => {
@@ -16,7 +16,6 @@ export const BrandProvider = ({ children }) => {
     
     const getBrandName = async () => {
       const brandMap = await getItemsBySellers();
-
       setBrandsMap(brandMap);
     };
 
@@ -26,10 +25,7 @@ export const BrandProvider = ({ children }) => {
 
   const searchItemsByBrand = async (sellerName) => {
     const trimmedSellerName = typeof sellerName === 'string' ? sellerName.trim() : '';
-  
-    if (!trimmedSellerName || trimmedSellerName === "") {
-      return [];
-    }
+    if (!trimmedSellerName || trimmedSellerName === "") return [];
   
     const itemsBySellers = await getItemsBySellers();
   
@@ -37,7 +33,7 @@ export const BrandProvider = ({ children }) => {
       .filter(([seller]) => seller.toLowerCase()
       .includes(trimmedSellerName.toLowerCase()))
       .flatMap(([items]) => items);
-  
+
     return filteredBrands;
   };
 

@@ -1,7 +1,12 @@
 export const Loading = () => (
     <>
-      <span key="loading" className='mt-4 flex-just-center mb-4 fs-smaller'>
-        🧐 &nbsp; Abeg relax, make e load finish ...
-      </span>
+      <div 
+        key="loading" 
+        className='vh-250 mt-4'
+      >
+        <p className="text-center fs-smaller">
+          🧐 &nbsp; Abeg relax, make e load finish ...
+        </p>
+      </div>
     </>
   )

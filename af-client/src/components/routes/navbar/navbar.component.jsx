@@ -100,7 +100,7 @@ const NavBarComponent = () => {
 
               <div className="nav-tab" title="Brands">
                 <Link className="nav-link" to='brands'>
-                  <MdSell size={24} color="black"/> 
+                  <MdSell size={24} color="darkslategrey"/> 
                 </Link>
               </div>
 
@@ -110,15 +110,15 @@ const NavBarComponent = () => {
                 <CartIcon/>
               </div>
 
-              <div className="nav-tab" title="Credits">
-                <Link className="nav-link" to='credits'>
-                  &nbsp; <GiOpenBook size={25} color="#1a1a1a"/> 
+              <div className="nav-tab" title="Help Desk">
+                <Link className="nav-link" to='help'>
+                  <TbHelpHexagonFilled size={24} color="darkslategrey"/>
                 </Link>
               </div>
 
-              <div className="nav-tab" title="Help Desk">
-                <Link className="nav-link" to='help'>
-                  <TbHelpHexagonFilled size={24} color="darkslategrey"/> &nbsp; &nbsp;
+              <div className="nav-tab" title="Credits">
+                <Link className="nav-link" to='credits'>
+                  <GiOpenBook size={25} color="#1a1a1a"/> &nbsp; &nbsp;
                 </Link>
               </div>
 

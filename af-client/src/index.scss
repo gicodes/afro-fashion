@@ -134,10 +134,12 @@ a {
 }
 
   // custom font and color styles
+.fs-large { font-size: larger }
+.fs-mid { font-size: medium }
 .fs-smaller { font-size: smaller }
 .fs-xs { font-size: 12px }
 .fs-tiny { font-size: xx-small }
-.fs-large { font-size: larger }
+
 .fw-bold { font-weight: 525 }
 .co-50 { color: #505050 } 
 .co-90 { color: #909090 }
