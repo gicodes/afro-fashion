@@ -4,7 +4,7 @@ export const categories = [
     title: 'Accessories',
     imageUrl: 'https://media.istockphoto.com/id/1144368578/photo/young-african-american-woman-in-traditional-clothing.webp?b=1&s=170667a&w=0&k=20&c=w5lx7EKxnYbc1lTsC0QZe5TKS7DVTRJY7lGjmfD8Kqs=',
     route: 'marketplace/category/accessories',
-    description: 'Accessories include scarves, purses and other apparels that make you outfit go 🤩⌚',
+    description: 'Accessories include watches, purses and other apparels that make you outfit go 🤩⌚',
   },
   {
     id: 1,
@@ -94,7 +94,7 @@ export const categories = [
     id: 14,
     title: 'Jewelleries',
     imageUrl: 'https://images.unsplash.com/photo-1601821765780-754fa98637c1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGpld2Vscmllc3xlbnwwfHwwfHx8MA%3D%3D',
-    route: 'marketplace/category/unisex',
+    route: 'marketplace/category/jewelleries',
     description: 'Jewelleries are the sparkling detail that takes your outfit from simple to stunning 💎',
   },
   {
