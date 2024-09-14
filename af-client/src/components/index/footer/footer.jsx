@@ -30,8 +30,8 @@ const Footer = () => {
         <hr className='w-50'/>
       </div>
 
-      <div className='h-center m-2 p-3 font-awesome'>
-        <p>© Afrofashion, 2024</p>
+      <div className='p-3 text-center'>
+        <p className='font-awesome fs-smaller'>© Afrofashion, 2024</p>
       </div>
     </Card>
   )
