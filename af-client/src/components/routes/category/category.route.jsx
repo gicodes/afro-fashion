@@ -11,7 +11,7 @@ const Category = () => {
   const { category } = useParams(); 
   const { categoriesMap, categoriesInfo } = useContext(CategoriesContext);
   const [ products, setProducts ] = useState(categoriesMap[category]);
-  const categoryInfo = categoriesInfo?.find(item => item.title === category?.toLowerCase().trim());
+  const categoryInfo = categoriesInfo?.find((item) => item?.title === category?.toLowerCase().trim());
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
