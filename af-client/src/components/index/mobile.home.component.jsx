@@ -9,7 +9,6 @@ import TrendingIndex from "./featured/hot&trending";
 import { SearchBar } from "../searchServices/search-bar";
 import { categories } from "../collection/collection.component";
 
-// This component is rendered on the landing page
 const HomeIndex = () => {
   return (
     <>

@@ -6,29 +6,29 @@ import { Link } from 'react-router-dom';
 
 export const navLinks = [
   {
-    id: 5,
-    title: 'Dashboard',
-    link: '/dashboard',
-  },
-  {
     id: 1,
     title: 'Marketplace',
     link: '/marketplace',
   },
   {
     id: 2,
-    title: 'SAA Brand',
-    link: '/brands',
+    title: 'Dashboard',
+    link: '/dashboard',
   },
   {
     id: 3,
-    title: 'Credits',
-    link: '/credits',
+    title: 'SAA Brand',
+    link: '/brands',
   },
   {
     id: 4,
     title: 'Help Desk',
     link: '/help',
+  },
+  {
+    id: 5,
+    title: 'Credits',
+    link: '/credits',
   },
 ]
 

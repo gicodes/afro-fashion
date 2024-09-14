@@ -125,7 +125,7 @@ const SignUp = () => {
           <div className="group">
             <div className="p-3 bg-ws -mt2">
               <div className="flex-just-center">
-                <h6>Are you here to Buy or Sell?</h6>
+                <h6>Are you here to buy or sell?</h6>
               </div>
 
               <RadioGroup

@@ -1,10 +1,9 @@
-.-footer {
+.footer-container {
     width: 100%;
     display: grid;
 
     .footer-links {
         display: grid;
-        margin-top: 10px;
         align-items: center;
         justify-content: center;
 
@@ -22,7 +21,7 @@
 }
 
 @media (max-width: 768px) {
-    .-footer {
+    .footer-container {
         .btm-gap {
             margin-bottom: 15%;
         } 
@@ -30,26 +29,15 @@
 }
 
 @media (min-width: 768px) {
-    .-footer {
-        padding: 5%;
+    .footer-container {
+        padding: 4% 4% 8% 4%;
         width: 100%;
-        display: inline;
-        background: silver;
 
         .footer-links {
             width: 100%;
             display: flex;
-            margin-top: 25px;
+            margin: 10px 0 20px 0;
             justify-content: space-evenly;
-        }
-
-        .copyright {
-            display: grid;
-            justify-content: center;
-        }
-    
-        .btm-gap {
-            margin-bottom: 0;
         }
     }
 }

@@ -22,8 +22,8 @@ import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
 import ProtectedSellerRoute from '../dashboard/seller/protected-route.jsx'; 
 import Subscription from '../dashboard/subscriptions/subscription.jsx';
 import { AcceptTerms } from "../authentication/seller-auth/accept-terms.jsx";
-import SignIn from "../authentication/user-auth/mobile.sign-in.component.jsx";
-import SignUp from "../authentication/user-auth/mobile.sign-up.component.jsx";
+import SignIn from "../authentication/user-auth/mobile.sign-in.index.jsx";
+import SignUp from "../authentication/user-auth/mobile.sign-up.index.jsx";
 import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learn-about-af.jsx';
 
 const Home = () => {
@@ -44,7 +44,7 @@ const Home = () => {
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
-        <Route path="auth/verify-seller" element={<VerificationSuccess />} />
+        <Route path="auth/email-verified" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (

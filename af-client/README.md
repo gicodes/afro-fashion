@@ -117,7 +117,7 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > index
         >
-        > - desktop.component.jsx
+        > - lg.component.jsx
         > - mobile.component.jsx
         >
         > ***

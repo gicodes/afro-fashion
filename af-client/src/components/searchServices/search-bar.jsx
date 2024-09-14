@@ -46,7 +46,7 @@ export const SearchBar = ({ searchSx, resultSx }) => {
 
   return (
     <>
-      <div className={`${searchSx} bg-trans search-bar`}>
+      <div className={`${searchSx} search-bar`}>
         <InputGroup>
           <FormControl
             type="text"

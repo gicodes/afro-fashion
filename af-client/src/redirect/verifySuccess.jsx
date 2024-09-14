@@ -1,38 +1,36 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 import { RedirectTemplate } from './template';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const VerificationSuccess = () => {
   const navigate = useNavigate();
-  const { verificationToken } = useParams();
-  const [countdown, setCountdown] = useState(5);
+  const auth = getAuth();
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prevCount) => prevCount - 1);
-    }, 1000);
+    // check if the link is a sign-in with email link
+    if (isSignInWithEmailLink(auth, window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) email = window.prompt('Please provide your email for confirmation');
 
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    if (countdown === 0) {
-      navigate('/auth');
+      signInWithEmailLink(auth, email, window.location.href)
+        .then(() => {
+          window.localStorage.removeItem('emailForSignIn'); // clear email from storage
+          navigate('/dashboard');
+        })
+        .catch((error) => console.error('Error signing in with email link:', error));
     }
-  }, [countdown, navigate]);
+  }, [navigate, auth]);
 
   return (
     <>
       <RedirectTemplate 
         title={"Verification Successful!"}
-        body={`Redirecting to login in ${countdown} seconds..`}
         imgSrc={"https://media.istockphoto.com/id/1480674100/photo/3d-rendering-of-security-shield-check-mark-with-lock-sign.jpg?s=612x612&w=0&k=20&c=7UoO4gTNXSs83dAfCYnb3BlOOu38XDy9e_JUSLmQNoU="}
         imgAlt={"Verification successful media"}
       />
-      <p className='hidden'>{verificationToken}</p>
     </>
   );
 };
 
 export default VerificationSuccess;
-

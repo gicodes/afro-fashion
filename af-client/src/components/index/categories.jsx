@@ -1,6 +1,5 @@
-import { Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-
+import { Card } from '@mui/material';
 import './index.styles.scss';
 
 const CategoryIndex = ({categories}) => {
@@ -9,10 +8,8 @@ const CategoryIndex = ({categories}) => {
 
   return (
     <>
-      <Container 
-        className='no-padding-container'
-      >
-        <div className='card categories-index-container'>
+      <Card>
+        <div className='categories-index-container'>
           <div className='card-header flex-just-center -mb2 p-3 pt-3'>
             <h6 className='title'>
               Explore Popular Categories &nbsp; 🛍️
@@ -39,7 +36,7 @@ const CategoryIndex = ({categories}) => {
             }
           </div>
         </div>
-      </Container>
+      </Card>
     </>
   )
 }

@@ -9,7 +9,7 @@ import { useAlert } from "../../../../contexts/alert.context";
 import { useLoading } from '../../../../contexts/loading.context';
 import { signInWithEmail } from "../../../../utils/firebase.utils";
 
-const defaultFormFields = { email: '', password: '' }
+export const defaultFormFields = { email: '', password: '' }
 
 // This component embodies the first creation of sign-in (logic and UI) before rendering on other components
 const SignInForm = () => {
@@ -27,10 +27,8 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   }
 
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
-  
+  const handleShowPassword = () => setShowPassword(!showPassword)
+   
   let path = location.state?.from?.pathname || '/';
 
   const HandleSubmit = async (event) => {
@@ -112,7 +110,7 @@ const SignInForm = () => {
 
         <p className="centered z-footer"> 
           Don't have an account? 
-          <a href='auth/register' className="zf-link"> &nbsp;Go to sign up</a>
+          <a href='auth/register' className="zf-link"> &nbsp; Go to sign up</a>
         </p>
       </div>
     </Container>

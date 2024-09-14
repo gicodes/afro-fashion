@@ -26,8 +26,8 @@ export const UserProvider = ({ children }) => {
         setCurrentUser(null);
         return;
       }
-
-      const isVerified = user.emailVerified;
+      const isVerified = user?.emailVerified;
+      console.log(isVerified)
 
       try {
         const userData = await fetchUserData(user.uid, 'users');
@@ -84,7 +84,6 @@ export const UserProvider = ({ children }) => {
         hideLoading();
       }
     };
-
     hideLoading();
     
     const unsubscribe = onAuthStateChangedListener(fetchData);
@@ -98,9 +97,7 @@ export const UserProvider = ({ children }) => {
     try {
       const userSnapshot = await getDoc(userDocRef);
       return userSnapshot.exists() ? userSnapshot.data() : null;
-    } catch (error) {
-      return null;
-    }
+    } catch (error) { return null; }
   };
 
   const value = { userId, setCurrentUser, currentUser, setIntendedRoute, intendedRoute };

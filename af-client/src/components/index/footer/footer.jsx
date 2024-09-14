@@ -1,45 +1,39 @@
-import React from 'react';
 import './footer.styles.scss';
+import { Card } from '@mui/material';
 
 const Footer = () => {
   return (
-    <>
-        <div className='-footer container'>
-          <div className='flex-just-center'>
-            <div className='w-25 hide-in-sm'>
-                <hr className='h-center'/>
-            </div>
-            <br className='hide-in-lg' />
-          </div>
-          <div className='footer-links'>
-            <div className='links'>
-                <p className='h-center'><a href="mailto:info@afrofashion.site">Send Us a Message</a></p>
-                <p className='h-center'><a href='/#search'>Search Products</a></p>
-                <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
-            </div>
-            <div className='links'>
-                <p className='h-center'><a href='/help/#introduction'>About Afrofashion</a></p>
-                <p className='h-center'><a href='/#help/#payments'>Exchange Rates</a></p>
-                <p className='h-center'><a href='/subscriptions'>Subscriptions</a></p>
-            </div> 
-            <div className='links'>
-                <p className='h-center'><a href='/privacy-policy'>Privacy Policy</a></p>
-                {/* disabled privacy policy until pending further details */}
-                {/* <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> */}
-                <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
-            </div> 
-
-            <div className='h-center hide-in-lg'>
-                <hr className='w-25'/>
-            </div>
-          </div>
-          <br className='hide-in-sm'/>
-
-          <div className='mt-3 btm-gap font-awesome copyright'>
-            <h6>© Afrofashion, 2024</h6>
-          </div>
+    <Card 
+      sx={{ bgcolor: "hsl(0, 0%, 80%)"}} 
+      className='footer-container'
+    >
+      <br className='hide-in-lg' />
+      <div className='footer-links'>
+        <div className='links'>
+          <p className='h-center'><a href="mailto:info@afrofashion.site">Send Us a Message</a></p>
+          <p className='h-center'><a href='/#search'>Search Products</a></p>
+          <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
         </div>
-    </>
+        <div className='links'>
+          <p className='h-center'><a href='/help/#introduction'>About Afrofashion</a></p>
+          <p className='h-center'><a href='/#help/#payments'>Exchange Rates</a></p>
+          <p className='h-center'><a href='/subscriptions'>Subscriptions</a></p>
+        </div> 
+        <div className='links'>
+          <p className='h-center'><a href='/privacy-policy'>Privacy Policy</a></p>
+          {/* <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> // disabled until pending further notice  */}
+          <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
+        </div> 
+      </div>
+      
+      <div className='h-center text-gray'>
+        <hr className='w-50'/>
+      </div>
+
+      <div className='h-center m-2 p-3 font-awesome'>
+        <p>© Afrofashion, 2024</p>
+      </div>
+    </Card>
   )
 }
 

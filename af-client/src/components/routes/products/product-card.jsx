@@ -1,9 +1,11 @@
+import { Card } from '@mui/material';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiHandThumbDown } from "react-icons/hi2";
 import { setPrice } from '../../checkout/checkout';
 import Button from '../../buttons/button.component';
 import { BsBookmarkStarFill } from "react-icons/bs";
+import { ProductCategory } from './product-category';
 import { useAlert } from '../../../contexts/alert.context';
 import { addToSavedItems } from '../../../utils/writeBatch';
 import { CartContext } from '../../../contexts/cart.context';
@@ -12,7 +14,6 @@ import { useLoading } from '../../../contexts/loading.context';
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
 
 import './product-card.styles.scss';
-import { ProductCategory } from './product-category';
 
 // productCard embodies the first creation of product card and is used throughout the marketplace
 const ProductCard = ({ product }) => {
@@ -67,24 +68,26 @@ const ProductCard = ({ product }) => {
 
   return (
     <section id={id}>
-      <div id={id}
-        className='card container product-card-container mb-1'>
-        <div className='p-1'>
+      <Card id={id}
+        className='product-card-container mb-1'>
+        <div className='p-2'>
           <div className='image-container'>
-            <img loading="lazy" src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} alt={name} />
-            {multipleImages && (
+            <img 
+              loading="lazy" 
+              src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} alt={name} 
+            />
+            { multipleImages && (
               <>
                 <div className='chevron-left' onClick={prevImage}><FaCircleChevronLeft /></div>
                 <div className='chevron-right' onClick={nextImage}><FaCircleChevronRight /></div>
               </>
             )}
-          <Button buttonType={'inverted'} onClick={productIn}>
-            Add to Cart
-          </Button>
+            <Button buttonType={'inverted'} onClick={productIn}>
+              Add to Cart
+            </Button>
           </div>
 
-
-          <div className='card-main'>
+          <div className='card-body'>
             <div className='name-price'>
               <span className='product-name'>{name}</span>
               <span className='product-price'>${setPrice(price)}</span>
@@ -94,29 +97,23 @@ const ProductCard = ({ product }) => {
               <div className='description'>
                 <span>{info || "Description unavailable"}</span>
               </div>
-              <div className='description flex-space-bet'>
+              <div className='flex-space-bet'>
                 <span className='stock'> Stock: {count || "N/A"}</span>
                 <span>{ProductCategory(product)}</span>
               </div>
 
-              <div className='w-75 mt-5 mx-auto bl-ordered c-border-r'>
+              <div className='w-75 mt-3 mx-auto bl-ordered c-border-r'>
                 <div className='footer-actions flex-space-bet'>
-                  <div>
-                    <FaAmazonPay onClick={handleInstantPay} size={30} fill='forestgreen'/>
-                  </div>
-                  <div>
-                    <BsBookmarkStarFill onClick={handleSaveItem} size={25}/>
-                  </div>
-                  <div>
-                    <HiHandThumbDown onClick={handleDislike} size={28} fill='goldenrod'/>
-                  </div>
+                  <div><FaAmazonPay onClick={handleInstantPay} size={30} fill='forestgreen'/></div>
+                  <div><BsBookmarkStarFill onClick={handleSaveItem} size={25}/></div>
+                  <div><HiHandThumbDown onClick={handleDislike} size={28} fill='goldenrod'/></div>
                 </div>
               </div>
             </div>
           </div>
           <br/>
         </div>
-      </div>
+      </Card>
     </section>
   );
 };

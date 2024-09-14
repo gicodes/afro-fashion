@@ -2,20 +2,20 @@
   width: 100%;
   display: flex;
   padding-top: 10px;
-  position: relative;
   align-items: center;
   flex-direction: column;
 
   .image-container {
     width: 100%;
-    max-width: 420px;
     height: auto;
-    padding: 1%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
 
     img {
       width: 100%;
-      height: 360px;
+      height: 350px;
       object-fit: cover;
     }
 
@@ -57,10 +57,11 @@
     }
   }
 
-  .card-main {
-    min-width: 357px;
+  .card-body {
     width: 100%;
     padding: 2%;
+    max-width: 355px;
+    min-width: 355px;
 
     .name-price {
       width: 100%;
@@ -84,10 +85,10 @@
     .info-content {
       font-size: 12.5px;
       padding-top: 10px;
-      max-width: 333px;
+      max-width: 320px;
 
       .description { 
-        height: 50px;
+        height: auto;
         margin-bottom: 25px;
       }
 

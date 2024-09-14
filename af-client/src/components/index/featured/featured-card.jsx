@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Card } from '@mui/material';
 
 export const FeaturedCard = ({item, index, onRouteHandler}) => {
   return (

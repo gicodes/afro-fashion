@@ -2,6 +2,7 @@
    This component can be modified or made redudant as it only entends a viewport for the sign-up page
 */
 
+import { Paper } from '@mui/material';
 import SignUpForm from '../sign-up/sign-up-page.jsx';
 
 import './authentication.scss'
@@ -9,9 +10,9 @@ import './authentication.scss'
 const MobileSignUp = () => {
   return (
     <>
-      <div className='mt-1 lr-margin yb-p'>
+      <Paper elevation={8} className='mt-1 lr-margin'>
         <SignUpForm />
-      </div>
+      </Paper>
     </>
   )
 }

@@ -1,29 +1,29 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useContext } from 'react';
-import Footer from '../../index/footer/footer.jsx';
 import Page404 from '../../../redirect/404.jsx';
 import CreditsPage from '../credits/credits.jsx';
 import { Route, Routes } from 'react-router-dom';
 import { Help } from '../help/help.component.jsx';
 import BrandsPage from '../brands/brands.page.jsx';
+import Footer from '../../index/footer/footer.jsx';
 import NavBar from '../navbar/navbar.component.jsx';
-import BrandCollection from '../brands/brands.route.jsx';
 import Seller from '../dashboard/index/dash.index.jsx';
-import UserProfile from '../dashboard/user/user.component.jsx';
+import HomeIndex from '../../index/lg.home.component.jsx';
+import BrandCollection from '../brands/brands.route.jsx';
 import Checkout from '../../checkout/checkout.component.jsx';
 import FailedOperation from '../../../redirect/failedOp.jsx';
 import MarketPlace from '../marketplace/marketplace.route.jsx';
+import UserProfile from '../dashboard/user/user.component.jsx';
 import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
 import { UserContext } from "../../../contexts/user.context.jsx";
-import HomeIndex from '../../index/home.component.jsx';
-import SignIn from '../authentication/user-auth/sign-in.component.jsx';
-import SignUp from '../authentication/user-auth/sign-up.component.jsx';
+import SignIn from '../authentication/user-auth/lg.sign-in.index.jsx';
+import SignUp from '../authentication/user-auth/lg.sign-up.index.jsx';
+import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
+import Subscription from '../dashboard/subscriptions/subscription.jsx';
 import ProtectedUserRoute from '../dashboard/user/protected-route.jsx';
 import ProtectedSellerRoute from '../dashboard/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
-import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
-import Subscription from '../dashboard/subscriptions/subscription.jsx';
 import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learn-about-af.jsx';
 
 const Index = () => {
@@ -44,7 +44,7 @@ const Index = () => {
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />
-        <Route path="auth/verify-seller" element={<VerificationSuccess />} />
+        <Route path="auth/email-verified" element={<VerificationSuccess />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (

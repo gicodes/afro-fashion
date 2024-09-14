@@ -66,7 +66,7 @@ export const AcceptTerms = () => {
 
           <div className="card bg-ws">
             <div className="card-body fs-smaller text-center">
-              In order to start operating in the marketplace, sellers are required to comply with our seller terms of service
+              In order to start operating in the marketplace, sellers are required to comply with our <b>terms of service</b> below..
             </div>
           </div>
           <br/>
@@ -85,14 +85,14 @@ export const AcceptTerms = () => {
 
                 <Form.Check
                   type="checkbox"
-                  label="I own a fashion business or clothing line"
+                  label="I own a fashion or clothing business"
                   checked={isChecked.businessOwner}
                   onChange={() => handleCheckboxChange('businessOwner')}
                 />
 
                 <Form.Check
                   type="checkbox"
-                  label="I am looking to make sales using this platform"
+                  label="I adhere to Afro-fashion regulatory policy"
                   checked={isChecked.makeSales}
                   onChange={() => handleCheckboxChange('makeSales')}
                 />
@@ -113,7 +113,7 @@ export const AcceptTerms = () => {
 
                 <Form.Check
                   type="checkbox"
-                  label="I will adhere to Afro-fashion user policy"
+                  label="I adhere to both local and Afro-fashion's user policy"
                   checked={isChecked.useDisplayName}
                   onChange={() => handleCheckboxChange('useDisplayName')}
                 />
@@ -122,16 +122,16 @@ export const AcceptTerms = () => {
 
             <div className='card-actions'>
               <Button onClick={handleAgreeButtonClick}>
-                I agree to these terms of use
+                I agree to these terms of service
               </Button>
             </div>
           </Form>
 
           <div className="card bg-wheat">
             <div className="card-footer fs-smaller text-center">
-                When you are redirected, your verification progress is saved with the email associated to this account
-                
-                <p></p>You still have to continue verification from your email address to complete this process and get a seller badge
+              When you are redirected, your verification progress is saved with the email associated to this account
+              
+              <p></p>You still have to continue verification from your email address to complete this process and get a seller badge
             </div>
           </div>
         </div>

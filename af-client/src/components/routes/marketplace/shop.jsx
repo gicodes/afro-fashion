@@ -17,7 +17,7 @@ const Collections = () => {
     Object.values(categoriesMap).forEach((products) => {
       productsArray = [...productsArray, ...products];
     });
-    // shuffle products randomly-- runs on latest design 
+    // shuffle products randomly-- fix bug for latest design 
     productsArray.sort(() => Math.random() - 0.5);
     setAllProducts(productsArray);
   }, [categoriesMap]);
@@ -27,7 +27,7 @@ const Collections = () => {
       { allProducts.length > 0 ? (
         <div className='marketplace-route'>
           { allProducts.map((product, index) => (
-            <section key={index} id={product.id} className='product-section'>
+            <section key={index} id={product.id} className='products-area'>
               <ProductCard 
                 product={product} 
                 productId={productId} 
@@ -36,7 +36,7 @@ const Collections = () => {
           ))}
         </div>
       ) : (
-        <div className='card container p-2 bg-ws vh-100'>
+        <div className='card container p-2'>
           <hr className='-mt' />
           <p className='mx-auto fs-large'>
             Products Unavailable... Try again later
