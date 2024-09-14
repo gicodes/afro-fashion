@@ -8,8 +8,8 @@ import { UserContext } from "../../../contexts/user.context";
 import { SignOutUser } from "../../../utils/firebase.utils";
 import { useAlert } from "../../../contexts/alert.context";
 import { Fragment, useContext, useState } from "react";
-import { LuLogIn, LuSearch } from "react-icons/lu";
 import BurgerMenu from './nav-drop.mobile';
+import { LuLogIn } from "react-icons/lu";
 import NavUserBadge from "./user-badge";
 import { SideNav } from "./auth-nav";
 
@@ -98,7 +98,6 @@ const MobileNavBar = () => {
               <div />
 
               <div className="burger-end">
-                <div className="p-1 v-center"><LuSearch size={24} fill="#efffff"/></div>
                 <span className="p-1" onClick={toggleCart}><CartIcon /></span>
                 
                 <div className={"auth-icon"} style={authIconStyle}>
