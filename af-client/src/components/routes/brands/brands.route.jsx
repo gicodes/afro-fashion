@@ -56,7 +56,7 @@ const BrandCollection = () => {
           {Object.entries(brands).map(([category, categoryProducts]) => (
           <div key={category} className='seller-product'>
             {categoryProducts.map((brand) => (
-              <ProductCard key={brand.id} product={brand} />
+              <><ProductCard key={brand.id} product={brand} /><br/></>
             ))}
             <br/>
           </div>
