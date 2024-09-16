@@ -27,10 +27,9 @@ export const UserProvider = ({ children }) => {
         return;
       }
       const isVerified = user?.emailVerified;
-      console.log(isVerified)
 
       try {
-        const userData = await fetchUserData(user.uid, 'users');
+        const userData = await fetchUserData(user?.uid, 'users');
 
         if (userData) {
           setCurrentUser({

@@ -1,11 +1,10 @@
-import SellerCard from './seller-card';
-import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../products/product-card';
 import { useContext, useState, useEffect } from 'react';
 import { getSellerInfo } from '../../../utils/firebase.utils';
 import { useLoading } from '../../../contexts/loading.context';
 import { BrandContext } from '../../../contexts/brand.context';
+import SellerCardIndex from '../dashboard/index/seller-card';
 
 import './brands.styles.scss';
 
@@ -32,59 +31,45 @@ const BrandCollection = () => {
     fetchData();
     hideLoading();
   }, [showLoading, seller, brandsMap, hideLoading, brands]);
+
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
+  
+  const { address, bank, bankAcct, bio, imageUrl, phone } = sellerInfo;
 
   return (
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
-      <Container className="card container bg-ws mx-auto">
-        <div className='mx-auto mt-3'>
-          <div className='btn btn-outline-success'>
-            <span className='p-2 fs-smaller'>
-              You have reached <i className='font-classic fs-large'>{" "}{sellerName}'s</i> brand. Enjoy Exploring!
-            </span>
-          </div>
-          
-        </div>
-
-        {brands && Object.keys(brands)?.length > 0 ? (
-          <>
-            <SellerCard sellerInfo={sellerInfo}/>
-            <br/>
-            <div className='text-center fullWidth mt-4 col-md-8'>
-              <span className='text-success'>
-                Thanks for checking out my page 
-              </span>  🤗
-              <p className='mt-2 font-awesome'>
-                I currently have items in {" "}
-                <span>
-                  {Object.keys(brands)?.length} {Object.keys(brands)
-                  ?.length !== 1 ? ("categories") : ("category")}
-                </span>
-              </p>
-            </div>
-            
-            <div className='brand-route-container mb-2'>
-              {Object.entries(brands).map(([category, categoryProducts]) => (
-              <div key={category}>
-                {categoryProducts.map((brand) => (
-                  <ProductCard key={brand.id} product={brand} />
-                ))}
-                <br/>
-              </div>
-            ))}
-          </div>
-        </>
-        ) : (
-        <>
-          <hr className='mt-2' />
-          <p className='mx-auto'>No {seller} items are available at the moment...</p>
-        </>
-        )}
-      </Container>
-      <div className='hide-in-sm'>
-        <div className='lg-div'></div>
+      <div className='m-2 seller-card'>
+        <SellerCardIndex 
+          brandName={sellerName || "Not available"}
+          address={address || "Not available"}
+          bank={bank || "Not available"}
+          bankAcct={bankAcct || "Not available"}
+          bio={bio || "Not available"}
+          imageUrl={imageUrl}
+          phone={phone || "Not available"}
+        />
       </div>
+
+      { brands && Object.keys(brands)?.length > 0 ? (
+        <div className='products-container'>
+          {Object.entries(brands).map(([category, categoryProducts]) => (
+          <div key={category} className='seller-product'>
+            {categoryProducts.map((brand) => (
+              <ProductCard key={brand.id} product={brand} />
+            ))}
+            <br/>
+          </div>
+          ))}
+        </div>
+      ) : (
+        <div className='card p-3'>
+          <div className='card-body'>
+            <p className='mx-auto'>No {seller} items are available at the moment...</p>
+          </div>   
+        </div>
+      )}
+      <div className='lg-div' />
     </section>
   );
 };

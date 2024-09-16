@@ -235,10 +235,16 @@
 
 
 .nav-brand {
-  margin-top: 10px;
   font-style: italic;
   font-weight: bolder;
   font-family: Cambria;
+  margin: 0 auto 0 auto;
+
+  @media (min-width: 768px) {
+    h1 {
+      margin-left: 250px;
+    }
+  }
 
   .green {
     color: green;

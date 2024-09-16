@@ -1,16 +1,15 @@
 import { Card } from '@mui/material';
-import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HiHandThumbDown } from "react-icons/hi2";
+import { FcLike, FcDislike } from "react-icons/fc";
 import { setPrice } from '../../checkout/checkout';
 import Button from '../../buttons/button.component';
-import { BsBookmarkStarFill } from "react-icons/bs";
 import { ProductCategory } from './product-category';
 import { useAlert } from '../../../contexts/alert.context';
 import { addToSavedItems } from '../../../utils/writeBatch';
 import { CartContext } from '../../../contexts/cart.context';
 import { UserContext } from '../../../contexts/user.context';
 import { useLoading } from '../../../contexts/loading.context';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
 
 import './product-card.styles.scss';
@@ -24,18 +23,33 @@ const ProductCard = ({ product }) => {
   const { addItemtoCart } = useContext(CartContext);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // destructuring may include seller if need be to include sellerName on productCard
   const { id, name, price, info, count, imageUrls, } = product;
 
-  const hasMultipleImages = (imageUrls) => Array.isArray(imageUrls) && imageUrls.length > 1;
-  const multipleImages = hasMultipleImages(imageUrls);
+  const multipleImages = Array.isArray(imageUrls) && imageUrls.length > 1;
 
-  const nextImage = () => {
+  useEffect(() => {
+    if (multipleImages) {
+      const nextImageIndex = (currentImageIndex + 1) % imageUrls.length;
+      const prevImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+      
+      const preloadImage = (url) => {
+        const img = new Image();
+        img.src = url;
+      };
+
+      preloadImage(imageUrls[nextImageIndex]);
+      preloadImage(imageUrls[prevImageIndex]);
+    }
+  }, [currentImageIndex, imageUrls, multipleImages]);
+
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
-  };
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
-  };
+  }, [imageUrls.length]);
+
+  const prevImage = useCallback(() => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
+  }, [imageUrls.length]);
 
   const productIn = () => addItemtoCart(product);
 
@@ -43,6 +57,7 @@ const ProductCard = ({ product }) => {
     e.preventDefault();
     productIn();
     showLoading();
+
     navigate('/checkout');
     hideLoading();
   }
@@ -66,20 +81,34 @@ const ProductCard = ({ product }) => {
     });
   }
 
+  // Memoized Chevron components to avoid unnecessary re-renders
+  const ChevronLeft = React.memo(() => (
+    <div className='chevron-left' onClick={prevImage}>
+      <FaCircleChevronLeft />
+    </div>
+  ));
+
+  const ChevronRight = React.memo(() => (
+    <div className='chevron-right' onClick={nextImage}>
+      <FaCircleChevronRight />
+    </div>
+  ));
+
   return (
     <section id={id}>
       <Card id={id}
-        className='product-card-container mb-1'>
+        className='product-card-container'>
         <div className='p-2'>
           <div className='image-container'>
-            <img 
-              loading="lazy" 
-              src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} alt={name} 
+            <img   
+              alt={name}
+              loading="lazy"
+              src={Array.isArray(imageUrls) ? imageUrls[currentImageIndex] : imageUrls} 
             />
             { multipleImages && (
               <>
-                <div className='chevron-left' onClick={prevImage}><FaCircleChevronLeft /></div>
-                <div className='chevron-right' onClick={nextImage}><FaCircleChevronRight /></div>
+                <ChevronLeft />
+                <ChevronRight />
               </>
             )}
             <Button buttonType={'inverted'} onClick={productIn}>
@@ -89,24 +118,24 @@ const ProductCard = ({ product }) => {
 
           <div className='card-body'>
             <div className='name-price'>
-              <span className='product-name'>{name}</span>
-              <span className='product-price'>${setPrice(price)}</span>
+              <span className='product-name'> {name} </span>
+              <span className='product-price'> ${setPrice(price)} </span>
             </div>
 
             <div className='info-content'>
               <div className='description'>
                 <span>{info || "Description unavailable"}</span>
               </div>
-              <div className='flex-space-bet'>
-                <span className='stock'> Stock: {count || "N/A"}</span>
+              <div className='flex-space-bet m-2'>
+                <span className='stock'> Stock: {count || "N/A"} </span>
                 <span>{ProductCategory(product)}</span>
               </div>
 
-              <div className='w-75 mt-3 mx-auto bl-ordered c-border-r'>
+              <div className='mt-5 p-3 card'>
                 <div className='footer-actions flex-space-bet'>
-                  <div><FaAmazonPay onClick={handleInstantPay} size={30} fill='forestgreen'/></div>
-                  <div><BsBookmarkStarFill onClick={handleSaveItem} size={25}/></div>
-                  <div><HiHandThumbDown onClick={handleDislike} size={28} fill='goldenrod'/></div>
+                  <FcLike onClick={handleSaveItem} size={25} />
+                  <FaAmazonPay onClick={handleInstantPay} size={28} fill='forestgreen'/>
+                  <FcDislike onClick={handleDislike} size={25}/>
                 </div>
               </div>
             </div>

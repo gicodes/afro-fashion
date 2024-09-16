@@ -54,7 +54,8 @@ const NavBarComponent = () => {
     );
   }  
 
-  const imageUrl = currentUser?.imageUrl || "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+  const imageUrl = currentUser?.imageUrl || 
+    "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
 
   return (
     <Fragment>
@@ -80,9 +81,8 @@ const NavBarComponent = () => {
               <Logo/>
             </Link>
 
-            <div></div>
-            <Navbar.Brand href="/" className="nav-brand v-center shake">
-              <h1 className="-mt2">
+            <Navbar.Brand href="/" className="nav-brand shake">
+              <h1>
                 <span className="green">A</span><span>fro</span>
                 &nbsp;
                 <span className="green">F</span><span>ash</span><span className="green">ion</span>
