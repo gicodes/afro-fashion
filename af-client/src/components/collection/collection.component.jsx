@@ -64,10 +64,10 @@ export const categories = [
   },
   {
     id: 9,
-    title: 'Slippers & Sandals',
+    title: 'Slippers',
     imageUrl: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2xpcHBlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
     route: 'marketplace/category/slippers',
-    description: 'Slides, flip-flops and sandals are perfect for laid-back comfort and style 🥿🩴',
+    description: 'Show up in style and comfort from head to toe with our slides, flip-flops and sandals 🥿🩴',
   },
   {
     id: 11,

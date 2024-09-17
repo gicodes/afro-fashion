@@ -66,10 +66,10 @@ const Dashboard = () => {
       </div>
 
       <div className="body-container">
-        { isVerified && // if verified, show >>>
+        { createItem && // if verified, show >>>
           <>
             <RestoreIndexDash />
-            {createItem && <SellerCreateCard/>}
+            <SellerCreateCard/>
           </>
         }
         { editProfile && <div className="col-md-6 mx-auto">

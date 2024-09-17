@@ -4,6 +4,9 @@ import { MdAccountBalance } from "react-icons/md";
 import { blankAvi } from "../../brands/brands.route";
 import { FaAddressBook, FaUserEdit,  } from "react-icons/fa";
 
+import "../dashboard.styles.scss"
+import { FaBusinessTime } from 'react-icons/fa6';
+
 const SellerCardIndex = (
     {displayName,
     brandName,
@@ -13,6 +16,7 @@ const SellerCardIndex = (
     bankAcct,
     imageUrl,
     phone,
+    sold,
     toggleEditProfile}
 ) => {
   return (
@@ -23,7 +27,7 @@ const SellerCardIndex = (
                 Seller Profile
                 { toggleEditProfile && 
                     <span className="text-warning">
-                    <FaUserEdit size={15} onClick={toggleEditProfile} />
+                        <FaUserEdit size={15} onClick={toggleEditProfile} />
                     </span>
                 }
                 </p>
@@ -38,15 +42,22 @@ const SellerCardIndex = (
                     />  
                     </div>             
                     <div className="info-set">
-                    <p><FcAddressBook size={20}/>&nbsp; {brandName}</p>
+                        <div className='flex-space-bet w-90'>
+                            <p><FcAddressBook size={20}/>&nbsp; {brandName}</p>
+                            {sold && 
+                                <div>
+                                    <FaBusinessTime size={20} fill='#5316a8'/> 
+                                    <span className='fs-smaller'> &nbsp; {sold}</span>
+                                </div>}
+                        </div>
                     <div className="flex-space-bet w-90 fs-smaller p-1">
-                        <div>
-                        <FaAddressBook size={15} color="wheat"/> &nbsp; {phone || "Missing info"}
-                        <span className="add-bank">{address || "Missing info"}</span>
+                        <div> 
+                            <FaAddressBook size={15} color="wheat"/> &nbsp; {phone || "Missing info"}
+                            <span className="add-bank">{address || "Missing info"}</span>
                         </div>
                         <div>
-                        <MdAccountBalance size={15} color="wheat" /> &nbsp; {bankAcct || "Missing info"}
-                        <span className="add-bank">{bank || "Missing info"}</span>
+                            <MdAccountBalance size={15} color="wheat" /> &nbsp; {bankAcct || "Missing info"}
+                            <span className="add-bank">{bank || "Missing info"}</span>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import CheckoutContent from './checkout';
 import PaymentCard from './payment.card';
 import { useContext, useState } from 'react';
 import { Card, Button, } from 'react-bootstrap';
-import GetExchangeRate from '../../utils/rate.utils';
 import { useAlert } from '../../contexts/alert.context';
 import { CartContext } from '../../contexts/cart.context';
 import { UserContext } from '../../contexts/user.context';
@@ -41,10 +40,7 @@ const Checkout = () => {
     (item) => item.price * item.quantity).reduce((total, itemTotal) => total + itemTotal, 0
   )
 
-  const todaysBMRate = GetExchangeRate() + 300; 
-
-  const cartTotalinNaira = setPrice(cartTotal * 1500);
-  console.log(todaysBMRate)
+  const cartTotalinNaira = setPrice(cartTotal * 1500); // subject to change
 
   return (
     <>

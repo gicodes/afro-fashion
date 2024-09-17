@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import ProductCard from '../products/product-card';
 import { useContext, useEffect, useState } from 'react';
 import { CategoriesContext } from '../../../contexts/categories.context';
@@ -6,19 +5,15 @@ import { CategoriesContext } from '../../../contexts/categories.context';
 import './marketplace.styles.scss';
 
 const Collections = () => {
-  const location = useLocation();
-  const hash = location.hash;
-  const productId = hash.substring(1);
+  const [ allProducts, setAllProducts ] = useState([]);
   const { categoriesMap } = useContext(CategoriesContext);
-  const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     let productsArray = [];
     Object.values(categoriesMap).forEach((products) => {
       productsArray = [...productsArray, ...products];
     });
-    // shuffle products randomly-- runs on latest design 
-    productsArray.sort(() => Math.random() - 0.5);
+    productsArray.sort(() => Math.random() - 0.5); // shuffle products randomly 
     setAllProducts(productsArray);
   }, [categoriesMap]);
 
@@ -27,13 +22,19 @@ const Collections = () => {
       { allProducts?.length > 0 ? (
         <div className='marketplace-route'>
           { allProducts.map((product, index) => (
-            <section key={index} id={product.id} className='product-section'>
+            <section 
+              key={index} 
+              id={product.id} 
+              className='product-section'
+            >
               <ProductCard 
+                key={product?.id}
                 product={product} 
-                productId={productId} 
               />
+              <br/>
             </section>
           ))}
+          <div className='hide-in-sm lg-div' />
         </div>
       ) : (
         <div className='card p-2'>

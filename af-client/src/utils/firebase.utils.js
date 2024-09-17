@@ -203,7 +203,8 @@ export const getSellerInfo = async (seller) => {
       phone: sellerData?.phone,
       address: sellerData?.address,
       email: sellerData?.email,
-      imageUrl: sellerData?.imageUrl
+      imageUrl: sellerData?.imageUrl,
+      sold: sellerData?.productSold
       // add more properties if needed
     };
   });

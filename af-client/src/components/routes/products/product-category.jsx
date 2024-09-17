@@ -10,20 +10,23 @@ export const ProductCategory = (product) => {
       return "Exclusive"
     } else return ""
   }
+  const category = product?.category;
 
   return (
     <>
       <div>
-        <span className="font-awesome px-3 text-gray"> 
-          <b>Category:</b>
-        </span> 
-        <Link 
-          className='text-link'
-          title='category link'  
-          to={`/marketplace/category/${product?.category}`} 
-        >
-          {product?.category[0].toUpperCase() + product?.category.slice(1)}
-        </Link>
+        { category !== undefined && <>
+          <span className="font-awesome px-3 text-gray"> 
+            <b>Category:</b>
+          </span> 
+          <Link 
+            className='text-link'
+            title='category link'  
+            to={category ? `/marketplace/category/${category}` : '#'}
+            >
+            {category[0].toUpperCase() + category.slice(1)}
+          </Link>          
+        </>}
 
         <span className='flex flex-end text-success font-classic px-2'>
           <b>{itemClass(product?.stock, product?.price)}</b>

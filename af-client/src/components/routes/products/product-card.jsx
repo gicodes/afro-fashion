@@ -43,13 +43,13 @@ const ProductCard = ({ product }) => {
   }, [currentImageIndex, imageUrls, multipleImages]);
 
   const nextImage = useCallback(() => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
-  }, [imageUrls.length]);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls?.length);
+  }, [imageUrls?.length]);
 
   const prevImage = useCallback(() => {
     setCurrentImageIndex(
-      (prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
-  }, [imageUrls.length]);
+      (prevIndex) => (prevIndex - 1 + imageUrls?.length) % imageUrls?.length);
+  }, [imageUrls?.length]);
 
   const productIn = () => addItemtoCart(product);
 
@@ -96,8 +96,10 @@ const ProductCard = ({ product }) => {
 
   return (
     <section id={id}>
-      <Card id={id}
-        className='product-card-container'>
+      <Card 
+        id={id}
+        className='product-card-container'
+        >
         <div className='p-2'>
           <div className='image-container'>
             <img   
@@ -121,7 +123,6 @@ const ProductCard = ({ product }) => {
               <span className='product-name'> {name} </span>
               <span className='product-price'> ${setPrice(price)} </span>
             </div>
-
             <div className='info-content'>
               <div className='description'>
                 <span>{info || "Description unavailable"}</span>
@@ -130,7 +131,6 @@ const ProductCard = ({ product }) => {
                 <span className='stock'> Stock: {count || "N/A"} </span>
                 <span>{ProductCategory(product)}</span>
               </div>
-
               <div className='mt-5 p-3 card'>
                 <div className='footer-actions flex-space-bet'>
                   <FcLike onClick={handleSaveItem} size={25} />

@@ -34,20 +34,21 @@ const BrandCollection = () => {
 
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
   
-  const { address, bank, bankAcct, bio, imageUrl, phone } = sellerInfo;
+  const { address, bank, bankAcct, bio, imageUrl, phone, sold } = sellerInfo;
 
   return (
     // section id issues a brand with a dynamic link to target
     <section id={seller?.toLowerCase()}>
       <div className='m-2 seller-card'>
         <SellerCardIndex 
-          brandName={sellerName || "Not available"}
-          address={address || "Not available"}
-          bank={bank || "Not available"}
-          bankAcct={bankAcct || "Not available"}
-          bio={bio || "Not available"}
+          brandName={sellerName || "N/A"}
+          address={address || "Missing info"}
+          bank={bank || "N/A"}
+          bankAcct={bankAcct || "N/A"}
+          bio={bio || "Missing info"}
           imageUrl={imageUrl}
-          phone={phone || "Not available"}
+          phone={phone || "Missing info"}
+          sold={sold || "N/A"}
         />
       </div>
 
@@ -56,7 +57,10 @@ const BrandCollection = () => {
           {Object.entries(brands).map(([category, categoryProducts]) => (
           <div key={category} className='seller-product'>
             {categoryProducts.map((brand) => (
-              <><ProductCard key={brand.id} product={brand} /><br/></>
+              <div key={brand.id}>
+                <ProductCard key={brand.id} product={brand} />
+                <br/>
+              </div>
             ))}
             <br/>
           </div>
