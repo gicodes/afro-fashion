@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo } from 'react';
 import { Alert, Container, Row, Col, Button } from 'react-bootstrap';
 
 const AlertContext = createContext();
@@ -6,39 +6,44 @@ const AlertContext = createContext();
 export const AlertProvider = ({ children }) => {
   const [alerts, setAlerts] = useState([]);
 
-  const addAutoCloseAlert = (variant, message) => {
+  // Memoized function to remove alert by ID
+  const removeAlert = useCallback((id) => {
+    setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== id));
+  }, []);
+
+  // Memoized function to add an auto-close alert
+  const addAutoCloseAlert = useCallback((variant, message) => {
     const newAlert = { id: new Date().getTime(), variant, message, autoClose: true };
-    setAlerts([...alerts, newAlert]);
+    setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
 
     setTimeout(() => {
       removeAlert(newAlert.id);
     }, 3000);
-  };
+  }, [removeAlert]);
 
-  const addCloseButtonAlert = (variant, message) => {
+  // Memoized function to add a close-button alert
+  const addCloseButtonAlert = useCallback((variant, message) => {
     const newAlert = { id: new Date().getTime(), variant, message, autoClose: false };
     setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
-  };
+  }, []);
 
-  const addOptionsAlert = (variant, message, onYes, onNo) => {
+  // Memoized function to add an options alert with Yes/No buttons
+  const addOptionsAlert = useCallback((variant, message, onYes, onNo) => {
     const newAlert = { id: new Date().getTime(), variant, message, autoClose: true, onYes, onNo };
-    setAlerts([...alerts, newAlert]);
-  };
+    setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
+  }, []);
 
-  const removeAlert = (id) => {
-    setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== id));
-  };
+  // Memoized context value
+  const contextValue = useMemo(() => ({
+    alerts,
+    addAutoCloseAlert,
+    addCloseButtonAlert,
+    addOptionsAlert,
+    removeAlert,
+  }), [alerts, addAutoCloseAlert, addCloseButtonAlert, addOptionsAlert, removeAlert]);
 
   return (
-    <AlertContext.Provider
-      value={{
-        alerts,
-        addAutoCloseAlert,
-        addCloseButtonAlert,
-        addOptionsAlert,
-        removeAlert,
-      }}
-    >
+    <AlertContext.Provider value={contextValue}>
       {children}
       <Container
         style={{
@@ -51,7 +56,7 @@ export const AlertProvider = ({ children }) => {
         }}
       >
         <Row>
-          <Col className='col-md-6 mx-auto'>
+          <Col className="col-md-6 mx-auto">
             {alerts.map((alert) => (
               <Alert
                 key={alert.id}
@@ -62,15 +67,15 @@ export const AlertProvider = ({ children }) => {
                 }}
                 dismissible={!alert.autoClose}
               >
-                <div className='flex-just-center'>
+                <div className="flex-just-center">
                   {alert.message}
                 </div>
                 {alert.onYes && alert.onNo && (
                   <div className="mt-3 flex-space-bet">
-                    <Button variant="success" onClick={() => alert.onYes()}>
+                    <Button variant="success" onClick={alert.onYes}>
                       Yes
                     </Button>{' '}
-                    <Button variant="danger" onClick={() => alert.onNo()}>
+                    <Button variant="danger" onClick={alert.onNo}>
                       No
                     </Button>  
                   </div>
@@ -84,6 +89,4 @@ export const AlertProvider = ({ children }) => {
   );
 };
 
-export const useAlert = () => {
-  return useContext(AlertContext);
-};
+export const useAlert = () => useContext(AlertContext);

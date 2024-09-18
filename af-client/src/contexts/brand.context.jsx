@@ -1,6 +1,6 @@
+import { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { getItemsBySellers } from "../utils/firebase.utils";
-import { createContext, useState, useEffect } from 'react';
-import { useLoading } from './loading.context'; 
+import { useLoading } from './loading.context';
 
 export const BrandContext = createContext({
   brandsMap: {},
@@ -8,39 +8,50 @@ export const BrandContext = createContext({
 });
 
 export const BrandProvider = ({ children }) => {
-  const [ brandsMap, setBrandsMap ] = useState({});
+  const [brandsMap, setBrandsMap] = useState({});
   const { showLoading, hideLoading } = useLoading();
 
-  useEffect(() => {
+  // Memoize the getBrandName function to prevent unnecessary re-renders
+  const getBrandName = useCallback(async () => {
     showLoading();
-    
-    const getBrandName = async () => {
+    try {
       const brandMap = await getItemsBySellers();
       setBrandsMap(brandMap);
-    };
-
-    hideLoading();
-    getBrandName();
+    } catch (error) {
+      console.error('Error fetching brand items:', error);
+    } finally {
+      hideLoading();
+    }
   }, [showLoading, hideLoading]);
 
-  const searchItemsByBrand = async (sellerName) => {
+  useEffect(() => {
+    getBrandName();
+  }, [getBrandName]);
+
+  // Memoize the searchItemsByBrand function
+  const searchItemsByBrand = useCallback(async (sellerName) => {
     const trimmedSellerName = typeof sellerName === 'string' ? sellerName.trim() : '';
-    if (!trimmedSellerName || trimmedSellerName === "") return [];
-  
-    const itemsBySellers = await getItemsBySellers();
-  
-    const filteredBrands = Object.entries(itemsBySellers)
-      .filter(([seller]) => seller.toLowerCase()
-      .includes(trimmedSellerName.toLowerCase()))
-      .flatMap(([items]) => items);
+    if (!trimmedSellerName) return [];
 
-    return filteredBrands;
-  };
+    try {
+      const itemsBySellers = await getItemsBySellers();
+      const filteredBrands = Object.entries(itemsBySellers)
+        .filter(([seller]) =>
+          seller.toLowerCase().includes(trimmedSellerName.toLowerCase())
+        ).flatMap(([, items]) => items);
 
-  const value = {
+      return filteredBrands;
+    } catch (error) {
+      console.error('Error searching items by brand:', error);
+      return [];
+    }
+  }, []);
+
+  // Memoize the context value to prevent unnecessary re-renders
+  const value = useMemo(() => ({
     brandsMap,
     searchItemsByBrand,
-  };
+  }), [brandsMap, searchItemsByBrand]);
 
   return (
     <BrandContext.Provider value={value}>

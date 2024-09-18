@@ -1,50 +1,56 @@
+import { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { categories } from '../components/collection/collection.component';
 import { getCollectionAndDocuments } from '../utils/firebase.utils';
-import { createContext, useState, useEffect } from 'react';
 import { useLoading } from './loading.context';
 
 export const CategoriesContext = createContext({
-  CategoriesMap: {},
+  categoriesMap: {},
   categoriesInfo: {},
 });
 
 export const CategoriesProvider = ({ children }) => {
   const { showLoading, hideLoading } = useLoading();
-  const [ categoriesMap, setCategoriesMap ] = useState({});
-  const [ categoriesInfo, setCategoriesInfo ] = useState({});
+  const [categoriesMap, setCategoriesMap] = useState({});
+  const [categoriesInfo, setCategoriesInfo] = useState([]);
 
-  useEffect(() => {
+  // Memoize the category info processing
+  const processedCategoriesInfo = useMemo(() => {
+    if (categories) {
+      return categories.map(item => ({
+        title: item?.title?.toLowerCase().trim(),
+        description: item?.description,
+      }));
+    }
+    return [];
+  }, []);
+
+  // useCallback to memoize getCategories function
+  const getCategories = useCallback(async () => {
     showLoading();
-
-    const getCategories = async () => {
+    try {
       const categoryMap = await getCollectionAndDocuments();
       setCategoriesMap(categoryMap);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    } finally {
+      hideLoading();
     }
+  }, [showLoading, hideLoading]);
 
-    if (categories) {
-      const categoryInfo = categories?.map((item) => (
-        { 
-          title: item?.title?.toLowerCase().trim(),
-          description: item?.description 
-        }
-      ));
-
-      setCategoriesInfo(categoryInfo);
-    }
-
+  useEffect(() => {
+    setCategoriesInfo(processedCategoriesInfo);
     getCategories();
+  }, [processedCategoriesInfo, getCategories]);
 
-    hideLoading();
-  }, [showLoading, hideLoading])
-
-  const value = {
-    categoriesMap, 
+  // Memoize the context value to avoid unnecessary re-renders
+  const value = useMemo(() => ({
+    categoriesMap,
     categoriesInfo,
-  };
+  }), [categoriesMap, categoriesInfo]);
 
   return (
     <CategoriesContext.Provider value={value}>
       {children}
     </CategoriesContext.Provider>
-  )
-}
+  );
+};

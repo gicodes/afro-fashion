@@ -106,8 +106,8 @@ export const SellerCreateCard = () => {
               name='category' 
               onChange={handleChange} 
               className="form-select centered-dropdown"
-            >
-              <option>Select item category</option>
+            > {/* values must match category values in db */}
+              <option>Select item category</option> 
               <option value="accessories">Accessories</option>
               <option value="bags">Bags</option>          
               <option value="hair">Hair & Accessories</option>
@@ -120,7 +120,7 @@ export const SellerCreateCard = () => {
               <option value="shoes">Shoes & Sneakers</option>
               <option value="slippers">Slippers & Sandals</option> 
               <option value="cosmetics">Cosmetics</option>  
-              <option value="underwears">Underwears</option> 
+              <option value="jewelleries">Jewelleries</option> 
               <option value="unisex">Unisex</option>
               <option value="women">Women Clothing</option>
             </select>
@@ -144,7 +144,7 @@ export const SellerCreateCard = () => {
                 <li>The photos must maintain same background (preferably white background)</li>
               </div>
 
-              <div className="p-1 m-1">
+              <div className="p-1">
 	              <input 
                   onChange={handleImgChange}
                   accept=".jpg, .jpeg, .png"
@@ -162,7 +162,7 @@ export const SellerCreateCard = () => {
               type="number"
               onChange={handleChange}
               value={formFields.price}
-              label={'How much does this item cost?'}
+              label={'How much does this item cost in USD?'}
             />
 
             <FormField 
