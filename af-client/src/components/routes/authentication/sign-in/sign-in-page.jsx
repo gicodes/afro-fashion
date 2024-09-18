@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { logGoogleUser } from "../user-auth/logGoogle";
+// import { logGoogleUser } from "../user-auth/logGoogle";
 import Button from "../../../buttons/button.component";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAlert } from "../../../../contexts/alert.context";
@@ -96,13 +96,13 @@ const SignInForm = () => {
 
             <div className='buttons-container'>
               <Button type='submit'>Sign In</Button>
-              <Button
+              {/* <Button
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
               >
                Google sign-in
-              </Button>
+              </Button> */} 
             </div>
             </div>
           </div>

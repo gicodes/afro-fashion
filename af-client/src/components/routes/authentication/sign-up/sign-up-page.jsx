@@ -9,7 +9,7 @@ import { useLoading } from '../../../../contexts/loading.context';
 import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { customCreateUserWithEmail } from "../../../../utils/firebase.utils";
 
-import { logGoogleUser } from "../user-auth/logGoogle";
+// import { logGoogleUser } from "../user-auth/logGoogle";
 
 // This component embodies the first creation of sign-up (logic and UI) before rendering on other components
 const SignUp = () => {
@@ -215,7 +215,7 @@ const SignUp = () => {
               <Button type="submit">
                 Sign Up
               </Button>
-              {buyer && <Button
+              {/* {buyer && <Button
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
@@ -223,7 +223,7 @@ const SignUp = () => {
                 <section id="google">
                   Google Sign-up
                 </section>
-              </Button>}
+              </Button>} */}
             </div>
           </div>
           </div>

@@ -21,12 +21,15 @@ const PerformanceCard = ({
       <div className="per-card">
           <div className="p-card-header">
           <p className="flex-space-bet">Seller Performance   
-              <span>{isVerified ? <MdVerifiedUser fill="lightgreen"/> : <MdQuestionMark color="lightsalmon" size={18}/>}</span>
+              <span>
+                { isVerified ? <MdVerifiedUser fill="lightgreen"/> 
+                : <MdQuestionMark color="lightsalmon" size={18}/>}
+              </span>
           </p>
           </div>
           <div className="per-card-body">
           <div className="v-center stat-set">
-              <div className="m-1">
+              <div className="v-center m-1">
               { isVerified ? <ManageSubscription /> : <VerifyNow /> }
               </div>
               <div className="per-stats">
