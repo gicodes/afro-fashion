@@ -1,79 +1,62 @@
-.brand-card {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  p {
-    display: flex;
-    align-content: flex-start;
-  }
-
-  .brand-info {
-    padding-bottom: 5px;
-    padding-top: 10px;
-    width: 100%;
-  }
-
-  .avatar {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    height: 250px;
-    width: 100%;
-    
-   .profile-image {
-      min-width: 250px;
-      margin: 0 auto;
-      height: auto;
-    }
-  } 
-}
-
 .brands-page {
   height: 100%;
   padding: 5px;
   margin-bottom: 5px;
 }
 
-.seller-card {
-  p { 
-    color: white; 
-  }
-
-  width: auto;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.products-container {
+.seller-brand-section {
   width: 100%;
-  padding: 10px;
-}
+  background-color: rgb(70, 159, 70);;
 
-@media (max-width: 768px) {
-  .brand-card {
-    display: block;
-  }
-}
+  .seller-card {
+    p { color: white; }
 
-@media (min-width: 768px) {
-  .-lg {
-    max-width: 720px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    padding-bottom: 5px;
+    justify-content: center;
   }
 
-  .brand-info {
-    padding: 10px;
+  .pro-card {
+    width: 360px;
+    min-width: none;
   }
 
   .products-container {
     width: 100%;
-    justify-content: space-around;
 
-    .seller-product {
-      display: flex;
-      margin-left: 14%;
-      justify-content: space-between;
+    .seller-category {
+      .cat-title {
+        background-color: beige;
+        margin: 10px auto 10px auto;
+        text-align: center;
+        max-width: 360px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.products-container {
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+}
+
+@media (min-width: 768px) {
+  .products-container {
+    width: 100%;
+
+    .seller-category {
+      .seller-products {
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .seller-product {
+        display: grid;
+      }
     }
   } 
 }
-  

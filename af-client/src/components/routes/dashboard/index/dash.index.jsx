@@ -4,11 +4,10 @@ import { SellerCreateCard } from "../seller/s-profile/s-create-card";
 import { SellerProducts } from "../seller/s-profile/s-products-card";
 import { BrandContext } from "../../../../contexts/brand.context";
 import { UserContext } from "../../../../contexts/user.context";
-import { MdVerifiedUser, MdQuestionMark } from "react-icons/md";
 import { useAlert } from "../../../../contexts/alert.context";
-import { VerifyNow } from "../verifyNow/profile-verify";
 import { Button, CloseButton } from "react-bootstrap";
 import { PieChart } from '@mui/x-charts/PieChart';
+import PerformanceCard from "./performance-card";
 import { FaUserShield } from "react-icons/fa";
 import { useState, useContext } from 'react';
 import SellerCardIndex from "./seller-card";
@@ -26,7 +25,7 @@ const Dashboard = () => {
   const [ editProfile, setEditProfile ] = useState(false);
   const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, productCount, productSold, subscription, latestSubExpiry } = currentUser;
 
-  const performanceScore = (SellerPerformanceScore(currentUser))
+  const performanceScore = (SellerPerformanceScore(currentUser));
   const numberOfCategories = Object.keys(brandsMap[currentUser?.brandName] || {}).length;
   
   const toggleEditItem = () => setEditItem(!editItem);
@@ -69,7 +68,7 @@ const Dashboard = () => {
         { createItem && // if verified, show >>>
           <>
             <RestoreIndexDash />
-            <SellerCreateCard/>
+            <SellerCreateCard />
           </>
         }
         { editProfile && <div className="col-md-6 mx-auto">
@@ -88,46 +87,27 @@ const Dashboard = () => {
           </div>
         }
         <div className={createItem || editProfile ? "hidden" : "paper-container"}>
-          <Paper elevation={8}>
-            <div className="per-card">
-              <div className="p-card-header">
-                <p className="flex-space-bet">Seller Performance   
-                  <span>{isVerified ? <MdVerifiedUser fill="lightgreen"/> : <MdQuestionMark color="lightsalmon" size={18}/>}</span>
-                </p>
-              </div>
-              <div className="per-card-body">
-                <div className="v-center stat-set">
-                  <div className="m-1">
-                    { isVerified ? <ManageSubscription /> : <VerifyNow /> }
-                  </div>
-                  <div className="per-stats">
-                    <h6>{numberOfCategories}</h6> <span>Category</span>
-                  </div>
-                  <div className="per-stats">
-                    <h6>{productCount || "0"}</h6> <span>Products</span>
-                  </div>
-                  <div className="per-stats">
-                    <h6>{productSold || "0"}</h6> <span>Sold</span>
-                  </div>
-                  <div>
-                    <h5 className={`${performanceRating} per-rating`}>{performanceScore}</h5>
-                    <p>Overall</p>
-                  </div>
-                </div> 
-                {subscription ? <p className="fs-smaller">Your latest subscription expires {latestSubExpiry} </p> : " "}
-              </div>
-            </div>
-          </Paper>
+          <PerformanceCard 
+            isVerified={isVerified}
+            performanceRating={performanceRating}
+            performanceScore={performanceScore}
+            productCount={productCount}
+            productSold={productSold}
+            subscription={subscription}
+            latestSubExpiry={latestSubExpiry}
+            numberOfCategories={numberOfCategories}
+            ManageSubscription={ManageSubscription}
+          />
           <br/>
           <SellerCardIndex  
-            displayName
-            brandName
-            address
-            bank
-            bio
-            bankAcct
-            imageUrl
-            phone
+            displayName={displayName}
+            brandName={brandName}
+            address={address}
+            bank={bank}
+            bankAcct={bankAcct}
+            bio={bio}
+            imageUrl={imageUrl}
+            phone={phone}
             toggleEditProfile={toggleEditProfile}
           />        
         </div>
@@ -151,6 +131,7 @@ const Dashboard = () => {
                   ]}
                   width={350}
                   height={150}
+                  // sx={{fontSize: "xx-small"}} // not working
                 />
               </div>
             </div>

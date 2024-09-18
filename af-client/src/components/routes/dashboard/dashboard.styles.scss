@@ -4,10 +4,12 @@
 // holds the dashboard first or index backgound
   background-color: beige;
   padding: auto;
+  height: 100vh;
 }
 
 .opening-text {
-  padding: 20px 40px 10px 40px;
+  padding: 20px;
+  text-align: center;
 }
 
 .close-button {
@@ -35,7 +37,8 @@
 }
 
 .per-card {
-  min-width: 400px;
+  width: 100%;
+  min-width: 360px;
   background-color: rgb(72, 37, 105);
 
   .per-card-body {
@@ -78,7 +81,8 @@
 
 .pro-card {
   background-color: forestgreen;
-  min-width: 400px;
+  min-width: 360px;
+  width: 100%;
 
   img {
     border: 1px solid khaki;
@@ -95,15 +99,24 @@
       font-family: Helvetica, sans-serif;
       font-size: smaller;
       margin: 0 0 0 20px;
-      color: white;
+      color: hsl(35, 77%, 75%);
       width: 100%;
+
+      .fill-success {
+        color: rgb(237, 233, 201);
+        fill: white;
+      }
+
+      span {
+        color: beige;
+      }
 
       .add-bank {
         width: 100%;
         display: block;
-        font-size: x-small;
-        color: antiquewhite;
+        margin-top: 5px;
         text-align: end;
+        font-size: x-small;
       }
     }
   }
@@ -126,6 +139,7 @@
 
 .sales-card {
   background-color: antiquewhite;
+  min-width: 360px;
   color: black;
 
   p { color: black;}
@@ -134,6 +148,10 @@
     border-top: 0.1px solid #505050;
     padding: 12px 0 12px 0;
     display: grid;
+
+    // .MuiChartsLegend-series, PieChart.series.data.label {
+    //   font-size: smaller;
+    // } // not working
   }
 }
 

@@ -166,7 +166,7 @@ export const SellerProducts = ({ sellerName }) => {
       ) : (
         <>
           <div className="mx-auto p-3">
-            You have no Active Product ..
+            You have no Active Product...
           </div>
         </>
       )}

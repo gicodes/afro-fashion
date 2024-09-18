@@ -34,7 +34,6 @@ const Collections = () => {
               <br/>
             </section>
           ))}
-          <div className='hide-in-sm lg-div' />
         </div>
       ) : (
         <div className='card p-2'>
@@ -43,6 +42,7 @@ const Collections = () => {
           </p>
         </div>
       )}
+      <div className='hide-in-sm lg-div' />
     </>
   );
 };

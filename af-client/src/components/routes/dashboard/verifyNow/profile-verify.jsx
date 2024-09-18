@@ -10,6 +10,7 @@ export const VerifyNow = () => {
 
     const handleYes = () => {
         navigate("/auth/accept-seller-terms")
+        addAutoCloseAlert("success", "Accept Seller Terms of Service, Then check your email to continue");
     }
     const handleNo = () => {
         addAutoCloseAlert("warning", `Check your email for Afrofashion verification link and continue!`);

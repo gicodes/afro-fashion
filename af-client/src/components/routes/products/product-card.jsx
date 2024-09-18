@@ -131,7 +131,7 @@ const ProductCard = ({ product }) => {
                 <span className='stock'> Stock: {count || "N/A"} </span>
                 <span>{ProductCategory(product)}</span>
               </div>
-              <div className='mt-5 p-3 card'>
+              <div className='mt-2 p-3 card'>
                 <div className='footer-actions flex-space-bet'>
                   <FcLike onClick={handleSaveItem} size={25} />
                   <FaAmazonPay onClick={handleInstantPay} size={28} fill='forestgreen'/>

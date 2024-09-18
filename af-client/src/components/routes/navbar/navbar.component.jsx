@@ -84,7 +84,6 @@ const NavBarComponent = () => {
             <Navbar.Brand href="/" className="nav-brand shake">
               <h1>
                 <span className="green">A</span><span>fro</span>
-                &nbsp;
                 <span className="green">F</span><span>ash</span><span className="green">ion</span>
               </h1>
             </Navbar.Brand>

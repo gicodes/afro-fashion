@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Paper } from '@mui/material';
 import ProductCard from '../products/product-card';
 import { useContext, useState, useEffect } from 'react';
 import { getSellerInfo } from '../../../utils/firebase.utils';
@@ -33,47 +34,51 @@ const BrandCollection = () => {
   }, [showLoading, seller, brandsMap, hideLoading, brands]);
 
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
-  
   const { address, bank, bankAcct, bio, imageUrl, phone, sold } = sellerInfo;
 
   return (
-    // section id issues a brand with a dynamic link to target
-    <section id={seller?.toLowerCase()}>
-      <div className='m-2 seller-card'>
+    <section id={seller?.toLowerCase()} className="seller-brand-section">
+      <div className="seller-card">
         <SellerCardIndex 
-          brandName={sellerName || "N/A"}
+          displayName={sellerName}
+          brandName={sellerName}
           address={address || "Missing info"}
-          bank={bank || "N/A"}
-          bankAcct={bankAcct || "N/A"}
+          bank={bank || "-"}
+          bankAcct={bankAcct || "-"}
           bio={bio || "Missing info"}
           imageUrl={imageUrl}
           phone={phone || "Missing info"}
-          sold={sold || "N/A"}
+          sold={sold || "-"}
         />
       </div>
-
+  
       { brands && Object.keys(brands)?.length > 0 ? (
-        <div className='products-container'>
-          {Object.entries(brands).map(([category, categoryProducts]) => (
-          <div key={category} className='seller-product'>
-            {categoryProducts.map((brand) => (
-              <div key={brand.id}>
-                <ProductCard key={brand.id} product={brand} />
+        <>
+          <Paper className="products-container">
+            {Object.entries(brands).map(([category, categoryProducts]) => (
+              <div key={category} className="seller-category">
+                <div className="cat-title">
+                  <h5>CATEGORY</h5> {category}
+                </div>
+  
+                <div className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
+                  {categoryProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
                 <br/>
               </div>
             ))}
-            <br/>
-          </div>
-          ))}
-        </div>
+          </Paper>
+          <div className="lg-div bg-white"></div>
+        </>
       ) : (
-        <div className='card p-3'>
-          <div className='card-body'>
-            <p className='mx-auto'>No {seller} items are available at the moment...</p>
+        <div className="card p-3">
+          <div className="card-body">
+            <p className="mx-auto">No {seller} items are available at the moment...</p>
           </div>   
         </div>
       )}
-      <div className='lg-div' />
     </section>
   );
 };

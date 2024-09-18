@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+
+import './product-card.styles.scss';
 
 export const ProductCategory = (product) => {
   const itemClass = (product_stock, product_price) => {
@@ -14,7 +15,7 @@ export const ProductCategory = (product) => {
 
   return (
     <>
-      <div>
+      <div className='pc-product-category'>
         { category !== undefined && <>
           <span className="font-awesome px-3 text-gray"> 
             <b>Category:</b>
@@ -32,7 +33,7 @@ export const ProductCategory = (product) => {
           <b>{itemClass(product?.stock, product?.price)}</b>
         </span>
 
-        {product?.seller && <p className='mt-3 fs-small text-center'>
+        {product?.seller && <p className='mt-2 fs-small text-center'>
           More from &nbsp; 
             <Link 
               className='text-link'

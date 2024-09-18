@@ -1,6 +1,6 @@
+import { createContext, useEffect, useState, useCallback } from 'react';
 import { onAuthStateChangedListener } from '../utils/firebase.utils';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import { createContext, useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from './loading.context';
 
@@ -25,24 +25,25 @@ export const UserProvider = ({ children }) => {
       const userDocRef = doc(firestore, collection, uid);
       const userSnapshot = await getDoc(userDocRef);
       return userSnapshot.exists() ? userSnapshot.data() : null;
+
     } catch (error) {
       console.error('Error fetching user data:', error);
       return null;
     }
   }, []);
 
-  // Optimized fetchData function with early returns and error handling
+  // Optimized fetchData function with early returns: minimal error handling
   const fetchData = useCallback(async (user) => {
     if (!user) {
       setCurrentUser(null);
       return;
     }
-
-    const isVerified = user.emailVerified;
     showLoading();
+    const isVerified = user?.emailVerified;
 
     try {
       const userData = await fetchUserData(user.uid, 'users');
+
       if (userData) {
         setCurrentUser({
           displayName: userData.displayName,
@@ -58,6 +59,7 @@ export const UserProvider = ({ children }) => {
         setUserId(user.uid);
       } else {
         const sellerData = await fetchUserData(user.uid, 'sellers');
+
         if (sellerData) {
           setCurrentUser({
             displayName: sellerData.displayName,
@@ -78,17 +80,16 @@ export const UserProvider = ({ children }) => {
             latestSubExpiry: sellerData.latestSubExpiry,
           });
           setUserId(user.uid);
-        } else {
-          setCurrentUser(null);
-        }
+        } else setCurrentUser(null);
       }
+
+      hideLoading(); // prevents prolonged & redudant state
 
       if (intendedRoute) {
         navigate(intendedRoute);
         setIntendedRoute(null);
       }
     } catch (error) {
-      console.error('Error fetching user or seller data:', error);
       setCurrentUser(null);
     } finally {
       hideLoading();
