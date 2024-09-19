@@ -5,7 +5,7 @@ import { useContext, useState, useEffect } from 'react';
 import { getSellerInfo } from '../../../utils/firebase.utils';
 import { useLoading } from '../../../contexts/loading.context';
 import { BrandContext } from '../../../contexts/brand.context';
-import SellerCardIndex from '../dashboard/index/seller-card';
+import SellerCardIndex from '../dashboard/index/seller/seller-card';
 
 import './brands.styles.scss';
 

@@ -1,30 +1,30 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
 import { useContext } from 'react';
-import Page404 from '../../../redirect/404.jsx';
-import CreditsPage from '../credits/credits.jsx';
+import Page404 from '../redirect/404.jsx';
 import { Route, Routes } from 'react-router-dom';
-import { Help } from '../help/help.component.jsx';
-import BrandsPage from '../brands/brands.page.jsx';
-import Footer from '../../index/footer/footer.jsx';
-import NavBar from '../navbar/navbar.component.jsx';
-import Seller from '../dashboard/index/dash.index.jsx';
-import HomeIndex from '../../index/lg.home.component.jsx';
-import BrandCollection from '../brands/brands.route.jsx';
-import Checkout from '../../checkout/checkout.component.jsx';
-import FailedOperation from '../../../redirect/failedOp.jsx';
-import MarketPlace from '../marketplace/marketplace.route.jsx';
-import UserProfile from '../dashboard/user/user.component.jsx';
-import PaymentSuccessful from '../../../redirect/paySuccess.jsx';
-import { UserContext } from "../../../contexts/user.context.jsx";
-import SignIn from '../authentication/user-auth/lg.sign-in.index.jsx';
-import SignUp from '../authentication/user-auth/lg.sign-up.index.jsx';
-import VerificationSuccess from '../../../redirect/verifySuccess.jsx';
-import Subscription from '../dashboard/subscriptions/subscription.jsx';
-import ProtectedUserRoute from '../dashboard/user/protected-route.jsx';
-import ProtectedSellerRoute from '../dashboard/seller/protected-route.jsx'; 
-import { AcceptTerms } from '../authentication/seller-auth/accept-terms.jsx';
-import { PrivacyPolicy, TermsOfService } from '../../index/indexServices/learn-about-af.jsx';
+import FailedOperation from '../redirect/failedOp.jsx';
+import PaymentSuccessful from '../redirect/paySuccess.jsx';
+import { UserContext } from "../contexts/user.context.jsx";
+import Footer from '../components/index/footer/footer.jsx';
+import NavBar from '../components/navbar/navbar.component.jsx';
+import VerificationSuccess from '../redirect/verifySuccess.jsx';
+import HomeIndex from '../components/index/lg.home.component.jsx';
+import CreditsPage from '../components/routes/credits/credits.jsx';
+import { Help } from '../components/routes/help/help.component.jsx';
+import BrandsPage from '../components/routes/brands/brands.page.jsx';
+import Checkout from '../components/checkout/checkout.component.jsx';
+import BrandCollection from '../components/routes/brands/brands.route.jsx';
+import Seller from '../components/routes/dashboard/index/seller/dash.index.jsx';
+import MarketPlace from '../components/routes/marketplace/marketplace.route.jsx';
+import UserProfile from '../components/routes/dashboard/user/user.component.jsx';
+import SignIn from '../components/routes/authentication/user-auth/lg.sign-in.index.jsx';
+import SignUp from '../components/routes/authentication/user-auth/lg.sign-up.index.jsx';
+import Subscription from '../components/routes/dashboard/subscriptions/subscription.jsx';
+import ProtectedUserRoute from '../components/routes/dashboard/user/protected-route.jsx';
+import ProtectedSellerRoute from '../components/routes/dashboard/seller/protected-route.jsx'; 
+import { AcceptTerms } from '../components/routes/authentication/seller-auth/accept-terms.jsx';
+import { PrivacyPolicy, TermsOfService } from '../components/index/indexServices/learn-about-af.jsx';
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);

@@ -1,11 +1,11 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import {Paper} from "@mui/material";
 import Footer from "./footer/footer";
+import { Paper } from "@mui/material";
 import CategoryIndex from "./categories";
 import LatestIndex from "./featured/new&latest";
 import TrendingIndex from "./featured/hot&trending";
-import { SearchBar } from "../searchServices/search-bar";
+import { SearchBar } from "../routes/searchServices/search-bar";
 import { categories } from "../collection/collection.component";
 
 const HomeIndex = () => {

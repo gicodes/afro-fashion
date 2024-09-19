@@ -1,20 +1,19 @@
-import { SellerPerformanceScore } from "../seller/s-profile/s-performance";
-import { SellerProfileCard } from "../seller/s-profile/s-profile-card";
-import { SellerCreateCard } from "../seller/s-profile/s-create-card";
-import { SellerProducts } from "../seller/s-profile/s-products-card";
-import { BrandContext } from "../../../../contexts/brand.context";
-import { UserContext } from "../../../../contexts/user.context";
-import { useAlert } from "../../../../contexts/alert.context";
+import { SellerPerformanceScore } from "../../seller/s-profile/s-performance";
+import { SellerProfileCard } from "../../seller/s-profile/s-profile-card";
+import { SellerCreateCard } from "../../seller/s-profile/s-create-card";
+import { SellerProducts } from "../../seller/s-profile/s-products-card";
+import { BrandContext } from "../../../../../contexts/brand.context";
+import { UserContext } from "../../../../../contexts/user.context";
+import { useAlert } from "../../../../../contexts/alert.context";
 import { Button, CloseButton } from "react-bootstrap";
-import { PieChart } from '@mui/x-charts/PieChart';
-import PerformanceCard from "./performance-card";
+import PerformanceCard from "./seller-perf-card";
 import { FaUserShield } from "react-icons/fa";
 import { useState, useContext } from 'react';
 import SellerCardIndex from "./seller-card";
 import { Link } from "react-router-dom";
-import Paper from '@mui/material/Paper';
 
-import "../dashboard.styles.scss";
+import "../../dashboard.styles.scss";
+import PieUtilityCard from "../pie-card";
 
 const Dashboard = () => {
   const { addAutoCloseAlert } = useAlert();
@@ -99,6 +98,7 @@ const Dashboard = () => {
             ManageSubscription={ManageSubscription}
           />
           <br/>
+          
           <SellerCardIndex  
             displayName={displayName}
             brandName={brandName}
@@ -114,29 +114,12 @@ const Dashboard = () => {
         <br/>
 
         <div className={createItem || editProfile ? "hidden" : "action-container"}>
-          <Paper elevation={8}>
-            <div className="sales-card">
-              <div className="p-card-header">
-                <p> Sales Performance </p>
-              </div>
-
-              <div className="sales-card-body">
-                <PieChart
-                  series={[
-                    { data: [
-                        { id: 0, value: productSold, label: 'Sales' },
-                        { id: 1, value: productCount, label: 'Inventory' },
-                        { id: 2, value: 45, label: 'Max Capacity' }, 
-                    ], },
-                  ]}
-                  width={350}
-                  height={150}
-                  // sx={{fontSize: "xx-small"}} // not working
-                />
-              </div>
-            </div>
-          </Paper>
+          <PieUtilityCard 
+            productCount={productCount}
+            productSold={productSold}
+          />
           <br/>
+
           <div className="action-btn-group">
             <Button  
               onClick={toggleEditItem}

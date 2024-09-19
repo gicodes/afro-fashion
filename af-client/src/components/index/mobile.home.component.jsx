@@ -6,7 +6,7 @@ import Divider from "@mui/material/Divider";
 import Footer from "../index/footer/footer";
 import LatestIndex from "./featured/new&latest";
 import TrendingIndex from "./featured/hot&trending";
-import { SearchBar } from "../searchServices/search-bar";
+import { SearchBar } from "../routes/searchServices/search-bar";
 import { categories } from "../collection/collection.component";
 
 const HomeIndex = () => {

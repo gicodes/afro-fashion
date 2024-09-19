@@ -1,13 +1,13 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
-import CartDropdown from "../../cartServices/cart-dropdown/cart-dropdown";
-import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
-import { ReactComponent as Logo } from "../../assets/afro-fa.svg";
+import CartDropdown from "../cartServices/cart-dropdown/cart-dropdown";
+import CartIcon from "../cartServices/cart-icon/cart-icon.components";
+import { ReactComponent as Logo } from "../assets/afro-fa.svg";
 import { React, useContext, useState , Fragment} from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../../../contexts/user.context";
-import { SignOutUser } from "../../../utils/firebase.utils";
-import { useAlert } from "../../../contexts/alert.context";
+import { UserContext } from "../../contexts/user.context";
+import { useAlert } from "../../contexts/alert.context";
+import { SignOutUser } from "../../utils/firebase.utils";
 import { TbHelpHexagonFilled } from "react-icons/tb";
 import { FaUserLargeSlash } from "react-icons/fa6";
 import { GiOpenBook } from "react-icons/gi";

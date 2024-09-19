@@ -1,8 +1,8 @@
 import Paper from '@mui/material/Paper';
-import { VerifyNow } from "../verifyNow/profile-verify";
+import { VerifyNow } from "../../verifyNow/profile-verify";
 import { MdVerifiedUser, MdQuestionMark } from "react-icons/md";
 
-import "../dashboard.styles.scss";
+import "../../dashboard.styles.scss";
 
 const PerformanceCard = ({
   isVerified,

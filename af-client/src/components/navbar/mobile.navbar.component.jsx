@@ -1,12 +1,12 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
-import CartDropdown from "../../cartServices/cart-dropdown/mobile.cart-dropdown";
-import CartIcon from "../../cartServices/cart-icon/cart-icon.components";
+import CartDropdown from "../cartServices/cart-dropdown/mobile.cart-dropdown";
+import CartIcon from "../cartServices/cart-icon/cart-icon.components";
 import { Container, Navbar, CloseButton } from "react-bootstrap";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../../../contexts/user.context";
-import { SignOutUser } from "../../../utils/firebase.utils";
-import { useAlert } from "../../../contexts/alert.context";
+import { UserContext } from "../../contexts/user.context";
+import { SignOutUser } from "../../utils/firebase.utils";
+import { useAlert } from "../../contexts/alert.context";
 import { Fragment, useContext, useState } from "react";
 import BurgerMenu from './nav-drop.mobile';
 import { LuLogIn } from "react-icons/lu";
@@ -88,9 +88,9 @@ const MobileNavBar = () => {
               </div>
 
               <div className="force-af-center" />
-              <Navbar.Brand className="nav-brand">
+              <Navbar.Brand className="v-center nav-brand">
                 <Link to="/"> {/* Used as a global navigator to home :/ index */}
-                  <h1 className="shake">
+                  <h1 className="mt-1 shake">
                     <span className="green">A</span>F
                   </h1>
                 </Link>

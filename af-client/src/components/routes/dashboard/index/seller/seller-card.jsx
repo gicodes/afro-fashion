@@ -1,11 +1,11 @@
 import { Paper } from '@mui/material';
 import { FcAddressBook } from 'react-icons/fc';
-import { MdAccountBalance } from "react-icons/md";
-import { blankAvi } from "../../brands/brands.route";
 import { BsCartCheckFill } from "react-icons/bs";
+import { MdAccountBalance } from "react-icons/md";
+import { blankAvi } from "../../../brands/brands.route";
 import { FaAddressBook, FaUserEdit,  } from "react-icons/fa";
 
-import "../dashboard.styles.scss"
+import "../../dashboard.styles.scss"
 
 const SellerCardIndex = ({
     displayName,

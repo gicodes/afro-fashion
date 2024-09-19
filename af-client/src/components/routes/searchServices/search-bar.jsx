@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { useLoading } from '../../contexts/loading.context';
-import { BrandContext } from '../../contexts/brand.context';
+import { useLoading } from '../../../contexts/loading.context';
+import { BrandContext } from '../../../contexts/brand.context';
 import { FormControl, InputGroup, ListGroup } from 'react-bootstrap';
 
 import './search.styles.scss';

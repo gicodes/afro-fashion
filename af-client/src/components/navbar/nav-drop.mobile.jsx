@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 export const navLinks = [
   {
     id: 1,
-    title: 'Marketplace',
-    link: '/marketplace',
+    title: 'Dashboard',
+    link: '/dashboard',
   },
   {
     id: 2,
-    title: 'Dashboard',
-    link: '/dashboard',
+    title: 'Marketplace',
+    link: '/marketplace',
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
               <span className="green">f</span><span className='text-primary'>ash</span>
               <span className="green">ion</span>
             </h1>
-            <p>EST. 2022 - 2024</p>
+            <p><span className='fs-tiny'>EST. 2022 - 2024</span></p>
           </div>
         </div>
       </nav>
