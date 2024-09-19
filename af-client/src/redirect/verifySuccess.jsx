@@ -1,9 +1,12 @@
 import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { useAlert } from "../contexts/alert.context";
 import { useNavigate } from 'react-router-dom';
 import { RedirectTemplate } from './template';
 import { useEffect } from 'react';
+import { sendVerification } from "../components/routes/authentication/seller-auth/verification";
 
 const VerificationSuccess = () => {
+  const { addAutoCloseAlert } = useAlert();
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -15,12 +18,23 @@ const VerificationSuccess = () => {
 
       signInWithEmailLink(auth, email, window.location.href)
         .then(() => {
-          window.localStorage.removeItem('emailForSignIn'); // clear email from storage
+          // window.localStorage.removeItem('emailForSignIn'); // clear email from storage
           navigate('/dashboard');
         })
-        .catch((error) => console.error('Error signing in with email link:', error));
+        .catch(async (error) => {
+          if (error.code === 'auth/invalid-action-code' || error.code === 'auth/expired-action-code') {
+            // If no email, re-prompt the user for his email
+            let email = window.prompt('Please provide your email for confirmation');
+            // The link is invalid or expired, prompt the user for a fresh link
+            addAutoCloseAlert('warning', "Your sign-in link has expired. A new link will be sent to your email");
+      
+            await sendVerification(email)
+          } else {
+            console.error('Error signing in with email link:', error.message);
+          }
+        })
     }
-  }, [navigate, auth]);
+  }, [navigate, auth, addAutoCloseAlert]);
 
   return (
     <>

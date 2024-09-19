@@ -29,9 +29,21 @@ export const AlertProvider = ({ children }) => {
 
   // Memoized function to add an options alert with Yes/No buttons
   const addOptionsAlert = useCallback((variant, message, onYes, onNo) => {
-    const newAlert = { id: new Date().getTime(), variant, message, autoClose: true, onYes, onNo };
+    const newAlertId = new Date().getTime();
+    const newAlert = { id: newAlertId, variant, message, autoClose: false, 
+      onYes: () => {
+        onYes?.(); 
+        removeAlert(newAlertId); 
+      }, 
+      onNo: () => {
+        onNo?.();
+        removeAlert(newAlertId); 
+      } 
+    };
+    
     setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
-  }, []);
+  }, [removeAlert]);
+  
 
   // Memoized context value
   const contextValue = useMemo(() => ({
