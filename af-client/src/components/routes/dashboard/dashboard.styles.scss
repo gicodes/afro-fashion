@@ -55,9 +55,7 @@
   padding: 10px;
   background-color: whitesmoke;
 
-  .user-history {
-    margin-top: 10px;
-  }
+  .user-history { margin-top: 10px; }
 }
 
 .user-profile { // this.className is used in multiple components, i.e. very sensitive to change
@@ -125,9 +123,8 @@
       font-family: Arial, Helvetica, sans-serif;
       justify-content: space-between;
 
-      h5 {
-        color: lightgreen;
-      }
+      h5 { color: lightgreen;}
+
       span {
         color: bisque;
         font-size: 9px;

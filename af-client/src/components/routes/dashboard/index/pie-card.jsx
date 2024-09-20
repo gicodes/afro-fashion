@@ -6,12 +6,15 @@ const PieUtilityCard = ({
   productCount,
   productSold,
 }) => {
+  let categories;
   let isSeller = productCount && productSold;
 
-  const categories = Object.entries(userData)
-    .sort(([, a], [, b]) => b - a) // Sort by count in descending order
-    .slice(0, 3)                   // Get the top 3 categories
-    .map(([category, count]) => ({ category, count })); // Map to {category, count}
+  if (userData && Object.keys(userData).length > 0) {
+    categories = Object.entries(userData)
+      .sort(([, a], [, b]) => b - a) // Sort by count in descending order
+      .slice(0, 3)                   // Get the top 3 categories
+      .map(([category, count]) => ({ category, count })); // Map to {category, count}
+  }
 
   const category1 = categories[0]?.category;
   const categoryCount1 = categories[0]?.count;
