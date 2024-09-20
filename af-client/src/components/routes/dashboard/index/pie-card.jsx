@@ -6,33 +6,39 @@ const PieUtilityCard = ({
   productCount,
   productSold,
 }) => {
-  let categories;
-  let isSeller = productCount && productSold;
+  let categories, label1, label2, label3, value1, value2, value3;
 
   if (userData && Object.keys(userData).length > 0) {
     categories = Object.entries(userData)
       .sort(([, a], [, b]) => b - a) // Sort by count in descending order
       .slice(0, 3)                   // Get the top 3 categories
       .map(([category, count]) => ({ category, count })); // Map to {category, count}
+
+    const category1 = categories[0]?.category;
+    const categoryCount1 = categories[0]?.count;
+
+    const category2 = categories[1]?.category;
+    const categoryCount2 = categories[1]?.count;
+
+    const category3 = categories[2]?.category;
+    const categoryCount3 = categories[2]?.count;
+
+    label1 = category1;
+    label2 = category2;
+    label3 = category3;
+
+    value1 = categoryCount1;
+    value2 = categoryCount2;
+    value3 = categoryCount3;
+  } else {
+    label1 = "Sales";
+    label2 = "Inventory";
+    label3 = "Max Capacity";
+
+    value1 = productSold;
+    value2 = productCount;
+    value3 = 45;
   }
-
-  const category1 = categories[0]?.category;
-  const categoryCount1 = categories[0]?.count;
-
-  const category2 = categories[1]?.category;
-  const categoryCount2 = categories[1]?.count;
-
-  const category3 = categories[2]?.category;
-  const categoryCount3 = categories[2]?.count;
-
-  // Set labels and values based on whether the user is a seller
-  const label1 = isSeller ? "Sales" : category1;
-  const label2 = isSeller ? "Inventory" : category2;
-  const label3 = isSeller ? "Max Capacity" : category3;
-
-  const value1 = isSeller ? productSold : categoryCount1;
-  const value2 = isSeller ? productCount : categoryCount2;
-  const value3 = isSeller ? 45 : categoryCount3;
 
   return (
     <Paper elevation={8}>
