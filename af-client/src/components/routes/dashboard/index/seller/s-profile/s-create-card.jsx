@@ -1,13 +1,13 @@
-import { addSellerItems, sellerProductCount, uploadProductImages } from '../../../../../utils/writeBatch';
-import FormField from '../../../authentication/sign-up/form.component';
-import { useLoading } from '../../../../../contexts/loading.context';
-import { UserContext } from '../../../../../contexts/user.context';
-import { useAlert } from '../../../../../contexts/alert.context';
+import { addSellerItems, sellerProductCount, uploadProductImages } from '../../../../../../utils/writeBatch';
+import FormField from '../../../../authentication/sign-up/form.component';
+import { useLoading } from '../../../../../../contexts/loading.context';
+import { UserContext } from '../../../../../../contexts/user.context';
+import { useAlert } from '../../../../../../contexts/alert.context';
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 
-import '../../dashboard.styles.scss';
+import '../../../dashboard.styles.scss';
 
 const defaultFormFields = {
   category: '',

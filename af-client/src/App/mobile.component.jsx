@@ -15,14 +15,14 @@ import BrandsPage from '../components/routes/brands/brands.page.jsx';
 import NavBar from '../components/navbar/mobile.navbar.component.jsx';
 import HomeIndex from '../components/index/mobile.home.component.jsx';
 import BrandCollection from '../components/routes/brands/brands.route.jsx';
-import Seller from '../components/routes/dashboard/index/seller/dash.index.jsx';
+import Seller from '../components/routes/dashboard/index/seller/seller-dash.jsx';
 import MarketPlace from '../components/routes/marketplace/marketplace.route.jsx';
 import UserProfile from '../components/routes/dashboard/user/user.component.jsx';
 import Subscription from '../components/routes/dashboard/subscriptions/subscription.jsx';
 import ProtectedUserRoute from '../components/routes/dashboard/user/protected-route.jsx';
 import SignIn from '../components/routes/authentication/user-auth/mobile.sign-in.index.jsx';
 import SignUp from '../components/routes/authentication/user-auth/mobile.sign-up.index.jsx';
-import ProtectedSellerRoute from '../components/routes/dashboard/seller/protected-route.jsx'; 
+import ProtectedSellerRoute from '../components/routes/dashboard/index/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../components/routes/authentication/seller-auth/accept-terms.jsx';
 import { PrivacyPolicy, TermsOfService } from '../components/index/indexServices/learn-about-af.jsx';
 

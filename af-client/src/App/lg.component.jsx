@@ -15,14 +15,14 @@ import { Help } from '../components/routes/help/help.component.jsx';
 import BrandsPage from '../components/routes/brands/brands.page.jsx';
 import Checkout from '../components/checkout/checkout.component.jsx';
 import BrandCollection from '../components/routes/brands/brands.route.jsx';
-import Seller from '../components/routes/dashboard/index/seller/dash.index.jsx';
+import Seller from '../components/routes/dashboard/index/seller/seller-dash.jsx';
 import MarketPlace from '../components/routes/marketplace/marketplace.route.jsx';
 import UserProfile from '../components/routes/dashboard/user/user.component.jsx';
 import SignIn from '../components/routes/authentication/user-auth/lg.sign-in.index.jsx';
 import SignUp from '../components/routes/authentication/user-auth/lg.sign-up.index.jsx';
 import Subscription from '../components/routes/dashboard/subscriptions/subscription.jsx';
 import ProtectedUserRoute from '../components/routes/dashboard/user/protected-route.jsx';
-import ProtectedSellerRoute from '../components/routes/dashboard/seller/protected-route.jsx'; 
+import ProtectedSellerRoute from '../components/routes/dashboard/index/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../components/routes/authentication/seller-auth/accept-terms.jsx';
 import { PrivacyPolicy, TermsOfService } from '../components/index/indexServices/learn-about-af.jsx';
 

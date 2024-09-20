@@ -1,10 +1,10 @@
-import { SellerPerformanceScore } from "../../seller/s-profile/s-performance";
-import { SellerProfileCard } from "../../seller/s-profile/s-profile-card";
-import { SellerCreateCard } from "../../seller/s-profile/s-create-card";
-import { SellerProducts } from "../../seller/s-profile/s-products-card";
 import { BrandContext } from "../../../../../contexts/brand.context";
 import { UserContext } from "../../../../../contexts/user.context";
+import { SellerPerformanceScore } from "./s-profile/s-performance";
 import { useAlert } from "../../../../../contexts/alert.context";
+import { SellerProfileCard } from "./s-profile/s-profile-card";
+import { SellerCreateCard } from "./s-profile/s-create-card";
+import { SellerProducts } from "./s-profile/s-products-card";
 import { Button, CloseButton } from "react-bootstrap";
 import PerformanceCard from "./seller-perf-card";
 import { FaUserShield } from "react-icons/fa";
@@ -115,8 +115,8 @@ const Dashboard = () => {
 
         <div className={createItem || editProfile ? "hidden" : "action-container"}>
           <PieUtilityCard 
-            productCount={productCount}
-            productSold={productSold}
+            productCount={productCount || 0}
+            productSold={productSold || 0}
           />
           <br/>
 

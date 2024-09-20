@@ -1,10 +1,10 @@
-import { updateSeller, uploadImageAndGetUrl } from "../../../../../utils/writeBatch";
-import { useLoading } from '../../../../../contexts/loading.context';
-import { UserContext } from '../../../../../contexts/user.context';
-import { useAlert } from "../../../../../contexts/alert.context";
+import { updateSeller, uploadImageAndGetUrl } from "../../../../../../utils/writeBatch";
+import { useLoading } from '../../../../../../contexts/loading.context';
+import { UserContext } from "../../../../../../contexts/user.context";
+import { useAlert } from "../../../../../../contexts/alert.context";
 import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
 import { Card, ListGroup, Container } from "react-bootstrap"; 
-import { blankAvi } from "../../../brands/brands.route";
+import { blankAvi } from "../../../../brands/brands.route";
 import { useState, useContext } from 'react';
 
 export const SellerProfileCard = ({ 

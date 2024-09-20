@@ -8,7 +8,8 @@ const PieUtilityCard = ({
   productCount,
   productSold,
 }) => {
-  const value3 = (productCount && productSold) ? 45 : leadCategory || 0;
+  let leadCategoryX = leadCategory || 0;
+  const value3 = (productCount && productSold) ? 45 : leadCategoryX;
 
   return (
     <Paper elevation={8}>
