@@ -44,7 +44,7 @@ const PieUtilityCard = ({
     <Paper elevation={8}>
       <div className="sales-card">
         <div className="p-card-header">
-          { !Object.keys(userData).length > 0 ? // check if !userData
+          { productCount ?
             <p> Sales Performance </p> : 
             <div className='flex-space-around'>
               <p>Order History</p> 
