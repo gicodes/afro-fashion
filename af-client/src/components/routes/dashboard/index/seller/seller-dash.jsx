@@ -10,10 +10,10 @@ import PerformanceCard from "./seller-perf-card";
 import { FaUserShield } from "react-icons/fa";
 import { useState, useContext } from 'react';
 import SellerCardIndex from "./seller-card";
+import PieUtilityCard from "../pie-card";
 import { Link } from "react-router-dom";
 
 import "../../dashboard.styles.scss";
-import PieUtilityCard from "../pie-card";
 
 const Dashboard = () => {
   const { addAutoCloseAlert } = useAlert();
@@ -58,7 +58,7 @@ const Dashboard = () => {
     : "text-success";
 
   return (
-    <div className="index-container">
+    <div className="dash-index-container">
       <div className="opening-text">
         <h6>Welcome Back, {displayName} &nbsp;🤝</h6>
       </div>

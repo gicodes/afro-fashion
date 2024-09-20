@@ -1,14 +1,16 @@
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { getSellerBankInfo, getSellerId } from './firebase.utils';
-import { reduceItemCount } from './writeBatch';
+import { addToSavedItems, reduceItemCount } from './writeBatch';
 
 const SERVER_URL = 'http://localhost:5000';
 
-export default function Flutterwave(
-  { amount, 
+export default function Flutterwave({ 
+    amount, 
     email, 
     name,
     items,
+    product,
+    userId,
     phone_number }
   ) {
     const config = {
@@ -59,6 +61,7 @@ export default function Flutterwave(
             });
             
             if (response.ok) {
+              addToSavedItems(userId, product, "orders")
               reduceItemCount(item, sellerId);
             } else {
               console.error("Failed to dispatch payment:", response.statusText);

@@ -289,4 +289,4 @@ export const reduceItemCount = async (item, sellerId) => {
 };
 
 
-// deprecate item appearance for users who dislike an item
+// remove items for users who dislike

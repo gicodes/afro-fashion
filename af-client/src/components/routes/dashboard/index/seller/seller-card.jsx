@@ -1,8 +1,8 @@
 import { Paper } from '@mui/material';
+import { blankAvi } from '../dash-assets';
 import { FcAddressBook } from 'react-icons/fc';
 import { BsCartCheckFill } from "react-icons/bs";
 import { MdAccountBalance } from "react-icons/md";
-import { blankAvi } from "../../../brands/brands.route";
 import { FaAddressBook, FaUserEdit,  } from "react-icons/fa";
 
 import "../../dashboard.styles.scss"

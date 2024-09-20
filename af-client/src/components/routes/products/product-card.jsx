@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
   const { addItemtoCart } = useContext(CartContext);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  const { id, name, price, info, count, imageUrls, } = product;
+  const { id, name, price, info, count, category, imageUrls, seller} = product;
 
   const multipleImages = Array.isArray(imageUrls) && imageUrls.length > 1;
 
@@ -70,15 +70,15 @@ const ProductCard = ({ product }) => {
       imageUrl = imageUrls[0];
     } else imageUrl = imageUrls;
     
-    const itemToAdd = {name, price, id, imageUrl};
+    const itemToAdd = { category, id, name,  price, imageUrl, seller };
 
     addToSavedItems(userId, itemToAdd, "savedItems")
-    .then(() => {
-      addAutoCloseAlert("success", 'Item saved successfully!');
-    })
-    .catch((error) => {
-      addAutoCloseAlert("warning", 'Operation failed! Your account is not a verified Buyer');
-    });
+      .then(() => {
+        addAutoCloseAlert("success", 'Item saved successfully!');
+      })
+      .catch((error) => {
+        addAutoCloseAlert("warning", 'Operation failed! Your account is not a verified Buyer');
+      });
   }
 
   // Memoized Chevron components to avoid unnecessary re-renders

@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import ProductCard from '../products/product-card';
 import { useContext, useState, useEffect } from 'react';
 import { getSellerInfo } from '../../../utils/firebase.utils';
@@ -8,8 +8,6 @@ import { BrandContext } from '../../../contexts/brand.context';
 import SellerCardIndex from '../dashboard/index/seller/seller-card';
 
 import './brands.styles.scss';
-
-export const blankAvi = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
 
 // category route is rendered when users search and go to a brand / seller's page
 const BrandCollection = () => {
@@ -65,8 +63,9 @@ const BrandCollection = () => {
                   {categoryProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
-                </div>
+                </div> 
                 <br/>
+                
               </div>
             ))}
           </Paper>
