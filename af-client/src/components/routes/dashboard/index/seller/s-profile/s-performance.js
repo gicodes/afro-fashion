@@ -16,7 +16,7 @@ export const SellerPerformanceScore = (currentUser) => {
     let score = 0;
   
     if (!isVerified) return score + 4; 
-    score += 10;
+    score += 6;
   
     if (bank && bankAcct) score += 10;
     // Calculate points for productSold (5% each, max 10)
