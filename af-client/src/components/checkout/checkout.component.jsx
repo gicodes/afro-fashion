@@ -18,7 +18,7 @@ const Checkout = () => {
 
   const items = cartItems.map((item) => { return item })
   
-  const { address, displayName, email, phone } = currentUser || {};
+  const { address, displayName, email, phone, userId } = currentUser || {};
 
   const togglePayCard = () => {
     if (cartTotal === 0){
@@ -80,9 +80,10 @@ const Checkout = () => {
           amount={cartTotalinNaira}
           email={email} 
           name={displayName} 
-          phone_number={phone} 
+          items={items} // should include `item.category` and `item.seller` to enhance data mapping
+          phone_number={phone}
+          userId={userId}
           closePayCard={closePayCard} 
-          items={items}
         />
       }
 

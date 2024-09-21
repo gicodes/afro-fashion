@@ -2,8 +2,15 @@ import Flutterwave from '../../utils/flutterwave';
 import { useAlert } from '../../contexts/alert.context';
 import { Card, Button, CloseButton } from 'react-bootstrap';
 
-const PaymentCard = (
-  { amount, email, name, phone_number, closePayCard, items }
+const PaymentCard = ({ 
+  amount, 
+  email, 
+  name, 
+  items,
+  phone_number,
+  userId,
+  closePayCard,
+ }
   ) => {  
     const { addAutoCloseAlert } = useAlert();
   
@@ -28,7 +35,8 @@ const PaymentCard = (
                   email={email} 
                   name={name}
                   items={items}
-                  phone_number={phone_number} 
+                  phone_number={phone_number}
+                  userId={userId}
                 />
               </div>
             </div>

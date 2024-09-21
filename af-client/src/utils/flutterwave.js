@@ -9,10 +9,9 @@ export default function Flutterwave({
     email, 
     name,
     items,
-    product,
     userId,
-    phone_number }
-  ) {
+    phone_number 
+  }) {
     const config = {
     public_key: process.env.REACT_APP_FLUTTERWAVE_KEY,
     tx_ref: Date.now(),
@@ -61,11 +60,9 @@ export default function Flutterwave({
             });
             
             if (response.ok) {
-              addToSavedItems(userId, product, "orders")
+              addToSavedItems(userId, item, "orders")
               reduceItemCount(item, sellerId);
-            } else {
-              console.error("Failed to dispatch payment:", response.statusText);
-            }
+            } else console.error("Failed to dispatch payment:", response.statusText);
           } catch (error) {
             console.error("Error handling payments:", error);
           }
