@@ -58,7 +58,7 @@ export const AcceptTerms = () => {
       <Container className="no-padding-container flex-just-center">
         <div className="card p-1 col-md-6 bg-gray">
           <div className='card-title'>
-            <h6 className='mx-auto'>
+            <h6 className='text-center'>
               Let's create and model your brand, Together!
             </h6>
           </div>

@@ -28,8 +28,8 @@ export const VerifyNow = () => {
             <Button className="btn btn-warning" onClick={handleVerifyOption}>
                 <TbUserExclamation fill="black"/>
             </Button>
-            <span className="block mt-2">
-                <b>Verify Now</b>
+            <span className="block mt-2 text-warning">
+                Verify Now
             </span>
         </div>
     )

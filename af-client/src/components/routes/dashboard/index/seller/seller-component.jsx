@@ -48,14 +48,12 @@ const Dashboard = () => {
 
   const ManageSubscription = () => (
     <div>
-      <Button className="btn btn-success">
-        <Link to="/subscriptions">
-          <FaUserShield size={25} fill="khaki"/>
-        </Link>
-        <span className="block mt-2 fs-smaller">
-          Manage Subscription
-        </span>
-      </Button>
+      <Link to="/subscriptions" className="flex-just-center">
+        <FaUserShield size={25} fill="khaki"/>
+      </Link>
+      <span className="spc-manage-sub text-white">
+        Manage Subscription
+      </span>
     </div>
   )
 
