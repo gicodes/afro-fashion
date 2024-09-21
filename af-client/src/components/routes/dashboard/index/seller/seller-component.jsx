@@ -47,9 +47,16 @@ const Dashboard = () => {
   )
 
   const ManageSubscription = () => (
-    <Link to="/subscriptions">
-      <FaUserShield size={25} fill="khaki"/>
-    </Link>
+    <div>
+      <Button className="btn btn-success">
+        <Link to="/subscriptions">
+          <FaUserShield size={25} fill="khaki"/>
+        </Link>
+        <span className="block mt-2 fs-smaller">
+          Manage Subscription
+        </span>
+      </Button>
+    </div>
   )
 
   const performanceRating = performanceScore < 5 ? "text-warning"
