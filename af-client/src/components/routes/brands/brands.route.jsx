@@ -41,12 +41,12 @@ const BrandCollection = () => {
           displayName={sellerName}
           brandName={sellerName}
           address={address || "Missing info"}
-          bank={bank || "-"}
-          bankAcct={bankAcct || "-"}
+          bank={bank}
+          bankAcct={bankAcct}
           bio={bio || "Missing info"}
           imageUrl={imageUrl}
           phone={phone || "Missing info"}
-          sold={sold || "-"}
+          sold={sold}
         />
       </div>
   
@@ -55,9 +55,11 @@ const BrandCollection = () => {
           <Paper className="products-container">
             {Object.entries(brands).map(([category, categoryProducts]) => (
               <div key={category} className="seller-category">
-                <div className="cat-title">
+                {/* removed for better ui design */}
+                {/* <div className="cat-title">
                   <h5>CATEGORY</h5> {category}
-                </div>
+                </div>*/}
+                <br/>
   
                 <div className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
                   {categoryProducts.map((product) => (
@@ -65,11 +67,11 @@ const BrandCollection = () => {
                   ))}
                 </div> 
                 <br/>
-                
+
               </div>
             ))}
           </Paper>
-          <div className="lg-div bg-white"></div>
+          <div className="lg-div bg-white" />
         </>
       ) : (
         <div className="card p-3">

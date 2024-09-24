@@ -1,10 +1,10 @@
 /* This is a Large-viewport Component. Designed to render on larger devices or screen sizes */
 
+import { React, useEffect, useContext, useState , Fragment} from "react";
 import CartDropdown from "../cartServices/cart-dropdown/cart-dropdown";
 import CartIcon from "../cartServices/cart-icon/cart-icon.components";
 import { blankAvi } from "../routes/dashboard/index/dash-assets";
 import { ReactComponent as Logo } from "../assets/afro-fa.svg";
-import { React, useContext, useState , Fragment} from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
 import { useAlert } from "../../contexts/alert.context";
@@ -22,61 +22,69 @@ import './navbar.styles.scss'
 
 const NavBarComponent = () => {
   const navigate = useNavigate();
-  const { currentUser } = useContext(UserContext);
-  const [ sideNav, setAuthNav ] = useState(false);
+  const [ authNav, setAuthNav ] = useState(false);
   const [ closeBtn, setCloseBtn ] = useState(false);
   const [ cartOpen, setCartOpen ] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const { addAutoCloseAlert, addOptionsAlert } = useAlert();; 
+  const [ isDisabled, setIsDisabled ] = useState(false);
+  const [ signingOut, setSigningOut ] = useState(false);
 
-  const authIconStyle = {backgroundColor: currentUser ? 'white' : 'yellow',};
+  const { addAutoCloseAlert, addOptionsAlert } = useAlert(); 
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
+  useEffect(() => { 
+    if (signingOut) clearUserData();
+  }, ); 
+
+  const clearUserData = () => setCurrentUser(null);
+
+  const authIconStyle = { backgroundColor: currentUser ? 'white' : 'yellow' };
   const toggleCart = () => setCartOpen(!cartOpen);
 
-  const autoCloseAuthNav = () => {
+  const autoCloseNavOps = () => {
     if (cartOpen) setCartOpen(false);
     setCloseBtn(!closeBtn);
     setAuthNav(true);
-  }
+  };
 
   const handleSignOut = () => {
     const handleYes = () => {
-      SignOutUser(); // sign out user
-      addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`) // success action
-      navigate('/auth') // redirect to sign-in page
-      setAuthNav(false); // close auth-nav bar
-      setIsDisabled(false); // enable * nav bar
-    }
+      setIsDisabled(false); // enable * nav bar(s)
+      setSigningOut(true);
+      SignOutUser();
+
+      addAutoCloseAlert("success", `You are now signed out! See you soon 🤗`);
+      navigate('/auth'); 
+      setAuthNav(false);
+    };
 
     const handleNo = () => {
-      addAutoCloseAlert("warning", `Sign out operation cancelled!`)
+      addAutoCloseAlert("warning", `Sign out operation cancelled!`);
       setIsDisabled(false);
-      setAuthNav(false); 
+      setAuthNav(false);
     };
-    
+
     setIsDisabled(true); // Disable all components
-    addOptionsAlert('warning', 'Are you signing out?', handleYes, handleNo);
-  }
+    addOptionsAlert('warning', 'Are you sure you want to sign out?', handleYes, handleNo);
+  };
   
   const imageUrl = currentUser?.imageUrl || blankAvi;
   
   return (
     <Fragment>
       <Outlet />
+
       <Navbar 
         fixed="bottom" 
         bg="light"
       >
         { cartOpen && <CartDropdown />}
-        
-        { AuthNav && (
+        { authNav && (
           <div fixed="bottom" className="bottom-nav">
             <AuthNav
               device_class={"-lg"} 
-              displayName={currentUser?.displayName}
               isDisabled={isDisabled}             
               isOpen={closeBtn}
-              onClose={() => setAuthNav(!sideNav)}
+              onClose={() => setAuthNav(!authNav)}
               onSignOut={handleSignOut}  
             />
           </div>
@@ -110,7 +118,9 @@ const NavBarComponent = () => {
                 </Link>
               </div>
 
-              <div title="Cart" onClick={toggleCart}><CartIcon/></div>
+              <div title="Cart" onClick={toggleCart}>
+                <CartIcon/>
+              </div>
 
               <div className="nav-tab" title="Help Desk">
                 <Link className="nav-link" to='help'>
@@ -129,8 +139,8 @@ const NavBarComponent = () => {
                 style={authIconStyle} 
                 title="Account"
               >
-                { currentUser ? (
-                  <Link onClick={autoCloseAuthNav}>
+                { currentUser && !signingOut ? (
+                  <Link onClick={autoCloseNavOps}>
                     <NavUserBadge imageUrl={imageUrl}/>
                   </Link>
                   ) : (

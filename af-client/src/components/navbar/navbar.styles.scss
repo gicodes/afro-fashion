@@ -66,17 +66,16 @@
   }
 }
 
-.btm-nav-close-btn {
-  background-color: lightyellow;
-  border: 1px solid gray;
+.burger-close-btn {
+  background-color: #fff;
   border-radius: 50%;
-  position: absolute;
-  display: flex;
+  border: 0.1px solid gray;
+  position: fixed;
   z-index: 9999;
-  padding: 2px;
-  margin: 2px;
-  left: 1;
-  top: 1;
+  display: flex;
+  padding: 5px;
+  left: 10px;
+  top: 30px;
 }
 
 .burger-menu {

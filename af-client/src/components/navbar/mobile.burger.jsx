@@ -1,7 +1,7 @@
 /* This is a Mobile first Component. Designed to render on mobile devices and smaller screen sizes */
 
+import useClickOutside from '../../hooks/autoClose.component';
 import { Container } from 'react-bootstrap';
-import { useEffect, useRef } from 'react'; 
 import { Link } from 'react-router-dom';
 
 export const navLinks = [
@@ -33,33 +33,15 @@ export const navLinks = [
 ]
 
 const BurgerMenu = ({isOpen, onClose}) => {
-  const sideNavRef = useRef(null); 
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sideNavRef.current 
-          && !sideNavRef.current.contains(event.target)
-        ) onClose()
-    };
-
-    if (isOpen) document.body.style.overflow = "hidden";
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
+  const sideNavRef = useClickOutside(isOpen, onClose);
 
   return (
-    <Container
-      ref={sideNavRef}
-    >
+    <Container ref={sideNavRef}>
       <nav className="burger-menu bg-black-gradient">
         <div className="m-2 pt-5">
           <div className='vh-93'/>
-          {  
-            navLinks.map((item, index) => (
+
+          { navLinks.map((item, index) => (
               <div
                 key={item.id}
                 className={`${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
@@ -72,7 +54,8 @@ const BurgerMenu = ({isOpen, onClose}) => {
                   {item.title}
                 </Link>
               </div>
-            ))}
+            )
+          )}
 
           <div className='text-center burger-bottom'>
             <h1 className='nav-brand fs-mid'>
@@ -81,7 +64,9 @@ const BurgerMenu = ({isOpen, onClose}) => {
               <span className="green">f</span><span className='text-primary'>ash</span>
               <span className="green">ion</span>
             </h1>
-            <p><span className='fs-tiny'>EST. 2022 - 2024</span></p>
+            <p>
+              <span className='fs-tiny'>EST. 2022 - 2024</span>
+            </p>
           </div>
         </div>
       </nav>

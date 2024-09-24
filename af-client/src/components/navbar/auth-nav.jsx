@@ -1,52 +1,32 @@
-import { useEffect, useRef } from 'react'; 
+import useClickOutside from '../../hooks/autoClose.component';
+import { UserContext } from '../../contexts/user.context';
+import { React, useContext } from 'react'; 
 import { Link } from 'react-router-dom';
 import "./navbar.styles.scss";
 
-
-// This component controls both Mobile and Larger Screen Displays of the Auth Menu in the Navigation Bar
+// This component controls lg & mobile Auth Menu in the Navigation Bar
 export const AuthNav = ({ 
-  displayName, 
-  displayEmail,
   onSignOut, 
   device_class, 
   isDisabled,
   isOpen, 
   onClose 
 }) => {
-  const sideNavRef = useRef(null); 
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sideNavRef.current 
-          && !sideNavRef.current.contains(event.target)
-        ) onClose()
-    };
-
-    if (isOpen) document.body.style.overflow = "hidden";
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
-  const handleSignOut = () => {
-    onSignOut();
-  };
+  const { currentUser } = useContext(UserContext);
+  const navBarRef = useClickOutside(isOpen, onClose);
 
   return (
     <div 
-      ref={sideNavRef} 
+      ref={navBarRef} 
       className={isOpen ? `card ${device_class}` : "hidden"}
-      >
+    >
       <div className={isDisabled ? "disabled" : ""}>
         <div className='card-header'>
           <div className='fs-smaller font-awesome'>
-            {displayName}
+            {!currentUser ? "Guest" : currentUser?.displayName}
           </div>
           <div className='fs-xs m-1 text-gray'>
-            {displayEmail}
+            {currentUser?.email || ""}
           </div>
         </div>
         
@@ -69,7 +49,7 @@ export const AuthNav = ({
           </div> 
         </div>
         
-        <div onClick={handleSignOut}>
+        <div onClick={onSignOut}>
           <span className='text-warning'>
             Sign out
           </span>
@@ -77,4 +57,4 @@ export const AuthNav = ({
       </div>
     </div>
   );
-};
+}

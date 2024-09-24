@@ -14,9 +14,8 @@ export const UserProfileCard = ({
   address, 
   imageUrl 
 }) => {
-
   const { showLoading, hideLoading } = useLoading();
-  const [inputFields, setInputFields] = useState({
+  const [ inputFields, setInputFields ] = useState({
     bio: bio || '',
     name: name || '',
     phone: phone || '',

@@ -197,10 +197,10 @@ export const SellerProfileCard = ({
             </div>
 
             <div className="d-flex justify-content-between m-2">
-              <span className="info-title">Bank&nbsp;</span>
-            
-              <select onChange={(e) => handleInputChange('bank', e.target.value)} 
-              name='bank' className="form-select centered-dropdown"
+              <span className="info-title">Bank&nbsp;&nbsp;</span>
+              <select 
+                onChange={(e) => handleInputChange('bank', e.target.value)} 
+                name='bank' className="form-select centered-dropdown m-2"
               >
                 <option>Select Bank</option>
                 <option value="Access Bank">Access Bank</option>
@@ -222,15 +222,17 @@ export const SellerProfileCard = ({
               </select>
 
               <input type="text" 
-                className="form-control m-1" 
-                value={inputFields.bankAcct}
+                className="form-control" 
+                value={inputFields?.bankAcct}
                 placeholder="Eg. 0123456789"
                 onChange={(e) => handleInputChange('bankAcct', e.target.value)}
               />
-              <span onClick={() => { 
-                handleSaveInfo('bankAcct', inputFields.bankAcct); 
-                handleSaveInfo('bank', inputFields.bank)}
-              } className="v-center"
+              <span 
+                className="v-center"
+                onClick={() => { 
+                  handleSaveInfo('bankAcct', inputFields.bankAcct); 
+                  handleSaveInfo('bank', inputFields.bank)}
+                }
               >
                 <MdSaveAs size={20}/>
               </span>

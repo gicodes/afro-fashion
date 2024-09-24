@@ -173,13 +173,13 @@ export const HelpCard = () => {
           <p>
             Afrofashion subscriptions offer exclusive benefits for buyers and sellers.
             <span className="block mt-1 mb-2"> 
-              To see our Subscriptions services, directly navigate to the far right button on the Navigation bar (Top for <span><i className="text-success">mobile</i></span>, Bottom for <i className="text-success">PC</i>), and follow the instructions on-- Manage Subscription.
+              To see our Subscriptions services, directly navigate to the far right button on the Navigation bar Top for <span><u className="text-success">mobile,</u></span> Bottom for <u className="text-success">larger devices</u> ), and follow the instructions on <a className="text-success" href="/#">Manage Subscription</a>.
             </span>
-            <span className="block mt-2 mb-3">Check out the Pros & Compare our <a href="/subscriptions" className="link">subscriptions</a> in detail</span>
+            <span className="block mt-2 mb-3"> Check out the Pros & Compare our subscriptions in detail </span>
             <li>Basic Package</li>
             <li>Business Package</li>
             <li>Premium Package</li> 
-            <br/> <b>Please note:</b> clicking on <span className="text-gray"><b>Subscribe Now</b></span> will initiate a payment window. 
+            <br/><b>Please note:</b> clicking on <span className="text-gray"><b>Subscribe Now</b></span> will initiate a payment window. 
               You are advised not start this process if you are not ready to pay for your subscription.
           </p>
         </section>
