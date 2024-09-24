@@ -1,20 +1,33 @@
 import "./help.styles.scss";
 
 export const HelpCard = () => {
+  const hy = <b className="fs-smaller text-gray">&#8212;</b>;
+  const hiSpan = (text) => (<span className="text-success">{text}</span>);
+
   return (
     <section className="help-list-card">
-      <div id="introduction">
-        <h4 className="pb-3">Introduction</h4>
+      <div id="overview">
+
+        <h4 className="pb-3">
+          Overview
+        </h4>
         <p>
-          Afrofashion is an African-first online platform that connect buyers to sellers. 
-          Both sets of users are offered products and services that are unique in many ways. E.g. 
-          bringing you amazing and affordable clothing nearby, helping small-scale vendors grow a brand,
-          or helping mid-size brands manage their businesses online. 
-          <span className="block mt-2"> To ensure the buyers, loyal customers and fashion enthusisasts get the best e-commerce experience, 
-            we are constantly adding and improving products from over 50 (seller) brands & collections, and in up to 15 different categories.
+          <span>
+            Afrofashion is an African-first online platform that connect buyers to sellers. 
+            Both buyers and sellers are offered products or services that are in-demand and readily available.
+            These products and services include the sales of quality, affordable clothing items, business logistics
+            {hy} and the promotion of local, fashion brands.
           </span>
-          <span className="block mt-2">On the other hand, vendors can take online sales to the next level. 
-            It could be that the business needs branding, or marketing or simply taking inventory and stocks. Business is made easy with Afrofashion.
+          <span className="block mt-2"> 
+            To ensure buyers get the best shopping experience, there is a convenient need to constantly improve 
+            products and services. This highlights our objective with local and foreign afro-couture brands
+            {hy} in addition to creating classes in up to 15 categories for product range.
+          </span>
+          <span className="block mt-2">
+            It is essential that vendors can elevate their online business and sales through {hiSpan("Afrofashion Business")}.
+            The aim of the marketplace extends beyond expanding reach. It also offers tools for catalog management, 
+            ticketing and online transactions{hy} while eliminating conventional risks such as bad or unrecorded sales, 
+            invoices, and other inefficiencies associated with business protocols.
           </span>
         </p>
       </div>

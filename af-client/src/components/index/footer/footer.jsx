@@ -15,7 +15,7 @@ const Footer = () => {
           <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
         </div>
         <div className='links'>
-          <p className='h-center'><a href='/help/#introduction'>About Afrofashion</a></p>
+          <p className='h-center'><a href='/help/#overview'>About Afrofashion</a></p>
           <p className='h-center'><a href='/#help/#payments'>Exchange Rates</a></p>
           <p className='h-center'><a href='/subscriptions'>Subscriptions</a></p>
         </div> 

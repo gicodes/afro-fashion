@@ -5,7 +5,7 @@ export const HelpList = () => {
     <section className="help-list">
       <ul className="custom-list">
         <li>
-          <a href="#getting-started">Introduction 
+          <a href="#getting-started">Overview 
             <span className="text-success"> *</span>
           </a>
         </li>
