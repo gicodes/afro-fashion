@@ -2,11 +2,10 @@ import { updateUser, uploadImageAndGetUrl } from "../../../../../utils/writeBatc
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
 import { useAlert } from "../../../../../contexts/alert.context";
-import { MdUpload, MdCloudDone } from "react-icons/md";
+import { MdUpload, MdSaveAs } from "react-icons/md";
 import { blankAvi } from "../../index/dash-assets";
-import { Card } from "react-bootstrap"; 
-
 import { useState, useContext } from 'react';
+import { Card } from "react-bootstrap"; 
 
 export const UserProfileCard = ({ 
   bio, 
@@ -100,7 +99,6 @@ export const UserProfileCard = ({
           <div className="flex-just-center">
             <img 
               loading="lazy"
-              className="profile-photo"
               src={imageUrl || blankAvi}
               alt={`${name}'s profile avatar`}
             />
@@ -138,7 +136,7 @@ export const UserProfileCard = ({
               onChange={(e) => handleInputChange('name', e.target.value)}
             />
             <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center m-1">
-              <MdCloudDone size={20}/>
+              <MdSaveAs size={20}/>
             </span>
           </div>
 
@@ -151,7 +149,7 @@ export const UserProfileCard = ({
               onChange={(e) => handleInputChange('bio', e.target.value)}
             />
             <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center m-1">
-              <MdCloudDone size={20}/>
+              <MdSaveAs size={20}/>
             </span>
           </div>
     
@@ -164,7 +162,7 @@ export const UserProfileCard = ({
               onChange={(e) => handleInputChange('phone', e.target.value)}
             />
             <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center m-1">
-              <MdCloudDone size={20}/>
+              <MdSaveAs size={20}/>
             </span>
           </div>
     
@@ -177,7 +175,7 @@ export const UserProfileCard = ({
               onChange={(e) => handleInputChange('address', e.target.value)}
             />
             <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center m-1">
-              <MdCloudDone size={20}/>
+              <MdSaveAs size={20}/>
             </span>
           </div>  
         </div>

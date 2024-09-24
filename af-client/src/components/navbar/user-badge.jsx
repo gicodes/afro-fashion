@@ -1,4 +1,3 @@
-import React from 'react';
 import './navbar.styles.scss';
 
 // let imageUrlErrorBadge = 'https://thumbs.dreamstime.com/b/dashboard-icon-exclamation-mark-alert-error-alarm-danger-symbol-vector-152166957.jpg';

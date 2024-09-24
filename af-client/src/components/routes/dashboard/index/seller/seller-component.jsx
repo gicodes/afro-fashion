@@ -75,19 +75,21 @@ const Dashboard = () => {
             <SellerCreateCard />
           </>
         }
-        { editProfile && <div className="col-md-6 mx-auto">
+        { editProfile && <div className="col-md-8 mx-auto">
             <RestoreIndexDash />
-            <SellerProfileCard 
-              sellerName={displayName} 
-              brandName={brandName}
-              bio={bio}
-              phone={phone} 
-              address={address} 
-              bankAcct={bankAcct}
-              bank={bank}
-              imageUrl={imageUrl}
-              isVerified={isVerified}
-            />
+            <div className="flex-just-center">
+              <SellerProfileCard 
+                sellerName={displayName} 
+                brandName={brandName}
+                bio={bio}
+                phone={phone} 
+                address={address} 
+                bankAcct={bankAcct}
+                bank={bank}
+                imageUrl={imageUrl}
+                isVerified={isVerified}
+              />
+            </div>
           </div>
         }
         <div className={createItem || editProfile ? "hidden" : "paper-container"}>

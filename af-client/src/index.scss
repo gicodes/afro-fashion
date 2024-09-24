@@ -164,15 +164,20 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
 }
-.text-ok { color: greenyellow;}
+.text-ok { color: greenyellow }
+.text-grey { color: #909090 }
 .text-white { color: white }
 .text-gray { color: #6d6d6d }
 .text-link { 
   cursor: pointer;
   color: royalblue; 
 }
-
 .text-link:hover { color: skyblue;}
+
+.disabled {
+  pointer-events: none; /* Prevents click events */
+  opacity: 0.5;         /* Makes the content look inactive */
+}
 
 .font-awesome {
   // used in a couple of components

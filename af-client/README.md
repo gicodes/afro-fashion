@@ -123,9 +123,9 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > navbar
         >
-        > - mobile.navbar.component..jsx
+        > - mobile.lg.navbar.component..jsx
         > - mobile.navdrop.jsx
-        > - navbar.component.jsx
+        > - lg.navbar.component.jsx
         > - navbar.styles.scss
         > - side-nav.jsx
         >

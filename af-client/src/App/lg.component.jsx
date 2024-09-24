@@ -7,7 +7,7 @@ import FailedOperation from '../redirect/failedOp.jsx';
 import PaymentSuccessful from '../redirect/paySuccess.jsx';
 import { UserContext } from "../contexts/user.context.jsx";
 import Footer from '../components/index/footer/footer.jsx';
-import NavBar from '../components/navbar/navbar.component.jsx';
+import NavBar from '../components/navbar/lg.navbar.component.jsx';
 import VerificationSuccess from '../redirect/verifySuccess.jsx';
 import HomeIndex from '../components/index/lg.home.component.jsx';
 import CreditsPage from '../components/routes/credits/credits.jsx';

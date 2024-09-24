@@ -3,9 +3,9 @@ import { useLoading } from '../../../../../../contexts/loading.context';
 import { UserContext } from "../../../../../../contexts/user.context";
 import { useAlert } from "../../../../../../contexts/alert.context";
 import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
-import { Card, ListGroup, Container } from "react-bootstrap"; 
 import { blankAvi } from "../../dash-assets";
 import { useState, useContext } from 'react';
+import { Card } from "react-bootstrap"; 
 
 export const SellerProfileCard = ({ 
   bio,
@@ -34,15 +34,12 @@ export const SellerProfileCard = ({
   const { userId } = useContext(UserContext);
   const { addAutoCloseAlert } = useAlert();
 
-  // extract userId for seller actions
   const sellerId = userId;
 
-  // handle edit without before saving
   const handleInputChange = (field, value) => {
     setInputFields({ ...inputFields, [field]: value });
   };
   
-  // handle saving before and after edit
   const handleSaveInfo = async (inputField, value) => {
     if (!inputField || !value) {
       addAutoCloseAlert("warning", `Empty ${inputField} field`)
@@ -66,7 +63,6 @@ export const SellerProfileCard = ({
     }
   }
 
-  // handle image edit
   const handleImgChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -74,7 +70,6 @@ export const SellerProfileCard = ({
     } else setImgFile(image)
   };
 
-  // handle image upload
   const handleImgUpload = async (imageFile) => {
     if (!imageFile) {
       addAutoCloseAlert("warning", 'Empty image field');
@@ -103,14 +98,14 @@ export const SellerProfileCard = ({
   }
 
   return (
-    <Container className="no-padding-container">            
+    <Card className="col-md-8">            
       <div className="card">
         <div className="mx-auto">
           <div className="flex-just-center avatar"> 
-            <img loading="lazy"
+            <img 
+              loading="lazy"
               src={imageUrl || blankAvi}
-              className="rounded-circle profile-photo"
-              alt="profile avatar"
+              alt={`${sellerName}'s profile avatar`}
             />
           </div>
           <div className="verified">
@@ -135,128 +130,114 @@ export const SellerProfileCard = ({
           </div>
         </div>
 
-        <Card className="mb-2">          
-          <div> 
-            <Card.Header className="profile-info">
-              <b>Personal Information</b>
-            </Card.Header>
-            
-            <ListGroup variant="flush">
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Full Name</b> 
-                </span> 
-                <input type="text"
-                  className="form-control m-1" 
-                  value={inputFields.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                />
-                  <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
-                  <MdSaveAs size={20}/>
-                </span>
-              </ListGroup.Item>
-              
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Seller Tag</b> 
-                </span> 
-                <input 
-                  disabled
-                  className="form-control m-1" 
-                  value={inputFields.brandName}
-                />
-              </ListGroup.Item>
-
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Bio</b>
-                </span>
-                <input type="text" 
-                  className="form-control m-1" 
-                  value={inputFields.bio}
-                  placeholder="Eg. I deal on kids clothing and sneakers"
-                  onChange={(e) => handleInputChange('bio', e.target.value)}
-                />
-                <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center">
-                  <MdSaveAs size={20}/>
-                </span>
-              </ListGroup.Item>
-        
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Phone</b>
-                </span>
-                <input type="text" 
-                  className="form-control m-1" 
-                  value={inputFields.phone}
-                  placeholder="Eg. (234)-812-3456-789"
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                /> 
-                <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center">
-                  <MdSaveAs size={20}/>
-                </span>
-              </ListGroup.Item>
-        
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Address</b>
-                </span>
-                <input type="text" 
-                  className="form-control m-1" 
-                  value={inputFields.address}
-                  placeholder="Eg.  #69 Ozumba Mbadiwe, Lagos, Nigeria"
-                  onChange={(e) => handleInputChange('address', e.target.value)}
-                />
-                <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">
-                  <MdSaveAs size={20}/>
-                </span>
-              </ListGroup.Item>
-
-              <ListGroup.Item className="d-flex justify-content-between">
-                <span className="fs-smaller v-center">
-                  <b className="fw-bold">Bank&nbsp;</b>
-                </span>
-              
-                <select onChange={(e) => handleInputChange('bank', e.target.value)} 
-                name='bank' className="form-select centered-dropdown"
-                >
-                  <option>Select Bank</option>
-                  <option value="Access Bank">Access Bank</option>
-                  <option value="Ecobank">Ecobank</option>
-                  <option value="Fidelity Bank">Fidelity Bank</option>
-                  <option value="First Bank of Nigeria">First Bank of Nigeria</option>
-                  <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
-                  <option value="GTBank">GTBank</option>
-                  <option value="Heritage Bank">Heritage Bank</option>
-                  <option value="Keystone Bank">Keystone Bank</option>
-                  <option value="Stanbic IBTC Bank">Stanbic IBTC Bank</option>
-                  <option value="Sterling Bank">Sterling Bank</option>                    
-                  <option value="Union Bank">Union Bank</option>
-                  <option value="United Bank for Africa">United Bank for Africa</option>
-                  <option value="Unity Bank">Unity Bank</option>
-                  <option value="VFD Microfinance Bank">VFD Microfinance Bank</option>
-                  <option value="Wema Bank">Wema Bank</option>
-                  <option value="Zenith Bank">Zenith Bank</option>
-                </select>
-
-                <input type="text" 
-                  className="form-control m-1" 
-                  value={inputFields.bankAcct}
-                  placeholder="Eg. 0123456789"
-                  onChange={(e) => handleInputChange('bankAcct', e.target.value)}
-                />
-                <span onClick={() => { 
-                  handleSaveInfo('bankAcct', inputFields.bankAcct); 
-                  handleSaveInfo('bank', inputFields.bank)}
-                } className="v-center"
-                >
-                  <MdSaveAs size={20}/>
-                </span>
-              </ListGroup.Item>
-            </ListGroup>
+        <div> 
+          <div className="card-header profile-info">
+            <b>Personal Information</b>
           </div>
-        </Card> 
+          
+          <div className="p-1">
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title"> Full Name </span> 
+              <input type="text"
+                className="form-control m-1" 
+                value={inputFields.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
+              />
+                <span onClick={() => handleSaveInfo('displayName', inputFields.name)} className="v-center">
+                <MdSaveAs size={20}/>
+              </span>
+            </div>
+            
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title">Brand Name</span> 
+              <input 
+                disabled
+                className="form-control m-1" 
+                value={inputFields.brandName}
+              />
+            </div>
+
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title">Bio</span>
+              <input type="text" 
+                value={inputFields.bio}
+                className="form-control m-1" 
+                placeholder="Eg. I deal on kids clothing and sneakers"
+                onChange={(e) => handleInputChange('bio', e.target.value)}
+              />
+              <span onClick={() => handleSaveInfo('bio', inputFields.bio)} className="v-center">
+                <MdSaveAs size={20}/>
+              </span>
+            </div>
+      
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title">Phone</span>
+              <input type="text" 
+                className="form-control m-1" 
+                value={inputFields.phone}
+                placeholder="Eg. (234)-812-3456-789"
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+              /> 
+              <span onClick={() => handleSaveInfo('phone', inputFields.phone)} className="v-center">
+                <MdSaveAs size={20}/>
+              </span>
+            </div>
+      
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title">Address</span>
+              <input type="text" 
+                className="form-control m-1" 
+                value={inputFields.address}
+                placeholder="Eg.  #69 Ozumba Mbadiwe, Lagos, Nigeria"
+                onChange={(e) => handleInputChange('address', e.target.value)}
+              />
+              <span onClick={() => handleSaveInfo('address', inputFields.address)} className="v-center">
+                <MdSaveAs size={20}/>
+              </span>
+            </div>
+
+            <div className="d-flex justify-content-between m-2">
+              <span className="info-title">Bank&nbsp;</span>
+            
+              <select onChange={(e) => handleInputChange('bank', e.target.value)} 
+              name='bank' className="form-select centered-dropdown"
+              >
+                <option>Select Bank</option>
+                <option value="Access Bank">Access Bank</option>
+                <option value="Ecobank">Ecobank</option>
+                <option value="Fidelity Bank">Fidelity Bank</option>
+                <option value="First Bank of Nigeria">First Bank of Nigeria</option>
+                <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+                <option value="GTBank">GTBank</option>
+                <option value="Heritage Bank">Heritage Bank</option>
+                <option value="Keystone Bank">Keystone Bank</option>
+                <option value="Stanbic IBTC Bank">Stanbic IBTC Bank</option>
+                <option value="Sterling Bank">Sterling Bank</option>                    
+                <option value="Union Bank">Union Bank</option>
+                <option value="United Bank for Africa">United Bank for Africa</option>
+                <option value="Unity Bank">Unity Bank</option>
+                <option value="VFD Microfinance Bank">VFD Microfinance Bank</option>
+                <option value="Wema Bank">Wema Bank</option>
+                <option value="Zenith Bank">Zenith Bank</option>
+              </select>
+
+              <input type="text" 
+                className="form-control m-1" 
+                value={inputFields.bankAcct}
+                placeholder="Eg. 0123456789"
+                onChange={(e) => handleInputChange('bankAcct', e.target.value)}
+              />
+              <span onClick={() => { 
+                handleSaveInfo('bankAcct', inputFields.bankAcct); 
+                handleSaveInfo('bank', inputFields.bank)}
+              } className="v-center"
+              >
+                <MdSaveAs size={20}/>
+              </span>
+            </div>
+          </div>
+        </div> 
       </div>
-    </Container>
+    </Card>
   );
 };

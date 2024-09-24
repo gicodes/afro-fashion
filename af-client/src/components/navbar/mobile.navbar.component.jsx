@@ -2,6 +2,7 @@
 
 import CartDropdown from "../cartServices/cart-dropdown/mobile.cart-dropdown";
 import CartIcon from "../cartServices/cart-icon/cart-icon.components";
+import { blankAvi } from "../routes/dashboard/index/dash-assets";
 import { Container, Navbar, CloseButton } from "react-bootstrap";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
@@ -11,7 +12,7 @@ import { Fragment, useContext, useState } from "react";
 import BurgerMenu from './nav-drop.mobile';
 import { LuLogIn } from "react-icons/lu";
 import NavUserBadge from "./user-badge";
-import { SideNav } from "./auth-nav";
+import { AuthNav } from "./auth-nav";
 
 import './navbar.styles.scss'
 
@@ -19,14 +20,15 @@ const MobileNavBar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
   const [ isBurger, setBurger ] = useState(false);
-  const [ sideNav, setSideNav ] = useState(false);
+  const [ authNav, setAuthNav ] = useState(false);
   const [ closeBtn, setCloseBtn ] = useState(false);
   const [ cartOpen, setCartOpen ] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const { addAutoCloseAlert, addOptionsAlert } = useAlert();
 
   const authIconStyle = {
     backgroundColor: currentUser ? 'green' : 'yellow',
-    padding: '0',    
+    padding: 0,
     width: '35px',        
     height: '35px',       
     display: 'flex',
@@ -39,35 +41,37 @@ const MobileNavBar = () => {
   const toggleMenu =()=> setBurger(!isBurger);
   const toggleCart =()=> setCartOpen(!cartOpen);
 
-  const autoCloseSideNav = () => {
+  const autoCloseAuthNav = () => {
     if (cartOpen) setCartOpen(false);
     setCloseBtn(!closeBtn);
-    setSideNav(true);
+    setAuthNav(true);
   }
 
   const handleSignOut = () => {
     const handleYes = () => {
-      SignOutUser();
-      addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`)
-      navigate('/auth')
-    };
+      SignOutUser(); // sign out user
+      addAutoCloseAlert("success", `You are now signed out! see you soon  🤗`) // success action
+      navigate('/auth') // redirect to sign-in page
+      setAuthNav(false); // close auth-nav bar
+      setIsDisabled(false); // enable * nav bar
+    }
+
     const handleNo = () => {
       addAutoCloseAlert("warning", `Sign out operation cancelled!`)
+      setIsDisabled(false);
+      setAuthNav(false); 
     };
     
-    addOptionsAlert(
-      'warning',
-      'Are you signing out?',
-      handleYes, handleNo
-    );
-  }
-
-  const imageUrl = currentUser?.imageUrl || "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+    setIsDisabled(true); // Disable all components
+    addOptionsAlert('warning', 'Are you signing out?', handleYes, handleNo);
+  }   
+  
+  const imageUrl = currentUser?.imageUrl || blankAvi;
 
   return (
     <Fragment>
       <Container className="container no-padding-container">
-        <nav className="nav bg-gw-bb fixed">
+        <nav className="nav bg-gw-bb fixed"> 
           <div className="container-fluid">
             <div className="nav-burger">
               <div
@@ -76,13 +80,12 @@ const MobileNavBar = () => {
                 className="open-close-nav"
               >
                 { isBurger ? 
-                  (<div className="btm-nav-close-btn">
-                    <CloseButton />
-                  </div>) : 
+                  <div className="btm-nav-close-btn"><CloseButton /></div> 
+                  : 
                   <div className="animated-icon1">                      
-                    <span></span>
-                    <span></span>    
-                    <span></span>
+                    <span />
+                    <span />    
+                    <span />
                   </div>
                 }
               </div>
@@ -98,12 +101,14 @@ const MobileNavBar = () => {
               <div />
 
               <div className="burger-end">
-                <span className="p-1" onClick={toggleCart}><CartIcon /></span>
+                <span className="p-1" onClick={toggleCart}>
+                  <CartIcon />
+                </span>
                 
                 <div className={"auth-icon"} style={authIconStyle}>
                   {currentUser ? (
                     <span                       
-                      onClick={autoCloseSideNav}>
+                      onClick={autoCloseAuthNav}>
                       <NavUserBadge   
                         imageUrl={imageUrl}                      
                       />                      
@@ -124,25 +129,25 @@ const MobileNavBar = () => {
         <Outlet />
 
         <div className={currentUser ? "side-nav" : "hidden"}>
-          {sideNav && (
-            <SideNav
+          { AuthNav && 
+            <AuthNav
+              device_class={"drop"}
               displayName={currentUser?.displayName}
               displayEmail={currentUser?.email}
-              onClose={() => setSideNav(!sideNav)}
-              onSignOut={handleSignOut}
-              device_class={"drop"}
+              isDisabled={isDisabled}
               isOpen={closeBtn}
+              onClose={() => setAuthNav(!authNav)}
+              onSignOut={handleSignOut}
             />
-          )}
+          }
         </div>
-
       </Container>
-      { isBurger && (
+
+      { isBurger &&
         <BurgerMenu 
           isOpen={isBurger} 
           onClose={closeMenu}
-        />
-      )} 
+        /> } 
     </Fragment>
   )
 }

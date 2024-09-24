@@ -83,10 +83,10 @@
     background-image: url('../../assets/jess-aston-DvopK4gNs8A-unsplash.jpg');
   } 
 
-  .profile-photo {
-    width: 180px;
-    height: auto;
+  img {
     top: 15%;
+    width: 180px;
+    height: 180px;
     position: absolute;
     border-radius: 50%;
   }

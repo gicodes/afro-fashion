@@ -4,11 +4,12 @@ import "./navbar.styles.scss";
 
 
 // This component controls both Mobile and Larger Screen Displays of the Auth Menu in the Navigation Bar
-export const SideNav = ({ 
+export const AuthNav = ({ 
   displayName, 
   displayEmail,
   onSignOut, 
   device_class, 
+  isDisabled,
   isOpen, 
   onClose 
 }) => {
@@ -39,7 +40,7 @@ export const SideNav = ({
       ref={sideNavRef} 
       className={isOpen ? `card ${device_class}` : "hidden"}
       >
-      <div>
+      <div className={isDisabled ? "disabled" : ""}>
         <div className='card-header'>
           <div className='fs-smaller font-awesome'>
             {displayName}
@@ -59,7 +60,7 @@ export const SideNav = ({
             <hr className='w-50'/>
           </div>  
           <div>
-            <Link title="subscriptions" onClick={onClose} to="subscriptions">
+            <Link title="subscriptions" onClick={onClose} to="#">
               Subscriptions
             </Link>
           </div> 
