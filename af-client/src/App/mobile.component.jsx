@@ -9,7 +9,7 @@ import PaymentSuccessful from '../redirect/paySuccess.jsx';
 import { UserContext } from "../contexts/user.context.jsx";
 import VerificationSuccess from '../redirect/verifySuccess.jsx';
 import CreditsPage from '../components/routes/credits/credits.jsx';
-import { Help } from '../components/routes/help/help.component.jsx';
+import { Help } from '../components/routes/help/help.gram.jsx';
 import Checkout from '../components/checkout/checkout.component.jsx';
 import BrandsPage from '../components/routes/brands/brands.page.jsx';
 import NavBar from '../components/navbar/mobile.navbar.component.jsx';

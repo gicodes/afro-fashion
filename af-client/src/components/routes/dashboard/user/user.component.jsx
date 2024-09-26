@@ -51,8 +51,6 @@ const UserProfile = () => {
           </div>
 
           <div className="user-history">
-            <PieUtilityCard userData={trackedCategories} />
-
             <section id="product-orders" className="mt-2">
               <Button onClick={togglePastOrders}>
                 past orders
@@ -69,6 +67,8 @@ const UserProfile = () => {
                 {savedItemsCard && <SavedItems savedItems={savedItems} />}
               </div>
             </section>
+
+            <PieUtilityCard userData={trackedCategories} />
           </div>
         </div>
       </div>

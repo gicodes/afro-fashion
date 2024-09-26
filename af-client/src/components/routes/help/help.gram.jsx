@@ -8,9 +8,10 @@ import {
   Col,
 } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-import "./help.styles.scss";
 import { HelpList } from "./help-list.component";
 import { HelpCard } from "./help-card.component";
+
+import "./help.styles.scss";
 
 export const Help = () => {
   return (
@@ -24,7 +25,7 @@ export const Help = () => {
             <h4>Welcome to AfroFashion Docs</h4>
             <p>Documentation and References</p>
             <Form className="formWidth">
-              <InputGroup className="mb-4 mt-4">
+              <InputGroup className="my-3">
                 <FormControl
                   placeholder="Search for help..."
                   aria-label="Search for support"

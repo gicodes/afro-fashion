@@ -11,7 +11,7 @@ import NavBar from '../components/navbar/lg.navbar.component.jsx';
 import VerificationSuccess from '../redirect/verifySuccess.jsx';
 import HomeIndex from '../components/index/lg.home.component.jsx';
 import CreditsPage from '../components/routes/credits/credits.jsx';
-import { Help } from '../components/routes/help/help.component.jsx';
+import { Help } from '../components/routes/help/help.gram.jsx';
 import BrandsPage from '../components/routes/brands/brands.page.jsx';
 import Checkout from '../components/checkout/checkout.component.jsx';
 import BrandCollection from '../components/routes/brands/brands.route.jsx';

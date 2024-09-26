@@ -6,155 +6,225 @@ export const HelpCard = () => {
 
   return (
     <section className="help-list-card">
-      <div id="overview">
+      <div>
+        <section id="overview">
+          <h4 className="pb-3">
+            Overview
+          </h4>
 
-        <h4 className="pb-3">
-          Overview
-        </h4>
-        <p>
-          <span>
-            Afrofashion is an African-first online platform that connect buyers to sellers. 
-            Both buyers and sellers are offered products or services that are in-demand and readily available.
-            These products and services include the sales of quality, affordable clothing items, business logistics
-            {hy} and the promotion of local, fashion brands.
-          </span>
-          <span className="block mt-2"> 
-            To ensure buyers get the best shopping experience, there is a convenient need to constantly improve 
-            products and services. This highlights our objective with local and foreign afro-couture brands
-            {hy} in addition to creating classes in up to 15 categories for product range.
-          </span>
-          <span className="block mt-2">
-            It is essential that vendors can elevate their online business and sales through {hiSpan("Afrofashion Business")}.
-            The aim of the marketplace extends beyond expanding reach. It also offers tools for catalog management, 
-            ticketing and online transactions{hy} while eliminating conventional risks such as bad or unrecorded sales, 
-            invoices, and other inefficiencies associated with business protocols.
-          </span>
-        </p>
+          <p>
+            <span>
+              Afrofashion is an African-first online platform that connect buyers to sellers. 
+              Both buyers and sellers are offered products or services that are in-demand and readily available.
+              These include the sales of quality, affordable clothing items on the marketplace, business logistics
+              {hy} and the promotion of local, fashion brands.
+            </span>
+            <span className="block mt-2"> 
+              To ensure buyers get the best shopping experience, there is a convenient need to constantly improve 
+              products and services. This is highlighted in our objective with local and foreign afro-couture brands,
+              to make the final products authentic, simple and easy to sort{hy} with up to (15) different categories for products.
+            </span>
+            <span className="block mt-2">
+              It is essential for vendors to elevate their online business and sales through {hiSpan("Afrofashion Business")}.
+              The aim of the marketplace extends beyond expanding reach. It also offers tools for catalog management, 
+              ticketing and online transactions{hy} while eliminating conventional risks such as bad or unrecorded sales, 
+              invoices, and other inefficiencies associated with business protocols.
+            </span>
+          </p>
+        </section>
       </div>
       <br/>
 
-      <div id="getting-started">
-        <h4>Getting Started</h4>
+      <div> 
+        <section id="getting-started">
+          <h4>Getting Started</h4>
 
-        <section id="products">
-          <h6 className="pt-4 text-secondary"><b>Products</b></h6>
-          <p>
-            Afrofashion products are made to stand out as the desireable and the available, both on and off-season, so getting started have been made really simple and user-friendly.
-            <span className="block mt-2"> Active products are generally listed in the <a href="/marketplace" className="link">marketplace</a>. 
-              However, given how diverse clothing and fashion products can be, our product range vary widely as they are classed into grouped collections to enhance engagement and maintain clarity in variety.
-            </span>
-            <span className="block m-2">Here are five <b>(5) classes</b> of products</span>
-            <span className="block mb-2"><b>Categories</b>: The most distinctive class to identify or classify a product with is category. 
-              There are currently over 15 product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
-            </span>
-             <span className="block mb-2"><b>SAA Brand</b>: As we run mass business, we look out for originality and genuinity. It's imperative that a product is linked to its source, 
-              and that classes products by sellers or brands. Furthermore, sellers with products in multiple categories are otherwise known as <b>AF</b> Brands.
-            </span>
-            <span className="block mb-2"><b>Location</b>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.
-              Users can search for vendors or brands closeby, or in a particular location.
-            </span>
-            <span className="block mb-2"><b>Featured</b> (Hot): Items with the most hits are collated and classed in our featured products. 
-              These products can be very random and irrespective of the category, seller or location.
-            </span>
-            <b>Featured</b> (New): New and recently updated items are collated and classed in our featured products. 
-              These products can be very random and irrespective of the category, seller or location.
-          </p> 
-          <span className="block mt-2">Fashion products are self-promoting, 
-            but it’s our job to ensure that every customer is happy even when they are not <span className="fs-smaller">*</span>right<span className="fs-smaller">*</span> here.
-          </span>
-        </section>
+          <section id="getting-started/user/buyer">
+            <h6 className="mx-1 my-3">{hy} As a Buyer </h6>
+            <p className="mx-3">
+              Products, services and a Marketplace are available to all users in (3) instances...
+              <span className="block mt-1">1.  {" "}
+                <span className="fw-l-bold">Guest </span>
+                users, despite not being signed-in, have limited access to products on the Marketplace.
+              </span>
+              <span className="block">2.  {" "}
+                <span className="fw-l-bold">Signed-in </span>
+                users have full access to basic features, i.e. buy instantly or bookmark items for later.
+              </span>
+              <span className="block">3. 
+                Signed-in, and <span className="fw-l-bold">{hiSpan ("Subscribed ")}</span> 
+                users enjoy the complete user-experience with products and services. 
+              </span>
+              <span className="block mt-2">
+                <a href="/auth" className="link">Signing in</a> requires user email. 
+                If a user is registered, the correct password would be required to sign in. 
+                Otherwise, there is a <a href="/auth/register" className="link">sign-up </a> 
+                option at the bottom of the <span className="fw-l-bold">sign-in</span> page for users to register and sign in.
+                Currently, there is only (1) provider for signing-in automatically, <span className="text-link">Google</span>.
+              </span>
+            </p>
+          </section>
 
-        <section id="services">
-          <h6 className="pt-4 text-secondary"><b>Services</b></h6>
-            <p>
-              Get ahead of the line by getting started with our services that ensure a smooth and satisfying experience for clients.
+          <section id="getting-started/user/seller">
+            <h6 className="mx-1 my-3">{hy} As a Seller </h6>
+
+            <p className="mx-3">
+              Afrofashion Business is available to sellers in (3) instances...
+              <span className="block">1.  {" "}
+                <span className="fw-l-bold">Signed-in</span>  {" "}
+                users are restricted from seller services such as creating products or completing sales.
+              </span>
+              <span className="block">2.  {" "}
+                Signed-in, and <span className="fw-l-bold">Verified</span>  {" "}
+                users have access to seller services, i.e. creating products, completing sales.
+              </span>
+              <span className="block">2.  {" "}
+                Signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
+                users qualify for exclusive business transactions and self-services.
+              </span>
+              <span className="block mt-2">
+                <a href="/auth" className="link">Signing in</a> requires user email. 
+                There are (2) instances of signing in with email as a seller.
+                <span className="mt-2 mx-2 block">*Before Verification {hy} Email and Password is required on sign-in page.</span>
+                <span className="mb-2 mx-2 block">*After Verification {hy} Automatic Sign-in with magic link, No Password required. 
+                  Powered by <span className="text-link"> Google</span>.
+                </span>
+                <span className="block">{hy} To <a href="/auth/register#seller" className="link fw-l-bold">sign up</a>, a user will require a valid email or
+                  <span className="text-gray"> phone (disabled)</span>, password and a unique {hiSpan ("BrandName")}. </span>
+                <span className="block">{hy} Clicking the sign-up button redirects the user to accept{" "}
+                  seller {hiSpan ("Terms & Conditions")}.
+                </span>
+                <span className="block">{hy} Next, you will required to check your email inbox for a {hiSpan ("Magic Link")}, save it, and continue to the link.</span>
+                <span className="block">{hy} The link identifies an email automatically (or will prompt a user to enter the email), and sign in.</span>
+                <span className="block">{hy} An account stays signed in on the same device, unless browser cookies and data are cleared.</span>
+                <span className="block">{hy} If the account refuses to sign-in automatically, you can use the Magic Link again, until it expires.</span>
+                <span className="block my-1">Sign-in links are sent once to your email during verification, and can be regenerated (automatically) upon link expiry, browser-session expiry or new deivce login.</span>
+                <span className="font-awesome fs-smaller my-3"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
+                <span className="block">You can request to turn off this feature, and sign in manually by contacting support.</span>
+              </span>
+            </p>
+          </section>
+
+          <section id="products">
+            <h6 className="mx-1 my-3">{hy} Products</h6>
+
+            <p className="mx-2">
+              Afrofashion products are designed to be both available, desireable and simple.{" "}
+              Active products are generally listed in the <a href="/marketplace" className="link fw-l-bold">marketplace</a>.
+              <span className="block mt-2"> 
+                Variety and diversity puts our fashion display into grouped classes and collections
+                to show product range and enhance engagement.
+              </span>
+              <span className="block my-2">Here are five (5) classes of products</span>
+              <span className="block mb-2">
+                <span className="fw-l-bold">Categories</span>: The most distinctive class to identify or classify a product with is; category. 
+                There are currently over up to (15) product categories, ranging from accessories, bags, shoes, men to women clothing, etc.
+              </span>
+              <span className="block mb-2">
+                <span className="fw-l-bold">SAA Brand</span>: Branding is all about originality and genuinity. It's imperative that a product is linked to its source, 
+                and this provides a class for sellers. When sellers have products in multiple categories, they are recognized as <span className="fw-l-bold">AF</span> Brands.
+              </span>
+              <span className="block mb-2">
+                <span className="fw-l-bold">Location</span>: The best services are often the quickest. We try to ease commerce by closing the distance to a seamless service.
+                Users can search for vendors or brands closeby, or in a particular location.
+              </span>
+              <span className="block mb-2">
+                <span className="fw-l-bold">Featured</span> (Hot): Items with the most hits are collated and classed in our <span className="fw-l-bold">featured products</span>. 
+                These products can be very random, irrespective of the category, seller or location.
+              </span>
+              <span className="fw-l-bold">Featured</span> (New): New and recently updated items are collated and classed in our <span className="fw-l-bold">featured products</span>. 
+                These products can be very random, irrespective of the category, seller or location.
+            </p>
+          </section>
+
+          <section id="services">
+            <h6 className="mx-1 my-2">{hy} Services</h6>
+
+            <p className="mx-2">
+              Our services ensure a smooth and satisfying experience for users.
               Our commitment to excellence extends beyond what you buy, to why and how you buy it.
               
-              <span className="block mt-2 mb-2"> Explore our range of services</span>
-              <span className="block mb-2"><b>Secure Solutions</b>: Afrofashion system and services are built with client-server security in mind,
+              <span className="block my-2"> Explore our range of services</span>
+              
+              <span className="block mb-2">
+                <span className="fw-l-bold">Secure Solutions</span>: 
+                Afrofashion system and services are built with client-server security in mind,
               by adopting various modernized tools and technology to ensure users enjoy secure services.</span>
-              <span className="block mb-2"><b>Self-services</b>: Clients like to be in control, and fortunately the customer is always right.
+              <span className="block mb-2">
+                <span className="fw-l-bold">Self-services</span>: 
+                Clients like to be in control, and fortunately the customer is always right.
                 Afrofashion run a system that give users limited control over user-specific actions on the platform.</span>
-              <span className="block mb-2"><b>Management</b>: In addition to self-services, Afrofashion also offer premium and express management solutions to both buyers and sellers.
+              <span className="block mb-2">
+                <span className="fw-l-bold">Management</span>: 
+                In addition to self-services, Afrofashion also offer premium and express management solutions to both buyers and sellers.
                 This is ideal to meet specific client demands and preferences.</span>
-              <span className="block mb-2"><b>Customer Support</b>: Afrofashion's business model puts a user's needs first. 
-                We have dedicated customer support to address any queries or concerns promptly and efficiently.
+              <span className="block mb-2">
+                <span className="fw-l-bold">Customer Support</span>: 
+                There is a dedicated customer support channel to address any queries or concerns promptly and efficiently.
               </span>
-              <span className="block mb-2"><b>Marketing</b>: There is an uncontested need for marketing in e-commerce. With business subscription, 
+              <span className="block mb-2">
+                <span className="fw-l-bold">Marketing</span>: 
+                There is an uncontested need for marketing in e-commerce. With business subscription, 
                 users are given access to a vast network of vendors and industry contacts to facilitate sales and growth.</span>
             </p>
+          </section>
+
         </section>
-      </div><br/>
+      </div>
+      <br/>
       
-      <div id="buying">
-        <h6><u>What do I need- to start buying?</u></h6>
-        <p>
-          To start buying on Afrofashion, you must sign up as a <a href="/auth/register" className="link">buyer</a>, 
-          with email and password or by using a <a href="/auth/register#google" className="link">Gmail </a> sign-in. 
-          <span className="block mt-2 mb-2"> After sign-up, you can browse products randomly, 
-            shop from the <a href="/marketplace" className="link">marketplace</a>, or buy items from verified sellers.
-          </span> 
-          There are also other extended services, users with paid subscriptions can opt for personalized products and services.
-        </p>
+      <div>
+        <section id="buying">
+          <h6>Buying on Afrofashion</h6>
 
-        <section id="user-management">
-          <h6 className="pt-4 text-secondary"><b>User Management</b></h6>
           <p>
-            User management is a key aspect of user-experence. Needless to say, we may not always be on time in serving user-specific demands,
-            however, with the management features in place, a user can easily do regular and routine actions from their comfort zone. 
-            <span className="block mt-1 mb-2">Some interesting user-management features include:
-            </span>
-            <li><u>Save item for later</u>: Save an item from anywhere, and Go to profile to view all the saved items</li>
-            <li><u>Track orders</u>: Users can easily track their purchased items and past orders</li>
-            <li><u>Personalized Ads</u>: Control what you see and only see what you like</li>
+            Made easy with interactive interfaces and a secure payment solution
+            <span className="block mt-1">At the footer (bottom) area every product, there are (3) action buttons: {" "}
+              <span className="text-success">Like</span>, <span className="text-success">Pay Now</span> and <span className="text-success">Dislike</span>.
+              These actions can only be performed when a user is signed in. Liking or Disliking a product affects how similar products will be shown to you.
+              Completing a purchase gives user points that can be used in discount sales or promo offers.
+            </span> 
+            There are other extended features for users with paid subscriptions such as personalized products and self-services.
           </p>
+
+          <section id="user-management">
+            <h6 className="text-secondary">User Management</h6>
+            <p>
+              Some interesting user-management features include
+              <li>Save item for later: After liking an item, Go to {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} to view saved items</li>
+              <li>Track orders: Users can easily track their orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </li>
+              <li>Personalized Ads: Control what you see and only see what you like</li>
+            </p>
+          </section>
         </section>
-      </div><br/>
+      </div>
+      <br/>
      
-      <div id="selling">
-        <h6><u>What do I need- to start selling?</u></h6>       
-          To start selling on Afrofashion, you will need to sign up as a <a href="/auth/register#seller" className="link">seller</a>, 
-          and verify your account with email or <span className="text-gray">phone</span>. 
-          <span className="block"> After clicking the sign-up button, sellers are redirected to accept our seller Terms & Conditions, 
-            and then sent an email to complete (email) verification.
-          </span>
-          <div id="seller-registration">
-            <h6 className="pt-4 text-secondary">
-              <b>Seller Registration and Verification</b>
-            </h6>
-            Sellers are required to complete the verification process once, on their prefered/ primary device. 
-            <span className="block mt-2 mb-2">A verification link is sent to the email <b>`Sign-in to Afro Fashion requested..` </b>  
-              continue by clicking the dynamic link attached- Please remember to use your preferred device for this action as your sign-in credentials become void 
-              i.e. email-- password will no longer work for signing into www.afrofashion.site
-              </span> 
-            <span className="font-awesome fs-smaller block "><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
-              
-            <span className="block mt-2">The verification process is complete when you're redirected back to a "Verification Successful" webpage on Afrofashion.
-              From this point onwards, your account will automatically and securely sign in when you have an active browser session and connected to the internet, 
-              thanks to Google's firebase-auth providers. 
-            </span>
-            <span>You can manually turn of this feature by contacting support</span>.
-          </div>
+      <div>
+        <section id="selling">
+          <h6>Selling on Afrofashion</h6> 
+          Users with a locally registered Business can register and start selling on Afrofashion.
+          <span className="block my-2">Click to see more on <a href="#getting-started/user/seller" className="link">seller registration and verification</a>.</span>
 
-        <section id="brands-management">
-          <h6 className="pt-4 text-secondary"><b>Brands Management</b></h6>
-          <p>
-            Brands management is a critical and integral aspect of our eco-system. 
-            There are limited and paid services a seller can enjoy, however the most essential is branding.
-            <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create or upload up to 5 products on the FREE tier.
-              We aim to achieve plenty, by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
-            </span>
-          <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-           <li> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</li>
-           <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential up</li>
-           <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</li>
-           <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate brands and businesses</li>
-          </p>
+          <section id="brands-management">
+            <h6 className="mt-3 text-secondary">Brands Management</h6>
+            <p>
+              Brands management is a critical and integral aspect of our eco-system. 
+              <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create or upload up to 5 products on the FREE tier.
+                We aim to achieve plenty, by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
+              </span>
+            <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
+            <li> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</li>
+            <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential up</li>
+            <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</li>
+            <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate brands and businesses</li>
+            </p>
+          </section>
         </section>
       </div> <br/>
 
       <div id="payments">
-        <h6><u>Payments on Afro Fashion</u></h6>
+        <h6>Payments on Afro Fashion</h6>
         <p>
           Completing payments on e-commerce platforms don't come simpler than this. 
           Afrofashion offer users a good number of fast and seemless payment methods with
@@ -199,7 +269,7 @@ export const HelpCard = () => {
       </div> <br/>
 
       <div id="shipping">
-        <h6><u>Shipping with Afro Fashion</u></h6>
+        <h6>Shipping with Afro Fashion</h6>
         <p>
           To start shipping with AfroFashion, 
           you will need a reliable courier service that is regulated and operational within the buyer-and-seller region.

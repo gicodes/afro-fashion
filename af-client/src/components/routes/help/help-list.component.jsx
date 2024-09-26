@@ -6,7 +6,7 @@ export const HelpList = () => {
       <ul className="custom-list">
         <li>
           <a href="#getting-started">Overview 
-            <span className="text-success"> *</span>
+            <span className="text-success">*</span>
           </a>
         </li>
         <li>

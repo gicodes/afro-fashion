@@ -111,7 +111,7 @@ The main components of this application can be found under the _src_ directory l
         >
         > - help-list-card
         > - help-list
-        > - help.component.jsx
+        > - help.gram.jsx
         > - help.styles.scss
         >
         > ***
