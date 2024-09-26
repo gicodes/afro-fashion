@@ -204,7 +204,7 @@ export const HelpCard = () => {
         <section id="selling">
           <h6>Selling on Afrofashion</h6> 
           Users with a locally registered Business can register and start selling on Afrofashion.
-          <span className="block my-2">Click to see more on <a href="#getting-started/user/seller" className="link">seller registration and verification</a>.</span>
+          <span className="block my-2"><a href="#getting-started/user/seller" className="link">Click to see more on seller registration and verification</a>.</span>
 
           <section id="brands-management">
             <h6 className="mt-3 text-secondary">Brands Management</h6>
