@@ -21,7 +21,7 @@ export const HelpCard = () => {
             </span>
             <span className="block mt-2"> 
               To ensure buyers get the best shopping experience, there is a convenient need to constantly improve 
-              products and services. This is highlighted in our objective with local and foreign afro-couture brands,
+              products and services. This is highlighted in our objective with local and foreign afro-couture brands{hy} {" "} 
               to make the final products authentic, simple and easy to sort{hy} with up to (15) different categories for products.
             </span>
             <span className="block mt-2">
@@ -42,7 +42,7 @@ export const HelpCard = () => {
           <section id="getting-started/user/buyer">
             <h6 className="mx-1 my-3">{hy} As a Buyer </h6>
             <p className="mx-3">
-              Products, services and a Marketplace are available to all users in (3) instances...
+              A MarketPlace, products and services are available to all users in (3) instances...
               <span className="block mt-1">1.  {" "}
                 <span className="fw-l-bold">Guest </span>
                 users, despite not being signed-in, have limited access to products on the Marketplace.
@@ -60,7 +60,6 @@ export const HelpCard = () => {
                 If a user is registered, the correct password would be required to sign in. 
                 Otherwise, there is a <a href="/auth/register" className="link">sign-up </a> 
                 option at the bottom of the <span className="fw-l-bold">sign-in</span> page for users to register and sign in.
-                Currently, there is only (1) provider for signing-in automatically, <span className="text-link">Google</span>.
               </span>
             </p>
           </section>
@@ -85,18 +84,18 @@ export const HelpCard = () => {
               <span className="block mt-2">
                 <a href="/auth" className="link">Signing in</a> requires user email. 
                 There are (2) instances of signing in with email as a seller.
-                <span className="mt-2 mx-2 block">*Before Verification {hy} Email and Password is required on sign-in page.</span>
+                <span className="mt-2 mx-2 block">*Before Verification {hy} Email and Password is required on sign-in.</span>
                 <span className="mb-2 mx-2 block">*After Verification {hy} Automatic Sign-in with magic link, No Password required. 
                   Powered by <span className="text-link"> Google</span>.
                 </span>
                 <span className="block">{hy} To <a href="/auth/register#seller" className="link fw-l-bold">sign up</a>, a user will require a valid email or
                   <span className="text-gray"> phone (disabled)</span>, password and a unique {hiSpan ("BrandName")}. </span>
-                <span className="block">{hy} Clicking the sign-up button redirects the user to accept{" "}
+                <span className="block">{hy} Clicking the sign-up button redirects the user to a new page to accept{" "}
                   seller {hiSpan ("Terms & Conditions")}.
                 </span>
                 <span className="block">{hy} Next, you will required to check your email inbox for a {hiSpan ("Magic Link")}, save it, and continue to the link.</span>
-                <span className="block">{hy} The link identifies an email automatically (or will prompt a user to enter the email), and sign in.</span>
-                <span className="block">{hy} An account stays signed in on the same device, unless browser cookies and data are cleared.</span>
+                <span className="block">{hy} The link identifies an email automatically (or prompts the user to enter the email), and signs in.</span>
+                <span className="block">{hy} An account stays signed-in on the same device, unless browser cookies and data are cleared.</span>
                 <span className="block">{hy} If the account refuses to sign-in automatically, you can use the Magic Link again, until it expires.</span>
                 <span className="block my-1">Sign-in links are sent once to your email during verification, and can be regenerated (automatically) upon link expiry, browser-session expiry or new deivce login.</span>
                 <span className="font-awesome fs-smaller my-3"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
@@ -178,7 +177,7 @@ export const HelpCard = () => {
           <h6>Buying on Afrofashion</h6>
 
           <p>
-            Made easy with interactive interfaces and a secure payment solution
+            Made easy with interactive interfaces and a secure payment solution.
             <span className="block mt-1">At the footer (bottom) area every product, there are (3) action buttons: {" "}
               <span className="text-success">Like</span>, <span className="text-success">Pay Now</span> and <span className="text-success">Dislike</span>.
               These actions can only be performed when a user is signed in. Liking or Disliking a product affects how similar products will be shown to you.
