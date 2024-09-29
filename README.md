@@ -1,68 +1,112 @@
 # Afro Fashion
 
-- is an e-commerce application, aiming to be Africa's original fashion marketplace.
-- This app is built on react.js + node.js, styled with custom scss and react-bootstrap.
-- This app's node manager runs on npm v18, and has several lightweight dependencies like firebase.
+  Afro Fashion is an e-commerce platform, aimed at becoming Africa's premier fashion marketplace. Built with React.js and Node.js, it offers a seamless user experience, leveraging Firebase for backend functionality and custom SCSS for styling.
 
-## How to Start App
+## Features
 
-- Make sure you are in the correct working directory - `cd` into the project root folder `Afro-fashion-main/`packages and dependencies, run `npm install`.![alt text](<Screenshot_npm_install.png>)
-- The previous command should install npm packages for both directories, however in case it does NOT achieve that, you may want to manually install the packages by navigating to the directory: client or server or both (via terminal) and run `npm install`
-- When all the necessary dependencies, packages and scripts are installed, you can start the apps, individually (Higher systen resource - Not recommended), or you can start them simultenously (from the root directory)
-- This app is configured to run the client start-script simultenously with the server, using a run-all --parrallel package that is installed as a dependency for this app.
-- Once the packages are installed and your package.json files are updated, to start the app, go to the root directory and run `npm run dev`
-![alt text](<Screenshot_npm_run_dev.png>)
+  - User authentication with Google and Firebase
+  - Dynamic cart and category management
+  - Brand-specific storefronts for sellers
+  - Responsive UI for both desktop and mobile
+  - Secure payment integration via Flutterwave
+  - WriteBatch and Firestore for efficient data transactions
 
+## Tech Stack
 
-## Render Structure
+  - `Frontend`: React.js, React-Bootstrap, SCSS
+  - `Backend`: Node.js, Firebase, Firestore
 
-- The routing and data-flow of this app depends on how it is structured.
-- You can find two (2) app directories under the main or foot directory:
+  - **Authentication**: Firebase Auth, Google Sign-In
+  - **Database**: Firestore (NoSQL)
+  - **State Management**: React Context API
+  - **Deployment**: Netlify, GitHub
+  - **Testing**: Jest
 
-  > `af-client` 
-  > `af-server`
+## Getting Started
 
-- Most of the application logic and code-base can be found in the af-client directory as it houses the front-end components, pages and other react dependencies.
-- The server-side is a simple and light-weight express.js application that handles back-end operations such as nodejs API logic or other third-party api operations.
-- Rewriting this tree structure would mean that the existing logic and data-flow would be compromised. Therefore, such actions can only be permitted in cases such as migrations or extreme app scaling.
+  ### Prerequisites
+  Ensure that you have Node.js (v18+) installed on your machine.
 
+  ### Installation
 
-## Component Structure
+  1. Clone the repository and navigate to the `af-client` directory:
+    
+    git clone https://github.com/your-repo/afro-fashion.git
+    cd afro-fashion/af-client
 
-The main components of this application can be found under the _src_ directory like so;
+  2. Install dependencies
+      `npm install`
 
-- af-client
-  - public
-  - src
-  - App.js
-  - App.test.js
-  - index.js
-  - index.scss
-  - reportWebVitals.js
-  - setupTests.js
-  - package-lock.json
-  - package.json
-  - App.test.js
+  3. Create an .env.local file in the root of the `af-client` directory with necessary environment variables (API kets, Firebase config, etc.).
 
-  ***
+  4. Start the development server
+      `npm start`
 
-- af-server
-
-  - utils
-  - server.js
+    The app will run on http://localhost:3000 or the port specified in your environment file.
 
 
-# Tech Stack
+## Core Components and Contexts
+    The app is structured around key components and contexts to handle data and state:
 
-- Cors
-- Dot-env
-- React.js
-- Express.js
-- Flutterwave-node-v3
-- Flutterwave-react-v3
-- Node.js
-- Netlify
-- Github
-- Jest (_testing_)
+  ### Contexts:
 
-# Author: Gideon, I
+  1. alert.context: 
+      Manages alert notifications across the app.
+  2. brand.context: 
+      Handles brand-specific data and UI rendering.
+  3. cart.context: 
+      Manages cart operations and item storage.
+  4. category.context: 
+      Tracks and filters products by category.
+  5. loading.context: 
+      Displays a loading modal during user interactions.
+  6. user.context: 
+      Manages user session and authentication state.
+
+  ### Utilities:
+
+    firebase.utils: Functions for authentication, Firestore, and writeBatch for batch operations.
+
+
+## App Architecture
+
+  The routing and UX are designed with responsiveness in mind, targeting two screen sizes (lg for desktop and sm for mobile). The core React app is wrapped in multiple context providers, which manage state for alerts, users, categories, brands, and cart operations
+
+  <React.StrictMode>
+    <BrowserRouter>
+      <AlertProvider>
+        <UserProvider>
+          <CategoriesProvider>
+            <BrandProvider>
+              <CartProvider>
+                <LoadingProvider>
+                  <App />
+                </LoadingProvider>
+              </CartProvider>
+            </BrandProvider>
+          </CategoriesProvider>
+        </UserProvider>
+      </AlertProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+
+## Contribution
+  Contributions are welcome! Please follow these steps:
+
+  1. Fork the repository.
+
+  2. Create a new branch for your feature/fix:
+      `git checkout -b feature-branch`
+
+  3. Commit your changes and push the branch:
+      `git commit -m "<feature description>"`
+      `git push origin <feature-branch>`
+
+  4. Create a pull request.
+
+  ### Authors and Contributors
+        Author: Gideon I.
+        Contributors: Adeola A.##
+
+## License
+  This project is licensed under the MIT License.

@@ -5,11 +5,11 @@ const app = express();
 
 // Serve payment endpoint with flutterwave transfer operation
 app.post('/api/payments', async (req, res) => {
-
   try {
     const { item, amount, sellerBankInfo, tx_ref } = req.body;
     const { account_bank, account_number } = sellerBankInfo;
-    // const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
+    // disabled due to lack of valid keys
+    // const flw = new Flutterwave(process?.env?.FLW_PUBLIC_KEY, process?.env?.FLW_SECRET_KEY);
 
     const details = {
       account_bank: account_bank,
@@ -19,10 +19,9 @@ app.post('/api/payments', async (req, res) => {
       narration: `Payment for ${item}`,
       reference: tx_ref,
     };
-
-    // initiate transfer using Flutterwave SDK
-    // const paymentResponse = await flw.Transfer.initiate(details);
-    // console.log("Payment initiated:", paymentResponse);
+    
+    // const paymentResponse = await flw.Transfer.initiate(details); // initiate transfer using Flutterwave SDK
+    // console.log("Payment initiated:", paymentResponse); // send response message to AF-client
 
     res.status(200).json({ message: "Payments dispatched successfully" });
   } catch (error) {
@@ -31,7 +30,6 @@ app.post('/api/payments', async (req, res) => {
   }
 });
 
-// Serve client app for other routes 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client-app/build', 'index.html'));
 });
