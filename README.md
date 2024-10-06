@@ -106,7 +106,7 @@
 
   ### Authors and Contributors
         Author: Gideon I.
-        Contributors: Adeola A.##
+        Contributors: Adeola A.
 
 ## License
   This project is licensed under the MIT License.
