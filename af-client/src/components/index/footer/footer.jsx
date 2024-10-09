@@ -10,7 +10,8 @@ const Footer = () => {
       <br className='hide-in-lg' />
       <div className='footer-links'>
         <div className='links'>
-          <p className='h-center'><a href="mailto:info@afrofashion.site">Send Us a Message</a></p>
+        <p className='h-center'>
+          <a href="mailto:info@afrofashion.site?subject=Contact%20Us">Send Us a Message</a></p>          
           <p className='h-center'><a href='/#search'>Search Products</a></p>
           <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
         </div>
