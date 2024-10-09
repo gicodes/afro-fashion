@@ -55,7 +55,7 @@ const BrandCollection = () => {
           <Paper className="products-container">
             {Object.entries(brands).map(([category, categoryProducts]) => (
               <div key={category} className="seller-category">
-                {/* removed for better ui design */}
+                {/* removed to suit new ui design */}
                 {/* <div className="cat-title">
                   <h5>CATEGORY</h5> {category}
                 </div>*/}
@@ -63,7 +63,10 @@ const BrandCollection = () => {
   
                 <div className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
                   {categoryProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <>
+                      <ProductCard key={product.id} product={product} />
+                      <br/>
+                    </>
                   ))}
                 </div> 
                 <br/>
