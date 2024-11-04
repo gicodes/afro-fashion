@@ -65,7 +65,6 @@ const BrandCollection = () => {
                   {categoryProducts.map((product) => (
                     <>
                       <ProductCard key={product.id} product={product} />
-                      <br/>
                     </>
                   ))}
                 </div> 

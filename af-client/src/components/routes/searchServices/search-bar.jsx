@@ -53,7 +53,7 @@ export const SearchBar = ({ searchSx, resultSx }) => {
             value={search}
             onChange={handleSearch}
             className='text-center'
-            placeholder="Search for a seller or product.."
+            placeholder="Search for a brand ..."
           />
         </InputGroup>
       </div>
