@@ -19,7 +19,6 @@ const BrandCollection = () => {
   
   useEffect(() => {
     showLoading();
-    
     if (brandsMap[seller] !== brands) setBrands(brandsMap[seller]);
   
     const fetchData = async () => {
@@ -54,18 +53,10 @@ const BrandCollection = () => {
         <>
           <Paper className="products-container">
             {Object.entries(brands).map(([category, categoryProducts]) => (
-              <div key={category} className="seller-category">
-                {/* removed to suit new ui design */}
-                {/* <div className="cat-title">
-                  <h5>CATEGORY</h5> {category}
-                </div>*/}
-                <br/>
-  
-                <div className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
+              <div key={category?.id} className="seller-category">
+                <div key={category?.id} className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
                   {categoryProducts.map((product) => (
-                    <>
-                      <ProductCard key={product.id} product={product} />
-                    </>
+                    <ProductCard key={product.id} product={product} />
                   ))}
                 </div> 
                 <br/>

@@ -13,7 +13,7 @@ const Container = styled('div')({
 
 const ImageCard = styled(Card)(({ image }) => ({
   width: '100%',
-  height: '400px',
+  height: '360px',
   position: 'relative',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -47,7 +47,8 @@ const Dot = styled('div')(({ isActive }) => ({
   width: '10px',
   height: '10px',
   borderRadius: '50%',
-  backgroundColor: isActive ? 'lightgreen' : 'lightgray',
+  border: '1px solid forestgreen',
+  backgroundColor: isActive ? 'gold' : 'lightgray',
 }));
 
 const IndexImages = () => {
@@ -64,13 +65,13 @@ const IndexImages = () => {
       src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       text: 'Top picks',
       col: null,
-      bgCol: '#606060',
+      bgCol: 'grey',
     },
     {
       src: 'https://images.unsplash.com/photo-1484945658654-c0d94b5de6ac?q=80&w=3471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       text: 'For y🫵🏾u',
       col: null,
-      bgCol: '#101010',
+      bgCol: null,
     },
   ];
 

@@ -42,10 +42,10 @@ export const HelpCard = () => {
           <section id="getting-started/user/buyer">
             <h6 className="mx-1 my-3">{hy} As a Buyer </h6>
             <p className="mx-3">
-              A MarketPlace, products and services are available to all users in (3) instances...
+              Products and services are available to users on various access levels...
               <span className="block mt-1">1.  {" "}
                 <span className="fw-l-bold">Guest </span>
-                users, despite not being signed-in, have limited access to products on the Marketplace.
+                users, despite not being signed-in, have access (limited) to products on the Marketplace.
               </span>
               <span className="block">2.  {" "}
                 <span className="fw-l-bold">Signed-in </span>
@@ -56,7 +56,7 @@ export const HelpCard = () => {
                 users enjoy the complete user-experience with products and services. 
               </span>
               <span className="block mt-2">
-                <a href="/auth" className="link">Signing in</a> requires user email. 
+                Signing-in requires user email. 
                 If a user is registered, the correct password would be required to sign in. 
                 Otherwise, there is a <a href="/auth/register" className="link">sign-up </a> 
                 option at the bottom of the <span className="fw-l-bold">sign-in</span> page for users to register and sign in.
@@ -68,28 +68,28 @@ export const HelpCard = () => {
             <h6 className="mx-1 my-3">{hy} As a Seller </h6>
 
             <p className="mx-3">
-              Afrofashion Business is available to sellers in (3) instances...
+              Afrofashion Business is available to sellers on various instances...
               <span className="block">1.  {" "}
                 <span className="fw-l-bold">Signed-in</span>  {" "}
-                users are restricted from seller services such as creating products or completing sales.
+                (not verified) sellers have limited access to seller services such as creating multiple products.
               </span>
               <span className="block">2.  {" "}
-                Signed-in, and <span className="fw-l-bold">Verified</span>  {" "}
-                users have access to seller services, i.e. creating products, completing sales.
+                <span className="fw-l-bold">Verified</span>  {" "}
+                sellers have full access to seller services such as creating products and completing inbound sales.
               </span>
               <span className="block">2.  {" "}
                 Signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
                 users qualify for exclusive business transactions and self-services.
               </span>
               <span className="block mt-2">
-                <a href="/auth" className="link">Signing in</a> requires user email. 
+                Signing-in requires user email. 
                 There are (2) instances of signing in with email as a seller.
                 <span className="mt-2 mx-2 block">*Before Verification {hy} Email and Password is required on sign-in.</span>
                 <span className="mb-2 mx-2 block">*After Verification {hy} Automatic Sign-in with magic link, No Password required. 
                   Powered by <span className="text-link"> Google</span>.
                 </span>
                 <span className="block">{hy} To <a href="/auth/register#seller" className="link fw-l-bold">sign up</a>, a user will require a valid email or
-                  <span className="text-gray"> phone (disabled)</span>, password and a unique {hiSpan ("BrandName")}. </span>
+                  <span className="text-gray"> phone (disabled)</span>, password and a unique {hiSpan ("Brand Name")}. </span>
                 <span className="block">{hy} Clicking the sign-up button redirects the user to a new page to accept{" "}
                   seller {hiSpan ("Terms & Conditions")}.
                 </span>

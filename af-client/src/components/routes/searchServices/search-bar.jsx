@@ -32,17 +32,33 @@ export const SearchBar = ({ searchSx, resultSx }) => {
   const handleSearchClick = () => {
     showLoading();
     setSearchBox(false);
-
-    setInterval(() => hideLoading(), 3000)
+    setTimeout(hideLoading, 3000);
   };
 
-  const searchResult = aggregatedResult?.map((brandObject, index) => (
-    <ListGroup.Item key={index}>
-      <Link to={`/brands/${brandObject}`} onClick={handleSearchClick}>
-        {brandObject}
-      </Link>
-    </ListGroup.Item>
-  ))
+  // Render sellers and their products
+  const searchResult = aggregatedResult.map((brandObject, index) => (
+    <div key={index}>
+      {/* Link to Seller */}
+      <ListGroup.Item>
+        <Link to={`/brands/${brandObject.name}`} onClick={handleSearchClick}>
+          {brandObject.name}
+        </Link>
+      </ListGroup.Item>
+
+      {/* List products for each seller */}
+      {brandObject.items && brandObject.items.length > 0 && (
+        <ListGroup>
+          {brandObject.items.map((product, productIndex) => (
+            <ListGroup.Item key={productIndex} className="ml-4">
+              <Link to={`/products/${product.id}`} onClick={handleSearchClick}>
+                {product.name}
+              </Link>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      )}
+    </div>
+  ));
 
   return (
     <>
@@ -52,19 +68,17 @@ export const SearchBar = ({ searchSx, resultSx }) => {
             type="text"
             value={search}
             onChange={handleSearch}
-            placeholder="search for a brand"
+            placeholder="search for a brand or product"
             className="text-left"
           />
         </InputGroup>
       </div>
 
-      {searchBox && 
+      {searchBox && (
         <ListGroup className={`${resultSx} search-results mb-2`}>
-          { searchResult.length ? searchResult : (
-            <span>No results found...</span>
-          )}
+          {searchResult.length ? searchResult : <span>No results found...</span>}
         </ListGroup>
-      }
+      )}
     </>
   );
-};
+}

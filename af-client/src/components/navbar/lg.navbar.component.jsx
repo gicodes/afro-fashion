@@ -122,7 +122,7 @@ const NavBarComponent = () => {
                 <CartIcon/>
               </div>
 
-              <div className="nav-tab" title="Help Desk">
+              <div className="nav-tab" title="About Us">
                 <Link className="nav-link" to='help'>
                   <TbHelpHexagonFilled size={24} color="darkslategrey"/>
                 </Link>

@@ -32,20 +32,24 @@ export const BrandProvider = ({ children }) => {
   const searchItemsByBrand = useCallback(async (sellerName) => {
     const trimmedSellerName = typeof sellerName === 'string' ? sellerName.trim() : '';
     if (!trimmedSellerName) return [];
-
+  
     try {
       const itemsBySellers = await getItemsBySellers();
       const filteredBrands = Object.entries(itemsBySellers)
         .filter(([seller]) =>
           seller.toLowerCase().includes(trimmedSellerName.toLowerCase())
-        ).flatMap(([, items]) => items);
-
+        )
+        .map(([seller, items]) => ({
+          name: seller,
+          items, // Include items associated with each seller
+        }));
+  
       return filteredBrands;
     } catch (error) {
       console.error('Error searching items by brand:', error);
       return [];
     }
-  }, []);
+  }, []);  
 
   // Memoize the context value to prevent unnecessary re-renders
   const value = useMemo(() => ({

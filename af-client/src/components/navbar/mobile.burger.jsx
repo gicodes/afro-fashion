@@ -22,7 +22,7 @@ export const navLinks = [
   },
   {
     id: 4,
-    title: 'Help Desk',
+    title: 'About Us',
     link: '/help',
   },
   {

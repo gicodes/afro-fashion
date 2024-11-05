@@ -17,7 +17,7 @@ export const Help = () => {
   return (
     <div className="card p-2 mb-2">
       <div className="card-title">
-        <h3 className="text-center mx-auto bg-ws p-3">Help Desk</h3>
+        <h3 className="text-center mx-auto bg-ws p-3">About Us</h3>
       </div>
       <div className="card container help-container">
         <div className="p-3 text-center">
