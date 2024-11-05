@@ -7,6 +7,7 @@ import LatestIndex from "./featured/new&latest";
 import TrendingIndex from "./featured/hot&trending";
 import { SearchBar } from "../routes/searchServices/search-bar";
 import { categories } from "../collection/collection.component";
+import IndexImages from "./indexServices/indexImages";
 
 const HomeIndex = () => {
   return (
@@ -16,6 +17,7 @@ const HomeIndex = () => {
           searchSx={"mt-1"} 
           resultSx={"fullWidth"} 
         />
+        <IndexImages />
         <CategoryIndex categories={categories} />
         <div className="featured-container">
           <LatestIndex />

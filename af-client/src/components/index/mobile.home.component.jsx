@@ -8,17 +8,19 @@ import LatestIndex from "./featured/new&latest";
 import TrendingIndex from "./featured/hot&trending";
 import { SearchBar } from "../routes/searchServices/search-bar";
 import { categories } from "../collection/collection.component";
+import IndexImages from "./indexServices/indexImages";
 
 const HomeIndex = () => {
   return (
     <>
       <Container className="no-padding-container bg-lg">
-        <SearchBar resultSx={"-mt pt-2"}/>
+        <SearchBar resultSx={"-mt pt-2"} />
+        <IndexImages />
         <CategoryIndex categories={categories} />
         <LatestIndex />
         <Divider />
         <TrendingIndex />
-        <Footer/>
+        <Footer />
       </Container>
     </>
   )

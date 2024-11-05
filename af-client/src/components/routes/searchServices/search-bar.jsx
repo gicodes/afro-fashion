@@ -52,11 +52,12 @@ export const SearchBar = ({ searchSx, resultSx }) => {
             type="text"
             value={search}
             onChange={handleSearch}
-            className='text-center'
-            placeholder="Search for a brand ..."
+            placeholder="search for a brand"
+            className="text-left"
           />
         </InputGroup>
       </div>
+
       {searchBox && 
         <ListGroup className={`${resultSx} search-results mb-2`}>
           { searchResult.length ? searchResult : (
