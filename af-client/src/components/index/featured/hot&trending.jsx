@@ -1,12 +1,13 @@
+import { Card } from '@mui/material';
 import { Loading } from './fc-loading';
 import { NoInternet } from './fc-noInt';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { FeaturedCard } from './featured-card';
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 import { getTrendingItems } from '../../../utils/firebase.utils';
 
 import '../index.styles.scss';
-import { Card } from '@mui/material';
 
 const TrendingIndex = () => {
   const navigate = useNavigate();
@@ -31,11 +32,11 @@ const TrendingIndex = () => {
   return (
     <Card className='featured-container'>
       <div className='hot-and-trending'>
-        <div className='flex-just-center'>
-          <img className='icon-img' src='https://img.icons8.com/?size=96&id=4g9D6i4Tppwe&format=png' alt='hot category icon'/>
-          <span className='fs-smaller v-center'> 
-            Most popular items are featured in this category
-          </span>
+        <div className='fc-title'>
+          <div className='bg fs-smaller fw-semibold'>
+            <HiMiniArrowTrendingUp size={20} className='mt-1 mb-2' color='red' />
+            <p> POPULAR</p>
+          </div>
         </div>
         
         {isLoading && <Loading key="loading" />}
