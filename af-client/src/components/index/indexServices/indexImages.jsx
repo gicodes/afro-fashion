@@ -1,5 +1,8 @@
-import { Pagination, Dot } from '../../assets/pagination/pagination';
+import { Pagination,  Dot } from '../../assets/pagination/pagination';
+import seasonDealsImg from '../../assets/image-card/season_deals.jpg';
+import topPicksImg from '../../assets/image-card/top_picks.jpg';
 import { ImageCard } from '../../assets/image-card/imageCard';
+import forYouImg from '../../assets/image-card/for_you.jpg';
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/system';
@@ -30,19 +33,19 @@ const IndexImages = () => {
 
   const images = [
     {
-      src: 'https://images.unsplash.com/photo-1571597438372-540dd352bf41?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      src: seasonDealsImg,
       text: 'SEASON DEALS',
       col: 'wheat',
       bgCol: null,
     },
     {
-      src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      src: topPicksImg,
       text: 'TOP PICKS',
       col: null,
       bgCol: '#606060',
     },
     {
-      src: 'https://images.unsplash.com/photo-1484945658654-c0d94b5de6ac?q=80&w=3471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      src: forYouImg,
       text: 'FOR YOU',
       col: 'white',
       bgCol: '#540005',
