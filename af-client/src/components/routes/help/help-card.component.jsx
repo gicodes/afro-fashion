@@ -40,20 +40,22 @@ export const HelpCard = () => {
           <h4>Getting Started</h4>
 
           <section id="getting-started/user/buyer">
-            <h6 className="mx-1 my-3">{hy} As a Buyer </h6>
+            <h5 className="mx-1 my-3 text-gray fw-semibold">{hy} Buyer Profile </h5>
+
             <p className="mx-3">
-              Products and services are available to users on various access levels...
+              Products and services are available to users on various access levels..
               <span className="block mt-1">1.  {" "}
                 <span className="fw-l-bold">Guest </span>
-                users, despite not being signed-in, have access (limited) to products on the Marketplace.
+                profiles, despite being signed-out, have (limited) access to products on the Marketplace.
               </span>
               <span className="block">2.  {" "}
                 <span className="fw-l-bold">Signed-in </span>
-                users have full access to basic features, i.e. buy instantly or bookmark items for later.
+                profiles have full access to basic features i.e. instant shopping or saving items for later.
               </span>
               <span className="block">3. 
                 Signed-in, and <span className="fw-l-bold">{hiSpan ("Subscribed ")}</span> 
-                users enjoy the complete user-experience with products and services. 
+                profiles enjoy the complete user-experience with products and services i.e. Express shopping, 
+                Top picks or Discount sales and Raffle draws
               </span>
               <span className="block mt-2">
                 Signing-in requires user email. 
@@ -65,36 +67,40 @@ export const HelpCard = () => {
           </section>
 
           <section id="getting-started/user/seller">
-            <h6 className="mx-1 my-3">{hy} As a Seller </h6>
+            <h5 className="mx-1 my-3 text-gray fw-semibold">{hy} Seller Profile</h5>
 
             <p className="mx-3">
-              Afrofashion Business is available to sellers on various instances...
-              <span className="block">1.  {" "}
+              Afrofashion Business is available to sellers on various service levels..
+              <span className="block mt-1">1.  {" "}
                 <span className="fw-l-bold">Signed-in</span>  {" "}
-                (not verified) sellers have limited access to seller services such as creating multiple products.
+                (un-verified) profiles have limited access to seller services such as creating multiple products.
               </span>
               <span className="block">2.  {" "}
                 <span className="fw-l-bold">Verified</span>  {" "}
-                sellers have full access to seller services such as creating products and completing inbound sales.
+                profiles have full access to seller services such as creating products and completing inbound sales.
               </span>
               <span className="block">2.  {" "}
                 Signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
-                users qualify for exclusive business transactions and self-services.
+                profiles qualify for exclusive business transactions and self-services.
               </span>
               <span className="block mt-2">
                 Signing-in requires user email. 
                 There are (2) instances of signing in with email as a seller.
-                <span className="mt-2 mx-2 block">*Before Verification {hy} Email and Password is required on sign-in.</span>
-                <span className="mb-2 mx-2 block">*After Verification {hy} Automatic Sign-in with magic link, No Password required. 
+                <span className="mt-2 mx-2 block">*<i>before email verification</i> {hy} Email and Password is required on sign-in.</span>
+                <span className="mb-2 mx-2 block">*<i>after email verification</i> {hy} Automatic Sign-in with magic link, No Password required. 
                   Powered by <span className="text-link"> Google</span>.
                 </span>
-                <span className="block">{hy} To <a href="/auth/register#seller" className="link fw-l-bold">sign up</a>, a user will require a valid email or
-                  <span className="text-gray"> phone (disabled)</span>, password and a unique {hiSpan ("Brand Name")}. </span>
-                <span className="block">{hy} Clicking the sign-up button redirects the user to a new page to accept{" "}
-                  seller {hiSpan ("Terms & Conditions")}.
+
+                <span className="block mb-2">Signing up requires a valid email, new password and a unique {hiSpan ("Brand Name")}. </span>
+                <span>{hy} Other information may be required to register a seller profile, before proceeding.</span>
+                <span className="block">{hy} Clicking the submit or sign-up button redirects a user to accept{" "}
+                  Seller {hiSpan ("Terms & Conditions")}.
                 </span>
-                <span className="block">{hy} Next, you will required to check your email inbox for a {hiSpan ("Magic Link")}, save it, and continue to the link.</span>
-                <span className="block">{hy} The link identifies an email automatically (or prompts the user to enter the email), and signs in.</span>
+                <span className="block">{hy} After agreeing to the T&C's, you will be redirected to your profile and sent a Dynamic Magic Link.</span>
+                <i className="fs-smaller text-gray">*At this stage, your profile has been created. The following steps will guide you through Email Verification</i>
+                <span className="block">{hy} Go to your email, and check for the {hiSpan ("Magic Link")} from <i className="fs-smaller">noreply@afrofashion.site</i>. Save it and navigate to the link.</span>
+                <span className="block">{hy} The link identifies a pending email automatically or prompts a user to enter the associated email.</span>
+                <span className="block">{hy} After identifying your email, you will see a <b>verification successful</b> message to confirm verification.</span>
                 <span className="block">{hy} An account stays signed-in on the same device, unless browser cookies and data are cleared.</span>
                 <span className="block">{hy} If the account refuses to sign-in automatically, you can use the Magic Link again, until it expires.</span>
                 <span className="block my-1">Sign-in links are sent once to your email during verification, and can be regenerated (automatically) upon link expiry, browser-session expiry or new deivce login.</span>

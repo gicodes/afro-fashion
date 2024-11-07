@@ -12,3 +12,24 @@ export const ImageCard = styled(Card)(({ image }) => ({
   alignItems: 'center',
   justifyContent: 'center',
 }));
+
+export const images = [
+  {
+    src: '/images/season_deals.jpg',
+    text: 'SEASON DEALS',
+    col: 'wheat',
+    bgCol: null,
+  },
+  {
+    src: '/images/top_picks.jpg',
+    text: 'TOP PICKS',
+    col: null,
+    bgCol: '#606060',
+  },
+  {
+    src: '/images/for_you.jpg',
+    text: 'FOR YOU',
+    col: 'white',
+    bgCol: '#540005',
+  },
+];

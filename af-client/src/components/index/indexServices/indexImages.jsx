@@ -1,8 +1,5 @@
 import { Pagination,  Dot } from '../../assets/pagination/pagination';
-import seasonDealsImg from '../../assets/image-card/season_deals.jpg';
-import topPicksImg from '../../assets/image-card/top_picks.jpg';
-import { ImageCard } from '../../assets/image-card/imageCard';
-import forYouImg from '../../assets/image-card/for_you.jpg';
+import { ImageCard, images } from '../../assets/image-card/imageCard';
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/system';
@@ -31,34 +28,13 @@ const CenteredText = styled(Typography)(({ bgCol, col }) => ({
 const IndexImages = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    {
-      src: seasonDealsImg,
-      text: 'SEASON DEALS',
-      col: 'wheat',
-      bgCol: null,
-    },
-    {
-      src: topPicksImg,
-      text: 'TOP PICKS',
-      col: null,
-      bgCol: '#606060',
-    },
-    {
-      src: forYouImg,
-      text: 'FOR YOU',
-      col: 'white',
-      bgCol: '#540005',
-    },
-  ];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
   return (
     <Container>

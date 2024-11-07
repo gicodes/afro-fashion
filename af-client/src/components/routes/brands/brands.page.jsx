@@ -26,16 +26,10 @@ const BrandsPage = () => {
             {Object.keys(brandsMap).map((brandName, index) => (
             <Link key={index} to={`/brands/${brandName}`}>
               <div className="m-2 block">
-                <div className='p-2 flex-space-bet'>
-                  <span className='text-black v-center'>
-                    ({index + 1})
-                  </span>
+                <div className='p-2 flex-just-cent'>
                   <Button className='ml-2' variant='info'>
                     {brandName.toUpperCase()} 
                   </Button>
-                  <span className='text-success v-center'>
-                    verified
-                  </span>
                 </div>
               </div>
             </Link>
