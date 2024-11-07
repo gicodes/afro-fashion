@@ -1,4 +1,6 @@
+import { FaAmazonPay } from "react-icons/fa6";
 import "./help.styles.scss";
+import { FcLike, FcDislike } from "react-icons/fc";
 
 export const HelpCard = () => {
   const hy = <b className="fs-smaller text-gray">&#8212;</b>;
@@ -42,72 +44,74 @@ export const HelpCard = () => {
           <section id="getting-started/user/buyer">
             <h5 className="mx-1 my-3 text-gray fw-semibold">{hy} Buyer Profile </h5>
 
-            <p className="mx-3">
+            <div className="mx-3">
               Products and services are available to users on various access levels..
-              <span className="block mt-1">1.  {" "}
-                <span className="fw-l-bold">Guest </span>
+              <li>
+                <span className="fw-l-bold">guest </span>
                 profiles, despite being signed-out, have (limited) access to products on the Marketplace.
-              </span>
-              <span className="block">2.  {" "}
-                <span className="fw-l-bold">Signed-in </span>
+              </li>
+              <li>
+                <span className="fw-l-bold">signed-in </span>
                 profiles have full access to basic features i.e. instant shopping or saving items for later.
-              </span>
-              <span className="block">3. 
-                Signed-in, and <span className="fw-l-bold">{hiSpan ("Subscribed ")}</span> 
+              </li>
+              <li> 
+                signed-in, and <span className="fw-l-bold">{hiSpan ("Subscribed ")}</span> 
                 profiles enjoy the complete user-experience with products and services i.e. Express shopping, 
                 Top picks or Discount sales and Raffle draws
-              </span>
-              <span className="block mt-2">
+              </li>
+              <p> 
                 Signing-in requires user email. 
-                If a user is registered, the correct password would be required to sign in. 
-                Otherwise, there is a <a href="/auth/register" className="link">sign-up </a> 
-                option at the bottom of the <span className="fw-l-bold">sign-in</span> page for users to register and sign in.
-              </span>
-            </p>
+                If a user email is not registered, there is a <a href="/auth/register" className="link">sign-up </a> option.
+                <span className="block"> Registered users would require the associated email and password to sign in, and remain signed-in.</span> 
+              </p>
+            </div>
           </section>
 
           <section id="getting-started/user/seller">
             <h5 className="mx-1 my-3 text-gray fw-semibold">{hy} Seller Profile</h5>
 
-            <p className="mx-3">
+            <div className="mx-3">
               Afrofashion Business is available to sellers on various service levels..
-              <span className="block mt-1">1.  {" "}
-                <span className="fw-l-bold">Signed-in</span>  {" "}
+              <li className="mt-1">
+                <span className="fw-l-bold">signed-in</span>  {" "}
                 (un-verified) profiles have limited access to seller services such as creating multiple products.
-              </span>
-              <span className="block">2.  {" "}
-                <span className="fw-l-bold">Verified</span>  {" "}
+              </li>
+              <li>
+                <span className="fw-l-bold">verified</span>  {" "}
                 profiles have full access to seller services such as creating products and completing inbound sales.
-              </span>
-              <span className="block">2.  {" "}
-                Signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
+              </li>
+              <li>
+                signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
                 profiles qualify for exclusive business transactions and self-services.
-              </span>
-              <span className="block mt-2">
-                Signing-in requires user email. 
-                There are (2) instances of signing in with email as a seller.
-                <span className="mt-2 mx-2 block">*<i>before email verification</i> {hy} Email and Password is required on sign-in.</span>
-                <span className="mb-2 mx-2 block">*<i>after email verification</i> {hy} Automatic Sign-in with magic link, No Password required. 
-                  Powered by <span className="text-link"> Google</span>.
-                </span>
+              </li>
 
-                <span className="block mb-2">Signing up requires a valid email, new password and a unique {hiSpan ("Brand Name")}. </span>
-                <span>{hy} Other information may be required to register a seller profile, before proceeding.</span>
-                <span className="block">{hy} Clicking the submit or sign-up button redirects a user to accept{" "}
-                  Seller {hiSpan ("Terms & Conditions")}.
-                </span>
-                <span className="block">{hy} After agreeing to the T&C's, you will be redirected to your profile and sent a Dynamic Magic Link.</span>
-                <i className="fs-smaller text-gray">*At this stage, your profile has been created. The following steps will guide you through Email Verification</i>
-                <span className="block">{hy} Go to your email, and check for the {hiSpan ("Magic Link")} from <i className="fs-smaller">noreply@afrofashion.site</i>. Save it and navigate to the link.</span>
-                <span className="block">{hy} The link identifies a pending email automatically or prompts a user to enter the associated email.</span>
-                <span className="block">{hy} After identifying your email, you will see a <b>verification successful</b> message to confirm verification.</span>
-                <span className="block">{hy} An account stays signed-in on the same device, unless browser cookies and data are cleared.</span>
-                <span className="block">{hy} If the account refuses to sign-in automatically, you can use the Magic Link again, until it expires.</span>
-                <span className="block my-1">Sign-in links are sent once to your email during verification, and can be regenerated (automatically) upon link expiry, browser-session expiry or new deivce login.</span>
-                <span className="font-awesome fs-smaller my-3"><i>*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts</i>*</span>
-                <span className="block">You can request to turn off this feature, and sign in manually by contacting support.</span>
+              <p>Signing-in requires user email. </p>
+              There are (2) instances of signing in with email as a seller.
+              <span className="block">
+                *<i>before email verification</i> {hy} Email and Password is required on sign-in.
               </span>
-            </p>
+              <span className="block">
+                *<i>after email verification</i> {hy} Automatic Sign-in with magic link, No Password required. 
+                Powered by <span className="text-link"> Google</span>.
+              </span>
+
+              <p className="mt-3">Signing up requires a valid email, new password and a unique {hiSpan ("Brand Name")}. </p>
+              
+              <li> Fill in and provide neccesary information to register a seller profile</li>
+              <li> After clicking <b>submit</b> or <b>sign-up</b>, you will be required to accept Seller {hiSpan ("Terms & Conditions")}</li> 
+              <li> Read and Complete the T&C's. You will be redirected to Dashboard and sent a {hiSpan ("Magic Link")}</li> 
+              <i className="p-3 fs-smaller text-gray">*At this stage, your profile has been created. The following steps will guide you through Email Verification</i>
+              <li> In your email, there is a dynamic link from <i className="fs-smaller">noreply@afrofashion.site</i>. Save it and follow the link</li>
+              <li> This link identifies user email automatically or will prompt you to enter the associated email</li>
+              <li> You will see a <b>verification successful</b> message when this process is complete.</li>
+              <i className="p-3 fs-smaller text-gray">*Verifying your email will programmatically keep you signed-in.</i>
+              <li> An account stays signed-in on the same device, unless browser cookies and data are cleared.</li>
+              <li> If the account refuses to sign-in automatically, you can use the Magic Link again, until it expires.</li>
+              <li>Sign-in links are directly sent only during sign-up, and can be programmatically regenerated upon link expiry.</li>
+            
+              <div></div><i className="font-awesome fs-smaller p-3">*This is an A-ok security feature- we are less than 36 weeks away from rolling in a new <b>2-FA method</b> for seller accounts*</i>
+              <p>You can request to turn off this feature, and sign in manually by contacting support.</p>
+            </div>
           </section>
 
           <section id="products">
@@ -180,25 +184,24 @@ export const HelpCard = () => {
       
       <div>
         <section id="buying">
-          <h6>Buying on Afrofashion</h6>
-
-          <p>
-            Made easy with interactive interfaces and a secure payment solution.
-            <span className="block mt-1">At the footer (bottom) area every product, there are (3) action buttons: {" "}
-              <span className="text-success">Like</span>, <span className="text-success">Pay Now</span> and <span className="text-success">Dislike</span>.
-              These actions can only be performed when a user is signed in. Liking or Disliking a product affects how similar products will be shown to you.
-              Completing a purchase gives user points that can be used in discount sales or promo offers.
-            </span> 
-            There are other extended features for users with paid subscriptions such as personalized products and self-services.
+          <h4>Buying on Afrofashion</h4>
+          <p> Commerce is at the heart of Afro-fashion. Our operations and solutions offer interactive interfaces and a secure payment solution.
+            Users can complete a purchase in less than 5 minutes with our simple and dynamic product cards.
           </p>
-
+          
           <section id="user-management">
             <h6 className="text-secondary">User Management</h6>
-            <p>
-              Some interesting user-management features include
-              <li>Save item for later: After liking an item, Go to {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} to view saved items</li>
-              <li>Track orders: Users can easily track their orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </li>
-              <li>Personalized Ads: Control what you see and only see what you like</li>
+
+            <span className="block">At the footer (bottom area) on every product or item, there are action buttons that signed-in users can interact with.</span>
+            <li> <FaAmazonPay /> <span className="mx-2 bg-ws"> Takes you to checkout</span> </li>
+            <span className="mx-4 fs-smaller">Complete your purchase and track past orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </span>
+            <li> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></li>   
+            <span className="mx-4 fs-smaller">View saved from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} </span>     
+            <li> <FcDislike /> <span className="mx-2 bg-ws"> hides items from your feed</span></li>
+            <span className="mx-4 fs-smaller">Control what you see, Control what you buy *only on {hiSpan ('PREMIUM')}</span>
+
+            <p className="mt-2">Completing purchases give users points that can be used on discount sales or promo offers.
+              <span className="block">There are other extended features for users with paid subscriptions such as self-services.</span>
             </p>
           </section>
         </section>
@@ -207,7 +210,7 @@ export const HelpCard = () => {
      
       <div>
         <section id="selling">
-          <h6>Selling on Afrofashion</h6> 
+          <h4>Selling on Afrofashion</h4> 
           Users with a locally registered Business can register and start selling on Afrofashion.
           <span className="block my-2"><a href="#getting-started/user/seller" className="link">Click to see more on seller registration and verification</a>.</span>
 
@@ -229,7 +232,7 @@ export const HelpCard = () => {
       </div> <br/>
 
       <div id="payments">
-        <h6>Payments on Afro Fashion</h6>
+        <h4>Payments on Afro Fashion</h4>
         <p>
           Completing payments on e-commerce platforms don't come simpler than this. 
           Afrofashion offer users a good number of fast and seemless payment methods with
@@ -274,7 +277,7 @@ export const HelpCard = () => {
       </div> <br/>
 
       <div id="shipping">
-        <h6>Shipping with Afro Fashion</h6>
+        <h4>Shipping with Afro Fashion</h4>
         <p>
           To start shipping with AfroFashion, 
           you will need a reliable courier service that is regulated and operational within the buyer-and-seller region.

@@ -23,12 +23,12 @@ const VerificationSuccess = () => {
           // Send a congratulatory email
           await sendCongratulatoryEmail(email);
 
-          // Redirect to dashboard after 10 seconds
+          // And re-direct to dashboard
           setTimeout(() => {
             navigate('/dashboard');
-          }, 10000); // 10 seconds delay
+          }, 6000);
 
-          addAutoCloseAlert('success', 'Verification successful! Redirecting to your dashboard in 10 seconds...');
+          addAutoCloseAlert('success', 'Verification successful! Redirecting to your dashboard...');
         } catch (error) {
           if (error.code === 'auth/invalid-action-code' || error.code === 'auth/expired-action-code') {
             let email = window.prompt('Please provide your email for confirmation');

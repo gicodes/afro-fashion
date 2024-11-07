@@ -120,11 +120,23 @@ a {
   
 .fullWidth { width: 100% }
 .w-75 { width: 75%; }
+.w-80 {width: 80%;}
 .w-90 { width: 90%;}
+.mw-750 { max-width: 750px;}
 .vh-100 { height: 100% }
 .vh-max { min-height: max-content }
 .vh-250 { min-height: 250px }
-.v-center { align-self: center; } // center across the y-axis
+
+.v-center { 
+  // center across the y-axis
+  align-self: center; 
+} 
+
+.force-v-center {
+  display: flex;
+  align-self: center; 
+  align-content: center;
+}
 
 .h-center {
   // center across the x-axis
