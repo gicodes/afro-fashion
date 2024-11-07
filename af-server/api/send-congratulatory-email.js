@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-console.log(process.env.NODEMAILER_HOST)
+console.log(process.env.NODEMAILER_HOST);
 
 const transporter = nodemailer.createTransport({
   host: process.env.NODEMAILER_HOST,

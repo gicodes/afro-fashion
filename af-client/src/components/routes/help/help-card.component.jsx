@@ -55,7 +55,7 @@ export const HelpCard = () => {
                 profiles have full access to basic features i.e. instant shopping or saving items for later.
               </li>
               <li> 
-                signed-in, and <span className="fw-l-bold">{hiSpan ("Subscribed ")}</span> 
+                signed-in, and <span className="fw-l-bold">{hiSpan ("subscribed ")}</span> 
                 profiles enjoy the complete user-experience with products and services i.e. Express shopping, 
                 Top picks or Discount sales and Raffle draws
               </li>
@@ -81,7 +81,7 @@ export const HelpCard = () => {
                 profiles have full access to seller services such as creating products and completing inbound sales.
               </li>
               <li>
-                signed-in, verified and <span className="fw-l-bold">{hiSpan("Subscribed")}</span> {" "} 
+                signed-in, verified and <span className="fw-l-bold">{hiSpan("subscribed")}</span> {" "} 
                 profiles qualify for exclusive business transactions and self-services.
               </li>
 
@@ -91,7 +91,7 @@ export const HelpCard = () => {
                 *<i>before email verification</i> {hy} Email and Password is required on sign-in.
               </span>
               <span className="block">
-                *<i>after email verification</i> {hy} Automatic Sign-in with magic link, No Password required. 
+                *<i>after email verification</i> {hy} Stay signed in with Magic Link, No Password required. 
                 Powered by <span className="text-link"> Google</span>.
               </span>
 
