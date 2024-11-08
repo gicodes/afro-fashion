@@ -45,8 +45,7 @@ export const AcceptTerms = () => {
   if (!email) email = window.prompt('Please provide your email for confirmation');
 
   const handleAgreeButtonClick = async () => {
-    const allChecked =
-      Object.values(isChecked).filter((value) => value === true).length === 6;
+    const allChecked = Object.values(isChecked).every((value) => value === true);
 
     if (allChecked) {
       addAlert("info", 'Verification link sent to your email. Verify your account to commence commerce!');
