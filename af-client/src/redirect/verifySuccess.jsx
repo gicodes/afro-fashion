@@ -1,4 +1,4 @@
-import { sendVerification } from "../components/routes/authentication/seller-auth/verification";
+import { sendVerification } from "../routes/authentication/seller-auth/verification";
 import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import { sendCongratulatoryEmail } from "../api/emailing";
 import { useAlert } from "../contexts/alert.context";

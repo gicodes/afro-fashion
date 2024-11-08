@@ -1,5 +1,5 @@
-import Mobile from "./App/mobile.component";
-import PC from "./App/lg.component";
+import Mobile from "./breakpoints/mobile.component";
+import PC from "./breakpoints/lg.component";
 import { useTheme, useMediaQuery } from '@mui/material';
  
 const App = () => {
