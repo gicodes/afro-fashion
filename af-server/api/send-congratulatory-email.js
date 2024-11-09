@@ -1,7 +1,5 @@
 const nodemailer = require("nodemailer");
 
-console.log(process.env.NODEMAILER_HOST);
-
 const transporter = nodemailer.createTransport({
   host: process.env.NODEMAILER_HOST,
   port: process.env.NODEMAILER_PORT,
@@ -12,7 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/api/sendCongratulatoryEmail', async (req, res) => {
+app.post('/api/send-email-verification-success-alert', async (req, res) => {
   const { email } = req.body;
   
   const mailOptions = {

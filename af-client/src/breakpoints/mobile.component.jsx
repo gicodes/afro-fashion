@@ -7,6 +7,7 @@ import FailedOperation from '../redirect/failedOp.jsx';
 import Footer from '../index/footer/footer.jsx';
 import PaymentSuccessful from '../redirect/paySuccess.jsx';
 import { UserContext } from "../contexts/user.context.jsx";
+import PasswordReset from '../redirect/passwordReset.jsx';
 import VerificationSuccess from '../redirect/verifySuccess.jsx';
 import CreditsPage from '../routes/credits/credits.jsx';
 import { Help } from '../routes/help/help.gram.jsx';
@@ -45,6 +46,7 @@ const Home = () => {
         <Route path="checkout" element={<Checkout />} />
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
         <Route path="auth/email-verified" element={<VerificationSuccess />} />
+        <Route path="auth/password-reset" element={<PasswordReset />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (

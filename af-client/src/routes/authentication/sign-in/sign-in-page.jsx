@@ -2,11 +2,12 @@ import { useState } from "react";
 import FormField from "./form.component";
 import { Container } from "react-bootstrap";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-// import { logGoogleUser } from "../user-auth/logGoogle";
+import { logGoogleUser } from "../user-auth/logGoogle";
 import { useAlert } from "../../../contexts/alert.context";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLoading } from '../../../contexts/loading.context';
 import { signInWithEmail } from "../../../utils/firebase.utils";
+import { sendPasswordReset } from "../passwords/password-reset";
 import Button from "../../../components/buttons/button.component";
 
 export const defaultFormFields = { email: '', password: '' }
@@ -14,8 +15,8 @@ export const defaultFormFields = { email: '', password: '' }
 // This component embodies the first creation of sign-in (logic and UI) before rendering on other components
 const SignInForm = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const addAlert = useAlert().addAutoCloseAlert;
+  const location = useLocation();  
+  const { addAutoCloseAlert } = useAlert();
   const { showLoading, hideLoading } = useLoading();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [ showPassword, setShowPassword ] = useState(false);
@@ -39,7 +40,7 @@ const SignInForm = () => {
       await signInWithEmail(email, password);
 
       resetFormFields();
-      addAlert("success", 'Welcome back to Afro Fashion! 😊 ')
+      addAutoCloseAlert("success", 'Welcome back to Afro Fashion! 😊 ')
       
       hideLoading();
       navigate(path, { replace: true });
@@ -48,14 +49,20 @@ const SignInForm = () => {
 
       switch (error.code) {
         case 'auth/user-not-found':
-          addAlert("danger", 'User not found!')
+          addAutoCloseAlert("danger", 'User not found!')
           break
         case 'auth/invalid-login-credentials':
-          addAlert("danger", 'Email or password incorrect!!')
+          addAutoCloseAlert("danger", 'Email or password incorrect!!')
           break
-        default: addAlert("danger", 'Something went wrong!!!');
+        default: addAutoCloseAlert("danger", 'Something went wrong!!!');
       }
     }
+  }
+
+  const handlePasswordReset = async () => {
+    let email = window.prompt('Remember your email?');
+    await sendPasswordReset(email);
+    addAutoCloseAlert('success', "Password reset has been sent to your email!")
   }
 
   return (
@@ -86,23 +93,26 @@ const SignInForm = () => {
               autoComplete="true"
               value={password}
             />
+            <div className="flex p-1 flex-start fs-smaller text-link">
+              <span onClick={handlePasswordReset}>Forgot password?</span>
+            </div>
             <div 
               onClick={handleShowPassword}
               className="flex -mt2 mb-5 flex-end"
-              
-            >
+            > 
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </div>
 
             <div className='buttons-container'>
               <Button type='submit'>Sign In</Button>
-              {/* <Button
+              <Button
+                className="hidden"
                 type='button'
                 buttonType='google'
                 onClick={logGoogleUser}
               >
                Google sign-in
-              </Button> */} 
+              </Button>
             </div>
             </div>
           </div>

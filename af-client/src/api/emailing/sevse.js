@@ -1,6 +1,6 @@
-export const sendCongratulatoryEmail = async (email) => {
+export const sendVerificationSuccessEmail = async (email) => {
   try {
-    const response = await fetch('/api/sendCongratulatoryEmail', {
+    const response = await fetch('/api/send-email-verification-success-alert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -17,4 +17,3 @@ export const sendCongratulatoryEmail = async (email) => {
     console.error('Error sending congratulatory email:', error.message);
   }
 };
-              
