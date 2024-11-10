@@ -6,81 +6,83 @@ import { useNavigate } from 'react-router-dom';
 import { RedirectTemplate } from './template';
 import { useEffect, useState } from 'react';
 
-const PasswordReset = () => {
-  const auth = getAuth();
-  const navigate = useNavigate();
+const PasswordReset = ({ actionCode }) => {
   const { addAutoCloseAlert } = useAlert();
-  const [ email, setEmail ] = useState("");
-  const [ newPassword, setNewPassword ] = useState("");
-  const [ isVerified, setIsVerified ] = useState(false);
+  const navigate = useNavigate();
+  const auth = getAuth();
+  const [email, setEmail] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
-    const handlePasswordReset = async () => {
-      const actionCode = new URLSearchParams(window.location.search).get('oobCode');
-
-      if (!actionCode) {
-        console.error("No action code in URL.");
-        addAutoCloseAlert('danger', "Invalid password reset link.");
-        return;
-      }
-
+    const verifyCode = async () => {
       try {
-        // verify the reset code
         const email = await verifyPasswordResetCode(auth, actionCode);
-        setEmail(email);  
-        setIsVerified(true);  // show password input
+
+        setEmail(email);
+        setIsVerified(true); 
       } catch (error) {
-        console.error("Error verifying code:", error.message);
-        if (error.code === 'auth/invalid-action-code' || error.code === 'auth/expired-action-code') {
-          addAutoCloseAlert('warning', "Your reset link has expired. A new link will be sent to your email.");
+        console.error("Error verifying reset code:", error.message);
+
+        if (error.code === "auth/invalid-action-code" || error.code === "auth/expired-action-code") {
+          addAutoCloseAlert("warning", "Your reset link has expired. A new link will be sent to your email.");
+          
           const email = window.prompt("Please provide your email for a new password reset link:");
           if (email) await sendPasswordReset(email);
         } else {
-          addAutoCloseAlert('danger', "Failed to verify reset link. Please try again.");
+          addAutoCloseAlert("danger", "Failed to verify reset link. Please try again.");
         }
       }
     };
 
-    handlePasswordReset();
-  }, [auth, addAutoCloseAlert]);
+    verifyCode();
+  }, [actionCode, auth, addAutoCloseAlert]);
 
-  const handlePasswordChange = async () => {
-    const actionCode = new URLSearchParams(window.location.search).get('oobCode');
-
-    if (newPassword.length < 6) {
-      addAutoCloseAlert('warning', "Password must be at least 6 characters long.");
+  const handlePasswordReset = async () => {
+    if (newPassword !== confirmPassword) {
+      addAutoCloseAlert("warning", "Passwords do not match. Please try again.");
       return;
     }
 
     try {
       await confirmPasswordReset(auth, actionCode, newPassword);
       await sendPasswordResetSuccessEmail(email);
+      
+      addAutoCloseAlert("success", "Password reset successfully! Redirecting to dashboard...");
 
-      addAutoCloseAlert('success', "Password reset successful! Redirecting...");
-      setTimeout(() => navigate('/dashboard'), 3000);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 3000);
+
     } catch (error) {
       console.error("Error confirming password reset:", error.message);
-      addAutoCloseAlert('error', "Failed to reset password. Please try again.");
+      addAutoCloseAlert("danger", "Failed to reset password. Please try again.");
     }
   };
 
   return (
-    <RedirectTemplate title="Reset Your Password">
+    <RedirectTemplate title={"Reset your Password"}>
       {isVerified ? (
         <div>
-          <label>
-            New Password:
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              placeholder="Enter your new password"
-            />
-          </label>
-          <button onClick={handlePasswordChange}>Reset Password</button>
+          <p>Password reset link verified for {email}. Please enter your new password below:</p>
+          
+          <input
+            type="password"
+            placeholder="New Password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Confirm New Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button onClick={handlePasswordReset}>Reset Password</button>
         </div>
       ) : (
-        <p>Verifying reset link...</p>
+        <p>Verifying your reset link...</p>
       )}
     </RedirectTemplate>
   );

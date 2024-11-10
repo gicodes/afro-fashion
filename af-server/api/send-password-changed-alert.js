@@ -8,10 +8,12 @@ router.post('/api/send-password-reset-success-alert', async (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: 'Gmail', // or another email provider
+    host: process.env.NODEMAILER_HOST,
+    port: process.env.NODEMAILER_PORT,
+    secure: false, // true for port 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
+      user: process.env.NODEMAILER_USER, 
+      pass: process.env.NODEMAILER_PASS, 
     },
   });
 
