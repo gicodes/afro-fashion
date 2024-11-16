@@ -24,7 +24,7 @@ const VerificationSuccess = () => {
 
       try {
         await signInWithEmailLink(auth, email, window.location.href);
-        window.localStorage.removeItem('emailForSignIn'); // Clear storage after successful sign-in
+        window.localStorage.removeItem('emailForSignIn'); 
         await sendVerificationSuccessEmail(email);
 
         setImgMsg("https://media.istockphoto.com/id/1480674100/photo/3d-rendering-of-security-shield-check-mark-with-lock-sign.jpg?s=612x612&w=0&k=20&c=7UoO4gTNXSs83dAfCYnb3BlOOu38XDy9e_JUSLmQNoU=");

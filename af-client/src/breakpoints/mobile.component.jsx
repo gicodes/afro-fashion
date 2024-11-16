@@ -45,7 +45,7 @@ const Home = () => {
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
-        <Route path="auth/email-verified" element={<VerificationSuccess />} />
+        <Route path="auth/verify-email" element={<VerificationSuccess />} />
         <Route path="auth/password-reset" element={<PasswordReset />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
