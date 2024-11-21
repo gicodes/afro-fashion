@@ -3,14 +3,14 @@ import { getAuth, sendPasswordResetEmail, verifyPasswordResetCode } from "fireba
 const auth = getAuth();
 
 const actionCodeSettings = {
-  url: 'https://afrofashion.site/auth/password-reset',
+  url: 'https://afrofashion.site/auth', // matches dynamic link url set on Firebase Console
   handleCodeInApp: true,
   dynamicLinkDomain: 'afrofashion.page.link'
 };
 
 // Sends the password reset email and stores the email in localStorage for reference
 export const sendPasswordReset = (email) => {
-  return sendPasswordResetEmail(auth, email, actionCodeSettings)
+  return sendPasswordResetEmail(auth, email, actionCodeSettings("https://afrofashion.site/auth/password-reset"))
     .then(() => {
       window.localStorage.setItem('resetEmail', email);
       console.log("Password reset email sent successfully.");
