@@ -26,6 +26,8 @@ import SignUp from '../routes/authentication/user-auth/mobile.sign-up.index.jsx'
 import ProtectedSellerRoute from '../routes/dashboard/index/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../routes/authentication/seller-auth/accept-terms.jsx';
 import { PrivacyPolicy, TermsOfService } from '../index/indexServices/learn-about-af.jsx';
+import AuthLanding from '../redirect/authLanding.jsx';
+
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -44,7 +46,8 @@ const Home = () => {
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />     
+        <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />
+        <Route path="auth.me" element={<AuthLanding/>} />     
         <Route path="auth/verify-email" element={<VerificationSuccess />} />
         <Route path="auth/password-reset" element={<PasswordReset />} />
         {userType === 'seller' ? (

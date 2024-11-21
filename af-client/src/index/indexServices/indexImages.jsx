@@ -13,7 +13,7 @@ const Container = styled('div')({
   padding: '0 5px 0 5px',
 });
 
-const CenteredText = styled(Typography)(({ bgCol, col }) => ({
+const CenteredText = styled(Typography)(({ bgcol, col }) => ({
   padding: '18px',
   minWidth: '18%',
   fontSize: '1.5rem',
@@ -21,7 +21,7 @@ const CenteredText = styled(Typography)(({ bgCol, col }) => ({
   textAlign: 'center',
   color: col || 'goldenrod',
   fontFamily: 'serif',
-  background: bgCol || 'rgba(0, 0, 0, 0.6)',
+  background: bgcol || 'rgba(0, 0, 0, 0.6)',
   textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)',
 }));
 
@@ -39,7 +39,7 @@ const IndexImages = () => {
   return (
     <Container>
       <ImageCard image={images[currentIndex].src}>
-        <CenteredText bgCol={images[currentIndex].bgCol} col={images[currentIndex].col}>
+        <CenteredText bgcol={images[currentIndex].bgcol} col={images[currentIndex].col}>
           {images[currentIndex].text}
         </CenteredText>
         
