@@ -59,7 +59,8 @@ export default function AuthLanding() {
   return (
     <>
       { mode === "resetPassword" && (
-        <RedirectTemplate title={"Reset your password"}>
+        <div className="p-2 mx-auto">
+          <h1> Reset your password</h1>
           <div>
             {email && <p>Password reset link verified for <strong>{email}</strong>.</p>}
             <form
@@ -82,14 +83,14 @@ export default function AuthLanding() {
               </Button>
             </form>
           </div>
-        </RedirectTemplate>
+        </div>
       )}
       { mode === "verifyEmail" && (
-        <RedirectTemplate title={"Verify your email"}>
+         <div className="p-2 mx-auto">
           <Button onClick={handleVerifyEmail} disabled={isLoading}>
             {isLoading ? "Verifying..." : "Finish Verification"}
           </Button>
-        </RedirectTemplate>
+        </div>
       )}
     </>
   );
