@@ -308,13 +308,18 @@ export const getLatestItems = async () => {
       const categoryData = categoryDoc.data();
 
       if (categoryData && Array.isArray(categoryData.items)) {
+        // Iterate over the items in each category
         categoryData.items.forEach(item => {
           if (item && item.name && item.price && Array.isArray(item.imageUrls)) {
+            const updatedAt = item.updatedAt?.toDate
+              ? item.updatedAt.toDate() // Convert Firestore Timestamp to Date
+              : categoryDoc.updateTime?.toDate(); // Fallback to Firestore metadata
+
             latestItems.push({
               name: item.name,
               price: item.price,
-              imageUrl: item.imageUrls[0] || null, // fallback to null if no imageUrls
-              updatedAt: item.updatedAt || categoryDoc.updateTime?.toDate() || new Date().toISOString(), // Fallback if updatedAt is missing
+              imageUrl: item.imageUrls[0] || null,
+              updatedAt: updatedAt ? updatedAt.toISOString() : new Date().toISOString(), // Use ISO format for sorting
             });
           }
         });

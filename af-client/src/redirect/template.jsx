@@ -1,6 +1,4 @@
-export const RedirectTemplate = (
-    {title, body, imgSrc, imgAlt }
-  ) => {
+export const RedirectTemplate = ({ title, imgSrc, imgAlt, children }) => {
   return (
     <>
       <div className="card p-2 mb-2 vh-100">
@@ -8,18 +6,19 @@ export const RedirectTemplate = (
           <div className="card-title mt-5">
             <h2 className="mx-auto bg-ws p-2">{title}</h2>
           </div>
-          <div className="mt-5">     
-            <img loading="lazy" 
+          <div className="mt-5">
+            <img
+              loading="lazy"
               alt={imgAlt}
-              className="mt-5 fullWidth" 
+              className="mt-5 fullWidth"
               src={imgSrc}
-            /> 
+            />
           </div>
           <div className="lg-div"></div>
           <div className="mt-3 p-3">
-            <span>{body}</span>
+            {children}
           </div>
-        </div>  
+        </div>
       </div>
     </>
   );

@@ -1,15 +1,15 @@
 import { sendPasswordResetSuccessEmail } from "../api/emailing/sprse";
+import { sendVerificationSuccessEmail } from "../api/emailing/sevse";
 import Button from "../components/buttons/button.component";
 import { useAlert } from "../contexts/alert.context";
+import { useLocation } from "react-router-dom";
 import { 
   getAuth,
   applyActionCode, 
   verifyPasswordResetCode, 
   confirmPasswordReset } from "firebase/auth";
-import { useLocation } from "react-router-dom";
 import { RedirectTemplate } from "./template";
 import { useState } from "react";
-import { sendVerificationSuccessEmail } from "../api/emailing/sevse";
 
 const auth = getAuth();
 
@@ -59,8 +59,7 @@ export default function AuthLanding() {
   return (
     <>
       { mode === "resetPassword" && (
-        <div className="p-2 mx-auto">
-          <h1> Reset your password</h1>
+        <RedirectTemplate title={"Reset your password"}>
           <div>
             {email && <p>Password reset link verified for <strong>{email}</strong>.</p>}
             <form
@@ -77,20 +76,21 @@ export default function AuthLanding() {
                 required
                 aria-label="New password"
                 disabled={isLoading}
+                className="fullWidth"
               />
               <Button type="submit" disabled={isLoading}>
                 {isLoading ? "Processing..." : "Reset Password"}
               </Button>
             </form>
           </div>
-        </div>
+        </RedirectTemplate>
       )}
       { mode === "verifyEmail" && (
-         <div className="p-2 mx-auto">
+        <RedirectTemplate title={"Verify your email"}>
           <Button onClick={handleVerifyEmail} disabled={isLoading}>
             {isLoading ? "Verifying..." : "Finish Verification"}
           </Button>
-        </div>
+        </RedirectTemplate>
       )}
     </>
   );
