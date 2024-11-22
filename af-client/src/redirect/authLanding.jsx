@@ -1,84 +1,96 @@
-import { applyActionCode } from "firebase/auth";
-import { useLocation } from "react-router-dom";
+import { sendPasswordResetSuccessEmail } from "../api/emailing/sprse";
+import Button from "../components/buttons/button.component";
+import { useAlert } from "../contexts/alert.context";
 import { 
-  verifyPasswordResetCode, 
-  confirmPasswordReset, 
   getAuth,
-} from "firebase/auth";
+  applyActionCode, 
+  verifyPasswordResetCode, 
+  confirmPasswordReset } from "firebase/auth";
+import { useLocation } from "react-router-dom";
+import { RedirectTemplate } from "./template";
+import { useState } from "react";
+import { sendVerificationSuccessEmail } from "../api/emailing/sevse";
 
 const auth = getAuth();
 
-const AuthLanding = () => {
+export default function AuthLanding() {
   const location = useLocation();
-  // const navigate = useNavigate();
-  
+  const { addAutoCloseAlert } = useAlert();
+  const [ email, setEmail ] = useState("");
+  const [ isLoading, setIsLoading ] = useState(false);
+
   const queryParams = new URLSearchParams(location.search);
+
   const mode = queryParams.get("mode");
   const oobCode = queryParams.get("oobCode");
 
-  // const handleNavigation = () => {
-  //   if (mode === "resetPassword") {
-  //     navigate("/auth/reset-password"); // Navigate to reset password page
-  //   } else if (mode === "verifyEmail") {
-  //     navigate("/auth/verify-email"); // Navigate to verify email page
-  //   } else {
-  //     navigate("/"); // Navigate to home or error page
-  //   }
-  // };
+  if (!mode || !oobCode) {
+    return <RedirectTemplate title={"AF Blank Template"} />;
+  }
 
   const handleResetPassword = async (newPassword) => {
+    setIsLoading(true);
     try {
-      // Verify the password reset code
-      await verifyPasswordResetCode(auth, oobCode);
+      const userEmail = await verifyPasswordResetCode(auth, oobCode);
+      setEmail(userEmail);
 
-      // Confirm the new password
       await confirmPasswordReset(auth, oobCode, newPassword);
-      console.log("Password has been reset successfully!");
+      await sendPasswordResetSuccessEmail(email)
+
+      addAutoCloseAlert("success", "Password reset successful! You can now log in with your new password.");
     } catch (error) {
       console.error("Error resetting password:", error);
+      addAutoCloseAlert("danger", `Password reset failed: ${error.message}`);
     }
   };
 
   const handleVerifyEmail = async () => {
+    setIsLoading(true);
     try {
-      // Apply the email verification code
       await applyActionCode(auth, oobCode);
-      console.log("Email verified successfully!");
+      await sendVerificationSuccessEmail(email);
+      addAutoCloseAlert("success", "Email verification successful! You can now use all features.");
     } catch (error) {
       console.error("Error verifying email:", error);
+      addAutoCloseAlert("danger", `Email verification failed: ${error.message}`);
     }
   };
 
   return (
-    <div>
-      {mode === "resetPassword" && (
-        <div>
-          <h1>Reset Your Password</h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const newPassword = e.target.password.value;
-              handleResetPassword(newPassword);
-            }}
-          >
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter new password"
-              required
-            />
-            <button type="submit">Reset Password</button>
-          </form>
-        </div>
+    <>
+      { mode === "resetPassword" && (
+        <RedirectTemplate title={"Reset your password"}>
+          <div>
+            {email && <p>Password reset link verified for <strong>{email}</strong>.</p>}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const newPassword = e.target.password.value;
+                handleResetPassword(newPassword);
+              }}
+            >
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter new password"
+                required
+                aria-label="New password"
+                disabled={isLoading}
+              />
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? "Processing..." : "Reset Password"}
+              </Button>
+            </form>
+          </div>
+        </RedirectTemplate>
       )}
-      {mode === "verifyEmail" && (
-        <div>
-          <h1>Verify Your Email</h1>
-          <button onClick={handleVerifyEmail}>Verify Email</button>
-        </div>
+      { mode === "verifyEmail" && (
+        <RedirectTemplate title={"Verify your email"}>
+          <Button onClick={handleVerifyEmail} disabled={isLoading}>
+            {isLoading ? "Verifying..." : "Finish Verification"}
+          </Button>
+        </RedirectTemplate>
       )}
-    </div>
+    </>
   );
 }
-
-export default AuthLanding

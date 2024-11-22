@@ -8,7 +8,6 @@ const actionCodeSettings = {
   dynamicLinkDomain: 'afrofashion.page.link'
 };
 
-// Sends the password reset email and stores the email in localStorage for reference
 export const sendPasswordReset = (email) => {
   return sendPasswordResetEmail(auth, email, actionCodeSettings)
     .then(() => {
@@ -21,7 +20,6 @@ export const sendPasswordReset = (email) => {
     });
 };
 
-// Verifies the reset code and returns the associated email if valid
 export const validateResetCode = async (oobCode) => {
   try {
     const email = await verifyPasswordResetCode(auth, oobCode);

@@ -299,35 +299,38 @@ export const getTrendingItems = async () => {
 // Get the latest items uploaded to categories collection
 export const getLatestItems = async () => {
   try {
-    const categoriesRef = collection(db, 'categories');
+    const categoriesRef = collection(db, "categories");
     const categoriesSnapshot = await getDocs(categoriesRef);
-    const latestItemsMap = {};
+
+    const latestItems = [];
 
     categoriesSnapshot.forEach(categoryDoc => {
-      const { items } = categoryDoc.data();
- 
-      if (Array.isArray(items)) {
-        items.forEach(item => {
-          const imageUrl = item.imageUrls && item.imageUrls.length > 0 ? item.imageUrls[0] : null;
-          if (!latestItemsMap[item.id] || item.updatedAt > latestItemsMap[item.id].updatedAt) {
-            latestItemsMap[item.id] = {
-              id: item.id,
+      const categoryData = categoryDoc.data();
+
+      if (categoryData && Array.isArray(categoryData.items)) {
+        categoryData.items.forEach(item => {
+          if (item && item.name && item.price && Array.isArray(item.imageUrls)) {
+            latestItems.push({
               name: item.name,
               price: item.price,
-              imageUrl: imageUrl,
-              updatedAt: item.updatedAt,
-            };
+              imageUrl: item.imageUrls[0] || null, // fallback to null if no imageUrls
+              updatedAt: item.updatedAt || categoryDoc.updateTime?.toDate() || new Date().toISOString(), // Fallback if updatedAt is missing
+            });
           }
         });
       }
     });
 
-    const latestItemsArray = Object.values(latestItemsMap).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-    const topLatestItems = latestItemsArray.slice(0, 4);
-    
-    return topLatestItems;
+    // Sort items by updatedAt descending
+    const sortedItems = latestItems.sort(
+      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    );
+
+    // Return the top 4 latest items
+    return sortedItems.slice(0, 4);
   } catch (error) {
-    throw new Error('Could not fetch latest items because', error);
+    console.error("Error fetching latest items:", error.message);
+    throw new Error(`Could not fetch latest items: ${error.message}`);
   }
 };
 
