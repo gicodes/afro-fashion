@@ -135,7 +135,7 @@ const Dashboard = () => {
               Edit Active Product 
             </Button>
             <div className="p-action">
-              { editItem && <SellerProducts sellerName={displayName} /> }
+              { editItem && <SellerProducts sellerName={brandName} /> }
             </div>
             <Button 
               onClick={toggleCreateItem} 
