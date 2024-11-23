@@ -11,8 +11,7 @@ export const sendPasswordResetSuccessEmail = async (email) => {
     if (!response.ok) {
       throw new Error('Failed to send congratulatory email');
     }
-
-    console.log('Congratulatory email sent successfully!');
+    // console.log('Congratulatory email sent successfully!');
   } catch (error) {
     console.error('Error sending congratulatory email:', error.message);
   }

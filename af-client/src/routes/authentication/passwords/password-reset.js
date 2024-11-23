@@ -12,7 +12,7 @@ export const sendPasswordReset = (email) => {
   return sendPasswordResetEmail(auth, email, actionCodeSettings)
     .then(() => {
       window.localStorage.setItem('resetEmail', email);
-      console.log("Password reset email sent successfully.");
+      // console.log("Password reset email sent successfully.");
     })
     .catch((error) => {
       console.error("Error sending password reset email:", error.message);
@@ -23,7 +23,7 @@ export const sendPasswordReset = (email) => {
 export const validateResetCode = async (oobCode) => {
   try {
     const email = await verifyPasswordResetCode(auth, oobCode);
-    console.log("Reset code is valid for:", email);
+    // console.log("Reset code is valid for:", email);
     return email; 
   } catch (error) {
     console.error("Invalid or expired code:", error);
