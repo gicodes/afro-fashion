@@ -3,10 +3,10 @@ import FormField from '../../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
 import { useAlert } from '../../../../../contexts/alert.context';
+import { serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
-
 import '../../../dashboard.styles.scss';
 
 const defaultFormFields = {
@@ -55,6 +55,7 @@ export const SellerCreateCard = () => {
     event.preventDefault();
     if (isSubmitting) return; // prevent multiple submissions
     setIsSubmitting(true); // disable the button
+    showLoading();
 
     if (!brandName){
       addAlert("danger", 'You must have a unique brand name!');
@@ -62,6 +63,7 @@ export const SellerCreateCard = () => {
     }
 
     const countOk = await sellerProductCount(currentUser?.brandName, userId)
+
     try {
       const imagesArray = formFields?.images;
       const imageUrls = await uploadProductImages(imagesArray, id);
@@ -74,9 +76,8 @@ export const SellerCreateCard = () => {
         seller: brandName,
         category: category,
         imageUrls: imageUrls,
-      };
-      
-      showLoading();
+        updatedAt: serverTimestamp()
+      }
 
       if (countOk) {
         await addSellerItems(category, itemsToAdd);
@@ -97,104 +98,102 @@ export const SellerCreateCard = () => {
   }
 
   return (
-    <>
-      <div className='card container'>
-        <div className='p-2'>
-          <form onSubmit={handleSubmit}>
-            <select  
-              id="category"
-              name='category' 
-              onChange={handleChange} 
-              className="form-select centered-dropdown"
-            > {/* values must match category values in db */}
-              <option>Select item category</option> 
-              <option value="accessories">Accessories</option>
-              <option value="bags">Bags</option>          
-              <option value="hair">Hair & Accessories</option>
-              <option value="hats">Hats & Caps</option>
-              <option value="jackets">Jackets & Coats</option>
-              <option value="jerseys">Jerseys</option>
-              <option value="kids">Kids Clothing</option>
-              <option value="men">Men Clothing</option>
-              <option value="senegalese">Senegalese</option>
-              <option value="shoes">Shoes & Sneakers</option>
-              <option value="slippers">Slippers & Sandals</option> 
-              <option value="cosmetics">Cosmetics</option>  
-              <option value="jewelleries">Jewelleries</option> 
-              <option value="unisex">Unisex</option>
-              <option value="women">Women Clothing</option>
-            </select>
+    <div className='card container'>
+      <div className='p-2'>
+        <form onSubmit={handleSubmit}>
+          <select  
+            id="category"
+            name='category' 
+            onChange={handleChange} 
+            className="form-select centered-dropdown"
+          > {/* values must match category values in db */}
+            <option>Select item category</option> 
+            <option value="accessories">Accessories</option>
+            <option value="bags">Bags</option>          
+            <option value="hair">Hair & Accessories</option>
+            <option value="hats">Hats & Caps</option>
+            <option value="jackets">Jackets & Coats</option>
+            <option value="jerseys">Jerseys</option>
+            <option value="kids">Kids Clothing</option>
+            <option value="men">Men Clothing</option>
+            <option value="senegalese">Senegalese</option>
+            <option value="shoes">Shoes & Sneakers</option>
+            <option value="slippers">Slippers & Sandals</option> 
+            <option value="cosmetics">Cosmetics</option>  
+            <option value="jewelleries">Jewelleries</option> 
+            <option value="unisex">Unisex</option>
+            <option value="women">Women Clothing</option>
+          </select>
 
-            <FormField 
-              id="name"
-              name="name"
-              type="text" 
-              value={formFields.name}
-              onChange={handleChange}
-              label={'What is the name for this item?'}
-            />
+          <FormField 
+            id="name"
+            name="name"
+            type="text" 
+            value={formFields.name}
+            onChange={handleChange}
+            label={'What is the name for this item?'}
+          />
 
-            <div className="bg-ws">
-              <p className='flex-just-center fs-smaller pt-3co-50'>
-                <i>*Upload at least 2 different photos of this item*</i>       
-              </p>
-              <div className='m-3 fs-smaller'>
-                <li>Each photo must be less than 1MB</li> 
-                <li>The photos must be clear and distinctive</li>
-                <li>The photos must maintain same background (preferably white background)</li>
-              </div>
-
-              <div className="p-1">
-	              <input 
-                  onChange={handleImgChange}
-                  accept=".jpg, .jpeg, .png"
-                  id='upload-images'
-                  name="images"
-                  type="file"
-                  multiple
-                />
-	            </div>
+          <div className="bg-ws">
+            <p className='flex-just-center fs-smaller pt-3co-50'>
+              <i>*Upload at least 2 different photos of this item*</i>       
+            </p>
+            <div className='m-3 fs-smaller'>
+              <li>Each photo must be less than 1MB</li> 
+              <li>The photos must be clear and distinctive</li>
+              <li>The photos must maintain same background (preferably white background)</li>
             </div>
 
-            <FormField 
-              id="price"
-              name="price"
-              type="number"
-              onChange={handleChange}
-              value={formFields.price}
-              label={'How much does this item cost in USD?'}
-            />
-
-            <FormField 
-              id="count"
-              name="count"
-              type="number" 
-              onChange={handleChange}
-              value={formFields.count}  
-              label={'How much stock do you currently have?'}
-            />
-
-            <textarea
-              rows={3}
-              id="info"
-              name="info"
-              type="textarea"
-              value={formFields.info} 
-              className='form-control' autoComplete=''  
-              placeholder={'Write a detailed information about this item. Eg. This shoe comes in size 8.'} 
-              onChange={handleChange}
-            />
-
-            <div className='m-2 flex-just-center'>
-              <Button 
-                type="submit" disabled={isSubmitting}
-              >
-                Submit
-              </Button>
+            <div className="p-1">
+              <input 
+                onChange={handleImgChange}
+                accept=".jpg, .jpeg, .png"
+                id='upload-images'
+                name="images"
+                type="file"
+                multiple
+              />
             </div>
-          </form>
-        </div> 
-      </div>
-    </>
+          </div>
+
+          <FormField 
+            id="price"
+            name="price"
+            type="number"
+            onChange={handleChange}
+            value={formFields.price}
+            label={'How much does this item cost in USD?'}
+          />
+
+          <FormField 
+            id="count"
+            name="count"
+            type="number" 
+            onChange={handleChange}
+            value={formFields.count}  
+            label={'How much stock do you currently have?'}
+          />
+
+          <textarea
+            rows={3}
+            id="info"
+            name="info"
+            type="textarea"
+            value={formFields.info} 
+            className='form-control' autoComplete=''  
+            placeholder={'Write a detailed information about this item. Eg. This shoe comes in size 8.'} 
+            onChange={handleChange}
+          />
+
+          <div className='m-2 flex-just-center'>
+            <Button 
+              type="submit" disabled={isSubmitting}
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div> 
+    </div>
   )
 }

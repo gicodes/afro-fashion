@@ -3,6 +3,7 @@ import { useLoading } from '../../../../../contexts/loading.context';
 import { BrandContext } from '../../../../../contexts/brand.context';
 import { useAlert } from '../../../../../contexts/alert.context';
 import { useState, useEffect, useContext } from 'react';
+import { serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
 import '../../../dashboard.styles.scss';
@@ -12,7 +13,7 @@ export const SellerProducts = ({ sellerName }) => {
   const seller = sellerName.toLowerCase();
   const { brandsMap } = useContext(BrandContext);
   const { showLoading, hideLoading } = useLoading();
-  const [brands, setBrands] = useState(brandsMap[seller]);
+  const [ brands, setBrands ] = useState(brandsMap[seller]);
 
   useEffect(() => {
     setBrands(brandsMap[seller]);
@@ -45,7 +46,8 @@ export const SellerProducts = ({ sellerName }) => {
       name: product?.name || '',
       count: product?.count || '',
       price: product?.price || '',
-      info: product?.info || ''
+      info: product?.info || '',
+      updatedAt: serverTimestamp()
     });
 
     const toggleEditProduct = () => setEditProduct(!editProduct);

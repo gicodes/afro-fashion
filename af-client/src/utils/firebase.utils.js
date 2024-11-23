@@ -301,40 +301,41 @@ export const getLatestItems = async () => {
   try {
     const categoriesRef = collection(db, "categories");
     const categoriesSnapshot = await getDocs(categoriesRef);
-
-    const latestItems = [];
+    const latestItemsMap = {};
 
     categoriesSnapshot.forEach(categoryDoc => {
-      const categoryData = categoryDoc.data();
+      const { items } = categoryDoc.data();
 
-      if (categoryData && Array.isArray(categoryData.items)) {
-        // Iterate over the items in each category
-        categoryData.items.forEach(item => {
-          if (item && item.name && item.price && Array.isArray(item.imageUrls)) {
-            const updatedAt = item.updatedAt?.toDate
-              ? item.updatedAt.toDate() // Convert Firestore Timestamp to Date
-              : categoryDoc.updateTime?.toDate(); // Fallback to Firestore metadata
-
-            latestItems.push({
+      if (Array.isArray(items)) {
+        items.forEach(item => {
+          const imageUrl = item.imageUrls && item.imageUrls.length > 0 ? item.imageUrls[0] : null;
+          // fallback to document createTime if updatedAt is missing
+          const itemUpdatedAt = item.updatedAt 
+            ? new Date(item.updatedAt.seconds * 1000) // convert Firestore Timestamp to Date
+            : categoryDoc.createTime?.toDate(); // fallback to document createTime
+          if (!latestItemsMap[item.id] || itemUpdatedAt > latestItemsMap[item.id].updatedAt) {
+            latestItemsMap[item.id] = {
+              id: item.id,
               name: item.name,
               price: item.price,
-              imageUrl: item.imageUrls[0] || null,
-              updatedAt: updatedAt ? updatedAt.toISOString() : new Date().toISOString(), // Use ISO format for sorting
-            });
+              imageUrl: imageUrl,
+              updatedAt: itemUpdatedAt,
+            };
           }
         });
       }
     });
 
-    // Sort items by updatedAt descending
-    const sortedItems = latestItems.sort(
-      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    // Convert latestItemsMap to an array and sort by updatedAt descending
+    const latestItemsArray = Object.values(latestItemsMap).sort(
+      (a, b) => b.updatedAt - a.updatedAt
     );
 
     // Return the top 4 latest items
-    return sortedItems.slice(0, 4);
+    const topLatestItems = latestItemsArray.slice(0, 4);
+    return topLatestItems;
   } catch (error) {
-    console.error("Error fetching latest items:", error.message);
+    console.error("Error fetching latest items:", error);
     throw new Error(`Could not fetch latest items: ${error.message}`);
   }
 };
@@ -348,9 +349,9 @@ export const getSellerId = async (seller) => {
   const sellersSnapshot = await getDocs(sellersQuery);
   let sellerId = null;
 
-  // Get the seller ID from the snapshot
+  // get the seller ID from the snapshot
   sellersSnapshot.forEach((sellerDoc) => {
-    sellerId = sellerDoc.id; // Get the document ID, which is the seller ID
+    sellerId = sellerDoc.id; // get the document ID, which is the seller ID
   });
 
   return sellerId;
