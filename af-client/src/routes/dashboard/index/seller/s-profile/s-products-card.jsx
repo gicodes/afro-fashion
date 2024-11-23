@@ -17,7 +17,6 @@ export function SellerProducts ({ sellerName }) {
 
   useEffect(() => {
     setBrands(brandsMap[seller]);
-    console.log(brandsMap[`uremma`])
   }, [seller, brandsMap]);
 
   const { addOptionsAlert, addAutoCloseAlert } = useAlert();
@@ -149,7 +148,7 @@ export function SellerProducts ({ sellerName }) {
 
   return (
     <div className="card container">
-      {brands && Object.keys(brands).length > 0 ? (
+      {brands ? (
         <div>
           { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
