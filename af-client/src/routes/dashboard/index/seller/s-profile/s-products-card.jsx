@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import '../../../dashboard.styles.scss';
 
-export const SellerProducts = ({ sellerName }) => {
+export function SellerProducts ({ sellerName }) {
   const navigate = useNavigate();
   const seller = sellerName.toLowerCase();
   const { brandsMap } = useContext(BrandContext);
@@ -17,6 +17,7 @@ export const SellerProducts = ({ sellerName }) => {
 
   useEffect(() => {
     setBrands(brandsMap[seller]);
+    console.log(brandsMap[`uremma`])
   }, [seller, brandsMap]);
 
   const { addOptionsAlert, addAutoCloseAlert } = useAlert();
@@ -91,7 +92,7 @@ export const SellerProducts = ({ sellerName }) => {
           </div>
         </div>
 
-        {  editProduct && (
+        { editProduct && (
           <>
             <div className="input-group p-2 bg-ws">
               <div className="input-group-prepend">
@@ -149,16 +150,16 @@ export const SellerProducts = ({ sellerName }) => {
   return (
     <div className="card container">
       {brands && Object.keys(brands).length > 0 ? (
-        <div key={seller}>
-          {Object.entries(brands).map(([category, categoryProducts]) => (
+        <div>
+          { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
               <h6 className="flex-just-center mt-2 font-awesome">
                 {category.toUpperCase()}
               </h6>
               <hr />
-              {categoryProducts.map((product) => (
+              {Array.isArray(categoryProducts) && categoryProducts.map((product) => (
                 <Product
-                  key={`${category}-${product?.id}`}
+                  key={product?.id}
                   category={category}
                   product={product}
                 />
@@ -166,12 +167,10 @@ export const SellerProducts = ({ sellerName }) => {
             </div>
           ))}
         </div>
-      ) : (
-        <>
-          <div className="mx-auto p-3">
-            You have no Active Product...
-          </div>
-        </>
+        ) : (
+        <div className="mx-auto p-3">
+          You have no Active Product...
+        </div>
       )}
     </div>
   );
