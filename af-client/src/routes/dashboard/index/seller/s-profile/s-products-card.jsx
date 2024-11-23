@@ -148,7 +148,7 @@ export function SellerProducts ({ sellerName }) {
 
   return (
     <div className="card container">
-      {brands ? (
+      {brands && Object.keys(brands).length > 0 ? (
         <div>
           { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
