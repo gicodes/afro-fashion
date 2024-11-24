@@ -23,13 +23,13 @@ export const images = [
   {
     src: '/images/top_picks.jpg',
     text: 'TOP PICKS',
-    col: null,
+    col: 'lightgreen',
     bgcol: '#606060',
   },
   {
     src: '/images/for_you.jpg',
     text: 'FOR YOU',
-    col: 'white',
-    bgcol: 'darkslategrey',
+    col: 'burlywood',
+    bgcol: null,
   },
 ];

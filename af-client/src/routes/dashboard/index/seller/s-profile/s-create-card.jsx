@@ -1,4 +1,4 @@
-import { addSellerItems, sellerProductCount, uploadProductImages } from '../../../../../utils/writeBatch';
+import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../../../utils/writeBatch';
 import FormField from '../../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
@@ -62,7 +62,7 @@ export const SellerCreateCard = () => {
       return;
     }
 
-    const countOk = await sellerProductCount(currentUser?.brandName, userId)
+    const countOk = await countOkAddProduct(currentUser?.brandName, userId)
 
     try {
       const imagesArray = formFields?.images;
@@ -80,7 +80,7 @@ export const SellerCreateCard = () => {
       }
 
       if (countOk) {
-        await addSellerItems(category, itemsToAdd);
+        await addNewProduct(category, itemsToAdd);
         addAlert("success", 
         'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
 

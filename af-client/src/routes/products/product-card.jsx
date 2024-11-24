@@ -14,7 +14,7 @@ import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-ic
 
 import './product-card.styles.scss';
 
-// productCard embodies the first creation of product card and is used throughout the marketplace
+// ProductCard embodies the first creation of product card and is used throughout the marketplace
 const ProductCard = ({ product }) => {
   const navigate = useNavigate()
   const { addAutoCloseAlert } = useAlert();
@@ -81,7 +81,6 @@ const ProductCard = ({ product }) => {
       });
   }
 
-  // Memoized Chevron components to avoid unnecessary re-renders
   const ChevronLeft = React.memo(() => (
     <div className='chevron-left' onClick={prevImage}>
       <FaCircleChevronLeft />
@@ -99,7 +98,7 @@ const ProductCard = ({ product }) => {
       <Card 
         id={id}
         className='product-card-container'
-        >
+      >
         <div className='p-2'>
           <div className='image-container'>
             <img   
@@ -120,17 +119,19 @@ const ProductCard = ({ product }) => {
 
           <div className='card-body'>
             <div className='name-price'>
-              <span className='product-name'> {name} </span>
+              <a href={`/marketplace/products/${id}`} className='product-name'>{name}</a>
               <span className='product-price'> ${setPrice(price)} </span>
             </div>
             <div className='info-content'>
               <div className='description'>
                 <span>{info || "Description unavailable"}</span>
               </div>
+
               <div className='flex-space-bet m-2'>
                 <span className='stock'> Stock: {count || "N/A"} </span>
-                <span>{ProductCategory(product)}</span>
+                <span> {ProductCategory(product)} </span>
               </div>
+              
               <div className='mt-2 p-3 card'>
                 <div className='footer-actions flex-space-bet'>
                   <FcLike onClick={handleSaveItem} size={25} />
@@ -139,12 +140,11 @@ const ProductCard = ({ product }) => {
                 </div>
               </div>
             </div>
-          </div>
-          <br/>
+          </div><br/>
         </div>
       </Card>
     </section>
   );
 };
 
-export default ProductCard;
+export default ProductCard

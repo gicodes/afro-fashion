@@ -9,7 +9,7 @@ import SellerCardIndex from '../dashboard/index/seller/seller-card';
 
 import './brands.styles.scss';
 
-// category route is rendered when users search and go to a brand / seller's page
+// Brand collection is rendered from any brands route to a seller's page
 const BrandCollection = () => {
   const { seller } = useParams();
   const { brandsMap } = useContext(BrandContext);
@@ -31,7 +31,7 @@ const BrandCollection = () => {
   }, [showLoading, seller, brandsMap, hideLoading, brands]);
 
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
-  const { address, bank, bankAcct, bio, imageUrl, phone, sold } = sellerInfo;
+  const { address, bio, imageUrl, phone, products, sold } = sellerInfo;
 
   return (
     <section id={seller?.toLowerCase()} className="seller-brand-section">
@@ -39,33 +39,40 @@ const BrandCollection = () => {
         <SellerCardIndex 
           displayName={sellerName}
           brandName={sellerName}
-          address={address || "Missing info"}
-          bank={bank}
-          bankAcct={bankAcct}
-          bio={bio || "Missing info"}
+          address={address}
+          // bank && bankAcct data are unavailable
+          // to add more data, import from sellerInfo
+          bio={bio}
           imageUrl={imageUrl}
-          phone={phone || "Missing info"}
+          phone={phone}
           sold={sold}
+          products={products}
         />
       </div>
   
       { brands && Object.keys(brands)?.length > 0 ? (
-        <>
-          <Paper className="products-container">
-            {Object.entries(brands).map(([category, categoryProducts]) => (
-              <div key={category?.id} className="seller-category">
-                <div key={category?.id} className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}>
-                  {categoryProducts.map((product) => (
+        <div>
+          <Paper  className="products-container">
+            {Object.entries(brands).map(
+              ([category, categoryProducts]) => (
+              <div 
+                key={category} 
+                className="seller-category"
+                >
+                <div 
+                  key={category?.id} 
+                  className={categoryProducts?.length > 1 ? 'seller-products' : 'seller-product'}
+                  >
+                  { categoryProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
                 </div> 
                 <br/>
-
               </div>
             ))}
           </Paper>
           <div className="lg-div bg-white" />
-        </>
+        </div>
       ) : (
         <div className="card p-3">
           <div className="card-body">

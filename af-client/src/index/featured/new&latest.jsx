@@ -11,6 +11,7 @@ import '../index.styles.scss';
 const LatestIndex = () => {
   const navigate = useNavigate();
   const [ isLoading, setLoading ] = useState(true);
+  const [itemsToShow, setItemsToShow] = useState(4);
   const [ latestItems, setLatestItems] = useState([]);
   const onRouteHandler = (route) => { navigate(route) }
 
@@ -26,6 +27,22 @@ const LatestIndex = () => {
     };
 
     fetchLatestItems();
+
+    const updateItemsToShow = () => {
+      const width = window.innerWidth;
+      if (width > 768) {
+        setItemsToShow(6);
+      } else {
+        setItemsToShow(4);
+      }
+    };
+
+    updateItemsToShow();
+    window.addEventListener('resize', updateItemsToShow);
+
+    return () => {
+      window.removeEventListener('resize', updateItemsToShow); // Cleanup listener
+    };
   }, []);
 
   return (
@@ -42,7 +59,7 @@ const LatestIndex = () => {
         {!isLoading && latestItems.length === 0 && <NoInternet key="noInternet" />}
 
         <div className='items-row'>
-          {latestItems.map((item, index) => (
+          {latestItems.slice(0, itemsToShow).map((item, index) => (
             <FeaturedCard 
               key={index}   
               item={item} 

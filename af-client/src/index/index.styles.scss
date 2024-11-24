@@ -141,12 +141,15 @@
     display: flex;
       .hot-and-trending {
           .items-row {
-          grid-template-columns: repeat(3, 1fr);
+          padding: 0 5%;
+          grid-template-columns: repeat(2, 1fr);
         } 
       }
       .new-and-latest {
         .items-row {
           grid-template-columns: repeat(3, 1fr);
+          display: grid;
+          padding: 0;
         }
       } 
     }
@@ -272,6 +275,7 @@
     }
   }
 }
+
 @media (max-width: 600px) {
   .fc-title {
 
@@ -282,4 +286,3 @@
     p { font-size: 0.8rem; }
   }
 }
-

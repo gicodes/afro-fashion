@@ -7,7 +7,7 @@ import { db, firebaseApp } from "./firebase.utils";
 
 const storage = getStorage(firebaseApp);
 
-// General method to create collections and documents
+// Critical function to create collections and documents
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -19,7 +19,7 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   await batch.commit();
 };
 
-// Add or update user properties
+// Critical function to add or update user properties
 export const updateUser = async (userId, inputField, value) => {  
   if (!userId || !inputField || !value) return;
   const collectionId = "users";
@@ -39,7 +39,7 @@ export const updateUser = async (userId, inputField, value) => {
   }
 };
 
-// Add or update seller properties
+// Critical function to add or update seller properties
 export const updateSeller = async (sellerId, inputField, value) => {
   if (!sellerId || !inputField || !value) return;
   const collectionId = "sellers";
@@ -59,8 +59,8 @@ export const updateSeller = async (sellerId, inputField, value) => {
   }
 };
 
-// Create seller items
-export const addSellerItems = async (category, itemsToAdd) => {
+// Critical function to create new product from seller action
+export const addNewProduct = async (category, itemsToAdd) => {
   const batch = writeBatch(db);
   const collectionId = "categories";
   
@@ -81,7 +81,17 @@ export const addSellerItems = async (category, itemsToAdd) => {
   }
 };
 
-// Create seller items helper: writing images to db collection
+// Helper method to upload an image and obtain the image URL
+export const uploadImageAndGetUrl = async (imageFile, itemId) => {
+  const imageRef = ref(storage, `image/${itemId}`);
+
+  await uploadBytes(imageRef, imageFile);
+  const imageUrl = await getDownloadURL(imageRef);
+
+  return imageUrl;
+};
+
+// Helper method for writing images to db collection
 export const uploadProductImages = async (imagesArray, itemId) => {
   try {
     const imagesArrayConverted = Array.from(imagesArray);
@@ -99,17 +109,7 @@ export const uploadProductImages = async (imagesArray, itemId) => {
   }
 };
 
-// Helper method to upload an image and obtain the image URL
-export const uploadImageAndGetUrl = async (imageFile, itemId) => {
-  const imageRef = ref(storage, `image/${itemId}`);
-
-  await uploadBytes(imageRef, imageFile);
-  const imageUrl = await getDownloadURL(imageRef);
-
-  return imageUrl;
-};
-
-// Edit items from a db collection
+// Helper method to edit items from a db collection
 export const editSellerItem = async (category, itemId, updatedItem) => {
   const batch = writeBatch(db);
   const collectionId = "categories";
@@ -141,7 +141,7 @@ export const editSellerItem = async (category, itemId, updatedItem) => {
   }
 };
 
-// Delete items from a db collection along with images from storage
+// Helper method to delete items from a db collection along with images from storage
 export const deleteSellerItem = async (category, itemId) => {
   const batch = writeBatch(db);
   const collectionId = "categories";
@@ -184,8 +184,8 @@ const deleteImages = async (imageUrls) => {
   }
 };
 
-// Critical function to track seller subscription and product count
-export const sellerProductCount = async (seller, sellerId) => {
+// Critical function to track seller subscription and add product count
+export const countOkAddProduct = async (seller, sellerId) => {
   let maxProductCount;
   let productCount = seller?.productCount || 0; 
   const subscription = seller?.subscription;
@@ -204,7 +204,8 @@ export const sellerProductCount = async (seller, sellerId) => {
       maxProductCount = 5;
   }
   
-  if (productCount < maxProductCount) { // check if the productCount is within seller subscription
+  if (productCount < maxProductCount) { 
+    // check if the productCount is within seller subscription
     productCount++;
 
     const sellerRef = doc(collection(db, "sellers"), sellerId);
@@ -212,7 +213,8 @@ export const sellerProductCount = async (seller, sellerId) => {
 
     if (sellerDoc.exists()){
       try {
-        await updateDoc(sellerRef, { productCount: productCount })
+        // add to seller product count
+        await updateDoc(sellerRef, { productCount: productCount +1})
       } catch (err) {
         throw new Error(err.message);
       }
@@ -222,7 +224,7 @@ export const sellerProductCount = async (seller, sellerId) => {
   } else return null;
 };
 
-// Add or update items and orders to a users saved items
+// Critical function to add or update items and orders to a users saved items
 export const addToSavedItems = async (userId, newItems, docField) => {
   if (!userId) return;
 
@@ -257,7 +259,7 @@ export const addToSavedItems = async (userId, newItems, docField) => {
   }
 }
 
-// Function to reduce item count after a user purchases the item
+// Critical function to reduce item count after a user purchases the item
 export const reduceItemCount = async (item, sellerId) => {
   const { id, quantity, count, category } = item;
 
@@ -289,4 +291,4 @@ export const reduceItemCount = async (item, sellerId) => {
 };
 
 
-// remove items for users who dislike
+// Critical function to remove items for users who dislike

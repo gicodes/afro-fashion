@@ -193,9 +193,9 @@ export const HelpCard = () => {
             <h6 className="text-secondary">User Management</h6>
 
             <span className="block">At the footer (bottom area) on every product or item, there are action buttons that signed-in users can interact with.</span>
-            <li> <FaAmazonPay /> <span className="mx-2 bg-ws"> Takes you to checkout</span> </li>
+            <li> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></li>
             <span className="mx-4 fs-smaller">Complete your purchase and track past orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </span>
-            <li> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></li>   
+            <li> <FaAmazonPay /> <span className="mx-2 bg-ws"> Takes you to checkout</span> </li>   
             <span className="mx-4 fs-smaller">View saved from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} </span>     
             <li> <FcDislike /> <span className="mx-2 bg-ws"> hides items from your feed</span></li>
             <span className="mx-4 fs-smaller">Control what you see, Control what you buy *only on {hiSpan ('PREMIUM')}</span>

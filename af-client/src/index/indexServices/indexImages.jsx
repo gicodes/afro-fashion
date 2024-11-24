@@ -7,10 +7,10 @@ import { styled } from '@mui/system';
 const Container = styled('div')({
   width: '100%',
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
   padding: '0 5px 0 5px',
+  flexDirection: 'column',
+  justifyContent: 'center',
 });
 
 const CenteredText = styled(Typography)(({ bgcol, col }) => ({
@@ -42,7 +42,6 @@ const IndexImages = () => {
         <CenteredText bgcol={images[currentIndex].bgcol} col={images[currentIndex].col}>
           {images[currentIndex].text}
         </CenteredText>
-        
         <Pagination>
           {images.map((_, index) => (
             <Dot key={index} isActive={index === currentIndex} />

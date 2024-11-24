@@ -204,8 +204,10 @@ export const getSellerInfo = async (seller) => {
       address: sellerData?.address,
       email: sellerData?.email,
       imageUrl: sellerData?.imageUrl,
-      sold: sellerData?.productSold
-      // add more properties if needed
+      sold: sellerData?.productSold,
+      products: sellerData?.productCount,
+      // bank && bankAcct data are unavailable
+      // add more data if needed
     };
   });
 
@@ -258,7 +260,7 @@ export const getSellerBankInfo = async (seller) => {
   return sellerBankInfo;
 };
 
-// get trending items from users collection by aggregating savedItems 
+// Get trending items from users collection by aggregating savedItems 
 export const getTrendingItems = async () => {
   try {
     const usersRef = collection(db, 'users');
@@ -330,9 +332,7 @@ export const getLatestItems = async () => {
     const latestItemsArray = Object.values(latestItemsMap).sort(
       (a, b) => b.updatedAt - a.updatedAt
     );
-
-    // Return the top 4 latest items
-    const topLatestItems = latestItemsArray.slice(0, 4);
+    const topLatestItems = latestItemsArray.slice(0, 6);
     return topLatestItems;
   } catch (error) {
     console.error("Error fetching latest items:", error);
