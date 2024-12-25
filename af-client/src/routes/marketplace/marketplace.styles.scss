@@ -13,6 +13,20 @@
   }
 }
 
+.filter-widget {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.pagination {
+  padding: 15px 10px;
+  width: 100%;
+  bottom: 0;
+  position: sticky;
+  background-color: whitesmoke;
+}
+
 @media (min-width: 768px) {
   .marketplace-route {
     margin-top: 20px;
@@ -20,6 +34,22 @@
   }
 
   .products-area { margin-bottom: 10%;}
+
+  .filter-widget {
+    top: 0;
+
+    Box {
+      
+    }
+  }
+
+  .pagination {
+    padding: 25px;
+    display: grid; 
+    background: none;
+    margin-top: 50px;
+    justify-content: end;
+  }
 }
 
 @media (max-width: 768px) {

@@ -93,7 +93,10 @@ const Dashboard = () => {
             </div>
           </div>
         }
-        <div className={createItem || editProfile ? "hidden" : "paper-container"}>
+        <div 
+          className={
+            createItem || editProfile ? "hidden" : "paper-container"
+        }>
           <PerformanceCard 
             isVerified={isVerified}
             performanceRating={performanceRating}
@@ -130,7 +133,17 @@ const Dashboard = () => {
 
           <div className="action-btn-group">
             <Paper elevation={4}>
-              <div className="p-2">
+              <div className="p-1">
+              <div className="container m-3 px-1">
+                <p className="text-black"> Manage Inventory </p>
+              </div>
+                <hr/>
+                <div 
+                  onClick={toggleCreateItem} 
+                  className="p-action btn text-success"
+                >
+                  Create New Product
+                </div>
                 <Button  
                   onClick={toggleEditItem}
                   className="p-action btn btn-warning"
@@ -140,23 +153,12 @@ const Dashboard = () => {
                 <div className="p-action">
                   { editItem && <SellerProducts sellerName={brandName} /> }
                 </div>
-                <Button 
-                  onClick={toggleCreateItem} 
-                  className="p-action btn btn-primary"
-                >
-                  Create New Product
-                </Button>
                 <Button // dummy/ disabled button
                   className="btn-secondary mt-1 w-100"
                 >
                   ...
                 </Button>
                 <Button // dummy/ disabled button 2
-                  className="btn-secondary mt-1 w-100"
-                >
-                  ...
-                </Button>
-                <Button // dummy/ disabled button 3
                   className="btn-secondary mt-1 w-100"
                 >
                   ...

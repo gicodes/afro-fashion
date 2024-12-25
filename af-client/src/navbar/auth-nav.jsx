@@ -40,7 +40,7 @@ export const AuthNav = ({
             <hr className='w-50'/>
           </div>  
           <div>
-            <Link title="subscriptions" onClick={onClose} to="/subscriptions">
+            <Link title="subscriptions" onClick={onClose} to="#">
               Subscriptions
             </Link>
           </div> 

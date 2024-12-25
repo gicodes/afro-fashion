@@ -103,15 +103,18 @@ export function SellerProducts ({ sellerName }) {
                 onChange={(e) => handleInputChange('info', e.target.value)}
               />
             </div>
+
             <div className="input-group p-2 bg-ws">
               <div className="input-group-prepend">
                 <span className="input-group-text">Remaining</span>
               </div>
-              <input type="number" 
+              <input 
+                type="number" 
                 className="form-control" 
                 value={inputFields.count}
                 onChange={(e) => handleInputChange('count', e.target.value)}
               />
+
               <div className="input-group-prepend">
                 <span className="input-group-text">Price</span>
               </div>
@@ -148,7 +151,7 @@ export function SellerProducts ({ sellerName }) {
 
   return (
     <div className="card container">
-      {brands && Object.keys(brands).length > 0 ? (
+      { brands && Object.keys(brands).length > 0 ? (
         <div>
           { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
@@ -156,7 +159,7 @@ export function SellerProducts ({ sellerName }) {
                 {category.toUpperCase()}
               </h6>
               <hr />
-              {Array.isArray(categoryProducts) && categoryProducts.map((product) => (
+              { Array.isArray(categoryProducts) && categoryProducts.map((product) => (
                 <Product
                   key={product?.id}
                   category={category}

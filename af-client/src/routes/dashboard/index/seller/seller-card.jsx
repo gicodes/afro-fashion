@@ -1,8 +1,8 @@
 import { Paper } from '@mui/material';
 import { blankAvi } from '../dash-assets';
-import { BsBank2, BsCartCheckFill } from "react-icons/bs";
 import { FcAddressBook, FcBriefcase } from 'react-icons/fc';
 import { FaAddressBook, FaUserEdit,  } from "react-icons/fa";
+import { BsBank2, BsCartCheckFill, BsDot } from "react-icons/bs";
 
 import "../../dashboard.styles.scss"
 
@@ -42,22 +42,31 @@ const SellerCardIndex = ({
             </div>             
             <div className="info-set">
               <div className='flex-space-bet w-75'>
-                <p> <FcAddressBook size={20}/>&nbsp; {brandName}</p>
-                { sold && 
+                <p> 
+                  <FcAddressBook size={20}/>&nbsp; {brandName}
+                </p>
+                { 
+                  sold && 
                   <div className="fill-success">
-                    <BsCartCheckFill size={19}/> 
+                    <BsCartCheckFill size={19} /> 
                     <span className='fs-smaller'> &nbsp; {sold}</span>
                   </div>
                 }
-                </div>
+              </div>
+
               <div className="flex-space-bet w-90 fs-smaller p-1">
-                <div> 
-                  <FaAddressBook size={15}/> &nbsp; 
-                  <span>{phone || "Phone not set"}</span>
-                  <span className="sc-subtitle" // city, State or Country 
-                    >
-                    {address || "Address not set"}</span>
+                <div>
+                  <div>
+                    <FaAddressBook size={15}/> &nbsp; 
+                    <span> {phone || "Phone not set"} </span>
+                  </div> 
+
+                  <span className="sc-subtitle">
+                    <BsDot />
+                    {address || "Address not set"}
+                  </span>
                 </div>
+
                 { products && <div>
                     <FcBriefcase size={15}/> &nbsp; 
                     <span>{products}</span>

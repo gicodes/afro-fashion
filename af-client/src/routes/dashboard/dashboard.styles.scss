@@ -114,7 +114,7 @@
 
 .per-card {
   width: 100%;
-  min-width: 360px;
+  min-width: 321px;
   background-color: rgb(72, 37, 105);
 
   .per-card-body {
@@ -156,7 +156,7 @@
 
 .pro-card {
   background-color: forestgreen;
-  min-width: 360px;
+  min-width: 321px;
   width: 100%;
 
   img {
@@ -189,7 +189,7 @@
         display: block;
         margin-top: 5px;
         text-align: end;
-        font-size: small;
+        font-size: 12px;
 
         .iv {
           color: wheat;
@@ -217,7 +217,7 @@
 
 .sales-card {
   background-color: antiquewhite;
-  min-width: 360px;
+  min-width: 321px;
   color: black;
 
   p { color: black;}
