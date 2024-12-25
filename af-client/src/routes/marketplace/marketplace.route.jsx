@@ -1,7 +1,7 @@
 import Category from '../category/category.route';
 import { Route, Routes } from 'react-router-dom';
 import Product from '../products/product.route';
-import Collections from './shop';
+import Collections from './collections';
 
 const MarketPlace = () => {
   return (

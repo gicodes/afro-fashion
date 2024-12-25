@@ -14,6 +14,7 @@ import PieUtilityCard from "../pie-card";
 import { Link } from "react-router-dom";
 
 import "../../dashboard.styles.scss";
+import { Paper } from "@mui/material";
 
 const Dashboard = () => {
   const { addAutoCloseAlert } = useAlert();
@@ -128,21 +129,40 @@ const Dashboard = () => {
           <br/>
 
           <div className="action-btn-group">
-            <Button  
-              onClick={toggleEditItem}
-              className="p-action btn btn-warning"
-            > 
-              Edit Active Product 
-            </Button>
-            <div className="p-action">
-              { editItem && <SellerProducts sellerName={brandName} /> }
-            </div>
-            <Button 
-              onClick={toggleCreateItem} 
-              className="p-action btn btn-secondary"
-            >
-              Create New Product
-            </Button>
+            <Paper elevation={4}>
+              <div className="p-2">
+                <Button  
+                  onClick={toggleEditItem}
+                  className="p-action btn btn-warning"
+                > 
+                  Edit Active Product 
+                </Button>
+                <div className="p-action">
+                  { editItem && <SellerProducts sellerName={brandName} /> }
+                </div>
+                <Button 
+                  onClick={toggleCreateItem} 
+                  className="p-action btn btn-primary"
+                >
+                  Create New Product
+                </Button>
+                <Button // dummy/ disabled button
+                  className="btn-secondary mt-1 w-100"
+                >
+                  ...
+                </Button>
+                <Button // dummy/ disabled button 2
+                  className="btn-secondary mt-1 w-100"
+                >
+                  ...
+                </Button>
+                <Button // dummy/ disabled button 3
+                  className="btn-secondary mt-1 w-100"
+                >
+                  ...
+                </Button>
+              </div>
+            </Paper>
           </div>
         </div>
       </div>

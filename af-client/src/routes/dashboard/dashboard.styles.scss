@@ -189,7 +189,12 @@
         display: block;
         margin-top: 5px;
         text-align: end;
-        font-size: x-small;
+        font-size: small;
+
+        .iv {
+          color: wheat;
+          font-size: x-small;
+        }
       }
     }
   }

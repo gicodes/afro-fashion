@@ -54,12 +54,17 @@ const SellerCardIndex = ({
                 <div> 
                   <FaAddressBook size={15}/> &nbsp; 
                   <span>{phone || "Phone not set"}</span>
-                  <span className="sc-subtitle">{address || "Address not set"}</span>
+                  <span className="sc-subtitle" // city, State or Country 
+                    >
+                    {address || "Address not set"}</span>
                 </div>
                 { products && <div>
                     <FcBriefcase size={15}/> &nbsp; 
                     <span>{products}</span>
-                    <span className="sc-subtitle">Inventory</span>
+                    <span className="sc-subtitle" // how many products in inventory
+                    >
+                      <span className='iv'>Inventory</span>
+                    </span>
                   </div>
                 }
                 { bankAcct && <div>
@@ -72,7 +77,7 @@ const SellerCardIndex = ({
           </div>
         </div>
         
-        <div className="mt-4 text-center font-awesome fs-smaller">
+        <div className="mt-4 text-center font-awesome fs-xs">
           <p>{bio || "-"}</p>              
         </div>
         </div>

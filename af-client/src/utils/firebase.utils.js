@@ -17,6 +17,7 @@ import {
   query,
   where,
 } from 'firebase/firestore'
+
 import { firebaseConfig } from './config';
 import { initializeApp } from "firebase/app";
 
@@ -30,8 +31,7 @@ googleProvider.setCustomParameters({
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
-export const onAuthStateChangedListener = 
-  (callback) => onAuthStateChanged(auth, callback)
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
 export const db = getFirestore(firebaseApp);
 
 // Sign in user with Google Provider
@@ -109,7 +109,7 @@ export const customCreateUserWithEmail = async (
 }
 
 // Get snapshot and collection data with query
-export const getCollectionAndDocuments = async () => {
+export const getCategoriesCollection = async () => {
   const myQuery = query(collection(db, "categories"));
   const querySnapshot = await getDocs(myQuery);
 
@@ -328,7 +328,7 @@ export const getLatestItems = async () => {
       }
     });
 
-    // Convert latestItemsMap to an array and sort by updatedAt descending
+    // convert latestItemsMap to an array and sort by updatedAt descending
     const latestItemsArray = Object.values(latestItemsMap).sort(
       (a, b) => b.updatedAt - a.updatedAt
     );

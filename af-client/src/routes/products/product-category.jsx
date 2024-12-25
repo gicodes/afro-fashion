@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import './product-card.styles.scss';
 
 export const ProductCategory = (product) => {
@@ -11,6 +10,7 @@ export const ProductCategory = (product) => {
       return "Exclusive"
     } else return ""
   }
+  
   const category = product?.category;
 
   return (
@@ -45,5 +45,5 @@ export const ProductCategory = (product) => {
           </p>}
       </div>
     </>
-  )
-}
+  );
+};

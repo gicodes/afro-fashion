@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { categories } from '../components/collection/collection.component';
-import { getCollectionAndDocuments } from '../utils/firebase.utils';
+import { getCategoriesCollection } from '../utils/firebase.utils';
 import { useLoading } from './loading.context';
 
 export const CategoriesContext = createContext({
@@ -28,7 +28,7 @@ export const CategoriesProvider = ({ children }) => {
   const getCategories = useCallback(async () => {
     showLoading();
     try {
-      const categoryMap = await getCollectionAndDocuments();
+      const categoryMap = await getCategoriesCollection();
       setCategoriesMap(categoryMap);
     } catch (error) {
       console.error('Error fetching categories:', error);

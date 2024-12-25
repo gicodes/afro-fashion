@@ -118,8 +118,8 @@ const SignInForm = () => {
           </div>
         </form>
 
-        <p className="centered z-footer"> 
-          Don't have an account? 
+        <p className="z-footer"> 
+          Don't have an account?
           <a href='auth/register' className="zf-link"> &nbsp; Go to sign up</a>
         </p>
       </div>

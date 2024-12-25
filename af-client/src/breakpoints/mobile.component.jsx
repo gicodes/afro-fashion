@@ -11,6 +11,8 @@ import PasswordReset from '../redirect/passwordReset.jsx';
 import VerificationSuccess from '../redirect/verifySuccess.jsx';
 import CreditsPage from '../routes/credits/credits.jsx';
 import { Help } from '../routes/help/help.gram.jsx';
+import AuthLanding from '../redirect/authLanding.jsx';
+import AdminIndex from '../routes/admin/admin.index.jsx';
 import Checkout from '../components/checkout/checkout.component.jsx';
 import BrandsPage from '../routes/brands/brands.page.jsx';
 import NavBar from '../navbar/mobile.navbar.component.jsx';
@@ -26,12 +28,13 @@ import SignUp from '../routes/authentication/user-auth/mobile.sign-up.index.jsx'
 import ProtectedSellerRoute from '../routes/dashboard/index/seller/protected-route.jsx'; 
 import { AcceptTerms } from '../routes/authentication/seller-auth/accept-terms.jsx';
 import { PrivacyPolicy, TermsOfService } from '../index/indexServices/learn-about-af.jsx';
-import AuthLanding from '../redirect/authLanding.jsx';
 
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
   const userType = currentUser?.userType;
+
+  // Maintaining "auth.me" for all users, "auth.admin" for admin-specific, and "auth.user" for user-specific routes and roles
 
   return (
     <Routes>
@@ -46,7 +49,8 @@ const Home = () => {
         <Route path='brands' element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />
+        <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />        
+        <Route path="auth.admin" element={<AdminIndex />} />
         <Route path="auth.me" element={<AuthLanding/>} />     
         <Route path="auth/verify-email" element={<VerificationSuccess />} />
         <Route path="auth/password-reset" element={<PasswordReset />} />
