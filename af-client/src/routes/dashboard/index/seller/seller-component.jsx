@@ -18,7 +18,7 @@ import { Paper } from "@mui/material";
 
 const Dashboard = () => {
   const { addAutoCloseAlert } = useAlert();
-  const { brandsMap } = useContext(BrandContext);
+  const { brandItemsMap } = useContext(BrandContext);
   const { currentUser } = useContext(UserContext);
   const [ editItem, setEditItem ] = useState(false);
   const [ createItem, setCreateItem ] = useState(false);
@@ -26,7 +26,7 @@ const Dashboard = () => {
   const { address, bank, bankAcct, bio, brandName, displayName, imageUrl, isVerified, phone, productCount, productSold, subscription, latestSubExpiry } = currentUser;
 
   const performanceScore = (SellerPerformanceScore(currentUser));
-  const numberOfCategories = Object.keys(brandsMap[currentUser?.brandName] || {}).length;
+  const numberOfCategories = Object.keys(brandItemsMap[currentUser?.brandName] || {}).length;
   
   const toggleEditItem = () => setEditItem(!editItem);
   const toggleCreateItem = () => {

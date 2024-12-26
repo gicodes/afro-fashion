@@ -11,13 +11,13 @@ import '../../../dashboard.styles.scss';
 export function SellerProducts ({ sellerName }) {
   const navigate = useNavigate();
   const seller = sellerName.toLowerCase();
-  const { brandsMap } = useContext(BrandContext);
+  const { brandItemsMap } = useContext(BrandContext);
   const { showLoading, hideLoading } = useLoading();
-  const [ brands, setBrands ] = useState(brandsMap[seller]);
+  const [ brands, setBrands ] = useState(brandItemsMap[seller]);
 
   useEffect(() => {
-    setBrands(brandsMap[seller]);
-  }, [seller, brandsMap]);
+    setBrands(brandItemsMap[seller]);
+  }, [seller, brandItemsMap]);
 
   const { addOptionsAlert, addAutoCloseAlert } = useAlert();
 

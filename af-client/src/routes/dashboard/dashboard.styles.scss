@@ -173,7 +173,7 @@
     .info-set {
       font-family: Helvetica, sans-serif;
       font-size: smaller;
-      margin: 0 0 0 20px;
+      margin: 0 0 0 15px;
       color: burlywood;
       width: 100%;
 
@@ -190,12 +190,26 @@
         margin-top: 5px;
         text-align: end;
         font-size: 12px;
+      }
+    }
 
-        .iv {
-          color: wheat;
-          font-size: x-small;
+    .inventory-set { 
+      padding: 5px; 
+      display: flex;
+      max-width: 200px;
+      color: aquamarine;
+      font-size: smaller;
+      align-items: center; 
+      justify-content: space-between;
+    
+      .val {
+        span { 
+          justify-content: center;
+          color: greenyellow;
+          display: grid;
         }
       }
+      
     }
   }
 }

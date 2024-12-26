@@ -12,14 +12,14 @@ import './brands.styles.scss';
 // Brand collection is rendered from any brands route to a seller's page
 const BrandCollection = () => {
   const { seller } = useParams();
-  const { brandsMap } = useContext(BrandContext);
+  const { brandItemsMap } = useContext(BrandContext);
   const { showLoading, hideLoading } = useLoading();
   const [ sellerInfo, setSellerInfo ] = useState([]);
-  const [ brands, setBrands ] = useState(brandsMap[seller]);
+  const [ brands, setBrands ] = useState(brandItemsMap[seller]);
   
   useEffect(() => {
     showLoading();
-    if (brandsMap[seller] !== brands) setBrands(brandsMap[seller]);
+    if (brandItemsMap[seller] !== brands) setBrands(brandItemsMap[seller]);
   
     const fetchData = async () => {
       const info = await getSellerInfo(seller);
@@ -28,7 +28,7 @@ const BrandCollection = () => {
 
     fetchData();
     hideLoading();
-  }, [showLoading, seller, brandsMap, hideLoading, brands]);
+  }, [showLoading, seller, brandItemsMap, hideLoading, brands]);
 
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
   const { address, bio, imageUrl, phone, products, sold } = sellerInfo;
@@ -52,7 +52,7 @@ const BrandCollection = () => {
   
       { brands && Object.keys(brands)?.length > 0 ? (
         <div>
-          <Paper  className="products-container">
+          <Paper className="products-container">
             {Object.entries(brands).map(
               ([category, categoryProducts]) => (
               <div 

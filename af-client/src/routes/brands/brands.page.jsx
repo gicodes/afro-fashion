@@ -38,7 +38,7 @@ const BrandsPage = () => {
     <div className="brands-page-container">
       <div className="text-center mx-auto bg-ws p-3 mb-2">
         <h2> Sellers As A Brand </h2>        
-        <span className='block fs-smaller'>Discover and connect with the best vendors for your needs</span>
+        <span className='fs-smaller'>Discover and connect with the best vendors for your needs</span>
       </div>
 
       <Grid container spacing={3} justifyContent="center">
