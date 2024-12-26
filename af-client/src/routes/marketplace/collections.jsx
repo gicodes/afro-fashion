@@ -81,9 +81,8 @@ const Collections = () => {
       { allProducts?.length > 0 ? (
         <div className="marketplace-route">
           { currentProducts.map((product, index) => (
-            <section key={index} id={product.id} className="product-section">
+            <section key={index} id={product.id} className="product-section my-1">
               <ProductCard key={product?.id} product={product} />
-              <br />
             </section>
           ))}
         </div>
@@ -110,17 +109,17 @@ const Collections = () => {
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
           >
-            <FaChevronLeft />
+            <FaChevronLeft size={'20px'} />
           </Button>
 
-          <span className='text-link'> Page {currentPage} of {totalPages} </span>
+          <span className='text-primary fs-smaller'> Page {currentPage} of {totalPages} </span>
 
           <Button
             variant='contained'
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >
-            <FaChevronRight />
+            <FaChevronRight size={'20px'} />
           </Button>
         </Box>
         <div className='hide-in-sm lg-div' />

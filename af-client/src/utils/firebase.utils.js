@@ -200,11 +200,13 @@ export const getSellerInfo = async (seller) => {
 
     sellerInfo = {
       bio: sellerData?.bio,
+      createdAt: sellerData?.createdAt,
       phone: sellerData?.phone,
       address: sellerData?.address,
       email: sellerData?.email,
       imageUrl: sellerData?.imageUrl,
       sold: sellerData?.productSold,
+      rating: sellerData?.rating,
       products: sellerData?.productCount,
       // bank && bankAcct data are unavailable
       // add more data if needed

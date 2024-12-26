@@ -3,20 +3,20 @@ import { getItemsBySellers } from "../utils/firebase.utils";
 import { useLoading } from './loading.context';
 
 export const BrandContext = createContext({
-  brandsMap: {},
+  brandItemsMap: {},
   searchItemsByBrand: () => {},
 });
 
 export const BrandProvider = ({ children }) => {
-  const [brandsMap, setBrandsMap] = useState({});
+  const [brandItemsMap, setBrandItemsMap] = useState({});
   const { showLoading, hideLoading } = useLoading();
 
-  // Memoize the getBrandName function to prevent unnecessary re-renders
-  const getBrandName = useCallback(async () => {
+  // Memoize the mapBrandItems function to prevent unnecessary re-renders
+  const mapBrandItems = useCallback(async () => {
     showLoading();
     try {
       const brandMap = await getItemsBySellers();
-      setBrandsMap(brandMap);
+      setBrandItemsMap(brandMap);
     } catch (error) {
       console.error('Error fetching brand items:', error);
     } finally {
@@ -25,8 +25,8 @@ export const BrandProvider = ({ children }) => {
   }, [showLoading, hideLoading]);
 
   useEffect(() => {
-    getBrandName();
-  }, [getBrandName]);
+    mapBrandItems();
+  }, [mapBrandItems]);
 
   // Memoize the searchItemsByBrand function
   const searchItemsByBrand = useCallback(async (sellerName) => {
@@ -53,9 +53,9 @@ export const BrandProvider = ({ children }) => {
 
   // Memoize the context value to prevent unnecessary re-renders
   const value = useMemo(() => ({
-    brandsMap,
+    brandItemsMap,
     searchItemsByBrand,
-  }), [brandsMap, searchItemsByBrand]);
+  }), [brandItemsMap, searchItemsByBrand]);
 
   return (
     <BrandContext.Provider value={value}>

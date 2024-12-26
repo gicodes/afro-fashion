@@ -13,45 +13,44 @@ const FilterWidget = ({ setFilter }) => {
   };  
 
   return (
-    <div className="filter-widget">
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "1.8% 3%",
-          backgroundColor: "#f5f5f5",
-          borderBottom: "1px solid #ddd",
-        }}
-      >
-        <Typography variant="body2" color={"#505050"}>
-          &nbsp; Welcome to Marketplace
-        </Typography>
+    <div className="h50">
+      <Box className="filter-widget">
+        <Box 
+          display={'flex'}
+          alignItems={'center'}
+          backgroundColor={'#f5f5f5'}
+          justifyContent={'space-between'}
+          padding={{ xs: '12px 24px', sm: '10px 25px', lg: '20px 50px' }}
+        >
+          <Typography variant="body2" color={"#505050"}>
+            &nbsp; Welcome to Marketplace
+          </Typography>
 
-        <FormControl variant="outlined" size="small" sx={{ minWidth: 150 }}>
-          <InputLabel id="filter-label">Sort By </InputLabel>
+          <FormControl variant="outlined" size="small" sx={{ minWidth: 150 }}>
+            <InputLabel id="filter-label">Sort By </InputLabel>
 
-          <Select sx={{ fontSize: "smaller"}} defaultValue={"Random"}
-            labelId="filter-label"
-            onChange={handleChange}
-            label="Options"
-            MenuProps={{
-              PaperProps: {
-                sx: {
-                  '& .MuiMenuItem-root': {
-                    fontSize: '0.75rem', 
+            <Select sx={{ fontSize: "smaller"}} defaultValue={"Random"}
+              labelId="filter-label"
+              onChange={handleChange}
+              label="Options"
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    '& .MuiMenuItem-root': {
+                      fontSize: '0.75rem', 
+                    },
                   },
                 },
-              },
-            }}
-          >
-            <MenuItem value="Random">Random</MenuItem>
-            <MenuItem value="Price: Low to High">Price: Low to High</MenuItem>
-            <MenuItem value="Price: High to Low">Price: High to Low</MenuItem>
-            <MenuItem value="Popularity">Popularity</MenuItem>
-            <MenuItem value="Newest">Newest</MenuItem>
-          </Select>
-        </FormControl>
+              }}
+            >
+              <MenuItem value="Random">Random</MenuItem>
+              <MenuItem value="Price: Low to High">Price: Low to High</MenuItem>
+              <MenuItem value="Price: High to Low">Price: High to Low</MenuItem>
+              <MenuItem value="Popularity">Popularity</MenuItem>
+              <MenuItem value="Newest">Newest</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
     </div>
   )

@@ -1,43 +1,103 @@
 import { BrandContext } from '../../contexts/brand.context';
-import { Button } from 'react-bootstrap';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from '@mui/material';
-import { useContext } from 'react';
+import {  
+  Button,
+  Card, 
+  CardMedia, 
+  CardContent,
+  Grid,
+  Rating,  
+  Typography, 
+} from '@mui/material';
+import { blankAvi } from '../dashboard/index/dash-assets';
+import { getSellerInfo } from '../../utils/firebase.utils';
 
-// BrandPage is rendered when a user clicks the `SAA Brand` route
+import './brands.styles.scss';
+
+// BrandPage is rendered when a user clicks the SAA Brand route
 const BrandsPage = () => {
-  const { brandsMap } = useContext(BrandContext);
+  // Scaling Tip: Introduce Pagination for large data set
 
-  // scaling: brandsMap can return more brand information for BrandsPage to work with i.e ranking
+  const { brandItemsMap } = useContext(BrandContext);
+  const [brandDetails, setBrandDetails] = useState({});
+
+  useEffect(() => {
+    const fetchBrandDetails = async () => {
+      const details = {};
+      for (const brandName of Object.keys(brandItemsMap)) {
+        details[brandName] = await getSellerInfo(brandName);
+      }
+      setBrandDetails(details);
+    };
+
+    fetchBrandDetails();
+  }, [brandItemsMap]);
+
   return (
-    <>
-      <Card className="mt-2 brands-page col-md-6">
-        <div className="card-title">
-          <h2 className="text-center mx-auto bg-ws p-3">
-            Sellers As A Brand
-          </h2>
-        </div>
+    <div className="brands-page-container">
+      <div className="text-center mx-auto bg-ws p-3 mb-2">
+        <h2> Sellers As A Brand </h2>        
+        <span className='block fs-smaller'>Discover and connect with the best vendors for your needs</span>
+      </div>
 
-        <section id="brands-page">
-          <div className="card-body -lg">
-            <div className='card mx-auto p-2 fs-smaller col-md-6'>
-              <span>Select a brand to patronize</span>
-            </div>
-            {Object.keys(brandsMap).map((brandName, index) => (
-            <Link key={index} to={`/brands/${brandName}`}>
-              <div className="m-2 block">
-                <div className='p-2 flex-just-cent'>
-                  <Button className='ml-2' variant='info'>
-                    {brandName.toUpperCase()} 
-                  </Button>
+      <Grid container spacing={3} justifyContent="center">
+        { 
+          Object.keys(brandItemsMap).map((brandName, index) => {
+          const brandInfo = brandDetails[brandName];
+          const createdAt = brandInfo?.createdAt?.toDate();
+          const formattedDate = createdAt ? new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }).format(createdAt): 'N/A';
+
+          return (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card className="p-2">
+                <CardMedia
+                  height="120"
+                  component="img"
+                  className='vh-auto'
+                  alt={`${brandName} logo`}
+                  image={brandInfo?.imageUrl || blankAvi}
+                />
+                <CardContent>
+                  <Typography variant="subtitle1" component="div" gutterBottom>
+                    <b>{brandName.toUpperCase()}</b>
+                  </Typography>
+
+                  { brandInfo ? (
+                    <Rating
+                      name={`${brandName}-rating`}
+                      value={brandInfo.rating || 2}
+                      precision={0.5}
+                      readOnly
+                    />
+                    ) : (
+                      <Typography variant="body2" color="textSecondary">
+                        Loading...
+                      </Typography>
+                  )}
+                  
+                  <Typography variant="body2" color="textSecondary">
+                    Joined: {formattedDate || 'N/A'}
+                  </Typography>
+                </CardContent>
+                
+                <div className="brand-card-actions">
+                  <Link to={`/brands/${brandName}`} style={{ textDecoration: 'none' }}>
+                    <Button variant="contained" color="primary" fullWidth>
+                      View Seller Brand
+                    </Button>
+                  </Link>
                 </div>
-              </div>
-            </Link>
-            ))}
-          </div>
-        </section>
-      </Card>
-    </>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </div>
   );
 };
 

@@ -62,6 +62,7 @@ export const UserProvider = ({ children }) => {
 
         if (sellerData) {
           setCurrentUser({
+            createdAt: sellerData.createdAt,
             displayName: sellerData.displayName,
             email: user.email,
             userType: sellerData.userType,
@@ -75,6 +76,7 @@ export const UserProvider = ({ children }) => {
             isVerified: isVerified,
             productCount: sellerData.productCount,
             productSold: sellerData.productSold,
+            rating: sellerData.rating,
             subscription: sellerData.subscription || null,
             latestSubAction: sellerData.latestSubAction,
             latestSubExpiry: sellerData.latestSubExpiry,
