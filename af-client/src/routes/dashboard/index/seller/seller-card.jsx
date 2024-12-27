@@ -50,8 +50,8 @@ const SellerCardIndex = ({
                   </div> 
 
                   <span className="sc-subtitle">
-                    <BsDot />
-                    {address || "address not set"}
+                    <BsDot size={'20px'} fill='greenyellow' />&nbsp;
+                    {address || "address missing"}
                   </span>
                 </div>
                 { bankAcct && <div>
@@ -65,7 +65,8 @@ const SellerCardIndex = ({
                 { products && 
                   <div className='inventory-set'>
                     <span className='flex'>
-                      <FcBriefcase size={15}/> &nbsp; Inventory
+                      <FcBriefcase size={15}/> &nbsp; Inventory 
+                      <span className='text-success'>&nbsp; -&#x3e; </span>
                     </span>
                     <div className='val'>
                       Active: {products}

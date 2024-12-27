@@ -17,12 +17,12 @@ export const navLinks = [
   },
   {
     id: 3,
-    title: 'SAA Brand',
+    title: 'Seller Hub',
     link: '/brands',
   },
   {
     id: 4,
-    title: 'About Us',
+    title: 'Support',
     link: '/help',
   },
   {

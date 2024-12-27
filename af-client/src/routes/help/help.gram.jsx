@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import { HelpList } from "./help-list.component";
-import { HelpCard } from "./help-card.component";
+import { HelpCard } from "./help-contents";
 
 import "./help.styles.scss";
 
@@ -17,7 +17,7 @@ export const Help = () => {
   return (
     <div className="card p-2 mb-2">
       <div className="card-title">
-        <h3 className="text-center mx-auto bg-ws p-3">About Us</h3>
+        <h3 className="text-center mx-auto bg-ws p-3">Support</h3>
       </div>
       <div className="card container help-container">
         <div className="p-3 text-center">
@@ -58,17 +58,17 @@ export const Help = () => {
             <Row>
               <Col>
                 <Button variant="outline-secondary" href="#user-management" className="fixed-width-button">
-                  Track past Orders
+                  Track Orders
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="https://wa.me/2349021486959" className="fixed-width-button">
-                  Chat with an Agent 
+                <Button variant="outline-secondary" href="" className="fixed-width-button">
+                  Seller Services 
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="#shipping" className="fixed-width-button">
-                  Shopping and Delivery
+                <Button variant="outline-secondary" href="https://wa.me/2349021486959" className="fixed-width-button w-100">
+                  Chat with Support
                 </Button>
               </Col>
             </Row>

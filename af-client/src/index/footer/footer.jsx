@@ -11,7 +11,7 @@ const Footer = () => {
       <div className='footer-links'>
         <div className='links'>
         <p className='h-center'>
-          <a href="mailto:info@afrofashion.site?subject=Contact%20Us">Send Us a Message</a></p>          
+          <a href="/help#contact-us">Contact Us</a></p>          
           <p className='h-center'><a href='/#search'>Search Products</a></p>
           <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
         </div>
@@ -22,17 +22,19 @@ const Footer = () => {
         </div> 
         <div className='links'>
           <p className='h-center'><a href='/privacy-policy'>Privacy Policy</a></p>
-          {/* <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> // disabled until pending further notice  */}
+          <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> 
           <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
         </div> 
       </div>
       
-      <div className='h-center text-gray'>
+      <div className='h-center text-grey'>
         <hr className='w-50'/>
       </div>
 
-      <div className='p-3 text-center'>
-        <p className='font-awesome fs-smaller fw-501'>© Afrofashion, 2024</p>
+      <div className='p-3 my-4 text-center text-gray'>
+        <p className='font-awesome fs-smaller'>© 2022 - 2025. 
+          <span className='fw-l-bold'> AF Ltd. All Rights Reserved</span>
+        </p>
       </div>
     </Card>
   )

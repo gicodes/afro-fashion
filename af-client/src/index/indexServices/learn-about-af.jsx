@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 export const PrivacyPolicy = () => (
   // For some reason, this page in the app has been dedicated to "learnAboutAF" and as a way of protecting the application's policies, it will not be a single-standard-component
   <>
-    <div className='card'>
+    <div className='card policies'>
       <div className='container p-2'>
         <div className='card-header text-center'>
           <h4>Privacy Policy</h4>
@@ -16,9 +16,7 @@ export const PrivacyPolicy = () => (
               collects, uses, and discloses your Personal Information when you visit or make a purchase from the Afrofashion platform.</p>
           </div>
 
-          <br/>
-
-          <div className='card m-1 p-5'>
+          <div className='card m-1 p-3'>
             <h6>
               Information Collection and Use  &nbsp; <span className='fs-tiny'>[ 1.0 ]</span>
             </h6>
@@ -183,7 +181,7 @@ export default LearnAboutAF
 export const TermsOfService = () => (
   // For some reason, this page in the app has been dedicated to "learnAboutAF" and as a way of protecting the application's policies, it will not be a single-standard-component
   <>
-    <div className='card'>
+    <div className='card policies'>
       <div className='container p-2'>
         <div className='card-header text-center'>
           <h4>Terms Of Service</h4>
@@ -212,15 +210,17 @@ export const TermsOfService = () => (
                 Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. 
                 If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.
               </p>
+              <p>
                 Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. 
                 We reserve the right to update, change, or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. 
                 Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
-              <p>
+              </p>
+                <p>
                 Our store is hosted on Netlify Inc. They provide us with the hosting for our online e-commerce platform that allows us to sell our products and services to you.
               </p>
           </div>
 
-          <div className='m-1 p-5'>
+          <div className='px-3'>
             <h6>
               SECTION 1 - ONLINE STORE TERMS
             </h6>
@@ -239,7 +239,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='m-1 p-5'>
+          <div className='px-3'>
             <h6>
               SECTION 2 - GENERAL CONDITIONS
             </h6>
@@ -257,7 +257,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='m-1 p-5'>
+          <div className='mt-1 p-5'>
             <h6>
               SECTION 3 - ACCURACY, COMPLETENESS AND TIMELINESS OF INFORMATION
             </h6>
@@ -266,7 +266,7 @@ export const TermsOfService = () => (
             </div>
           </div>
 
-          <div className='m-1 p-5'>
+          <div className='px-3'>
             <p>
               We are not responsible if information made available on this site is not accurate, complete or current. 
               The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete, or more timely sources of information. Any reliance on the material on this site is at your own risk.
@@ -279,7 +279,7 @@ export const TermsOfService = () => (
 
           <br/> 
 
-          <div className='m-1 p-5'>
+          <div className='px-3'>
             <h6>
               SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES
             </h6>
@@ -297,7 +297,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 5 - PRODUCTS OR SERVICES (if applicable)
             </h6>
@@ -322,7 +322,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='px-3'>
             <h6>
               SECTION 6 - ACCURACY OF BILLING AND ACCOUNT INFORMATION
             </h6>
@@ -344,7 +344,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 7 - OPTIONAL TOOLS
             </h6>
@@ -364,7 +364,7 @@ export const TermsOfService = () => (
             <p>We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.</p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 8 - THIRD-PARTY LINKS
             </h6>
@@ -383,7 +383,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 9 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS
             </h6>
@@ -405,7 +405,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 10 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS
             </h6>
@@ -417,7 +417,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 11 - ERRORS, INACCURACIES AND OMISSIONS
             </h6>
@@ -435,7 +435,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 12 - PROHIBITED USES
             </h6>
@@ -452,7 +452,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 13 - DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY
             </h6>
@@ -479,7 +479,7 @@ export const TermsOfService = () => (
               or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 14 - INDEMNIFICATION
             </h6>
@@ -492,7 +492,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 15 - SEVERABILITY
             </h6>
@@ -505,7 +505,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 16 - TERMINATION
             </h6>
@@ -522,7 +522,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 17 - ENTIRE AGREEMENT
             </h6>
@@ -538,7 +538,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 18 - GOVERNING LAW
             </h6>
@@ -550,7 +550,7 @@ export const TermsOfService = () => (
             </p>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 18 - CHANGES TO TERMS OF SERVICE
             </h6>
@@ -559,7 +559,7 @@ export const TermsOfService = () => (
             </div>
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 19 - GOVERNING LAW
             </h6>
@@ -573,7 +573,7 @@ export const TermsOfService = () => (
               It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.
           </div>
 
-          <div className='p-1 m-5'>
+          <div className='p-3 mt-1'>
             <h6>
               SECTION 20 - CONTACT INFORMATION
             </h6>

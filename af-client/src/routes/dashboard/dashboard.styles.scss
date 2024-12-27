@@ -198,9 +198,10 @@
       display: flex;
       max-width: 200px;
       color: aquamarine;
-      font-size: smaller;
+      font-size: x-small;
       align-items: center; 
-      justify-content: space-between;
+      font-family: monospace;
+      justify-content: space-around;
     
       .val {
         span { 

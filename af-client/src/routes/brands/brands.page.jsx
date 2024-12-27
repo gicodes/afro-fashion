@@ -15,7 +15,7 @@ import { getSellerInfo } from '../../utils/firebase.utils';
 
 import './brands.styles.scss';
 
-// BrandPage is rendered when a user clicks the SAA Brand route
+// BrandPage is rendered when a user clicks the Seller Hub route
 const BrandsPage = () => {
   // Scaling Tip: Introduce Pagination for large data set
 
@@ -38,7 +38,7 @@ const BrandsPage = () => {
     <div className="brands-page-container">
       <div className="text-center mx-auto bg-ws p-3 mb-2">
         <h2> Sellers As A Brand </h2>        
-        <span className='fs-smaller'>Discover and connect with the best vendors for your needs</span>
+        <span className='fs-smaller'> Discover and connect with the best local vendors</span>
       </div>
 
       <Grid container spacing={3} justifyContent="center">
@@ -70,9 +70,10 @@ const BrandsPage = () => {
                   { brandInfo ? (
                     <Rating
                       name={`${brandName}-rating`}
-                      value={brandInfo.rating || 2}
+                      value={brandInfo.rating || 3}
                       precision={0.5}
                       readOnly
+                      size='small'
                     />
                     ) : (
                       <Typography variant="body2" color="textSecondary">
@@ -80,7 +81,7 @@ const BrandsPage = () => {
                       </Typography>
                   )}
                   
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" fontSize={'smaller'} color="textSecondary">
                     Joined: {formattedDate || 'N/A'}
                   </Typography>
                 </CardContent>

@@ -24,6 +24,10 @@ export const HelpList = () => {
         <li>
           <a href="#shipping">Shipping with Afrofashion</a>
         </li>
+        <li>
+          <a href="#contact-us">Contact Us</a>
+        </li>
+          
       </ul>
     </section>
   );

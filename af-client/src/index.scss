@@ -132,7 +132,7 @@ a {
 .vh-250 { min-height: 250px }
 
 .v-center { 
-  // center across the y-axis
+  // center across the y-axis : To be used with FLEX or GRID
   align-self: center; 
 } 
 
@@ -157,6 +157,7 @@ a {
 .fs-tiny { font-size: xx-small }
 
 .fw-bold { font-weight: 700; }
+.italic { font-style: italic; }
 .fw-l-bold { font-weight: 420;}
 
 .co-50 { color: #505050 } 
@@ -183,7 +184,7 @@ a {
   background-clip: text;
 }
 .text-ok { color: greenyellow }
-.text-grey { color: #909090 }
+.text-grey { color: #999999 }
 .text-white { color: white }
 .text-gray { color: #6d6d6d }
 .text-link { 

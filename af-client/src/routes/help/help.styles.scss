@@ -1,3 +1,5 @@
+// Help styles control help (Support) and credits page
+
 .formWidth {
   width: 100%;
   margin: auto;
@@ -49,9 +51,18 @@
   background: white;
   box-shadow: #ccc inset;
   padding: 2rem;
-  font-size: 14px;
 }
 
+@media screen and (max-width: 768px) {
+   h4 {
+    font-size: medium;
+  }
+  
+  .help-list { font-size: small;}
+  .help-list-card {
+    font-size: smaller;
+  } 
+}
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* Laptop styles */
