@@ -65,7 +65,7 @@ const BurgerMenu = ({isOpen, onClose}) => {
               <span className="green">ion</span>
             </h1>
             <p>
-              <span className='fs-tiny'>EST. 2022 - 2024</span>
+              <span className='fs-tiny'>EST. 2022 - 2025</span>
             </p>
           </div>
         </div>

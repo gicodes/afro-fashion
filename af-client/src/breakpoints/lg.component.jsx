@@ -42,11 +42,11 @@ const Index = () => {
         <Route index element={<HomeIndex />} />
         <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
-        <Route path='privacy-policy' element={<PrivacyPolicy/>} />
-        <Route path='terms-of-service' element={<TermsOfService />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy/>} />
+        <Route path="terms-of-service" element={<TermsOfService />} />
         <Route path="auth/register" element={<SignUp />} />
         <Route path="marketplace/*" element={<MarketPlace />} />
-        <Route path='brands' element={<BrandsPage />} />
+        <Route path="brands" element={<BrandsPage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />

@@ -32,8 +32,8 @@ const Footer = () => {
       </div>
 
       <div className='p-3 my-4 text-center text-gray'>
-        <p className='font-awesome fs-smaller'>© 2022 - 2025. 
-          <span className='fw-l-bold'> AF Ltd. All Rights Reserved</span>
+        <p className='font-awesome fs-smaller'>© 2025. 
+          <span className='fw-l-bold'> A-Fashion Site. All Rights Reserved.</span>
         </p>
       </div>
     </Card>

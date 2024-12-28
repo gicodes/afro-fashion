@@ -27,7 +27,6 @@ export const HelpList = () => {
         <li>
           <a href="#contact-us">Contact Us</a>
         </li>
-          
       </ul>
     </section>
   );
