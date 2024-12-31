@@ -128,7 +128,7 @@ const ProductCard = ({ product }) => {
               </div>
 
               <div className='flex-space-bet m-2'>
-                <span className='stock'> Stock: {count || "N/A"} </span>
+                <span className='stock'> Quantity: {count || "N/A"} </span>
                 <span> {ProductCategory(product)} </span>
               </div>
               

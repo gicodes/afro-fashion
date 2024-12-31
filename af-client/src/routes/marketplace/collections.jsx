@@ -15,7 +15,7 @@ const sortByPricesLowToHigh = (products) => {
   return [...products].sort((a, b) => b.price - a.price);
 };
 
-const sortByPopularity = (products) => {
+const sortByQuantity = (products) => {
   return [...products.sort((a, b) => b.count - a.count)];
 };
 
@@ -47,8 +47,8 @@ const Collections = () => {
         case "Price: High to Low":
           productsArray = sortByPricesLowToHigh(productsArray);
           break;
-        case "Popularity":
-          productsArray = sortByPopularity(productsArray);
+        case "Quantity":
+          productsArray = sortByQuantity(productsArray);
           break;
         case "Newest":
           productsArray = sortByNewest(productsArray);

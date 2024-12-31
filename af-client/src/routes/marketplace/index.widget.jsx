@@ -44,10 +44,10 @@ const FilterWidget = ({ setFilter }) => {
               }}
             >
               <MenuItem value="Random">Random</MenuItem>
+              <MenuItem value="Quantity">Quantity</MenuItem>
+              <MenuItem value="Newest">Recently Added</MenuItem>
               <MenuItem value="Price: Low to High">Price: Low to High</MenuItem>
               <MenuItem value="Price: High to Low">Price: High to Low</MenuItem>
-              <MenuItem value="Popularity">Popularity</MenuItem>
-              <MenuItem value="Newest">Newest</MenuItem>
             </Select>
           </FormControl>
         </Box>
