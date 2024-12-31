@@ -281,7 +281,7 @@ export const getTrendingItems = async () => {
                 id: item.id,
                 name: item.name,
                 price: item.price,
-                imageUrl: item.imageUrl,
+                imageUrl: item.imageUrl || item.imageUrls,
                 count: 1, // initialize count
               };
             }
@@ -344,10 +344,9 @@ export const getLatestItems = async () => {
 
 // Function to get the seller ID by brand name
 export const getSellerId = async (seller) => {
-  const sellersQuery = query(
-    collection(db, "sellers"),
-    where("brandName", "==", seller)
-  );
+  const sellersQuery = query(collection(db, "sellers"),
+    where("brandName", "==", seller) );
+
   const sellersSnapshot = await getDocs(sellersQuery);
   let sellerId = null;
 

@@ -21,7 +21,8 @@ export const Help = () => {
       </div>
       <div className="card container help-container">
         <div className="p-3 text-center">
-          <section className="help-heading -mt2">
+
+          <section className="help-heading -mt2 help-search">
             <h4>Welcome to Afrofashion</h4>
             <p>Documentation and References</p>
             <Form className="formWidth">
@@ -37,6 +38,7 @@ export const Help = () => {
               </InputGroup>
             </Form>
           </section>
+
           <section className="helpCenter">
             <Row>
               <Col>

@@ -8,8 +8,8 @@ const CreditsPage = () => {
           <div className="card-title">
             <h3 className="text-center mx-auto bg-ws p-3">Credits</h3>
           </div>
-          <div className="card p-1">
-            <div className="d-lg-flex mt-4">
+          <div className="card container p-1">
+            <div className="d-lg-flex help-container">
               <CreditsList />
               <CreditsCard />
           </div>
