@@ -16,7 +16,7 @@ const sortByPricesLowToHigh = (products) => {
 };
 
 const sortByPopularity = (products) => {
-  return [...products.sort((a, b) => a.count - b.count)];
+  return [...products.sort((a, b) => b.count - a.count)];
 };
 
 const sortByNewest = (products) => {

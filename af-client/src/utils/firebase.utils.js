@@ -292,7 +292,7 @@ export const getTrendingItems = async () => {
 
     // sort the items by count in descending order
     const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.count - a.count);
-    const topTrendingItems = trendingItemsArray.slice(0, 4);
+    const topTrendingItems = trendingItemsArray.slice(0, 6);
 
     return topTrendingItems;
   } catch (error) {
