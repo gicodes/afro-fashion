@@ -13,7 +13,7 @@ const TrendingIndex = () => {
   const navigate = useNavigate();
   const [ isLoading, setLoading ] = useState(true);
   const onRouteHandler = (route) => { navigate(route) }
-  const [trendingItems, setTrendingItems] = useState([]);
+  const [ trendingItems, setTrendingItems ] = useState([]);
 
   useEffect(() => {
     const fetchTrendingItems = async () => {
@@ -53,7 +53,7 @@ const TrendingIndex = () => {
           ))}
         </div>
       </div>
-      </Card>
+    </Card>
   )
 }
 

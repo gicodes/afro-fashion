@@ -4,7 +4,7 @@ const PrivacyTemp = ({ header, hNum, body }) => {
   return (
     <div className='card my-1 p-3'>
       <h6>
-        {header} &nbsp;[{hNum}]
+        {header} &nbsp; <span className="text-gray">[{hNum}] </span>
       </h6>
       {hrStyled}
       <div> {body} </div>
@@ -57,7 +57,7 @@ export const PrivacyPolicy = () => {
                 </p>
 
                 <span>
-                  <b>Device information</b> &nbsp; [1.1]
+                   <span className="fs-smaller"> [1.1] &nbsp;  </span> <b>Device information</b>
                 </span>
                 <p>
                   Examples of Personal Information collected include; version of web browser, IP address, time zone, cookie information, viewed products, search terms, and interactions with the platform.
@@ -66,7 +66,7 @@ export const PrivacyPolicy = () => {
                   Disclosure for smooth business transition can be shared with our processors Google and Flutterwave.
                 </p>
                 <span>
-                  <b>Order information</b>  &nbsp; [1.2]
+                  <span className="fs-smaller"> [1.2] &nbsp;  </span> <b>Order information</b> 
                 </span>
                 <p>
                   Examples of Personal Information collected include; name, billing address, shipping address, payment information, email address, and phone number.
@@ -74,7 +74,7 @@ export const PrivacyPolicy = () => {
                   These informations are collected from verified users: sellers and buyers.
                 </p>
                 <span>
-                  <b>Customer support information</b>  &nbsp; [1.3]
+                  <span className="fs-smaller"> [1.3] &nbsp;  </span> <b>Customer support information</b> 
                 </span>
                 <p>
                   Examples of Personal Information collected include; information provided during customer support interactions.
@@ -104,21 +104,21 @@ export const PrivacyPolicy = () => {
                 </p>
 
                 <span>
-                  <b>Automatic decision-making</b> &nbsp; [3.1]
+                  <span className="fs-smaller"> [3.1] &nbsp;  </span> <b>Automatic decision-making</b>
                 </span>
                 <p>
                   We do not engage in fully automated decision-making that has a legal or otherwise significant effect using customer data.
                 </p>
 
                 <span>
-                  <b>Retention</b> &nbsp; [3.2]
+                  <span className="fs-smaller"> [3.2] &nbsp;  </span> <b>Retention</b>
                 </span>
                 <p>
                   We retain your Personal Information for our records unless and until you ask us to erase this information.
                 </p>
 
                 <span>
-                  <b>Your Rights</b> &nbsp; [3.3]
+                  <span className="fs-smaller"> [3.3] &nbsp;  </span> <b>Your Rights</b>
                 </span>
                 <p>
                   If you are a resident of certain regions, including the European Economic Area (EEA) or California, you have certain rights regarding your Personal Information. Please contact us for more information.
@@ -137,7 +137,7 @@ export const PrivacyPolicy = () => {
                 </p>
 
                 <span>
-                  <b>Do Not Track</b> &nbsp; [4.1]
+                  <span className="fs-smaller"> [4.1] &nbsp;  </span> <b>Do Not Track</b>
                 </span>
                 <p>
                   We do not alter our data collection and usage practices in response to "Do Not Track" signals from your browser.

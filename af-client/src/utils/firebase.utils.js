@@ -262,7 +262,7 @@ export const getSellerBankInfo = async (seller) => {
   return sellerBankInfo;
 };
 
-// Get trending items from users collection by aggregating savedItems 
+// Get trending items from users collection by aggregating users savedItems 
 export const getTrendingItems = async () => {
   try {
     const usersRef = collection(db, 'users');
@@ -275,14 +275,14 @@ export const getTrendingItems = async () => {
         savedItems.forEach(item => {
           if (item.id) {
             if (itemMap[item.id]) {
-              itemMap[item.id].count++;
+              itemMap[item.id].usersSavedCount++;
             } else {
               itemMap[item.id] = {
                 id: item.id,
                 name: item.name,
                 price: item.price,
                 imageUrl: item.imageUrl || item.imageUrls,
-                count: 1, // initialize count
+                usersSavedCount: 1, // set default usersSavedCount to 1
               };
             }
           }
@@ -290,8 +290,8 @@ export const getTrendingItems = async () => {
       }
     });
 
-    // sort the items by count in descending order
-    const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.count - a.count);
+    // sort the items by usersSavedCount in descending order
+    const trendingItemsArray = Object.values(itemMap).sort((a, b) => b.usersSavedCount - a.usersSavedCount);
     const topTrendingItems = trendingItemsArray.slice(0, 6);
 
     return topTrendingItems;
