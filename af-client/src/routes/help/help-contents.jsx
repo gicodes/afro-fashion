@@ -345,7 +345,7 @@ export const HelpCard = () => {
               <FaWhatsapp /> &nbsp; <a href="https://wa.me/2349021486959">+234 902 148 6959</a> 
             </span>
             <span className="block">
-              <TbBrandInstagram /> &nbsp; <a href="https://instagram.com/afrofashion.site" className="text-link"> afrofashion.ng </a>
+              <TbBrandInstagram /> &nbsp; <a href="https://instagram.com/afrofashion.ng" className="text-link"> afrofashion.ng </a>
             </span>
             <span>
               <TbMailFilled /> &nbsp; <a href={`mailto:${recipient}?subject=${encodeURIComponent(subject)}`} className="text-link"> info@afrofashion.site </a>
