@@ -5,6 +5,7 @@ import { TbBrandInstagram, TbMailFilled } from "react-icons/tb";
 import { FcLike, FcDislike } from "react-icons/fc";
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
+
 export const HelpCard = () => {
   const now = new Date();
   
@@ -339,10 +340,10 @@ export const HelpCard = () => {
         content={
           <span>
             <span>
-              <FaPhoneAlt /> &nbsp; +234 902 148 6959, +234 810 442 3775
+              <FaPhoneAlt /> &nbsp; +234 706 620 7973, +234 902 148 6959
             </span>
             <span className="block">
-              <FaWhatsapp /> &nbsp; <a href="https://wa.me/2349021486959">+234 902 148 6959</a> 
+              <FaWhatsapp /> &nbsp; <a href="https://wa.me/2347066207973">+234 706 620 7973</a> 
             </span>
             <span className="block">
               <TbBrandInstagram /> &nbsp; <a href="https://instagram.com/afrofashion.ng" className="text-link"> afrofashion.ng </a>
