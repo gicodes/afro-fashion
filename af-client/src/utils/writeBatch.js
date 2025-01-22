@@ -71,13 +71,20 @@ export const addNewProduct = async (category, itemsToAdd) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const updatedItems = [...existingItems, itemsToAdd];
-      
+
       batch.update(categoryRef, { items: updatedItems });
       await batch.commit();
 
-    } else throw new Error("Category document not found");
-  } catch (err) {
-    throw new Error(err.message);
+    } else {
+      console.log("Category does not exist. Creating a new document.");
+
+      // create a new document if it does not exist
+      batch.set(categoryRef, { items: itemsToAdd });
+      await batch.commit();
+      console.log("New category created with items:", itemsToAdd);
+    }
+  } catch (error) {
+    console.error("Error updating category:", error);
   }
 };
 

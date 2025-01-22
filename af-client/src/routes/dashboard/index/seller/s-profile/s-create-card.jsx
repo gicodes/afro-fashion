@@ -3,7 +3,6 @@ import FormField from '../../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
 import { useAlert } from '../../../../../contexts/alert.context';
-import { serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
@@ -13,7 +12,7 @@ const defaultFormFields = {
   category: '',
   name: '',
   price: '',
-  count: '',
+  stock: '',
   images: [],
   info: '',
 }
@@ -26,7 +25,7 @@ export const SellerCreateCard = () => {
   const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
 
-  const { category, name, price, count, info, } = formFields;
+  const { category, name, price, stock, info, } = formFields;
 
   const generateRandomId = () => {
     const timestamp = new Date().getTime();
@@ -63,6 +62,7 @@ export const SellerCreateCard = () => {
     }
 
     const countOk = await countOkAddProduct(currentUser?.brandName, userId)
+    const timeStamp = new Date();
 
     try {
       const imagesArray = formFields?.images;
@@ -71,12 +71,12 @@ export const SellerCreateCard = () => {
         id: id,
         name: name,
         price: price,
-        count: count,
+        count: stock,
         info: info,
         seller: brandName,
         category: category,
         imageUrls: imageUrls,
-        updatedAt: serverTimestamp()
+        updatedAt: timeStamp
       }
 
       if (countOk) {
@@ -166,11 +166,11 @@ export const SellerCreateCard = () => {
           />
 
           <FormField 
-            id="count"
-            name="count"
+            id="stock"
+            name="stock"
             type="number" 
             onChange={handleChange}
-            value={formFields.count}  
+            value={formFields.stock}  
             label={'How much stock do you currently have?'}
           />
 

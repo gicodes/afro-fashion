@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const express = require('express');
+const router = express.Router();
 
 router.post('/api/send-password-reset-success-alert', async (req, res) => {
   const { email } = req.body;

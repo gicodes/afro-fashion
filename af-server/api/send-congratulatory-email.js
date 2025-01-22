@@ -1,4 +1,6 @@
 const nodemailer = require("nodemailer");
+const express = require('express');
+const router = express.Router();
 
 const transporter = nodemailer.createTransport({
   host: process.env.NODEMAILER_HOST,
@@ -10,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/api/send-email-verification-success-alert', async (req, res) => {
+router.post('/api/send-email-verification-success-alert', async (req, res) => {
   const { email } = req.body;
   
   const mailOptions = {
@@ -35,4 +37,5 @@ app.post('/api/send-email-verification-success-alert', async (req, res) => {
     res.status(500).json({ error: 'Failed to send email' });
   }
 });
-              
+     
+module.exports = router;
