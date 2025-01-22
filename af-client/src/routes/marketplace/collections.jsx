@@ -26,7 +26,7 @@ const sortByNewest = (products) => {
 
 // AF Marketplace is rendered in collections... 
 const Collections = () => {
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const [ filter, setFilter ] = useState("Random");
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ allProducts, setAllProducts ] = useState([]);

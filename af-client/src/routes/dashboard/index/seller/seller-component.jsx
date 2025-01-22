@@ -12,9 +12,9 @@ import { useState, useContext } from 'react';
 import SellerCardIndex from "./seller-card";
 import PieUtilityCard from "../pie-card";
 import { Link } from "react-router-dom";
+import { Paper } from "@mui/material";
 
 import "../../dashboard.styles.scss";
-import { Paper } from "@mui/material";
 
 const Dashboard = () => {
   const { addAutoCloseAlert } = useAlert();

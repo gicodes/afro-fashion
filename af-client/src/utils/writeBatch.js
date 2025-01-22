@@ -71,8 +71,11 @@ export const addNewProduct = async (category, itemsToAdd) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const updatedItems = [...existingItems, itemsToAdd];
+      console.log("updated existing items with", itemsToAdd);
 
       batch.update(categoryRef, { items: updatedItems });
+      console.log("New product created with items:", updatedItems);
+
       await batch.commit();
 
     } else {
@@ -226,7 +229,6 @@ export const countOkAddProduct = async (seller, sellerId) => {
         throw new Error(err.message);
       }
     }
-
     return true;
   } else return null;
 };

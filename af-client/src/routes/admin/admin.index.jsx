@@ -3,7 +3,7 @@ const AdminIndex = () => {
 
   const ActionBtn = ({text, color, description, action}) => {
     return (
-      <div 
+      <div
         className={`my-1 p-2 btn mw-268 mx-auto btn-${color}`}
         onClick={action}
       >
@@ -15,7 +15,6 @@ const AdminIndex = () => {
 
   return (
     <div className='p-2'>
-
       <div className='card container admin'>
         <div className='card-body'>
           <div className='mt-4 p-2'>
@@ -46,6 +45,6 @@ const AdminIndex = () => {
       </div>
     </div>
   )
-}
+};
 
 export default AdminIndex

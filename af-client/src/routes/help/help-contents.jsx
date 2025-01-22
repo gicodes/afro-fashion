@@ -58,7 +58,7 @@ export const HelpCard = () => {
         title={"Getting Started"}
         content={
           <span>
-            Products and services are available to users on various access levels..
+            Products and services are available to users on various access levels
 
             <span className="mt-2 mx-3">
               <li>
@@ -83,7 +83,7 @@ export const HelpCard = () => {
             </span>
 
             <span id="/user/seller" className="block">
-              Afrofashion Business is available to sellers on various service levels..
+              Afrofashion Business is available to sellers on various service levels
               
               <span className="mt-2 mx-3">
                 <li className="mt-1">
