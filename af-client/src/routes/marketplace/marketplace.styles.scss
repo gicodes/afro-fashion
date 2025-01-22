@@ -15,8 +15,14 @@
 
 @media (min-width: 768px) {
   .marketplace-route {
+    width: 100%;
     margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
+
+    .product-section {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 
   .filter-widget {

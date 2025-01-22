@@ -71,20 +71,15 @@ export const addNewProduct = async (category, itemsToAdd) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const updatedItems = [...existingItems, itemsToAdd];
-      console.log("updated existing items with", itemsToAdd);
 
       batch.update(categoryRef, { items: updatedItems });
-      console.log("New product created with items:", updatedItems);
 
       await batch.commit();
 
     } else {
-      console.log("Category does not exist. Creating a new document.");
-
       // create a new document if it does not exist
       batch.set(categoryRef, { items: itemsToAdd });
       await batch.commit();
-      console.log("New category created with items:", itemsToAdd);
     }
   } catch (error) {
     console.error("Error updating category:", error);
@@ -163,7 +158,6 @@ export const deleteSellerItem = async (category, itemId) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const deletedItem = existingItems.find((item) => item.id === itemId);
-
       if (deletedItem) {
         await deleteImages(itemId, deletedItem.images);
         // update the database by removing the item
@@ -179,17 +173,17 @@ export const deleteSellerItem = async (category, itemId) => {
 };
 
 // Helper method to delete images from Firebase Storage
-const deleteImages = async (imageUrls) => {
+const deleteImages = async (itemId, imageUrls) => {
   try {
-    if (imageUrls && imageUrls.length > 0) {
+    if (Array.isArray(imageUrls) && imageUrls.length > 0) {
       const promises = imageUrls.map(async (imageUrl) => {
         const imageRef = ref(storage, imageUrl);
         await deleteObject(imageRef);
-      })
-
+      });
       await Promise.all(promises);
-    }
+    } else console.error(`No images provided for item with ID: ${itemId}. Skipping image deletion.`);
   } catch (err) {
+    console.error(`Error deleting images for item with ID: ${itemId}.`, err);
     throw new Error(err.message);
   }
 };

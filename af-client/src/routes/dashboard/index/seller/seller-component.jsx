@@ -150,6 +150,7 @@ const Dashboard = () => {
                 > 
                   Edit Active Product 
                 </Button>
+                {/* Number 3: edit/ delete products lists */}
                 <div className="p-action">
                   { editItem && <SellerProducts sellerName={brandName} /> }
                 </div>

@@ -89,7 +89,7 @@ const Collections = () => {
       { allProducts?.length > 0 ? (
         <div className="marketplace-route">
           { currentProducts.map((product, index) => (
-            <section key={index} id={product.id} className="product-section my-1">
+            <section key={index} id={product.id} className="product-section flex-just-center my-1">
               <ProductCard key={product?.id} product={product} />
             </section>
           ))}
@@ -120,7 +120,7 @@ const Collections = () => {
             <FaChevronLeft size={'20px'} />
           </Button>
 
-          <span className='text-primary fs-smaller'> Page {currentPage} of {totalPages} </span>
+          <span className='fs-smaller'> Page {currentPage} of {totalPages} </span>
 
           <Button
             variant='contained'

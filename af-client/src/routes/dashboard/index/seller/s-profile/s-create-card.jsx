@@ -1,4 +1,5 @@
 import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../../../utils/writeBatch';
+import { formattedDate, formattedTime, newTime } from '../../../../../components/date/dateConverter';
 import FormField from '../../../../authentication/sign-up/form.component';
 import { useLoading } from '../../../../../contexts/loading.context';
 import { UserContext } from '../../../../../contexts/user.context';
@@ -28,10 +29,8 @@ export const SellerCreateCard = () => {
   const { category, name, price, stock, info, } = formFields;
 
   const generateRandomId = () => {
-    const timestamp = new Date().getTime();
     const randomNumber = Math.floor(Math.random() * 1000000);
-
-    return `${timestamp}-${randomNumber}`;
+    return `${newTime}-${randomNumber}`;
   }
 
   const id = generateRandomId();
@@ -45,7 +44,7 @@ export const SellerCreateCard = () => {
 
   const handleImgChange = (event) => {
     const { name, files } = event.target;
-    if (files?.length > 1) {
+    if (files?.length > 0) {
       setFormFields({ ...formFields, [name]: files });
     }
   };
@@ -62,7 +61,7 @@ export const SellerCreateCard = () => {
     }
 
     const countOk = await countOkAddProduct(currentUser?.brandName, userId)
-    const timeStamp = new Date();
+    const timeStamp = `${formattedDate} at ${formattedTime}`
 
     try {
       const imagesArray = formFields?.images;
@@ -101,13 +100,14 @@ export const SellerCreateCard = () => {
     <div className='card container'>
       <div className='p-2'>
         <form onSubmit={handleSubmit}>
-          <select  
+          <select
+            required
             id="category"
             name='category' 
             onChange={handleChange} 
             className="form-select centered-dropdown"
           > {/* values must match category values in db */}
-            <option>Select item category</option> 
+            <option value={""}>Select item category</option> 
             <option value="accessories">Accessories</option>
             <option value="bags">Bags</option>          
             <option value="hair">Hair & Accessories</option>
@@ -131,7 +131,7 @@ export const SellerCreateCard = () => {
             type="text" 
             value={formFields.name}
             onChange={handleChange}
-            label={'What is the name for this item?'}
+            label={'Item or Product Name'}
           />
 
           <div className="bg-ws">
@@ -162,7 +162,7 @@ export const SellerCreateCard = () => {
             type="number"
             onChange={handleChange}
             value={formFields.price}
-            label={'How much does this item cost in USD?'}
+            label={'Item or Product cost in USD?'}
           />
 
           <FormField 
@@ -171,7 +171,7 @@ export const SellerCreateCard = () => {
             type="number" 
             onChange={handleChange}
             value={formFields.stock}  
-            label={'How much stock do you currently have?'}
+            label={'How many units do you currently have?'}
           />
 
           <textarea

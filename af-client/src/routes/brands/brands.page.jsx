@@ -17,8 +17,9 @@ import './brands.styles.scss';
 
 // BrandPage is rendered when a user clicks the Seller Hub route
 const BrandsPage = () => {
+  
   // Scaling Tip: Introduce Pagination for large data set
-
+  
   const { brandItemsMap } = useContext(BrandContext);
   const [brandDetails, setBrandDetails] = useState({});
 
