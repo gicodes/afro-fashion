@@ -191,7 +191,7 @@ const deleteImages = async (itemId, imageUrls) => {
 // Critical function to track seller subscription and add product count
 export const countOkAddProduct = async (seller, sellerId) => {
   let maxProductCount;
-  let productCount = seller?.productCount || 0; 
+  let productCount = seller?.productCount || 0;
   const subscription = seller?.subscription;
 
   switch (subscription) {
@@ -210,7 +210,6 @@ export const countOkAddProduct = async (seller, sellerId) => {
   
   if (productCount < maxProductCount) { 
     // check if the productCount is within seller subscription
-    productCount++;
 
     const sellerRef = doc(collection(db, "sellers"), sellerId);
     const sellerDoc = await getDoc(sellerRef)
@@ -218,9 +217,9 @@ export const countOkAddProduct = async (seller, sellerId) => {
     if (sellerDoc.exists()){
       try {
         // add to seller product count
-        await updateDoc(sellerRef, { productCount: productCount +1})
+        await updateDoc(sellerRef, { productCount: productCount++})
       } catch (err) {
-        throw new Error(err.message);
+        throw new Error("New item failed to add to Seller's Product Count", err.message);
       }
     }
     return true;

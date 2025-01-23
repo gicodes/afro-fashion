@@ -89,7 +89,7 @@ export const SellerCreateCard = () => {
         addAlert("danger", 'You have exceeded your limit. Upgrade your subscription to continue creating products!')
       }
     } catch (err) {
-      addAlert("danger", 'something went wrong. Try again later!!')
+      addAlert("danger", 'Something went wrong. Please try again later!!')
     } finally {
       hideLoading();
       setIsSubmitting(false);
