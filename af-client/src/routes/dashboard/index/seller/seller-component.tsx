@@ -1,5 +1,5 @@
-import  BrandContext  from "../../../../contexts/brand.context.tsx";
-import { UserContext } from "../../../../contexts/user.context.tsx";
+import BrandContext  from "../../../../contexts/brand.context.tsx";
+import UserContext from "../../../../contexts/user.context.tsx";
 import { SellerPerformanceScore } from "./s-profile/s-performance.ts";
 import { useAlert } from "../../../../contexts/alert.context.tsx";
 import { SellerProfileCard } from "./s-profile/s-profile-card.tsx";
@@ -8,7 +8,7 @@ import { SellerProducts } from "./s-profile/s-products-card.tsx";
 import { Button, CloseButton } from "react-bootstrap";
 import PerformanceCard from "./seller-perf-card.tsx";
 import { FaUserShield } from "react-icons/fa";
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import SellerCardIndex from "./seller-card.tsx";
 import PieUtilityCard from "../pie-card.tsx";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ import "../../dashboard.styles.scss";
 const Dashboard: React.FC = () => {
   const { addAutoCloseAlert } = useAlert();
   const brandContext = useContext(BrandContext);
-  const brandItemsMap = brandContext?.brandItemsMap || {};
+  const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]);
   const { currentUser } = useContext(UserContext);
   const [ editItem, setEditItem ] = useState(false);
   const [ createItem, setCreateItem ] = useState(false);

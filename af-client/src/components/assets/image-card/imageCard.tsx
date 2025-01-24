@@ -19,9 +19,9 @@ export const ImageCard = styled(Card)<ImageCardProps>(({ image }) => ({
 
 export const images = [
   {
-    src: '/images/For_you_3.avif',
+    src: '/images/for_you_3.avif',
     text: 'FOR YOU',
-    col: 'burlywood',
+    col: 'silver',
     bgcol: null,
   },
   {
@@ -33,7 +33,7 @@ export const images = [
   {
     src: '/images/top_picks.jpg',
     text: 'TOP PICKS',
-    col: 'lightblue',
+    col: 'burlywood',
     bgcol: null,
   },
 ];

@@ -2,12 +2,12 @@
 
 import CartDropdown from "../components/cartServices/cart-dropdown/cart-dropdown.tsx";
 import CartIcon from "../components/cartServices/cart-icon/cart-icon.components.tsx";
-import { ReactComponent as Logo} from "../components/assets/afro-fashion.svg"
+import { ReactComponent as Logo } from "../components/assets/afro-fashion.svg";
 import React, { useEffect, useContext, useState , Fragment} from "react";
 import { blankAvi } from "../routes/dashboard/index/dash-assets.tsx";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useAlert } from "../contexts/alert.context.tsx";
-import { UserContext } from "../contexts/user.context.tsx";
+import UserContext from "../contexts/user.context.tsx";
 import { SignOutUser } from '../utils/firebase.utils.ts';
 import { TbHelpHexagonFilled } from "react-icons/tb";
 import { FaUserLargeSlash } from "react-icons/fa6";

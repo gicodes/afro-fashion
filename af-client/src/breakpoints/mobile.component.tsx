@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import FailedOperation from '../redirect/failedOp.tsx';
 import Footer from '../index/footer/footer.tsx';
 import PaymentSuccessful from '../redirect/paySuccess.tsx';
-import { UserContext } from "../contexts/user.context.tsx";
+import UserContext from "../contexts/user.context.tsx";
 import PasswordReset from '../redirect/passwordReset.tsx';
 import VerificationSuccess from '../redirect/verifySuccess.tsx';
 import CreditsPage from '../routes/credits/credits.tsx';

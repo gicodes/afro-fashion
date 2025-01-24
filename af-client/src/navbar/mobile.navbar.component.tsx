@@ -6,7 +6,7 @@ import React, { Fragment, useEffect, useContext, useState } from "react";
 import { Navbar, CloseButton, Container } from "react-bootstrap";
 import { blankAvi } from "../routes/dashboard/index/dash-assets.tsx";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../contexts/user.context.tsx";
+import UserContext from "../contexts/user.context.tsx";
 import { SignOutUser } from "../utils/firebase.utils.ts";
 import { useAlert } from "../contexts/alert.context.tsx";
 import BurgerMenu from './mobile.burger.tsx';

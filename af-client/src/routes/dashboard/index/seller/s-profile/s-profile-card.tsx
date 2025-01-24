@@ -1,7 +1,7 @@
 import { updateSeller, uploadImageAndGetUrl } from "../../../../../utils/writeBatch.ts";
 import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import { UserContext } from "../../../../../contexts/user.context.tsx";
 import { useAlert } from "../../../../../contexts/alert.context.tsx";
+import UserContext from "../../../../../contexts/user.context.tsx";
 import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
 import React, { useState, useContext } from 'react';
 import { blankAvi } from "../../dash-assets.tsx";
@@ -19,7 +19,7 @@ interface SellerProfileProps {
   isVerified: boolean;
 }
 
-export const SellerProfileCard: React.FC<SellerProfileProps> = ({ 
+export const SellerProfileCard: React.FC<SellerProfileProps>  = ({ 
   bio,
   sellerName,
   brandName, 
@@ -41,7 +41,8 @@ export const SellerProfileCard: React.FC<SellerProfileProps> = ({
     bank: bank || '',
     imageUrl: imageUrl || blankAvi,   
   });
-  const [ imgFile, setImgFile ] = useState<File | null>(null);
+
+  const [ imgFile, setImgFile ] = useState(null);
   const { currentUser } = useContext(UserContext);
   const userId = currentUser?.userId || currentUser?.id;
   const { addAutoCloseAlert } = useAlert();

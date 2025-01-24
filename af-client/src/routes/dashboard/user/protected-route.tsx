@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { UserContext } from "../../../contexts/user.context.tsx";
+import UserContext from "../../../contexts/user.context.tsx";
 import { useAlert } from "../../../contexts/alert.context.tsx";
 
 const ProtectedUserRoute = ({ element }) => {

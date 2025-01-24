@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { useLoading } from '../../contexts/loading.context.tsx';
 import BrandContext from '../../contexts/brand.context.tsx';
+import { useLoading } from '../../contexts/loading.context.tsx';
 import { FormControl, InputGroup, ListGroup } from 'react-bootstrap';
 
 import './search.styles.scss';
@@ -12,18 +12,18 @@ interface SearchBarProps {
   resultSx: string | null;
 }
 
+interface BrandObject {
+  name: string;
+  items: { id: string; name: string }[];
+}
+
 export const SearchBar: React.FC<SearchBarProps> = ({ searchSx, resultSx }) => {
   const [search, setSearch] = useState('');
   const [searchBox, setSearchBox] = useState(false);
   const { showLoading, hideLoading } = useLoading();  
   const { searchItemsByBrand } = useContext(BrandContext) || {};
-  interface BrandObject {
-    name: string;
-    items: { id: string; name: string }[];
-  }
   
   const [aggregatedResult, setAggregatedResult] = useState<BrandObject[]>([]);
-
   const handleSearch = async (event) => {
     const value = event.target.value;
 
@@ -51,7 +51,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ searchSx, resultSx }) => {
     setTimeout(hideLoading, 3000);
   };
 
-  // Render sellers and their products
   const searchResult = aggregatedResult.map((brandObject, index) => (
     <div key={index}>
       <ListGroup.Item>
@@ -60,7 +59,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ searchSx, resultSx }) => {
         </Link>
       </ListGroup.Item>
 
-      {brandObject?.items && brandObject?.items.length > 0 && (
+      {brandObject.items && brandObject.items.length > 0 && (
         <ListGroup>
           {brandObject?.items.map((product, productIndex) => (
             <ListGroup.Item key={productIndex} className="ml-4">

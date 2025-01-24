@@ -1,6 +1,6 @@
 import { deleteSellerItem, editSellerItem } from '../../../../../utils/writeBatch.ts';
 import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import  BrandContext  from '../../../../../contexts/brand.context.tsx';
+import BrandContext  from '../../../../../contexts/brand.context.tsx';
 import { useAlert } from '../../../../../contexts/alert.context.tsx';
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { serverTimestamp } from 'firebase/firestore';
@@ -11,8 +11,8 @@ import '../../../dashboard.styles.scss';
 export function SellerProducts ({ sellerName }) {
   const navigate = useNavigate();
   const seller = sellerName.toLowerCase();
-  const brandContext = useContext(BrandContext);
-  const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]); 
+    const brandContext = useContext(BrandContext);
+    const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]);
   const { showLoading, hideLoading } = useLoading();
   const [ brands, setBrands ] = useState(brandItemsMap[seller]);
 

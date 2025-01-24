@@ -1,6 +1,6 @@
 import Button from "../../../components/buttons/button.component.tsx";
-import { UserContext } from "../../../contexts/user.context.tsx"; 
 import {  UserProfileCard } from "./user-profile/profile-card.tsx";
+import UserContext from "../../../contexts/user.context.tsx"; 
 import { SavedItems } from "./user-profile/user.products.tsx";
 import React, { useState, useContext } from 'react';
 import PieUtilityCard from "../index/pie-card.tsx";
@@ -48,7 +48,8 @@ const UserProfile: React.FC = () => {
         </div>
 
         <div className="body2-container">
-          <div className="user-profile"> {/* this.className is used elsewhere, i.e. very sensitive to change */}
+          <div className="user-profile"> 
+            {/* this.className is used elsewhere, i.e. very sensitive to change */}
             <UserProfileCard 
               bio={bio}
               email={email} 

@@ -11,7 +11,7 @@ import './brands.styles.scss';
 import { Link } from 'react-router-dom';
 import { blankAvi } from '../dashboard/index/dash-assets.tsx';
 import { getSellerInfo } from '../../utils/firebase.utils.ts';
-import  BrandContext  from '../../contexts/brand.context.tsx';
+import BrandContext  from '../../contexts/brand.context.tsx';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 // BrandPage is rendered when a user clicks the Seller Hub route

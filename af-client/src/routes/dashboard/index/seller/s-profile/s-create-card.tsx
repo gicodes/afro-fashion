@@ -2,7 +2,7 @@ import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../
 import { formattedDate, formattedTime, newTime } from '../../../../../components/date/dateConverter.ts';
 import FormField from '../../../../authentication/sign-up/form.component.tsx';
 import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import { UserContext } from '../../../../../contexts/user.context.tsx';
+import UserContext from '../../../../../contexts/user.context.tsx';
 import { useAlert } from '../../../../../contexts/alert.context.tsx';
 import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";

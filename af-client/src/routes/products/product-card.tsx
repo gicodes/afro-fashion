@@ -5,7 +5,7 @@ import { ProductCategory } from './product-category.tsx';
 import { useAlert } from '../../contexts/alert.context.tsx';
 import { addToSavedItems } from '../../utils/writeBatch.ts';
 import { CartContext } from '../../contexts/cart.context.tsx';
-import { UserContext } from '../../contexts/user.context.tsx';
+import UserContext from '../../contexts/user.context.tsx';
 import { useLoading } from '../../contexts/loading.context.tsx';
 import { setPrice } from '../../components/checkout/checkout';
 import Button from '../../components/buttons/button.component.tsx';

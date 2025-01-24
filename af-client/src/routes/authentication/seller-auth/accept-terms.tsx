@@ -1,4 +1,4 @@
-import { UserContext } from "../../../contexts/user.context.tsx";
+import UserContext from "../../../contexts/user.context.tsx";
 import { useAlert } from '../../../contexts/alert.context.tsx';
 import { Button, Card, Form } from 'react-bootstrap';
 import { sendVerification } from './verification.ts';

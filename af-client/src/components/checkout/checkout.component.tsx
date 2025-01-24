@@ -6,7 +6,7 @@ import { Card, Button, } from 'react-bootstrap';
 import React, { useContext, useState } from 'react';
 import { useAlert } from '../../contexts/alert.context.tsx';
 import { CartContext } from '../../contexts/cart.context.tsx';
-import { UserContext } from '../../contexts/user.context.tsx';
+import UserContext from '../../contexts/user.context.tsx';
 
 import './checkout.styles.scss';
 

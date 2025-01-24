@@ -1,4 +1,5 @@
 import React from "react";
+import "./help.styles.scss";
 import { FaAmazonPay } from "react-icons/fa6";
 import { FcLike, FcDislike } from "react-icons/fc";
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
@@ -213,7 +214,7 @@ export const HelpCard = () => {
             </span>
             
             <span id="user-management">
-              <span className="block mt-3 fw-bold">User Management</span>
+            <span className="block mt-3 fw-bold">User Management</span>
 
               <span className="block">At the footer (bottom area) on every product or item, there are action buttons that signed-in users can interact with.</span>
               <li> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></li>
@@ -240,8 +241,9 @@ export const HelpCard = () => {
             <span className="block my-2"><a href="#getting-started/user/seller" className="link">Click to see more on seller registration and verification</a>.</span>
 
             <span id="brands-management">
-              <span className="block mt-3 fw-bold">Brands Management</span>
-              <span className="block">
+            <span className="block mt-3 fw-bold">Brands Management</span>
+
+            <span className="block">
                 Brands management is a critical and integral aspect of our eco-system. 
                 <span className="block mt-1 mb-1">Verified sellers can start a brand collection, and create or upload up to 5 products on the FREE tier.
                   We aim to achieve plenty, by working closely with vendors to enhance product visibility, authenticity, and consumer trust.

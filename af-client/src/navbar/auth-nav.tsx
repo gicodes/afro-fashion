@@ -1,5 +1,5 @@
 import useClickOutside from '../hooks/autoClose.component.tsx';
-import { UserContext } from '../contexts/user.context.tsx';
+import UserContext from '../contexts/user.context.tsx';
 import React, { useContext } from 'react'; 
 import { Link } from 'react-router-dom';
 import "./navbar.styles.scss";

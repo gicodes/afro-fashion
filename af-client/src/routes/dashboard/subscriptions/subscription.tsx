@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import ChoosAndPay from './chooseAndPay.tsx';
 import SubscriptionTable from './subTable.tsx';
 import { useState, useContext } from 'react';
-import { UserContext } from '../../../contexts/user.context.tsx';
+import UserContext from '../../../contexts/user.context.tsx';
 
 import './sub.styles.scss';
 

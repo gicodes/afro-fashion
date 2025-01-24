@@ -10,7 +10,7 @@ import './category.styles.scss';
 const Category = () => {
   const { category } = useParams<{ category: string | any }>(); 
   const categoriesContext = useContext(CategoriesContext);
-  const categoriesMap = useMemo(() => categoriesContext?.categoriesMap || {}, [categoriesContext]);
+  const categoriesMap =  useMemo(() => categoriesContext?.categoriesMap || {}, [categoriesContext])
   const categoriesInfo = categoriesContext?.categoriesInfo || [];
   const [ products, setProducts ] = useState<any[]>([]);
   const categoryInfo = categoriesInfo?.find((item) => item?.title === category?.toLowerCase().trim());

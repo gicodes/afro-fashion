@@ -69,9 +69,9 @@ export const Help = () => {
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-secondary" href="https://wa.me/2347066207973" className="fixed-width-button w-100">
-                  Chat with Support
-                </Button>
+              <Button variant="outline-secondary" href="https://wa.me/2347066207973" className="fixed-width-button w-100">                  
+                Chat with Support
+              </Button>
               </Col>
             </Row>
           </section>

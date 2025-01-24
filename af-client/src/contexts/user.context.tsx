@@ -1,8 +1,8 @@
-import React, {ReactNode, createContext, useEffect, useState, useCallback } from 'react';
+import React, { ReactNode, createContext, useEffect, useState, useCallback } from 'react';
 import { onAuthStateChangedListener } from '../utils/firebase.utils.ts';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
 import { useLoading } from './loading.context.tsx';
+import { useNavigate } from 'react-router-dom';
 
 interface UserContextType {
   currentUser: any;
@@ -11,18 +11,18 @@ interface UserContextType {
   setIntendedRoute: (route: string | null) => void;
 }
 
-export const UserContext = createContext<UserContextType>({
+const UserContext = createContext<UserContextType>({
   currentUser: null,
-  setCurrentUser: () => null,
   intendedRoute: null,
+  setCurrentUser: () => null,
   setIntendedRoute: () => null,
 });
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [intendedRoute, setIntendedRoute] = useState<string | null>(null);
-  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [ intendedRoute, setIntendedRoute ] = useState<string | null>(null);
+  const [ currentUser, setCurrentUser ] = useState<any>(null);
+  const [ userId, setUserId ] = useState<string>('');
   const { showLoading, hideLoading } = useLoading();
-  const [userId, setUserId] = useState('');
   const navigate = useNavigate();
 
   // Memoized version of fetchUserData to prevent unnecessary re-creation
@@ -118,3 +118,5 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     </UserContext.Provider>
   );
 };
+
+export default UserContext;

@@ -1,6 +1,6 @@
 import { updateUser, uploadImageAndGetUrl } from "../../../../utils/writeBatch.ts";
 import { useLoading } from '../../../../contexts/loading.context.tsx';
-import { UserContext } from '../../../../contexts/user.context.tsx';
+import UserContext from '../../../../contexts/user.context.tsx';
 import { useAlert } from "../../../../contexts/alert.context.tsx";
 import { MdUpload, MdSaveAs } from "react-icons/md";
 import { blankAvi } from "../../index/dash-assets.tsx";
@@ -32,7 +32,6 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
     imageUrl: imageUrl || blankAvi,   
   });
   const { addAutoCloseAlert } = useAlert();
-  const [ image, setImage ] = useState<string | null>(null);
   const [ imgFile, setImgFile ] = useState<File | null>(null);
   const { currentUser } = useContext(UserContext);
   const userId = currentUser?.userId || currentUser?.id;
@@ -80,8 +79,6 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
 
     try {
       const imageUrl = await uploadImageAndGetUrl(imageFile, userId);
-      setImage(imageUrl);
-      console.log("Image:", image);
       setInputFields({
         ...inputFields,
         imageUrl: imageUrl,
