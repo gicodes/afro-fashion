@@ -18,7 +18,7 @@ const ProtectedUserRoute = ({ element }) => {
       addAutoCloseAlert("warning", "You must be logged in to access this page");
       navigate('/auth');
     }
-  }, [currentUser, navigate, setIntendedRoute, location.pathname]);
+  }, [addAutoCloseAlert, currentUser, navigate, setIntendedRoute, location.pathname]);
 
   if (!currentUser || currentUser.userType !== 'buyer') {
 

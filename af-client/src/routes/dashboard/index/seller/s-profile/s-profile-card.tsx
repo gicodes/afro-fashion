@@ -3,11 +3,23 @@ import { useLoading } from '../../../../../contexts/loading.context.tsx';
 import { UserContext } from "../../../../../contexts/user.context.tsx";
 import { useAlert } from "../../../../../contexts/alert.context.tsx";
 import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
+import React, { useState, useContext } from 'react';
 import { blankAvi } from "../../dash-assets.tsx";
-import { useState, useContext } from 'react';
 import { Card } from "react-bootstrap"; 
 
-export const SellerProfileCard = ({ 
+interface SellerProfileProps {
+  bio: string;
+  sellerName: string;
+  brandName: string;
+  phone: string;
+  address: string;
+  imageUrl: string;
+  bankAcct: string;
+  bank: string;
+  isVerified: boolean;
+}
+
+export const SellerProfileCard: React.FC<SellerProfileProps> = ({ 
   bio,
   sellerName,
   brandName, 
@@ -17,7 +29,7 @@ export const SellerProfileCard = ({
   bankAcct,
   bank,
   isVerified
-}) => {
+}: SellerProfileProps) => {
   const { showLoading, hideLoading } = useLoading();
   const [ inputFields, setInputFields ] = useState({
     bio: bio || '',
@@ -29,9 +41,9 @@ export const SellerProfileCard = ({
     bank: bank || '',
     imageUrl: imageUrl || blankAvi,   
   });
-  const [ imgFile, setImgFile ] = useState(null);
-  const [ image, setImage ] = useState(null);
-  const { userId } = useContext(UserContext);
+  const [ imgFile, setImgFile ] = useState<File | null>(null);
+  const { currentUser } = useContext(UserContext);
+  const userId = currentUser?.userId || currentUser?.id;
   const { addAutoCloseAlert } = useAlert();
 
   const sellerId = userId;
@@ -67,7 +79,7 @@ export const SellerProfileCard = ({
     const file = event.target.files[0];
     if (file) {
       setImgFile(file);
-    } else setImgFile(image)
+    } else setImgFile(null)
   };
 
   const handleImgUpload = async (imageFile) => {
@@ -79,7 +91,6 @@ export const SellerProfileCard = ({
 
     try {
       const imageUrl = await uploadImageAndGetUrl(imageFile, sellerId);
-      setImage(imageUrl);
       setInputFields({
         ...inputFields,
         imageUrl: imageUrl,

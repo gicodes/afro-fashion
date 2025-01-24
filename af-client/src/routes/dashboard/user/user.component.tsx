@@ -1,5 +1,4 @@
 import Button from "../../../components/buttons/button.component.tsx";
-import { categoryTracker } from "./user-profile/product-tracker";
 import { UserContext } from "../../../contexts/user.context.tsx"; 
 import {  UserProfileCard } from "./user-profile/profile-card.tsx";
 import { SavedItems } from "./user-profile/user.products.tsx";

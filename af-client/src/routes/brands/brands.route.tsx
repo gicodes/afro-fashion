@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../products/product-card.tsx';
 import { getSellerInfo } from '../../utils/firebase.utils.ts';
 import { useLoading } from '../../contexts/loading.context.tsx';
-import { BrandContext } from '../../contexts/brand.context.tsx';
-import React, { useContext, useState, useEffect } from 'react';
+import  BrandContext  from '../../contexts/brand.context.tsx';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import SellerCardIndex from '../dashboard/index/seller/seller-card.tsx';
 
 import './brands.styles.scss';
@@ -13,7 +13,7 @@ import './brands.styles.scss';
 const BrandCollection: React.FC = () => {
   const { seller } = useParams();
   const brandContext = useContext(BrandContext);
-  const brandItemsMap = brandContext?.brandItemsMap || {};
+  const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]);
   const { showLoading, hideLoading } = useLoading();
   const [sellerInfo, setSellerInfo] = useState<any>({});
   const [brands, setBrands] = useState<any[]>([]);

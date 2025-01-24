@@ -81,6 +81,7 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
     try {
       const imageUrl = await uploadImageAndGetUrl(imageFile, userId);
       setImage(imageUrl);
+      console.log("Image:", image);
       setInputFields({
         ...inputFields,
         imageUrl: imageUrl,
@@ -103,7 +104,8 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
       <div className="user-profile">
         <div className="avatar">
           <div className="cover-photo"> 
-            {/* At some point, changeCoverPhoto=true */}
+            {/* Scaling Tip: Make cover photo dynamic */}
+            {/* At some point, coverPhoto?.history */}
           </div>
           <div className="flex-just-center">
             <img 

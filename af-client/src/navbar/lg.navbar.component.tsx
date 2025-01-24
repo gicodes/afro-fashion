@@ -2,7 +2,7 @@
 
 import CartDropdown from "../components/cartServices/cart-dropdown/cart-dropdown.tsx";
 import CartIcon from "../components/cartServices/cart-icon/cart-icon.components.tsx";
-import { ReactComponent as Logo } from "../components/assets/afro-fashion.svg";
+import { ReactComponent as Logo} from "../components/assets/afro-fashion.svg"
 import React, { useEffect, useContext, useState , Fragment} from "react";
 import { blankAvi } from "../routes/dashboard/index/dash-assets.tsx";
 import { Outlet, Link, useNavigate } from "react-router-dom";
@@ -13,10 +13,10 @@ import { TbHelpHexagonFilled } from "react-icons/tb";
 import { FaUserLargeSlash } from "react-icons/fa6";
 import { GiOpenBook } from "react-icons/gi";
 import { FaShopify } from "react-icons/fa6";
-import { MdSell } from "react-icons/md";
-import { Navbar } from 'react-bootstrap';
 import NavUserBadge from "./user-badge.tsx";
 import { AuthNav } from "./auth-nav.tsx";
+import { MdSell } from "react-icons/md";
+import { Navbar } from 'react-bootstrap';
 
 import './navbar.styles.scss'
 
@@ -97,7 +97,7 @@ const NavBarComponent = () => {
               <Logo/>
             </Link>
 
-            <Navbar.Brand href="/" className="nav-brand shake">
+            <Navbar.Brand href="/" className="nav-brand shake mx-auto">
               <h1>
                 <span className="green">A</span><span>fro</span>
                 <span className="green">F</span><span>ash</span><span className="green">ion</span>

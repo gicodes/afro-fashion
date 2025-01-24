@@ -98,7 +98,7 @@ const MobileNavBar = () => {
               </div>
 
               <div className="force-af-center" />
-              <Navbar.Brand className="v-center nav-brand">
+              <Navbar.Brand className="v-center nav-brand mx-auto">
                 <Link to="/"> {/* Used as a global navigator to home :/ index */}
                   <h1 className="mt-1 shake">
                     <span className="green">A</span>F

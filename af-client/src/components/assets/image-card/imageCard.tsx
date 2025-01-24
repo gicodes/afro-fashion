@@ -31,7 +31,7 @@ export const images = [
     bgcol: '#606060',
   },
   {
-    src: '/images/for_you.jpg',
+    src: '/images/For_you_3.avif',
     text: 'FOR YOU',
     col: 'burlywood',
     bgcol: null,

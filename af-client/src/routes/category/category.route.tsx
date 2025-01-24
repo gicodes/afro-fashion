@@ -1,5 +1,5 @@
 import { CategoriesContext } from '../../contexts/categories.context.tsx';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import ProductCard from '../products/product-card.tsx';
 import { useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
@@ -10,7 +10,7 @@ import './category.styles.scss';
 const Category = () => {
   const { category } = useParams<{ category: string | any }>(); 
   const categoriesContext = useContext(CategoriesContext);
-  const categoriesMap = categoriesContext?.categoriesMap || {};
+  const categoriesMap = useMemo(() => categoriesContext?.categoriesMap || {}, [categoriesContext]);
   const categoriesInfo = categoriesContext?.categoriesInfo || [];
   const [ products, setProducts ] = useState<any[]>([]);
   const categoryInfo = categoriesInfo?.find((item) => item?.title === category?.toLowerCase().trim());

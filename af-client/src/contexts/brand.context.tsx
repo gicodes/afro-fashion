@@ -7,7 +7,7 @@ interface BrandContextType {
   searchItemsByBrand: (sellerName: string) => Promise<{ name: string; items: unknown; }[]>;
 }
 
-export const BrandContext = createContext<BrandContextType | undefined>(undefined);
+const BrandContext = createContext<BrandContextType | undefined>(undefined);
 
 export const BrandProvider = ({ children }) => {
   const [brandItemsMap, setBrandItemsMap] = useState<Record<string, any>>({});
@@ -65,3 +65,5 @@ export const BrandProvider = ({ children }) => {
     </BrandContext.Provider>
   );
 };
+
+export default BrandContext;

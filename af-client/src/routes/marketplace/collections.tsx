@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import './marketplace.styles.scss';
 import FilterWidget from './index.widget.tsx';
 import { Box, Button } from "@mui/material";
@@ -31,7 +31,7 @@ const Collections = () => {
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ allProducts, setAllProducts ] = useState<any[]>([]);
   const categoriesContext = useContext(CategoriesContext);
-  const categoriesMap = categoriesContext?.categoriesMap || {};
+  const categoriesMap = useMemo(() => categoriesContext?.categoriesMap || {}, [categoriesContext]); 
 
   useEffect(() => {
     const fetchAndSetProducts = async () => {

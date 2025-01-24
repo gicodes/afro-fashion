@@ -1,4 +1,4 @@
-import { BrandContext } from "../../../../contexts/brand.context.tsx";
+import  BrandContext  from "../../../../contexts/brand.context.tsx";
 import { UserContext } from "../../../../contexts/user.context.tsx";
 import { SellerPerformanceScore } from "./s-profile/s-performance.ts";
 import { useAlert } from "../../../../contexts/alert.context.tsx";
