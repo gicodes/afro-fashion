@@ -26,7 +26,7 @@ Mobile Display:
 - The rendering and component lifecycle of this app also depend on `react` and `react-router-dom.`
 - Rewriting "create-react-app" default config, App.js is rendered inside the _index.js_ file like so;
 
-  _import App from './App' ;_
+  _import App from './App.tsx' ;_
 
   _ReactDOM.createRoot(document.getElementById('root')).render(_
 
@@ -93,39 +93,39 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > brands
         >
-        > - brands.route.jsx
+        > - brands.route.tsx
         > - brands.styles.scss
         >
         > ***
       - > category
         >
-        > - category.route.jsx
+        > - category.route.tsx
         > - category.styles.scxx
         > - mobile.category.routes.jsx
         >
         > ***
       - > credits
         >
-        > - credits.jsx
+        > - credits.tsx
       - > help
         >
         > - help-list-card
         > - help-list
-        > - help.gram.jsx
+        > - help.gram.tsx
         > - help.styles.scss
         >
         > ***
       - > index
         >
-        > - lg.component.jsx
-        > - mobile.component.jsx
+        > - lg.component.tsx
+        > - mobile.component.tsx
         >
         > ***
       - > navbar
         >
         > - mobile.lg.navbar.component..jsx
         > - mobile.navdrop.jsx
-        > - lg.navbar.component.jsx
+        > - lg.navbar.component.tsx
         > - navbar.styles.scss
         > - side-nav.jsx
         >
@@ -134,8 +134,8 @@ The main components of this application can be found under the _src_ directory l
         >
         > - s-profile
         >   > 4+ components
-        > - protected-route.jsx
-        > - seller.component.jsx
+        > - protected-route.tsx
+        > - seller.component.tsx
         > - seller.styles.scss
         >
         > ***
@@ -146,8 +146,8 @@ The main components of this application can be found under the _src_ directory l
       - > user
         >
         > - profile-card.jsx
-        > - protected-route.jsx
-        > - user.component.jsx
+        > - protected-route.tsx
+        > - user.component.tsx
         > - user.products.jsx
         > - user.styles.scss
         >

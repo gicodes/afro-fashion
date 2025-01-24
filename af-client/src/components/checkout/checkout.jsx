@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
+import { CartContext } from '../../contexts/cart.context.tsx';
 
 export const setPrice = (price) => {
   const numericPrice = parseFloat(price);

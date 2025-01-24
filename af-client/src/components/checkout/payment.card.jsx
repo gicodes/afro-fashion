@@ -1,5 +1,5 @@
 import Flutterwave from '../../utils/flutterwave';
-import { useAlert } from '../../contexts/alert.context';
+import { useAlert } from '../../contexts/alert.context.tsx';
 import { Card, Button, CloseButton } from 'react-bootstrap';
 
 const PaymentCard = ({ 

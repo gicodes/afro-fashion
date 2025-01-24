@@ -5,9 +5,7 @@ const router = express.Router();
 router.post('/api/send-password-reset-success-alert', async (req, res) => {
   const { email } = req.body;
 
-  if (!email) {
-    return res.status(400).json({ error: 'Email is required' });
-  }
+  if (!email) return res.status(400).json({ error: 'Email is required' });
 
   const transporter = nodemailer.createTransport({
     host: process.env.NODEMAILER_HOST,
@@ -20,24 +18,21 @@ router.post('/api/send-password-reset-success-alert', async (req, res) => {
   });
 
   const mailOptions = {
-    from: '"AfroFashion Support" <support@afrofashion.site>',
+    from: 'AfroFashion Support Team <support@afrofashion.site>',
     to: email,
     subject: 'Password Reset Successful',
-    text: `Hello,
-
-Your password has been reset successfully. If you did not request this change, please contact our support team immediately.
-
-Best regards,
-AfroFashion Support Team`,
+    text: `Hello, \n\n
+      Your password has been reset successfully. If you did not request this change, please contact our support team immediately.
+      \n\n
+      Best regards, \n\n AfroFashion Support Team`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log('Congratulatory email sent to:', email);
-    res.status(200).json({ message: 'Congratulatory email sent successfully' });
+    res.status(200).json({ message: 'Password Reset email sent successfully' });
   } catch (error) {
-    console.error('Error sending congratulatory email:', error.message);
-    res.status(500).json({ error: 'Failed to send congratulatory email' });
+    console.error('Error sending Password Reset email:', error.message);
+    res.status(500).json({ error: 'Failed to send Password Reset email' });
   }
 });
 

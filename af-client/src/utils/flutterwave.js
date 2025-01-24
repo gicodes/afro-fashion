@@ -1,6 +1,6 @@
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { getSellerBankInfo, getSellerId } from './firebase.utils';
-import { addToSavedItems, reduceItemCount } from './writeBatch';
+import { getSellerBankInfo, getSellerId } from './firebase.utils.ts';
+import { addToSavedItems, reduceItemCount } from './writeBatch.ts';
 
 const SERVER_URL = 'http://localhost:5000';
 
