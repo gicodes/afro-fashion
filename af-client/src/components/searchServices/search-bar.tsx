@@ -8,8 +8,8 @@ import { FormControl, InputGroup, ListGroup } from 'react-bootstrap';
 import './search.styles.scss';
 
 interface SearchBarProps {
-  searchSx: string;
-  resultSx: string;
+  searchSx: string | null;
+  resultSx: string | null;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({ searchSx, resultSx }) => {
