@@ -49,7 +49,7 @@ const IndexImages = () => {
         </CenteredText>
         <Pagination>
           {images.map((_, index) => (
-            <Dot key={index} /> // removed isActive={index === currentIndex} for type sake
+            <Dot isActive={index === currentIndex} key={index} />
           ))}
         </Pagination>
       </ImageCard>

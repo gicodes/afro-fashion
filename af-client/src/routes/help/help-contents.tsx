@@ -214,15 +214,14 @@ export const HelpCard = () => {
             </span>
             
             <span id="user-management">
-            <span className="block mt-3 fw-bold">User Management</span>
-
-              <span className="block">At the footer (bottom area) on every product or item, there are action buttons that signed-in users can interact with.</span>
-              <li> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></li>
-              <span className="mx-4 fs-smaller">Complete your purchase and track past orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </span>
-              <li> <FaAmazonPay /> <span className="mx-2 bg-ws"> Takes you to checkout</span> </li>   
-              <span className="mx-4 fs-smaller">View saved from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} </span>     
-              <li> <FcDislike /> <span className="mx-2 bg-ws"> hides items from your feed</span></li>
-              <span className="mx-4 fs-smaller">Control what you see, Control what you buy *only on {hiSpan ('PREMIUM')}</span>
+            <span className="block my-2 fw-bold">User Management</span>
+              At the footer (bottom area) on every product or item, there are action buttons that signed-in users can interact with.
+              <span className="block mt-2"> <FcLike /> <span className="mx-2 bg-ws">saves an item for later</span></span>
+              <span className="fs-smaller">View saved from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Saved Items')} </span>     
+              <span className="block mt-2"> <FaAmazonPay /> <span className="mx-2 bg-ws"> Takes you to checkout</span> </span>   
+              <span className="fs-smaller">Complete your purchase and track past orders from {hiSpan ("Dashboard ")}&gt; {hiSpan ('Past Orders')} </span>            
+              <span className="block mt-2"> <FcDislike /> <span className="mx-2 bg-ws"> hides items from your feed</span></span>
+              <span className="fs-smaller">Control what you see, Control what you buy <span className="block"> *only on {hiSpan ('PREMIUM')}</span></span>
 
               <span className="block mt-2">Completing purchases give users points that can be used on discount sales or promo offers.
                 <span className="block">There are other extended features for users with paid subscriptions such as self-services.</span>
@@ -238,10 +237,12 @@ export const HelpCard = () => {
         content={
           <span>
             Users with a locally registered Business can register and start selling on Afrofashion.
-            <span className="block my-2"><a href="#getting-started/user/seller" className="link">Click to see more on seller registration and verification</a>.</span>
+            <span className="block my-2">
+              <a href="#getting-started/user/seller" className="link">Click to see more on seller registration and verification</a>.
+            </span>
 
             <span id="brands-management">
-            <span className="block mt-3 fw-bold">Brands Management</span>
+            <span className="block my-2 fw-bold">Brands Management</span>
 
             <span className="block">
                 Brands management is a critical and integral aspect of our eco-system. 
@@ -249,10 +250,10 @@ export const HelpCard = () => {
                   We aim to achieve plenty, by working closely with vendors to enhance product visibility, authenticity, and consumer trust.
                 </span>
               <span className="block mt-2 mb-1">Explore how brands can operate on a business level</span>
-              <li> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</li>
-              <li> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential up</li>
-              <li> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</li>
-              <li> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate brands and businesses</li>
+              <span> Authenticity: Stringent measures are in place to verify sellers and product authenticity-- this will boost confidence and trust</span>
+              <span> Brand Promotion: Business promotions, targeted Ads, and other marketing strategies will be used to drive brand value and potential up</span>
+              <span> Collaboration: Strategic partnerships can and will expand brand reach and resonate with more and yet diverse audience</span>
+              <span> Loyalty Packages: Cash and prize incentives are up for grabs. We are happy to reward milestone sales and motivate brands and businesses</span>
               </span>
             </span>
           </span>
