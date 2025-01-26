@@ -21,7 +21,6 @@ const ProtectedUserRoute = ({ element }) => {
   }, [addAutoCloseAlert, currentUser, navigate, setIntendedRoute, location.pathname]);
 
   if (!currentUser || currentUser.userType !== 'buyer') {
-
     return null;
   }
 
