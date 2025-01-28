@@ -46,7 +46,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
   return (
     <Container ref={sideNavRef}>
       <nav className="burger-menu bg-black-gradient">
-        <div className="m-2 pt-5">
+        <div className="m-2 pt-2">
           <div className="vh-93" />
           { navLinks.map((item) => (
             <div key={item.id} className="mt-2">
@@ -63,7 +63,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
                 {item.title}
               </Link>
               {item.title === 'Support' && showSubPages && (
-                <div className="mb-4">
+                <div className="-mt mb-4">
                   { subPages.map((page, i) => (
                     <div key={i} className="mb-2">
                       <Link

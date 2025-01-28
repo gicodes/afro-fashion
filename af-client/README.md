@@ -101,7 +101,7 @@ The main components of this application can be found under the _src_ directory l
         >
         > - category.route.tsx
         > - category.styles.scxx
-        > - mobile.category.routes.jsx
+        > - mobile.category.routes.tsx
         >
         > ***
       - > credits
@@ -123,11 +123,11 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > navbar
         >
-        > - mobile.lg.navbar.component..jsx
-        > - mobile.navdrop.jsx
+        > - mobile.lg.navbar.component..tsx
+        > - mobile.navdrop.tsx
         > - lg.navbar.component.tsx
         > - navbar.styles.scss
-        > - side-nav.jsx
+        > - side-nav.tsx
         >
         > ***
       - > seller
@@ -141,14 +141,14 @@ The main components of this application can be found under the _src_ directory l
         > ***
       - > shop
         >
-        > - mobile.shop.jsx
-        > - shop.jsx
+        > - mobile.shop.tsx
+        > - shop.tsx
       - > user
         >
-        > - profile-card.jsx
+        > - profile-card.tsx
         > - protected-route.tsx
         > - user.component.tsx
-        > - user.products.jsx
+        > - user.products.tsx
         > - user.styles.scss
         >
         > ***
@@ -186,7 +186,7 @@ The assets used include SVG elements that are integral and unique to the brand o
 
 ## buttons
 
-The buttons hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
+The buttons hold .tsx and .scss components dynamically used and rendered throughout the application's UI.
 
 ## cartServices
 
@@ -194,15 +194,15 @@ The cartServices directory is a parent to cart components and functionality used
 
 ## collection
 
-The collection holds .jsx and .scss components responsible for categorizing data for the application's UI.
+The collection holds .tsx and .scss components responsible for categorizing data for the application's UI.
 
 ## directory
 
-The directory is a single, integral .jsx component responsible for reacting and rendering of the collection components.
+The directory is a single, integral .tsx component responsible for reacting and rendering of the collection components.
 
 ## products
 
-The products hold .jsx and .scss components dynamically used and rendered throughout the application's UI.
+The products hold .tsx and .scss components dynamically used and rendered throughout the application's UI.
 
 ## routes
 
