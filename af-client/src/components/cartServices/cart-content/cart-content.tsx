@@ -15,7 +15,7 @@ const CartContent = ({ cartItem }) => {
           <span className='name'>{name}</span>
           <span className='price'>
             <strong>{quantity}</strong> of&nbsp; 
-            <strong>${price}</strong>
+            <strong> ₦{price}</strong>
           </span>
         </div>
       </div>

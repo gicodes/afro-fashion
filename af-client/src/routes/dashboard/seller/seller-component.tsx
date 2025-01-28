@@ -13,7 +13,6 @@ import SellerCardIndex from "./seller-card.tsx";
 import { FaUserShield } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Paper } from "@mui/material";
-
 import "../dashboard.styles.scss";
 
 const Dashboard: React.FC = () => {
@@ -176,4 +175,4 @@ const Dashboard: React.FC = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;

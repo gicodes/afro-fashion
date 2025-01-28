@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import GetExchangeRate from '../../../utils/rate.utils.ts';
-import { updateSeller } from '../../../utils/writeBatch.ts';
-import { useAlert } from '../../../contexts/alert.context.tsx';
+import { subPricesPlan } from './subscription.tsx';
+import React, { useState, useEffect } from 'react';
+import { updateSeller } from '../../utils/writeBatch.ts';
+import { useAlert } from '../../contexts/alert.context.tsx';
 
-const ChooseAndPay = (userId) => {
+interface ChooseAndPayProps {
+  userId: string;
+}
+
+const ChooseAndPay: React.FC<ChooseAndPayProps> = ({ userId }) => {
   const navigate = useNavigate();
   const { addAutoCloseAlert } = useAlert();
   const [countdown, setCountdown] = useState(59);
@@ -25,59 +29,46 @@ const ChooseAndPay = (userId) => {
     }
   }, [countdown, navigate, addAutoCloseAlert]);
 
-  const handleRadioChange = (event) => {
-    setSubscription(event.target.value);
-  };
+  const handleRadioChange = (event) => setSubscription(event.target.value);
 
   const today = new Date();
+  const prices = subPricesPlan.map((plan) => plan.price);
 
-  let todaysRate;
   let expiresAt;
   let amount;
   let bank;
 
-  const format = 'MM/DD/YY'; // || 'DD/MM/YY' format
-
+  const format = 'MM/DD/YY'; // or 'DD/MM/YY' format
   if (format === 'MM/DD/YY') {
     expiresAt = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
   } else if (format === 'DD/MM/YY') {
     expiresAt = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
   }
 
-  const exchangeRate = GetExchangeRate();
-  if (exchangeRate !== null) {
-    todaysRate = exchangeRate + 300;
-  } else {
-    todaysRate = 1600; // default value if exchange rate is null
-  }
-  if (todaysRate < 1000) {
-    todaysRate = 1600;
-  }
 
   switch (subscription) {
     case "basic":
-      amount = todaysRate * 10;
-      bank = "Wema 0239578114"
+      amount = prices[1];
+      bank = "Wema 0239578114" // bank account number 1 & 4
       break;
     case "business":
-      amount = todaysRate * 25;
-      bank = "Kuda 2045103742"
+      amount = prices[2];
+      bank = "Kuda 2045103742" // bank account number 2 & 5
       break;
     case "premium":
-      amount = todaysRate * 50;
-      bank = "FirstBank 3080574360"
+      amount = prices[3];
+      bank = "FirstBank 3080574360" // bank account number 3
       break;
     default : 
   }
 
   const checkout = async (amount, subscription) => {
-    const { uid } = userId;
     const emailSubject = `I have just paid ${amount.toFixed(2)} for ${subscription} subscription`;
     const emailLink = `mailto:info@afrofashion.site?subject=${encodeURIComponent(emailSubject)}`;
 
-    await updateSeller(uid, 'subscription', subscription);
-    await updateSeller(uid, 'latestSubExpiry', expiresAt);
-    await updateSeller(uid, 'latestSubAction', "pending");
+    await updateSeller(userId, 'subscription', subscription);
+    await updateSeller(userId, 'latestSubExpiry', expiresAt);
+    await updateSeller(userId, 'latestSubAction', "pending");
 
     navigate('/subscriptions');
     window.location.href = emailLink;

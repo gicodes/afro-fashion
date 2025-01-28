@@ -61,7 +61,7 @@ const MobileNavBar = () => {
       setAuthNav(false); 
     };
     
-    setIsDisabled(true); // Disable all components
+    setIsDisabled(true); // disable all components
     addOptionsAlert('warning', 'Are you signing out?', handleYes, handleNo);
   }   
   

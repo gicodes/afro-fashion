@@ -4,7 +4,7 @@ export const subPages = [
   { name: 'Subscriptions', path: '/subscriptions' },
   { name: 'Refund Policy', path: '/refund-policy' },
   { name: 'Support Center', path: '/help/#contact-us' },
-  { name: 'Terms of Service', path: '/terms-of-service' }, 
+  { name: 'Terms of Use', path: '/terms-of-service' }, 
 ] 
 
 export const HelpPagePopUp = () => {

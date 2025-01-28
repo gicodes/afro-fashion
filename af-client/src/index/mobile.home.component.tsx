@@ -11,7 +11,7 @@ import IndexImages from "./indexServices/indexImages.tsx";
 import { SearchBar } from "../components/searchServices/search-bar.tsx";
 import { categories } from "../components/collection/collection.component.tsx";
 
-const HomeIndex = () => {
+const HomeIndex: React.FC = () => {
   return (
     <>
       <Container className="no-padding-container bg-lg">

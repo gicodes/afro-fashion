@@ -18,12 +18,12 @@ const Footer = () => {
         </div>
         <div className='links'>
           <p className='h-center'><a href='/help/#overview'>About Afrofashion</a></p>
-          <p className='h-center'><a href='/#help/#payments'>Exchange Rates</a></p>
+          <p className='h-center'><a href='/help/#payments'>Payment Methods</a></p>
           <p className='h-center'><a href='/subscriptions'>Subscriptions</a></p>
         </div> 
         <div className='links'>
           <p className='h-center'><a href='/privacy-policy'>Privacy Policy</a></p>
-          <p className='h-center'><a href='/privacy-policy'>Refund Policy</a></p> 
+          <p className='h-center'><a href='/refund-policy'>Refund Policy</a></p> 
           <p className='h-center'><a href='/terms-of-service'>Terms Of Service</a></p>
         </div> 
       </div>

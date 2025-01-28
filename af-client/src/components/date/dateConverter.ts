@@ -14,5 +14,12 @@ const timeFormatter = new Intl.DateTimeFormat("en-GB", {
 
 export const newTime = new Date().getTime();
 
+export const formatADateToDMY = (date) => {
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // months are 0-based
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  return `${day}/${month}/${year}`;
+};
+
 export const formattedDate = dateFormatter.format(new Date());
 export const formattedTime = timeFormatter.format(new Date());

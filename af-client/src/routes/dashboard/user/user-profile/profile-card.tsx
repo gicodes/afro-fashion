@@ -33,8 +33,8 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
   });
   const { addAutoCloseAlert } = useAlert();
   const [ imgFile, setImgFile ] = useState<File | null>(null);
-  const { currentUser } = useContext(UserContext);
-  const userId = currentUser?.userId || currentUser?.id;
+  const { uid } = useContext(UserContext);
+
 
   const handleInputChange = (field, value) => {
     setInputFields({ ...inputFields, [field]: value });
@@ -48,7 +48,7 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
     showLoading();
 
     try {
-      await updateUser(userId,`${inputField}`, value);
+      await updateUser(uid,`${inputField}`, value);
 
       if (inputField === "displayName"){
         addAutoCloseAlert("success", `User display name updated!`);
@@ -78,12 +78,12 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
     showLoading();
 
     try {
-      const imageUrl = await uploadImageAndGetUrl(imageFile, userId);
+      const imageUrl = await uploadImageAndGetUrl(imageFile, uid);
       setInputFields({
         ...inputFields,
         imageUrl: imageUrl,
       });
-      await updateUser(userId, 'imageUrl', imageUrl);
+      await updateUser(uid, 'imageUrl', imageUrl);
 
       addAutoCloseAlert("success", 'Profile photo updated!');
       setImgFile(null);

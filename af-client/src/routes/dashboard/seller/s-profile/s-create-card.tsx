@@ -146,7 +146,7 @@ export const SellerCreateCard: React.FC = () => {
             type="number"
             onChange={handleChange}
             value={formFields.price}
-            label={'Product price in USD?'}
+            label={'Product price in NGN?'}
           />
 
           <FormField 

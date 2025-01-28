@@ -16,6 +16,7 @@ import HomeIndex from '../index/lg.home.component.tsx';
 import CreditsPage from '../routes/credits/credits.tsx';
 import { Help } from '../routes/help/help.gram.tsx';
 import BrandsPage from '../routes/brands/brands.page.tsx';
+import Subscription from '../routes/subscriptions/subscription.tsx';
 import Checkout from '../components/checkout/checkout.component.tsx';
 import BrandCollection from '../routes/brands/brands.route.tsx';
 import MarketPlace from '../routes/marketplace/marketplace.route.tsx';
@@ -23,12 +24,11 @@ import UserProfile from '../routes/dashboard/user/user.component.tsx';
 import Seller from '../routes/dashboard/seller/seller-component.tsx';
 import SignIn from '../routes/authentication/user-auth/lg.sign-in.index.tsx';
 import SignUp from '../routes/authentication/user-auth/lg.sign-up.index.tsx';
-import Subscription from '../routes/dashboard/subscriptions/subscription.tsx';
 import ProtectedUserRoute from '../routes/dashboard/user/protected-route.tsx';
 import ProtectedSellerRoute from '../routes/dashboard/seller/protected-route.tsx'; 
 import { AcceptTerms } from '../routes/authentication/seller-auth/accept-terms.tsx';
 import { PrivacyPolicy, RefundPolicy, TermsOfService } from '../index/indexServices/learn-about-af.tsx';
-
+// To achieve global nested routing, add dynammic or section routes from help/#section
 
 const Index = () => {
   const { currentUser } = useContext(UserContext);

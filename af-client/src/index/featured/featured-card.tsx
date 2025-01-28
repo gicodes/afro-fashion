@@ -21,7 +21,7 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => {
           <span 
             className='price v-center fs-smaller'
           >
-            ${item.price}
+            ₦{item.price}
           </span>
         </div>
       </div>

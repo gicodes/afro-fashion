@@ -43,11 +43,10 @@ export const SellerProfileCard: React.FC<SellerProfileProps>  = ({
   });
 
   const [ imgFile, setImgFile ] = useState(null);
-  const { currentUser } = useContext(UserContext);
-  const userId = currentUser?.userId || currentUser?.id;
   const { addAutoCloseAlert } = useAlert();
+  const { uid } = useContext(UserContext);
 
-  const sellerId = userId;
+  const sellerId = uid;
 
   const handleInputChange = (field, value) => {
     setInputFields({ ...inputFields, [field]: value });

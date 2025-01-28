@@ -1,24 +1,23 @@
-import { setPrice } from './checkout';
 import { Link } from 'react-router-dom';
 import CheckoutContent from './checkout';
 import PaymentCard from './payment.card';
 import { Card, Button, } from 'react-bootstrap';
 import React, { useContext, useState } from 'react';
+import UserContext from '../../contexts/user.context.tsx';
 import { useAlert } from '../../contexts/alert.context.tsx';
 import { CartContext } from '../../contexts/cart.context.tsx';
-import UserContext from '../../contexts/user.context.tsx';
 
 import './checkout.styles.scss';
 
-const Checkout = () => {
+const Checkout: React.FC = () => {
   const { addAutoCloseAlert } = useAlert();
   const { cartItems } = useContext(CartContext);
-  const { currentUser } = useContext(UserContext);
-  const [ payCard, setPayCard ] = useState(false);
+  const { currentUser, uid } = useContext(UserContext);
+  const [ payCard, setPayCard ] = useState<boolean>(false);
 
   const items = cartItems.map((item) => { return item })
   
-  const { address, displayName, email, phone, userId } = currentUser || {};
+  const { address, displayName, email, phone } = currentUser || {};
 
   const togglePayCard = () => {
     if (cartTotal === 0){
@@ -32,15 +31,11 @@ const Checkout = () => {
     currentUser && cartTotal > 0 ? setPayCard(true) : setPayCard(false);
   }
 
-  const closePayCard = () => {
-    setPayCard(false);
-  }
+  const closePayCard = () => setPayCard(false);
 
   const cartTotal = cartItems.map(
     (item) => item.price * item.quantity).reduce((total, itemTotal) => total + itemTotal, 0
   )
-
-  const cartTotalinNaira = setPrice(cartTotal * 1500); // subject to change
 
   return (
     <>
@@ -62,7 +57,7 @@ const Checkout = () => {
           } 
           <tr className='total v-center'>
             <td className='sub-total fs-smaller'>
-              SUB-TOTAL: &nbsp; <h6>${`${cartTotal}.00`}&nbsp;</h6>
+              SUB-TOTAL: &nbsp; <h6> ₦{`${cartTotal}.00`}&nbsp;</h6>
             </td>
           </tr>
         </tbody>
@@ -70,19 +65,19 @@ const Checkout = () => {
 
       <div className='pay-button -mt2'>
         <div  onClick={togglePayCard} className='p-3 btn btn-info'>
-          Pay NGN {cartTotalinNaira}
+          Pay NGN {cartTotal}
         </div>
       </div>
       <div className='pay-gap'></div>
 
       { payCard && 
         <PaymentCard
-          amount={cartTotalinNaira}
+          amount={cartTotal}
           email={email} 
           name={displayName} 
           items={items} // should include `item.category` and `item.seller` to enhance data mapping
           phone_number={phone}
-          userId={userId}
+          userId={uid}
           closePayCard={closePayCard} 
         />
       }

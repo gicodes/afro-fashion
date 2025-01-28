@@ -5,6 +5,7 @@ import { useLoading } from './loading.context.tsx';
 import { useNavigate } from 'react-router-dom';
 
 interface UserContextType {
+  uid: string;
   currentUser: any;
   setCurrentUser: (user: any) => void;
   intendedRoute: string | null;
@@ -12,6 +13,7 @@ interface UserContextType {
 }
 
 const UserContext = createContext<UserContextType>({
+  uid: '',
   currentUser: null,
   intendedRoute: null,
   setCurrentUser: () => null,
@@ -63,7 +65,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           savedItems: userData.savedItems || '',
           imageUrl: userData.imageUrl || '',
         });
-        setUserId(user.uid);
+        setUserId(user?.uid);
       } else {
         const sellerData = await fetchUserData(user.uid, 'sellers');
 
@@ -88,10 +90,9 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             latestSubAction: sellerData.latestSubAction,
             latestSubExpiry: sellerData.latestSubExpiry,
           });
-          setUserId(user.uid);
+          setUserId(user?.uid);
         } else setCurrentUser(null);
       }
-
       hideLoading(); // prevents prolonged & redudant state
 
       if (intendedRoute) {
@@ -110,7 +111,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return () => unsubscribe();
   }, [fetchData]);
 
-  const value = { userId, setCurrentUser, currentUser, setIntendedRoute, intendedRoute };
+  const value = { uid: userId, setCurrentUser, currentUser, setIntendedRoute, intendedRoute };
 
   return (
     <UserContext.Provider value={value}>

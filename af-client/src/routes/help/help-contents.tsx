@@ -262,7 +262,7 @@ export const HelpCard: React.FC = () => {
       />
       
       <Template
-        url={"payment"}
+        url={"payments"}
         title={"Payments on Afrofashion"}
         content={
           <span>
@@ -283,7 +283,7 @@ export const HelpCard: React.FC = () => {
                 <b>Exchange Rates</b>
               </span>
               <span className="block"> What's a good business without real and stable market rates? </span>
-              <span className="block mt-2 mb-1">The default currency used to checkout payments on Afrofashion platforms is NGN, albeit products are listed and valued in USD. 
+              <span className="block mt-2 mb-1">The default currency used to checkout payments on Afrofashion platforms is NGN, albeit products can be valued or listed in USD. 
                 We have taken initiative to balance the spread on the exchange rates with accurate data from live markets. 
                 At the moment, our only supported currency-exchange pair is USD/NGN (US Dollar - Nigerian Naira).
               </span>

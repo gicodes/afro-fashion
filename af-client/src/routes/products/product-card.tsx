@@ -1,18 +1,17 @@
+import './product-card.styles.scss';
 import { Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FcLike, FcDislike } from "react-icons/fc";
 import { ProductCategory } from './product-category.tsx';
+import UserContext from '../../contexts/user.context.tsx';
 import { useAlert } from '../../contexts/alert.context.tsx';
 import { addToSavedItems } from '../../utils/writeBatch.ts';
 import { CartContext } from '../../contexts/cart.context.tsx';
-import UserContext from '../../contexts/user.context.tsx';
 import { useLoading } from '../../contexts/loading.context.tsx';
-import { setPrice } from '../../components/checkout/checkout';
+import { setPrice } from '../../components/checkout/checkout.tsx';
 import Button from '../../components/buttons/button.component.tsx';
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";
-
-import './product-card.styles.scss';
 
 export interface Product {
   id: string;
@@ -29,14 +28,12 @@ export interface Product {
 const ProductCard: React.FC<{product: Product}> = ({ product}) => {
   const navigate = useNavigate()
   const { addAutoCloseAlert } = useAlert();
-  const { currentUser } = useContext(UserContext);
-  const userId = currentUser?.userId || currentUser?.id;
+  const { uid } = useContext(UserContext);
   const { showLoading, hideLoading } = useLoading();
   const { addItemtoCart } = useContext(CartContext);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const { id, name, price, info, count, category, imageUrls, seller} = product;
-
   const multipleImages = Array.isArray(imageUrls) && imageUrls.length > 1;
 
   useEffect(() => {
@@ -84,7 +81,7 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
     
     const itemToAdd = { category, id, name,  price, imageUrl, seller };
 
-    addToSavedItems(userId, itemToAdd, "savedItems")
+    addToSavedItems(uid, itemToAdd, "savedItems")
       .then(() => {
         addAutoCloseAlert("success", 'Item saved successfully!');
       })
@@ -133,18 +130,16 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
           <div className='card-body'>
             <div className='name-price'>
               <a href={`/marketplace/products/${id}`} className='product-name'>{name}</a>
-              <span className='product-price'> ${setPrice(price)} </span>
+              <span className='product-price'> ₦{setPrice(price)} </span>
             </div>
             <div className='info-content'>
               <div className='description'>
                 <span>{info || "Description unavailable"}</span>
               </div>
-
               <div className='flex-space-bet m-2'>
                 <span className='stock'> Quantity: {count || "N/A"} </span>
                 <span> {ProductCategory(product)} </span>
               </div>
-              
               <div className='mt-2 p-3 card'>
                 <div className='footer-actions flex-space-bet'>
                   <FcLike onClick={handleSaveItem} size={25} />
@@ -161,4 +156,4 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
   );
 };
 
-export default ProductCard
+export default ProductCard;

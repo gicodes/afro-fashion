@@ -48,14 +48,13 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
       <nav className="burger-menu bg-black-gradient">
         <div className="m-2 pt-5">
           <div className="vh-93" />
-
           { navLinks.map((item) => (
             <div key={item.id} className="mt-2">
               <Link
                 to={item.link}
                 onClick={(e: any) => {
-                  e.preventDefault();
                   if (item.title === 'Support') {
+                    e.preventDefault();
                     setShowSubPages(!showSubPages); 
                   } else onClose();
                 }}
@@ -81,7 +80,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
             </div>
           ))}
 
-          <div className="text-center burger-bottom">
+          <div className="burger-bottom">
             <h1 className="nav-brand fs-mid">
               <span className="green">A</span>
               <span className="text-luminous">fro</span>
@@ -89,9 +88,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
               <span className="text-luminous">ash</span>
               <span className="green">ion</span>
             </h1>
-            <p>
-              <span className="fs-tiny">EST. 2022 - 2025</span>
-            </p>
+            <p><span className="fs-tiny">EST. 2022 - 2025</span></p>
           </div>
         </div>
       </nav>
