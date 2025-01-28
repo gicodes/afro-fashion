@@ -4,13 +4,21 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import "./navbar.styles.scss";
 
+interface AuthNavProps {
+  onSignOut: () => void | null;
+  device_class: string;
+  isDisabled: boolean;
+  isOpen: boolean;
+  onClose: () => void | null
+}
+
 // This component controls lg & mobile Auth Menu in the Navigation Bar
-export const AuthNav = ({ 
+export const AuthNav: React.FC<AuthNavProps> = ({ 
   onSignOut, 
   device_class, 
   isDisabled,
   isOpen, 
-  onClose 
+  onClose,
 }) => {
   const { currentUser } = useContext(UserContext);
   const navBarRef = useClickOutside(isOpen, onClose);
@@ -31,16 +39,18 @@ export const AuthNav = ({
         </div>
         
         <div className='card-body fs-smaller'>
-          <div className='hide-in-sm'>
+          <div //removed className='hide-in-sm'
+          >
             <Link title="Dashboard" onClick={onClose} to="dashboard">
               Dashboard
             </Link>
           </div>
-          <div className='flex-just-center hide-in-sm'>
+          <div className='flex-just-center' // removed hide-in-sm
+          > 
             <hr className='w-50'/>
           </div>  
           <div>
-            <Link title="subscriptions" onClick={onClose} to="#">
+            <Link title="subscriptions" onClick={onClose} to="subscriptions">
               Subscriptions
             </Link>
           </div> 

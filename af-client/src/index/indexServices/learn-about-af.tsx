@@ -1,12 +1,35 @@
 import React from 'react';
 
-// These components are childen of "learnAboutAF" so there are no single default exports
+// These components are part of the "learnAboutAF" tree. There are no single default exports
 
-const PrivacyTemp = ({ header, hNum, body }) => {
+interface PrivacyTempProps {
+  header: string;
+  hNum: string;
+  body: any;
+}
+
+const PrivacyTemp: React.FC<PrivacyTempProps> = ({ header, hNum, body }) => {
   return (
-    <div className='card my-1 p-3'>
+    <div className='my-3 px-3'>
       <h6>
         {header} &nbsp; <span className="text-gray">[{hNum}] </span>
+      </h6>
+      {hrStyled()}
+      <div> {body} </div>
+    </div>
+  )
+}
+
+interface TermsTemplateProps {
+  header: string;
+  body: any;
+}
+
+const TermsTemplate: React.FC<TermsTemplateProps> = ({ header, body }) => {
+  return (
+    <div className='my-3 px-3'>
+      <h6>
+        {header}
       </h6>
       {hrStyled()}
       <div> {body} </div>
@@ -19,17 +42,41 @@ const hrStyled = () =>
     <hr className='w-25'/>
   </div>
 
-const TermsTemplate = ({ header, body }) => {
+export const RefundPolicy = () => {
   return (
-    <div className='px-3'>
-      <h6>
-        {header}
-      </h6>
-      {hrStyled()}
-      <div> {body} </div>
+    <div className='card p-2 policies'>
+      <div className='card-header'>
+        <h4>Refund Policy</h4>
+      </div>
+
+      <div className='card-body container'>
+        <div className='p-3'>
+          <p>At Afrofashion, we prioritize customer satisfaction and stand by the quality of our products. Please review our strict refund policy below:</p>
+          
+          <div className='grid px-3'>
+            <div className='align-left mx-auto my-5'>
+              <p>
+                <b>Eligibility:</b>  Refunds are only applicable for items that arrive damaged, defective, or incorrect. Claims must be submitted within 7 days of delivery.</p>
+              <p>
+                <b>Non-Refundable Items:</b> Items marked as final sale, undergarments, swimwear, and customized products are non-refundable.</p>
+              <p>
+                <b>Conditions:</b> To qualify for a refund, items must be unused, in their original packaging, and with all tags intact.</p>
+              <p>
+                <b>Process:</b> To initiate a refund, email our support team at [refunds@afrofashion.site] with your order details and evidence (photos) of the issue.</p>
+              <p>
+                <b>Refund Method:</b> Approved refunds will be processed to the original payment method within 7–10 business days.</p>
+
+              <p>Note: Shipping fees are non-refundable. We reserve the right to deny refunds for items that do not meet our policy criteria</p>
+            </div>
+      
+            <p>For more information, please contact us at <span className='block fw-bold'>info@afrofashion.site&nbsp; ::: &nbsp;+234 902 148 6959</span></p>
+          </div>
+          
+        </div>
+      </div>
     </div>
   )
-}
+};
 
 export const PrivacyPolicy = () => {
   return (

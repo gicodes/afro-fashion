@@ -280,15 +280,14 @@ body { font-family: 'Roboto', sans-serif }
 }
 
 .category-card {
-  border: 1px solid #707070;
-  margin-bottom: 10px;
-  border-radius: 2%;
-  margin-top: 5px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  margin: 7px;
 
   .product-bar {
     justify-content: space-between;
     display: flex;
-    margin: 10px;
+    padding: 10px;
 
     .product-name {
       align-self: center;

@@ -1,13 +1,14 @@
-import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../../../utils/writeBatch.ts';
-import { formattedDate, formattedTime, newTime } from '../../../../../components/date/dateConverter.ts';
-import FormField from '../../../../authentication/sign-up/form.component.tsx';
-import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import UserContext from '../../../../../contexts/user.context.tsx';
-import { useAlert } from '../../../../../contexts/alert.context.tsx';
+import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../../utils/writeBatch.ts';
+import FormField from '../../../authentication/sign-up/form.component.tsx';
+import { useLoading } from '../../../../contexts/loading.context.tsx';
+import { useAlert } from '../../../../contexts/alert.context.tsx';
+import UserContext from '../../../../contexts/user.context.tsx';
+import { serverTimestamp } from 'firebase/firestore';
 import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button } from 'react-bootstrap';
-import '../../../dashboard.styles.scss';
+import { Button, Card } from 'react-bootstrap';
+import '../../dashboard.styles.scss';
+import { InfoRounded } from '@mui/icons-material';
 
 const defaultFormFields = {
   category: '',
@@ -18,20 +19,22 @@ const defaultFormFields = {
   info: '',
 }
 
-export const SellerCreateCard = () => {
+export const SellerCreateCard: React.FC = () => {
   const navigate = useNavigate();
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
   const { currentUser } = useContext(UserContext);
   const userId = currentUser?.userId || currentUser?.id; 
   const [ isSubmitting, setIsSubmitting ] = useState(false);
+  const [ uploadImageInfo, setUploadImageInfo ] = useState<boolean>(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { category, name, price, stock, info, } = formFields;
 
   const generateRandomId = () => {
+    const timeOfCreation = new Date().getTime();
     const randomNumber = Math.floor(Math.random() * 1000000);
-    return `${newTime}-${randomNumber}`;
+    return `${timeOfCreation}-${randomNumber}`;
   }
 
   const id = generateRandomId();
@@ -62,7 +65,6 @@ export const SellerCreateCard = () => {
     }
 
     const countOk = await countOkAddProduct(currentUser?.brandName, userId)
-    const timeStamp = `${formattedDate} at ${formattedTime}`
 
     try {
       const imagesArray = formFields?.images;
@@ -76,13 +78,13 @@ export const SellerCreateCard = () => {
         seller: brandName,
         category: category,
         imageUrls: imageUrls,
-        updatedAt: timeStamp
+        updatedAt: serverTimestamp
       }
 
       if (countOk) {
         await addNewProduct(category, itemsToAdd);
         addAlert("success", 
-        'Product created! It might up to take 15 minutes to propogate as we verify product authenticity');
+        'Your Product is being created... this may take up some time. You will be redirected to your brand page once it is ready.');
 
         hideLoading();
         navigate(path);
@@ -98,17 +100,29 @@ export const SellerCreateCard = () => {
   }
 
   return (
-    <div className='card container'>
-      <div className='p-2'>
+    <Card className='card my-2'>
+      <div className='card-header text-center'>
+        <h6>Create a new product for your audience</h6>
+      </div>
+      <div className='container'>
         <form onSubmit={handleSubmit}>
+          <FormField 
+            id="name"
+            name="name"
+            type="text" 
+            value={formFields.name}
+            onChange={handleChange}
+            label={'Product Name'}
+          />
+          
           <select
             required
             id="category"
             name='category' 
             onChange={handleChange} 
-            className="form-select centered-dropdown"
+            className="form-select centered-dropdown bg-wheat my-1"
           > {/* values must match category values in db */}
-            <option value={""}>Select item category</option> 
+            <option value={""}>Select product category</option> 
             <option value="accessories">Accessories</option>
             <option value="bags">Bags</option>          
             <option value="hair">Hair & Accessories</option>
@@ -127,43 +141,12 @@ export const SellerCreateCard = () => {
           </select>
 
           <FormField 
-            id="name"
-            name="name"
-            type="text" 
-            value={formFields.name}
-            onChange={handleChange}
-            label={'Item or Product Name'}
-          />
-
-          <div className="bg-ws">
-            <p className='flex-just-center fs-smaller pt-3co-50'>
-              <i>*Upload at least 2 different photos of this item*</i>       
-            </p>
-            <div className='m-3 fs-smaller'>
-              <li>Each photo must be less than 1MB</li> 
-              <li>The photos must be clear and distinctive</li>
-              <li>The photos must maintain same background (preferably white background)</li>
-            </div>
-
-            <div className="p-1">
-              <input 
-                onChange={handleImgChange}
-                accept=".jpg, .jpeg, .png"
-                id='upload-images'
-                name="images"
-                type="file"
-                multiple
-              />
-            </div>
-          </div>
-
-          <FormField 
             id="price"
             name="price"
             type="number"
             onChange={handleChange}
             value={formFields.price}
-            label={'Item or Product cost in USD?'}
+            label={'Product price in USD?'}
           />
 
           <FormField 
@@ -185,6 +168,35 @@ export const SellerCreateCard = () => {
             onChange={handleChange}
           />
 
+          <div className="bg-ws my-2 p-2">
+            <div className="p-1 flex">
+              <input 
+                onChange={handleImgChange}
+                accept=".jpg, .jpeg, .png"
+                id='upload-images'
+                name="images"
+                type="file"
+                multiple
+              />
+              <span onClick={() => setUploadImageInfo(!uploadImageInfo)}>
+                <InfoRounded />
+              </span>
+            </div>
+            { uploadImageInfo && 
+              <div className='fs-smaller my-3'>
+                <span className='flex-just-center fs-smaller'>
+                  <i>*Upload at least 2 different photos of this product*</i>       
+                </span>
+                <ul className='my-1'>
+                  <li>Each photo must be less than 1MB</li> 
+                  <li>All photos must be clear and distinctive</li>
+                  <li>All photos must maintain same background (preferably white background)</li>
+                </ul>
+              </div>
+            }
+          </div>
+
+
           <div className='m-2 flex-just-center'>
             <Button 
               type="submit" disabled={isSubmitting}
@@ -193,7 +205,7 @@ export const SellerCreateCard = () => {
             </Button>
           </div>
         </form>
-      </div> 
-    </div>
+      </div>
+    </Card> 
   )
 }

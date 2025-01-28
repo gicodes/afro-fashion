@@ -1,14 +1,16 @@
-import { deleteSellerItem, editSellerItem } from '../../../../../utils/writeBatch.ts';
-import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import BrandContext  from '../../../../../contexts/brand.context.tsx';
-import { useAlert } from '../../../../../contexts/alert.context.tsx';
+import { deleteSellerItem, editSellerItem } from '../../../../utils/writeBatch.ts';
 import React, { useState, useEffect, useContext, useMemo } from 'react';
+import { useLoading } from '../../../../contexts/loading.context.tsx';
+import BrandContext  from '../../../../contexts/brand.context.tsx';
+import { useAlert } from '../../../../contexts/alert.context.tsx';
 import { serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import '../../dashboard.styles.scss';
+import { Card } from 'react-bootstrap';
 
-import '../../../dashboard.styles.scss';
+interface SProductCardProps { sellerName: string; }
 
-export function SellerProducts ({ sellerName }) {
+export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
   const navigate = useNavigate();
   const seller = sellerName.toLowerCase();
     const brandContext = useContext(BrandContext);
@@ -69,7 +71,7 @@ export function SellerProducts ({ sellerName }) {
     };
 
     return (
-      <>
+      <div>
         <div className="product-bar" key={`${category}-${product?.id}`}>
           <span className="product-name">
             <b>{product?.name}</b>
@@ -93,7 +95,7 @@ export function SellerProducts ({ sellerName }) {
         </div>
 
         { editProduct && (
-          <>
+          <div className='mb-2'>
             <div className="input-group p-2 bg-ws">
               <div className="input-group-prepend">
                 <span className="input-group-text">Description</span>
@@ -144,22 +146,27 @@ export function SellerProducts ({ sellerName }) {
                 Submit Edit
               </button>
             </div>
-          </>
+          </div>
         )}
-      </>
+      </div>
     );
   };
 
   return (
-    <div className="card container">
+    <Card className="card my-2">
       { brands && Object.keys(brands).length > 0 ? (
         <div>
+          <div className='my-3 text-center text-success'> 
+            <h6>Active Products from your inventory</h6> 
+          </div>
           { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
-              <h6 className="flex-just-center mt-2 font-awesome">
-                {category.toUpperCase()}
-              </h6>
-              <hr />
+              <div className='card-header'>
+                <h6 className="font-awesome text-center">
+                  Category: <span className='text-gray'>{category.toUpperCase()}</span>
+                </h6>
+              </div>
+              
               { Array.isArray(categoryProducts) && categoryProducts.map((product) => (
                 <Product
                   key={product?.id}
@@ -175,6 +182,6 @@ export function SellerProducts ({ sellerName }) {
           You have no Active Product...
         </div>
       )}
-    </div>
+    </Card>
   );
 };

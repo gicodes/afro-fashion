@@ -16,15 +16,13 @@ import {
   getDocs,
   query,
   where,
-} from 'firebase/firestore'
-
+} from 'firebase/firestore';
 import { firebaseConfig } from './config.ts';
 import { initializeApp } from "firebase/app";
 
 const createdAt = new Date();
 
 const googleProvider = new GoogleAuthProvider();
-
 googleProvider.setCustomParameters({
   prompt: "select_account"
 })
@@ -77,7 +75,7 @@ export const customCreateUserWithEmail = async (
             phone,
             userType,
           }); // ... store sellerDocRef in firestore
-        } catch (error) {
+        } catch (error: any) {
           throw new Error("Error writing seller document: ", error);
         }
       }
@@ -96,14 +94,14 @@ export const customCreateUserWithEmail = async (
             phone,
             userType,
           }); // ... store userDocRef in firestore
-        } catch (error) {
+        } catch (error: any) {
           throw new Error("Error writing document: ", error);
         }
       }
     }
 
     return userCredential;
-  } catch (error) {     
+  } catch (error: any) {     
     throw new Error(error.message);
   }
 }
@@ -239,7 +237,7 @@ export const getAllBrandNames = async () => {
       if (brandName) {
         brandNames.push(brandName);
     }})
-  } catch (error) {
+  } catch (error: any) {
     throw new Error("Something went wrong:", error.message)
   }
 
@@ -308,7 +306,7 @@ export const getTrendingItems = async () => {
     const topTrendingItems = trendingItemsArray.slice(0, 6);
 
     return topTrendingItems;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(`Could not fetch trending items: ${error.message}`);
   }
 };
@@ -349,7 +347,7 @@ export const getLatestItems = async () => {
     );
     const topLatestItems = latestItemsArray.slice(0, 6);
     return topLatestItems;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching latest items:", error);
     throw new Error(`Could not fetch latest items: ${error.message}`);
   }
@@ -367,6 +365,5 @@ export const getSellerId = async (seller) => {
   sellersSnapshot.forEach((sellerDoc) => {
     sellerId = sellerDoc.id; // get the document ID, which is the seller ID
   });
-
   return sellerId;
 };

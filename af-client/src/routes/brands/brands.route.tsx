@@ -1,11 +1,11 @@
 import { Paper } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../products/product-card.tsx';
+import BrandContext  from '../../contexts/brand.context.tsx';
 import { getSellerInfo } from '../../utils/firebase.utils.ts';
 import { useLoading } from '../../contexts/loading.context.tsx';
-import BrandContext  from '../../contexts/brand.context.tsx';
+import SellerCardIndex from '../dashboard/seller/seller-card.tsx';
 import React, { useContext, useState, useEffect, useMemo } from 'react';
-import SellerCardIndex from '../dashboard/index/seller/seller-card.tsx';
 
 import './brands.styles.scss';
 
@@ -54,9 +54,9 @@ const BrandCollection: React.FC = () => {
           products={products}
           // bank && bankAcct data are unavailable
           // to add more data, import from sellerInfo
-          bank={null} 
-          bankAcct={null} 
-          toggleEditProfile={null} 
+          bank={undefined} 
+          bankAcct={undefined} 
+          toggleEditProfile={() => {}} 
         />
       </div>
   

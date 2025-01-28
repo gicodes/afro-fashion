@@ -1,5 +1,3 @@
-const date = new Date(); 
-
 const dateFormatter = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
   month: "long",
@@ -15,5 +13,6 @@ const timeFormatter = new Intl.DateTimeFormat("en-GB", {
 });
 
 export const newTime = new Date().getTime();
-export const formattedDate = dateFormatter.format(date);
-export const formattedTime = timeFormatter.format(date);
+
+export const formattedDate = dateFormatter.format(new Date());
+export const formattedTime = timeFormatter.format(new Date());

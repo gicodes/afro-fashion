@@ -5,7 +5,7 @@ import { TbUserExclamation } from "react-icons/tb";
 import { useAlert } from "../../../contexts/alert.context.tsx";
 
 // Link (in profile) to verify seller account
-export const VerifyNow = () => {
+export const VerifyNow: React.FC = () => {
     const { addAutoCloseAlert, addOptionsAlert } = useAlert();
     const navigate = useNavigate();
 

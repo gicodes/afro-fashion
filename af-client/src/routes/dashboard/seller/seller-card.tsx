@@ -1,13 +1,26 @@
 import React from 'react';
+import "../dashboard.styles.scss";
 import { Paper } from '@mui/material';
-import { blankAvi } from '../dash-assets.tsx';
+import { blankAvi } from '../index/dash-assets';
 import { BsBank2, BsDot } from "react-icons/bs";
 import { FcAddressBook, FcBriefcase } from 'react-icons/fc';
 import { FaAddressBook, FaUserEdit,  } from "react-icons/fa";
 
-import "../../dashboard.styles.scss"
+interface SellerCardIndexProps {
+  displayName: string;
+  brandName: string;
+  address: string;
+  bank: string | undefined | null;
+  bankAcct: string | undefined | null;
+  bio: string;
+  imageUrl: string | any; 
+  phone: string;
+  products: number | undefined | null;
+  sold: number | null;
+  toggleEditProfile: () => void | null;
+}
 
-const SellerCardIndex = ({
+const SellerCardIndex: React.FC<SellerCardIndexProps> = ({
     displayName,
     brandName,
     address,
@@ -55,6 +68,7 @@ const SellerCardIndex = ({
                     {address || "address missing"}
                   </span>
                 </div>
+
                 { bankAcct && <div>
                     <BsBank2 size={15} /> &nbsp; 
                     <span>{bank}</span>
@@ -82,7 +96,7 @@ const SellerCardIndex = ({
         </div>
         
         <div className="mt-2 text-center font-awesome fs-xs">
-          <p>{bio || "-"}</p>              
+          <p>{bio || "---"}</p>              
         </div>
         </div>
       </div>

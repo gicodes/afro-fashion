@@ -6,22 +6,23 @@ import { ReactComponent as Logo } from "../components/assets/afro-fashion.svg";
 import React, { useEffect, useContext, useState , Fragment} from "react";
 import { blankAvi } from "../routes/dashboard/index/dash-assets.tsx";
 import { Outlet, Link, useNavigate } from "react-router-dom";
+import { SignOutUser } from '../utils/firebase.utils.ts';
 import { useAlert } from "../contexts/alert.context.tsx";
 import UserContext from "../contexts/user.context.tsx";
-import { SignOutUser } from '../utils/firebase.utils.ts';
 import { TbHelpHexagonFilled } from "react-icons/tb";
 import { FaUserLargeSlash } from "react-icons/fa6";
+import { HelpPagePopUp } from "./page-popup.tsx";
 import { GiOpenBook } from "react-icons/gi";
 import { FaShopify } from "react-icons/fa6";
 import NavUserBadge from "./user-badge.tsx";
 import { AuthNav } from "./auth-nav.tsx";
-import { MdSell } from "react-icons/md";
 import { Navbar } from 'react-bootstrap';
-
+import { MdSell } from "react-icons/md";
 import './navbar.styles.scss'
 
-const NavBarComponent = () => {
+const NavBarComponent: React.FC = () => {
   const navigate = useNavigate();
+  const [ helpPopUpBar, setHelpPopUpBar ] = useState(false);
   const [ authNav, setAuthNav ] = useState(false);
   const [ closeBtn, setCloseBtn ] = useState(false);
   const [ cartOpen, setCartOpen ] = useState(false);
@@ -44,6 +45,7 @@ const NavBarComponent = () => {
     if (cartOpen) setCartOpen(false);
     setCloseBtn(!closeBtn);
     setAuthNav(true);
+    if (helpPopUpBar) setHelpPopUpBar(false);
   };
 
   const handleSignOut = () => {
@@ -63,25 +65,23 @@ const NavBarComponent = () => {
       setAuthNav(false);
     };
 
-    setIsDisabled(true); // Disable all components
+    setIsDisabled(true); // disable all components
     addOptionsAlert('warning', 'Are you sure you want to sign out?', handleYes, handleNo);
   };
   
   const imageUrl = currentUser?.imageUrl || blankAvi;
-  
+
   return (
     <Fragment>
       <Outlet />
-
       <Navbar 
         fixed="bottom" 
         bg="light"
       >
         { cartOpen && <CartDropdown />}
         { authNav && (
-          // copilot suggests to remove <div fixed="" />
           <div className="bottom-nav">
-            <AuthNav
+            <AuthNav // bottom right-end on lg devices
               device_class={"-lg"} 
               isDisabled={isDisabled}             
               isOpen={closeBtn}
@@ -89,6 +89,12 @@ const NavBarComponent = () => {
               onSignOut={handleSignOut}  
             />
           </div>
+        )}
+        {
+          helpPopUpBar && (
+            <div className="bottom-nav">
+              <HelpPagePopUp />
+            </div>
         )}
 
         <nav className={isDisabled ? "disabled navbar bottom" : "navbar bottom"}>
@@ -123,9 +129,15 @@ const NavBarComponent = () => {
                 <CartIcon/>
               </div>
 
-              <div className="nav-tab" title="Support">
-                <Link className="nav-link" to='help'>
-                  <TbHelpHexagonFilled size={24} color="darkslategrey"/>
+              <div 
+                className="nav-tab" 
+                title="Support" 
+                onClick={() => setHelpPopUpBar(!helpPopUpBar)}>
+                <Link className="nav-link" to='#'>
+                  <TbHelpHexagonFilled 
+                    size={helpPopUpBar ? 36 : 24} 
+                    color={helpPopUpBar ? "tomato" : "darkslategrey"}
+                  />
                 </Link>
               </div>
 

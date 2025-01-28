@@ -30,7 +30,7 @@ const CenteredText = styled(Typography)<CenteredTextProps>(({ bgcol, col }) => (
   textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)',
 }));
 
-const IndexImages = () => {
+const IndexImages: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

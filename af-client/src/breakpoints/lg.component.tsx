@@ -20,14 +20,14 @@ import Checkout from '../components/checkout/checkout.component.tsx';
 import BrandCollection from '../routes/brands/brands.route.tsx';
 import MarketPlace from '../routes/marketplace/marketplace.route.tsx';
 import UserProfile from '../routes/dashboard/user/user.component.tsx';
-import Seller from '../routes/dashboard/index/seller/seller-component.tsx';
+import Seller from '../routes/dashboard/seller/seller-component.tsx';
 import SignIn from '../routes/authentication/user-auth/lg.sign-in.index.tsx';
 import SignUp from '../routes/authentication/user-auth/lg.sign-up.index.tsx';
 import Subscription from '../routes/dashboard/subscriptions/subscription.tsx';
 import ProtectedUserRoute from '../routes/dashboard/user/protected-route.tsx';
-import ProtectedSellerRoute from '../routes/dashboard/index/seller/protected-route.tsx'; 
+import ProtectedSellerRoute from '../routes/dashboard/seller/protected-route.tsx'; 
 import { AcceptTerms } from '../routes/authentication/seller-auth/accept-terms.tsx';
-import { PrivacyPolicy, TermsOfService } from '../index/indexServices/learn-about-af.tsx';
+import { PrivacyPolicy, RefundPolicy, TermsOfService } from '../index/indexServices/learn-about-af.tsx';
 
 
 const Index = () => {
@@ -43,6 +43,7 @@ const Index = () => {
         <Route path="help" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="privacy-policy" element={<PrivacyPolicy/>} />
+        <Route path="refund-policy" element={<RefundPolicy />} />
         <Route path="terms-of-service" element={<TermsOfService />} />
         <Route path="auth/register" element={<SignUp />} />
         <Route path="marketplace/*" element={<MarketPlace />} />

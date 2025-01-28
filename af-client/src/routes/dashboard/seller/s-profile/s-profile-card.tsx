@@ -1,10 +1,10 @@
-import { updateSeller, uploadImageAndGetUrl } from "../../../../../utils/writeBatch.ts";
-import { useLoading } from '../../../../../contexts/loading.context.tsx';
-import { useAlert } from "../../../../../contexts/alert.context.tsx";
-import UserContext from "../../../../../contexts/user.context.tsx";
+import { updateSeller, uploadImageAndGetUrl } from "../../../../utils/writeBatch.ts";
+import { useLoading } from '../../../../contexts/loading.context.tsx';
+import { useAlert } from "../../../../contexts/alert.context.tsx";
+import UserContext from "../../../../contexts/user.context.tsx";
 import { MdUpload, MdSaveAs, MdVerified } from "react-icons/md";
+import { blankAvi } from "../../index/dash-assets.tsx";
 import React, { useState, useContext } from 'react';
-import { blankAvi } from "../../dash-assets.tsx";
 import { Card } from "react-bootstrap"; 
 
 interface SellerProfileProps {

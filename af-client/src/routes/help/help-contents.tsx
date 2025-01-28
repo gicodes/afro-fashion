@@ -8,12 +8,13 @@ import { formattedTime, formattedDate } from "../../components/date/dateConverte
 
 import "./help.styles.scss";
 
-export const HelpCard = () => {  
+export const HelpCard: React.FC = () => {  
   const Template = ({ url, title, content }) => {
     return (
       <section key={url} id={url}>
         <h4 className="pb-3"> {title} </h4>
-        <p> {content} </p> <br/>
+        <p> {content} </p> 
+        <br/>
       </section>
     )
   }
@@ -182,7 +183,7 @@ export const HelpCard = () => {
             <span className="block mb-2">
               <span className="fw-l-bold">Secure Solutions</span>: 
               Afrofashion system and services are built with client-server security in mind,
-            by adopting various modernized tools and technology to ensure users enjoy secure services.</span>
+              by adopting various modernized tools and technology to ensure users enjoy secure services.</span>
             <span className="block mb-2">
               <span className="fw-l-bold">Self-services</span>: 
               Clients like to be in control, and fortunately the customer is always right.
