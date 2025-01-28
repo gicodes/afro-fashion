@@ -1,7 +1,15 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './product-card.styles.scss';
+import { Link } from 'react-router-dom';
 
-export const ProductCategory = (product) => {
+interface ProductCategoryProps {
+  category: string;
+  stock: number;
+  price: number;
+  seller: string;
+}
+
+export const ProductCategory: React.FC<ProductCategoryProps> = (product) => {
   const itemClass = (product_stock, product_price) => {
     if (product_stock < 5 && product_price > 60000) {
       return "Limited"
