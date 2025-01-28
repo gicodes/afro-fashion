@@ -6,7 +6,7 @@ export const ProductCategory = (product) => {
     if (product_stock < 5 && product_price > 50) {
       return "Limited"
     } 
-    if (product_price > 80) {
+    if (product_price > 120000) {
       return "Exclusive"
     } else return ""
   }
