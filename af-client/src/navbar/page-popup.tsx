@@ -9,7 +9,7 @@ export const subPages = [
 
 export const HelpPagePopUp = () => {
   return (
-    <div className={`card mx-2 container bg-wheat -lg`}>
+    <div className={`card mx-2 container bg-ws -lg`}>
       <div className='card-body sub-pages'>
         { subPages.map((page, i) => (
           <p key={i}>
