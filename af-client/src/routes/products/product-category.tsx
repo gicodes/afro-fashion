@@ -3,7 +3,7 @@ import './product-card.styles.scss';
 
 export const ProductCategory = (product) => {
   const itemClass = (product_stock, product_price) => {
-    if (product_stock < 5 && product_price > 50) {
+    if (product_stock < 5 && product_price > 60000) {
       return "Limited"
     } 
     if (product_price > 120000) {
