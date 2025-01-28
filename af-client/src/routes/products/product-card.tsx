@@ -2,7 +2,7 @@ import './product-card.styles.scss';
 import { Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FcLike, FcDislike } from "react-icons/fc";
-import { ProductCategory } from './product-category.tsx';
+import { ProductClass } from './product-class.tsx';
 import UserContext from '../../contexts/user.context.tsx';
 import { useAlert } from '../../contexts/alert.context.tsx';
 import { addToSavedItems } from '../../utils/writeBatch.ts';
@@ -138,10 +138,10 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
               </div>
               <div className='flex-space-bet m-2'>
                 <span className='stock'> Quantity: {count || "N/A"} </span>
-                <span> {ProductCategory(product)} </span>
+                <span> {ProductClass(product)} </span>
               </div>
               <div className='mt-2 p-3 card'>
-                <div className='footer-actions flex-space-bet'>
+                <div className='flex-space-bet'>
                   <FcLike onClick={handleSaveItem} size={25} />
                   <FaAmazonPay onClick={handleInstantPay} size={28} fill='forestgreen'/>
                   <FcDislike onClick={handleDislike} size={25}/>

@@ -1,7 +1,19 @@
 import { Card } from '@mui/material';
 import React from 'react';
 
-export const FeaturedCard = ({item, index, onRouteHandler}) => {
+interface FeaturedCardProps {
+  item: {
+    id: string;
+    name: string;
+    price: number;
+    imageUrl: string | null;
+    imageUrls: string | any;
+  };
+  index: number;
+  onRouteHandler: (route: string) => void;
+}
+
+export const FeaturedCard: React.FC<FeaturedCardProps> = ({item, index, onRouteHandler}) => {
   return (
     <Card 
       key={`card-${index}`} 
@@ -15,11 +27,11 @@ export const FeaturedCard = ({item, index, onRouteHandler}) => {
           onClick={() => onRouteHandler(`/marketplace/products/${item.id}`)}
         />
         <div className='name-price mt-2 py-1'>
-          <span className='name fs-smaller text-success flex-wrap'>
+          <a className='name' href={`/marketplace/products/${item.id}`}>
             {item.name}
-          </span>
+          </a>
           <span 
-            className='price v-center fs-smaller'
+            className='price'
           >
             ₦{item.price}
           </span>

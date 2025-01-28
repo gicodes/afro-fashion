@@ -61,28 +61,29 @@
 
   .card-body {
     width: 100%;
-    padding: 2%;
+    padding: 10px;
     max-width: 355px;
     min-width: 355px;
 
     .name-price {
+      gap: 10px;
       width: 100%;
       display: flex;
       min-height: 50px;
       margin-top: 10px;
       align-items: center;
-      border: 1px solid transparent;
       justify-content: space-between;
 
       .product-name {
-        cursor: pointer;
         font-weight: 420;
+        font-size: smaller;
         color: forestgreen;
       }
 
       .product-price {
-        padding-left: 5px;
         color: black;
+        font-size: 14px;
+
       }
     }
     
@@ -98,7 +99,7 @@
       }
 
       .stock {
-        font-size: 13px;
+        font-size: 12px;
         color: #505050;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
@@ -110,16 +111,6 @@
 
     .pc-product-category {
       min-height: 75px;
-    }
-  }
-
-
-  @media (min-width: 992px) and (max-width: 1440px){
-    .card-main {
-      .footer-actions {
-        font-size: 22px;
-        size: 25;
-      }
     }
   }
 }
