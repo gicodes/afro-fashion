@@ -6,8 +6,6 @@ import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { TbBrandInstagram, TbMailFilled } from "react-icons/tb";
 import { formattedTime, formattedDate } from "../../components/date/dateConverter.ts";
 
-import "./help.styles.scss";
-
 export const HelpCard: React.FC = () => {  
   const Template = ({ url, title, content }) => {
     return (

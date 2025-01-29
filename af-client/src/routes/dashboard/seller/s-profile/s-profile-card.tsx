@@ -110,7 +110,7 @@ export const SellerProfileCard: React.FC<SellerProfileProps>  = ({
 
   return (
     <Card className="col-md-8">            
-      <div className="card">
+      <div className="card container">
         <div className="mx-auto">
           <div className="flex-just-center avatar"> 
             <img 

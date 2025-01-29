@@ -115,6 +115,7 @@
   }
 
   .name-price {
+    gap: 5px;
     width: 100%;
     display: grid;
 
@@ -150,9 +151,9 @@
   .featured-container {
     display: flex;
       .hot-and-trending {
-          .items-row {
-          padding: 0 5%;
+        .items-row {
           grid-template-columns: repeat(3, 1fr);
+          padding: 0;
         } 
       }
       .new-and-latest {
@@ -198,8 +199,8 @@
           }
 
           .name-price {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            width: 100%;
           }
         }
       }

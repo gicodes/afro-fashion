@@ -1,45 +1,28 @@
 import React from "react";
-import {
-  Form,
-  InputGroup,
-  FormControl,
-  Button,
-  Row,
-  Col,
-} from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
-import { HelpList } from "./help-list.component.tsx";
-import { HelpCard } from './help-contents.tsx';
-
 import "./help.styles.scss";
+import { HelpCard } from './help-contents.tsx';
+import { Col, Button, Row } from "react-bootstrap";
+import { HelpList } from "./help-list.component.tsx";
 
-export const Help = () => {
+export const Help: React.FC = () => {
   return (
     <div className="card p-2 mb-2">
       <div className="card-title">
         <h3 className="text-center mx-auto bg-ws p-3">Support</h3>
       </div>
-      <div className="card container help-container">
+      <div className="card container help-container">  
+        <div className="d-lg-flex">
+          <HelpList />
+          <hr/>
+        </div>
+
         <div className="p-3 text-center">
-
-          <section className="help-heading -mt2 help-search">
+          <div className="help-heading help-search">
             <h4>Welcome to Afrofashion</h4>
-            <p>Documentation and References</p>
-            <Form className="formWidth">
-              <InputGroup className="my-3">
-                <FormControl
-                  placeholder="Search for help..."
-                  aria-label="Search for support"
-                  aria-describedby="basic-addon2"
-                />
-                <Button variant="outline-secondary" id="button-addon2">
-                  <FaSearch />
-                </Button>
-              </InputGroup>
-            </Form>
-          </section>
+            <p>Support Center</p>
+          </div>
 
-          <section className="helpCenter">
+          <section className="help-center">
             <Row>
               <Col>
                 <Button variant="outline-secondary" href="#products" className="fixed-width-button">
@@ -69,16 +52,14 @@ export const Help = () => {
                 </Button>
               </Col>
               <Col>
-              <Button variant="outline-secondary" href="https://wa.me/2347066207973" className="fixed-width-button w-100">                  
+              <Button variant="outline-secondary" href="https://wa.me/2347066207973" className="fixed-width-button">                  
                 Chat with Support
               </Button>
               </Col>
             </Row>
           </section>
         </div>
-        <hr />
-        <div className="d-lg-flex mt-4">
-          <HelpList />
+        <div>
           <HelpCard />
         </div>
       </div>

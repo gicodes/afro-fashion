@@ -104,10 +104,10 @@ const NavBarComponent: React.FC = () => {
             </Link>
 
             <Navbar.Brand href="/" className="nav-brand shake mx-auto">
-              <h1>
+              <h3>
                 <span className="green">A</span><span>fro</span>
                 <span className="green">F</span><span>ash</span><span className="green">ion</span>
-              </h1>
+              </h3>
             </Navbar.Brand>
 
             <div className="flex justify-content-end">

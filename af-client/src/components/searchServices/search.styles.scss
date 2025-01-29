@@ -23,14 +23,31 @@
   padding-left: 25px;
 }
 
-.search-results {
-  margin: 1%;
-  padding: 2%;
-  margin-top: -2px;
+.search-results-container {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: smaller;
   background-color: white;
-  
-  span {
-    display: flex;
-    justify-content: center;
+  border-bottom: 0.5px solid gray;
+
+  .brand-result, .product-result, .category-result {
+    border: 0.1px solid ghostwhite;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 0;
+    margin: 1px;
   }
+
+  .brand-result { 
+    span { color: forestgreen; }
+  }
+
+  .product-result { 
+    span { color: darkolivegreen;}
+  }
+
+  .category-result {
+    span { color: darkslateblue; }
+  }
+  span { padding: 0 20px;}
 }

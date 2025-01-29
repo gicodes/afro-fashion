@@ -4,7 +4,7 @@ import "./help.styles.scss";
 export const HelpList = () => {
   return (
     <section className="help-list">
-      <ul className="custom-list">
+      <ul>
         <li>
           <a href="#getting-started">Overview 
             <span className="text-success">*</span>

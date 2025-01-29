@@ -40,7 +40,7 @@ const Index = () => {
     <Routes>
       <Route path='/' element={<NavBar />}>
         <Route index element={<HomeIndex />} />
-        <Route path="help" element={<Help />} />
+        <Route path="support" element={<Help />} />
         <Route path="auth" element={<SignIn />} />
         <Route path="privacy-policy" element={<PrivacyPolicy/>} />
         <Route path="refund-policy" element={<RefundPolicy />} />

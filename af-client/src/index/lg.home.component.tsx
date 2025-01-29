@@ -16,7 +16,7 @@ const HomeIndex: React.FC = () => {
       <Paper>
         <SearchBar 
           searchSx={"mt-1"} 
-          resultSx={"fullWidth"} 
+          resultSx={"fullWidth -mt"} 
         />
         <IndexImages />
         <CategoryIndex categories={categories} />

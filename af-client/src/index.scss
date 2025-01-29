@@ -130,6 +130,7 @@ a {
 .hidden { display: none }
   
 .fullWidth { width: 100% }
+.halfWidth { width: 50%;}
 .w-75 { width: 75%; }
 .w-80 {width: 80%;}
 .w-90 { width: 90%;}
@@ -159,6 +160,11 @@ a {
   align-items: center;
   justify-content: center;
 }
+.underline {
+  text-decoration: underline;
+}
+
+  // custom flex styles
 
 .sub-pages {
   gap: 1rem;

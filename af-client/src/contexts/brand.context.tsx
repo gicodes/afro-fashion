@@ -4,12 +4,12 @@ import { useLoading } from './loading.context.tsx';
 
 interface BrandContextType {
   brandItemsMap: Record<string, any>;
-  searchItemsByBrand: (sellerName: string) => Promise<{ name: string; items: unknown; }[]>;
+  searchItemsByBrand: (sellerName: string) => Promise<{ title: string; items: unknown; }[]>;
 }
 
 const BrandContext = createContext<BrandContextType | undefined>(undefined);
 
-export const BrandProvider = ({ children }) => {
+export const BrandProvider= ({ children }) => {
   const [brandItemsMap, setBrandItemsMap] = useState<Record<string, any>>({});
   const { showLoading, hideLoading } = useLoading();
 
@@ -41,9 +41,12 @@ export const BrandProvider = ({ children }) => {
         .filter(([seller]) =>
           seller.toLowerCase().includes(trimmedSellerName.toLowerCase())
         )
-        .map(([seller, items]) => ({
-          name: seller,
-          items, // Include items associated with each seller
+        .map(([seller]) => ({
+          title: seller,
+          items: [{
+            type: 'brand',
+            link: `brands/${seller}`,
+          }]
         }));
   
       return filteredBrands;

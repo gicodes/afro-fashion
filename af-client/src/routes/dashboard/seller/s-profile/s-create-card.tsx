@@ -6,9 +6,10 @@ import UserContext from '../../../../contexts/user.context.tsx';
 import { serverTimestamp } from 'firebase/firestore';
 import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button, Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import '../../dashboard.styles.scss';
 import { InfoRounded } from '@mui/icons-material';
+import { Card } from '@mui/material';
 
 const defaultFormFields = {
   category: '',
@@ -100,11 +101,11 @@ export const SellerCreateCard: React.FC = () => {
   }
 
   return (
-    <Card className='card my-2'>
-      <div className='card-header text-center'>
+    <Card className='my-1'>
+      <div className='card-header py-4 text-center bg-ws'>
         <h6>Create a new product for your audience</h6>
       </div>
-      <div className='container'>
+      <div className='px-4'>
         <form onSubmit={handleSubmit}>
           <FormField 
             id="name"
@@ -168,9 +169,10 @@ export const SellerCreateCard: React.FC = () => {
             onChange={handleChange}
           />
 
-          <div className="bg-ws my-2 p-2">
-            <div className="p-1 flex">
+          <div className="bg-ws my-2 py-2">
+            <div className="flex-space-around">
               <input 
+                className='w-90'
                 onChange={handleImgChange}
                 accept=".jpg, .jpeg, .png"
                 id='upload-images'

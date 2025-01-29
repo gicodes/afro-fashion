@@ -1,10 +1,10 @@
 import React from "react";
 import "../help/help.styles.scss";
 
-export const CreditsList = () => {
+export const CreditsList: React.FC = () => {
   return (
     <section className="help-list">
-      <ul className="custom-list">
+      <ul>
         <li>
           <a href="#appreciation">Appreciation <span className="text-success"> *</span></a>
         </li>

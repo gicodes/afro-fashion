@@ -1,97 +1,134 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import BrandContext from '../../contexts/brand.context.tsx';
-import { useLoading } from '../../contexts/loading.context.tsx';
-import { FormControl, InputGroup, ListGroup } from 'react-bootstrap';
-
 import './search.styles.scss';
+import debounce from 'lodash.debounce';
+import { Link } from 'react-router-dom';
+import { FormControl, InputGroup } from 'react-bootstrap';
+import BrandContext from '../../contexts/brand.context.tsx';
+import { CategoriesContext } from '../../contexts/categories.context.tsx';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 
 interface SearchBarProps {
   searchSx: string | null;
   resultSx: string | null;
 }
 
-interface BrandObject {
-  name: string;
-  items: { id: string; name: string }[];
+interface SearchResultsObject {
+  title: string;
+  items: { type: string; name: string; link: string }[];
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({ searchSx, resultSx }) => {
-  const [search, setSearch] = useState('');
-  const [searchBox, setSearchBox] = useState(false);
-  const { showLoading, hideLoading } = useLoading();  
+  const [search, setSearch] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>();
+  const [searchBox, setSearchBox] = useState<boolean>(false);
   const { searchItemsByBrand } = useContext(BrandContext) || {};
-  
-  const [aggregatedResult, setAggregatedResult] = useState<BrandObject[]>([]);
-  const handleSearch = async (event) => {
-    const value = event.target.value;
+  const { searchProductsWithCategory } = useContext(CategoriesContext) || {};
+  const [aggregatedResult, setAggregatedResult] = useState<SearchResultsObject[]>([]);
 
-    setSearch(value);
-    setSearchBox(true);
-
-    if (searchItemsByBrand) {
-      const brands = await searchItemsByBrand(value);
-      if (Array.isArray(brands)) {
-        setAggregatedResult(brands.map(brand => ({
-          ...brand,
-          items: Array.isArray(brand.items) ? brand.items : []
-        })));
-      } else {
+  const fetchResults = useMemo(() => 
+    debounce(async (value: string, searchItemsByBrand, searchProductsWithCategory, setAggregatedResult, setLoading) => {
+      if (!value || !searchItemsByBrand || !searchProductsWithCategory) {
         setAggregatedResult([]);
+        return;
       }
-    }
+  
+      try {
+        setLoading(true);
+  
+        const [brands, categoriesWithProducts] = await Promise.all([
+          searchItemsByBrand(value),
+          searchProductsWithCategory(value),
+        ]);
+  
+        const categoryNames = new Set(categoriesWithProducts.map(category => category.title.toLowerCase()));
+  
+        const brandResults = brands
+          .filter(brand => !categoryNames.has(brand.title.toLowerCase())) 
+          .map((brand) => ({
+            title: brand.title,
+            items: brand.items?.map((item) => ({
+              type: 'brand',
+              name: brand.title,
+              link: `brands/${brand.title}`,
+            })) || [],
+          }));
+  
+        const categoryResults = categoriesWithProducts.map(category => ({
+          title: category.title,
+          items: category.items || [],
+        }));
+  
+        setAggregatedResult([...brandResults, ...categoryResults]);
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+        setAggregatedResult([]);
+      } finally {
+        setLoading(false);
+      }
+    }, 300),
+  [], // Memoized once (dependencies handled in `useCallback`)
+  );
+  
+  const searchCallback = useCallback(
+    (value: string) => fetchResults(value, searchItemsByBrand, searchProductsWithCategory, setAggregatedResult, setLoading),
+    [fetchResults, searchItemsByBrand, searchProductsWithCategory, setAggregatedResult, setLoading]
+  );
 
-    if (value === '') setSearchBox(false);
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearch(value);
+    setSearchBox(!!value);
+    searchCallback(value);
   };
 
-  const handleSearchClick = () => {
-    showLoading();
+  const handleSearchClick = useCallback(() => {
+    setLoading(true);
     setSearchBox(false);
-    setTimeout(hideLoading, 3000);
-  };
+    setTimeout(setLoading, 3000);
+  }, [setLoading, setSearchBox]);
 
-  const searchResult = aggregatedResult.map((brandObject, index) => (
-    <div key={index}>
-      <ListGroup.Item>
-        <Link to={`/brands/${brandObject?.name}`} onClick={handleSearchClick}>
-          {brandObject?.name}
-        </Link>
-      </ListGroup.Item>
+  const searchResult = useMemo(
+    () =>
+      aggregatedResult.map((result) => (
+        <div key={result.title}>
+          <div className={`${result.items.some((item) => item.type === 'brand') ? 'brand' : 'category'}-result`}>
+            <Link to={result.items.find((item) => item.type !== 'product')?.link || '#'} onClick={handleSearchClick}>
+              <span>{result.title}</span>
+            </Link>
+          </div>
 
-      {brandObject.items && brandObject.items.length > 0 && (
-        <ListGroup>
-          {brandObject?.items.map((product, productIndex) => (
-            <ListGroup.Item key={productIndex} className="ml-4">
-              <Link to={`/products/${product.id}`} onClick={handleSearchClick}>
-                {product.name}
-              </Link>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-      )}
-    </div>
-  ));
-
+          {result.items
+            .filter((item) => item.type === 'product')
+            .map((item) => (
+              <div key={item.name} className="product-result">
+                <Link to={item.link} onClick={handleSearchClick}>
+                  <span>{item.name}</span>
+                </Link>
+              </div>
+            ))}
+        </div>
+      )),
+    [aggregatedResult, handleSearchClick]
+  );
+    
   return (
-    <>
+    <div>
       <div className={`${searchSx} search-bar`}>
         <InputGroup>
           <FormControl
             type="text"
             value={search}
-            onChange={handleSearch}
-            placeholder="search for a brand or product"
             className="text-left"
+            onChange={handleSearch}
+            placeholder="Search for a brand, product or category"
           />
         </InputGroup>
       </div>
 
       {searchBox && (
-        <ListGroup className={`${resultSx} search-results mb-2`}>
-          {searchResult.length ? searchResult : <span>No results found...</span>}
-        </ListGroup>
+        <div className={`search-results-container ${resultSx} mb-1`}>
+          {searchResult.length ? searchResult : <span className='text-gray'> {loading ? "searching ..." : "No results found ..."} </span>}
+        </div>
       )}
-    </>
+    </div>
   );
-}
+};

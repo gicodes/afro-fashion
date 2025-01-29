@@ -15,7 +15,7 @@ const HomeIndex: React.FC = () => {
   return (
     <>
       <Container className="no-padding-container bg-lg">
-        <SearchBar resultSx={"-mt pt-2"} searchSx={null} />
+        <SearchBar resultSx={"pt-1"} searchSx={null} />
         <IndexImages />
         <CategoryIndex categories={categories} />
         <LatestIndex />

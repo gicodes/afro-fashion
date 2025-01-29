@@ -14,14 +14,14 @@
   font-size: 18px;
 }
 
-.helpCenter {
+.help-center {
   display: flex;
   flex-direction: column;
   gap: 4px;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 .fixed-width-button {
@@ -29,13 +29,14 @@
   text-align: center;
   margin-top: 2rem;
 }
+
 .help-list ul {
-  list-style-type: none;
   padding: 0;
-  width: max-content;
   margin-left: 2rem;
-  margin-top: 2rem;
-  border-left: 2px solid #ccc; 
+  width: max-content;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  list-style-type: none;
 }
 
 .help-list li {
@@ -62,10 +63,22 @@
   .help-list-card {
     font-size: smaller;
   } 
+  .help-list li {
+    border-bottom: 0.1px solid #ccc;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+  .help-list ul {
+    padding: 10px 40px;
+    margin-left: 2rem;
+    border-left: 2px solid #ccc;   
+  }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  /* Laptop styles */
+  /* laptop viewport */
   .formWidth {
     width: 50%;
     margin: auto;
@@ -79,7 +92,7 @@
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  /* Desktop styles */
+  /* desktop viewport */
   .formWidth {
     width: 50%;
     margin: auto;

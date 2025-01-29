@@ -12,13 +12,13 @@ const Footer = () => {
       <div className='footer-links'>
         <div className='links'>
         <p className='h-center'>
-          <a href="/help#contact-us">Contact Us</a></p>          
+          <a href="/support#contact-us">Contact Us</a></p>          
           <p className='h-center'><a href='/#search'>Search Products</a></p>
           <p className='h-center'><a href='https://www.laughinghens.com/clothing-size-conversion-chart'>Size Variation</a></p>
         </div>
         <div className='links'>
-          <p className='h-center'><a href='/help/#overview'>About Afrofashion</a></p>
-          <p className='h-center'><a href='/help/#payments'>Payment Methods</a></p>
+          <p className='h-center'><a href='/support/#overview'>About Afrofashion</a></p>
+          <p className='h-center'><a href='/support/#payments'>Payment Methods</a></p>
           <p className='h-center'><a href='/subscriptions'>Subscriptions</a></p>
         </div> 
         <div className='links'>
