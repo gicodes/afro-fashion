@@ -3,10 +3,9 @@ import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { useLoading } from '../../../../contexts/loading.context.tsx';
 import BrandContext  from '../../../../contexts/brand.context.tsx';
 import { useAlert } from '../../../../contexts/alert.context.tsx';
-import { serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import '../../dashboard.styles.scss';
-import { Card } from 'react-bootstrap';
+import { Card } from '@mui/material';
 
 interface SProductCardProps { sellerName: string; }
 
@@ -50,7 +49,6 @@ export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
       count: product?.count || '',
       price: product?.price || '',
       info: product?.info || '',
-      updatedAt: serverTimestamp()
     });
 
     const toggleEditProduct = () => setEditProduct(!editProduct);
@@ -153,7 +151,7 @@ export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
   };
 
   return (
-    <Card className="card my-2">
+    <Card className="my-1">
       { brands && Object.keys(brands).length > 0 ? (
         <div>
           <div className='my-3 text-center text-success'> 
@@ -161,7 +159,7 @@ export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
           </div>
           { Object.entries(brands).map(([category, categoryProducts]) => (
             <div className="category-card" key={category}>
-              <div className='card-header'>
+              <div className='p-3'>
                 <h6 className="font-awesome text-center">
                   Category: <span className='text-gray'>{category.toUpperCase()}</span>
                 </h6>

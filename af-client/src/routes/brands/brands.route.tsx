@@ -33,9 +33,7 @@ const BrandCollection: React.FC = () => {
     hideLoading();
   }, [showLoading, seller, brandItemsMap, hideLoading, brands]);
   
-  if (!seller) {
-    return <div>Seller not found</div>;
-  }
+  if (!seller) return <div>Seller not found</div>;
 
   const sellerName = seller[0].toUpperCase() + seller.slice(1);
   const { address, bio, imageUrl, phone, products, sold } = sellerInfo;

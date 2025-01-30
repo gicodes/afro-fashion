@@ -3,12 +3,11 @@ import FormField from '../../../authentication/sign-up/form.component.tsx';
 import { useLoading } from '../../../../contexts/loading.context.tsx';
 import { useAlert } from '../../../../contexts/alert.context.tsx';
 import UserContext from '../../../../contexts/user.context.tsx';
-import { serverTimestamp } from 'firebase/firestore';
 import React, { useState, useContext } from 'react';
+import { InfoRounded } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import '../../dashboard.styles.scss';
-import { InfoRounded } from '@mui/icons-material';
 import { Card } from '@mui/material';
 
 const defaultFormFields = {
@@ -24,8 +23,7 @@ export const SellerCreateCard: React.FC = () => {
   const navigate = useNavigate();
   const addAlert = useAlert().addAutoCloseAlert;
   const { showLoading, hideLoading } = useLoading();
-  const { currentUser } = useContext(UserContext);
-  const userId = currentUser?.userId || currentUser?.id; 
+  const { currentUser, uid } = useContext(UserContext);
   const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [ uploadImageInfo, setUploadImageInfo ] = useState<boolean>(false);
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -33,9 +31,9 @@ export const SellerCreateCard: React.FC = () => {
   const { category, name, price, stock, info, } = formFields;
 
   const generateRandomId = () => {
-    const timeOfCreation = new Date().getTime();
+    const timeOfGeneration = new Date().getTime();
     const randomNumber = Math.floor(Math.random() * 1000000);
-    return `${timeOfCreation}-${randomNumber}`;
+    return `${timeOfGeneration}-${randomNumber}`;
   }
 
   const id = generateRandomId();
@@ -60,12 +58,12 @@ export const SellerCreateCard: React.FC = () => {
     setIsSubmitting(true); // disable the button
     showLoading();
 
-    if (!brandName){
+    if (!brandName){ // check for brandName to avoid null error
       addAlert("danger", 'You must have a unique brand name!');
       return;
     }
 
-    const countOk = await countOkAddProduct(currentUser?.brandName, userId)
+    const countOk = await countOkAddProduct(currentUser?.brandName, uid)
 
     try {
       const imagesArray = formFields?.images;
@@ -79,7 +77,6 @@ export const SellerCreateCard: React.FC = () => {
         seller: brandName,
         category: category,
         imageUrls: imageUrls,
-        updatedAt: serverTimestamp
       }
 
       if (countOk) {
@@ -88,11 +85,16 @@ export const SellerCreateCard: React.FC = () => {
         'Your Product is being created... this may take up some time. You will be redirected to your brand page once it is ready.');
 
         hideLoading();
-        navigate(path);
+
+        setTimeout(() => {
+          navigate(path);
+        }, 10000) 
       } else {
         addAlert("danger", 'You have exceeded your limit. Upgrade your subscription to continue creating products!')
       }
     } catch (err) {
+      console.error(err);
+
       addAlert("danger", 'Something went wrong. Please try again later!!')
     } finally {
       hideLoading();
@@ -101,13 +103,14 @@ export const SellerCreateCard: React.FC = () => {
   }
 
   return (
-    <Card className='my-1'>
+    <Card className='my-1 mx-auto col-md-6'>
       <div className='card-header py-4 text-center bg-ws'>
         <h6>Create a new product for your audience</h6>
       </div>
       <div className='px-4'>
         <form onSubmit={handleSubmit}>
           <FormField 
+            required
             id="name"
             name="name"
             type="text" 
@@ -142,6 +145,7 @@ export const SellerCreateCard: React.FC = () => {
           </select>
 
           <FormField 
+            required
             id="price"
             name="price"
             type="number"
@@ -151,6 +155,7 @@ export const SellerCreateCard: React.FC = () => {
           />
 
           <FormField 
+            required
             id="stock"
             name="stock"
             type="number" 
@@ -160,6 +165,7 @@ export const SellerCreateCard: React.FC = () => {
           />
 
           <textarea
+            required
             rows={4}
             id="info"
             name="info"
@@ -179,6 +185,7 @@ export const SellerCreateCard: React.FC = () => {
                 name="images"
                 type="file"
                 multiple
+                required
               />
               <span onClick={() => setUploadImageInfo(!uploadImageInfo)}>
                 <InfoRounded />
@@ -198,8 +205,7 @@ export const SellerCreateCard: React.FC = () => {
             }
           </div>
 
-
-          <div className='m-2 flex-just-center'>
+          <div className='my-3 flex-just-center'>
             <Button 
               type="submit" disabled={isSubmitting}
             >

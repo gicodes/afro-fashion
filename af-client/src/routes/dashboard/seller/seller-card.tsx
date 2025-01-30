@@ -15,7 +15,7 @@ interface SellerCardIndexProps {
   bio: string;
   imageUrl: string | any; 
   phone: string;
-  products: number | undefined | null;
+  products: number | null;
   sold: number | null;
   toggleEditProfile: () => void | null;
 }
@@ -53,7 +53,8 @@ const SellerCardIndex: React.FC<SellerCardIndexProps> = ({
               src={imageUrl || blankAvi} 
               className="rounded-circle"
             />  
-            </div>             
+            </div>   
+
             <div className="info-set">
               <p> <FcAddressBook size={20}/>&nbsp; {brandName} </p>
               <div className="flex-space-bet fs-smaller p-1 mb-2">
@@ -76,6 +77,7 @@ const SellerCardIndex: React.FC<SellerCardIndexProps> = ({
                   </div>
                 }
               </div>
+
               <div>
                 { products && 
                   <div className='inventory-set'>
@@ -96,7 +98,7 @@ const SellerCardIndex: React.FC<SellerCardIndexProps> = ({
         </div>
         
         <div className="mt-2 text-center font-awesome fs-xs">
-          <p>{bio || "---"}</p>              
+          <p>{bio || "-"}</p>              
         </div>
         </div>
       </div>

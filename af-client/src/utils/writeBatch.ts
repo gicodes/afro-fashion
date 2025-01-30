@@ -1,6 +1,6 @@
-import { deleteObject, getStorage, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { collection, doc, getDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { db, firebaseApp } from './firebase.utils.ts';
+import { deleteObject, getStorage, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { collection, doc, getDoc, serverTimestamp, updateDoc, writeBatch } from "firebase/firestore";
 
 // Most of the following code functions use the Firebase SDK (version 9+) for modular approach: 
 // Allowing tree shaking, type safety and smaller bundle sizes resulting in imporoved performance.
@@ -9,6 +9,8 @@ const storage = getStorage(firebaseApp);
 
 // Critical function to create collections and documents
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  if (!collectionKey || !objectsToAdd) return;
+
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
@@ -22,6 +24,7 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 // Critical function to add or update user properties
 export const updateUser = async (userId, inputField, value) => {  
   if (!userId || !inputField || !value) return;
+
   const collectionId = "users";
 
   try {
@@ -34,7 +37,7 @@ export const updateUser = async (userId, inputField, value) => {
       
       await updateDoc(userRef, updateObject);
     } 
-  } catch (err) {
+  } catch (err: any) {
     throw new Error(err.message);
   }
 };
@@ -54,13 +57,15 @@ export const updateSeller = async (sellerId, inputField, value) => {
       
       await updateDoc(sellerRef, updateObject);
     } 
-  } catch(err) {
+  } catch(err: any) {
     throw new Error(err.message);
   }
 };
 
 // Critical function to create new product from seller action
 export const addNewProduct = async (category, itemsToAdd) => {
+  if (!category || !itemsToAdd) return;
+
   const batch = writeBatch(db);
   const collectionId = "categories";
   
@@ -71,14 +76,16 @@ export const addNewProduct = async (category, itemsToAdd) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const updatedItems = [...existingItems, itemsToAdd];
-
-      batch.update(categoryRef, { items: updatedItems });
-
-      await batch.commit();
-
-    } else {
-      // create a new document if it does not exist
-      batch.set(categoryRef, { items: itemsToAdd });
+  
+      batch.update(categoryRef, { 
+        items: updatedItems,
+        updatedAt: serverTimestamp()
+      })
+    } else { // create a new document if it does not exist
+      batch.set(categoryRef, { 
+        items: [itemsToAdd],
+        updatedAt: serverTimestamp() 
+      })
       await batch.commit();
     }
   } catch (error) {
@@ -88,6 +95,8 @@ export const addNewProduct = async (category, itemsToAdd) => {
 
 // Helper method to upload an image and obtain the image URL
 export const uploadImageAndGetUrl = async (imageFile, itemId) => {
+  if (!imageFile || !itemId) return;
+
   const imageRef = ref(storage, `image/${itemId}`);
 
   await uploadBytes(imageRef, imageFile);
@@ -116,6 +125,8 @@ export const uploadProductImages = async (imagesArray: (Blob | ArrayBuffer | Uin
 
 // Helper method to edit items from a db collection
 export const editSellerItem = async (category, itemId, updatedItem) => {
+  if (!category || !itemId || !updatedItem) return;
+
   const batch = writeBatch(db);
   const collectionId = "categories";
 
@@ -135,19 +146,24 @@ export const editSellerItem = async (category, itemId, updatedItem) => {
           } else throw new Error("Invalid properties in updatedItem");
         } else return item;
       })
-      batch.update(categoryRef, { items: updatedItems });
+      batch.update(categoryRef, { 
+        items: updatedItems,
+        updatedAt: serverTimestamp()
+      });
 
       await batch.commit();
     } else {
       throw new Error("Category document not found");
     }
-  } catch (err) {
+  } catch (err: any) {
     throw new Error(err.message);
   }
 };
 
 // Helper method to delete items from a db collection along with images from storage
 export const deleteSellerItem = async (category, itemId) => {
+  if (!category || !itemId) return;
+
   const batch = writeBatch(db);
   const collectionId = "categories";
 
@@ -167,13 +183,15 @@ export const deleteSellerItem = async (category, itemId) => {
         await batch.commit();
       } else throw new Error(`Item with ID ${itemId} not found in category ${category}`);
     } else throw new Error(`Category document ${category} not found`);
-  } catch (err) {
+  } catch (err: any) {
     throw new Error(err.message);
   }
 };
 
 // Helper method to delete images from Firebase Storage
 const deleteImages = async (itemId, imageUrls) => {
+  if (!itemId) return;
+
   try {
     if (Array.isArray(imageUrls) && imageUrls.length > 0) {
       const promises = imageUrls.map(async (imageUrl) => {
@@ -182,7 +200,7 @@ const deleteImages = async (itemId, imageUrls) => {
       });
       await Promise.all(promises);
     } else console.error(`No images provided for item with ID: ${itemId}. Skipping image deletion.`);
-  } catch (err) {
+  } catch (err: any) {
     console.error(`Error deleting images for item with ID: ${itemId}.`, err);
     throw new Error(err.message);
   }
@@ -190,6 +208,8 @@ const deleteImages = async (itemId, imageUrls) => {
 
 // Critical function to track seller subscription and add product count
 export const countOkAddProduct = async (seller, sellerId) => {
+  if (!seller || !sellerId) return;
+
   let maxProductCount;
   let productCount = seller?.productCount || 0;
   const subscription = seller?.subscription;
@@ -208,22 +228,19 @@ export const countOkAddProduct = async (seller, sellerId) => {
       maxProductCount = 5;
   }
   
-  if (productCount < maxProductCount) { 
-    // check if the productCount is within seller subscription
+  try {
+    if (productCount < maxProductCount) {// check if the productCount is within seller subscription
+      const sellerRef = doc(collection(db, "sellers"), sellerId);
+      const sellerDoc = await getDoc(sellerRef)
 
-    const sellerRef = doc(collection(db, "sellers"), sellerId);
-    const sellerDoc = await getDoc(sellerRef)
-
-    if (sellerDoc.exists()){
-      try {
-        // add to seller product count
-        await updateDoc(sellerRef, { productCount: productCount++})
-      } catch (err) {
-        throw new Error("New item failed to add to Seller's Product Count", err.message);
-      }
-    }
-    return true;
-  } else return null;
+      if (sellerDoc.exists())await updateDoc(sellerRef, { productCount: productCount+1});   
+      
+      return true; 
+    } else return null;
+  } catch (err: any) {
+    throw new Error("New item failed to add to Seller's Product Count", err.message);
+  }
+  
 };
 
 // Critical function to add or update items and orders to a users saved items
@@ -255,7 +272,7 @@ export const addToSavedItems = async (userId, newItems, docField) => {
         await updateDoc(userRef, { orders: trimmedItems });
       }
     } else throw new Error('User document not found for userId: ' + userId);
-  } catch (err) {
+  } catch (err: any) {
     console.error('Failed to update user doc:', err);
     throw new Error(err.message);
   }
@@ -263,6 +280,7 @@ export const addToSavedItems = async (userId, newItems, docField) => {
 
 // Critical function to reduce item count after a user purchases the item
 export const reduceItemCount = async (item, sellerId) => {
+  if (!item || !sellerId) return;
   const { id, quantity, count, category } = item;
 
   // check if the item has sufficient quantity available
@@ -284,13 +302,12 @@ export const reduceItemCount = async (item, sellerId) => {
       } else {
         throw new Error("Seller not found!");
       }
-    } catch (err) {
+    } catch (err: any) {
       throw new Error(err.message);
     }
   } else {
     throw new Error("Insufficient quantity available!");
   }
 };
-
 
 // Critical function to remove items for users who dislike
