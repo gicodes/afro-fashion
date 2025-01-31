@@ -1,4 +1,4 @@
-import './product-card.styles.scss';
+import './product-route.styles.scss';
 import { Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FcLike, FcDislike } from "react-icons/fc";
@@ -86,8 +86,8 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
         addAutoCloseAlert("success", 'Item saved successfully!');
       })
       .catch((error) => {
-        addAutoCloseAlert("warning", 'Operation failed! Your account is not a verified Buyer');
-        throw new Error(error);
+        addAutoCloseAlert("warning", 'Operation failed! Only buyers are allowed this function');
+        console.error(error);
       });
   }
 

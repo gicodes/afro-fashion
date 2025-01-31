@@ -198,6 +198,7 @@ a {
 
 // Custom fonts and color styles
 .fs-large { font-size: larger }
+.fs-larger { font-size: x-large }
 .fs-mid { font-size: medium }
 .fs-smaller { font-size: smaller }
 .fs-xs { font-size: 11px }
@@ -230,12 +231,17 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
 }
-.text-ok { color: greenyellow }
-.text-lg { color: lightgrey }
-.text-grey { color: #999999 }
+.text-ok { color: greenyellow; }
+.text-lg { color: lightgrey; }
+.text-grey { color: #999999; }
 .text-wheat { color: wheat;}
+.text-warn { color: darkgoldenrod;}
 .text-white { color: white }
 .text-gray { color: #6d6d6d }
+.text-ds1 { color: darkslategray; }
+.text-ds2 { color: darkslateblue; }
+.text-ds3 { color: darkseagreen; }
+.text-dm { color: darkmagenta; }
 .text-link { 
   cursor: pointer;
   color: royalblue; 

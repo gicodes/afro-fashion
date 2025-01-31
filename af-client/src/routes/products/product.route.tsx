@@ -1,7 +1,7 @@
-import { getProductById } from '../../utils/firebase.utils.ts';
-import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ProductCard from './product-card.tsx';
+import ProductInfo from './product-info.tsx';
+import React, { useState, useEffect } from 'react';
+import { getProductById } from '../../utils/firebase.utils.ts';
 
 const Product: React.FC = () => {
   const { product } = useParams();
@@ -12,13 +12,12 @@ const Product: React.FC = () => {
       const data = await getProductById(product);
       setProductData(data);
     };
-
     fetchProduct();
   }, [product]);
 
   return (
-    <section id={product} className='col-md-4 mx-auto mt-1'>
-      {productData && <ProductCard product={productData} />}
+    <section id={product} className='product-route container'>
+      {productData && <ProductInfo product={productData} />}
     </section>
   );
 };

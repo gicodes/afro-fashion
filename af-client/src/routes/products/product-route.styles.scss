@@ -114,3 +114,72 @@
     }
   }
 }
+
+.product-content-group {
+  gap: 3rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .img-container { 
+    height: 500px;
+    width: 100%;
+  
+    .maxi-img {
+      width: 100%;
+      height: 500px;
+      margin: auto;
+      max-width: 420px;
+      object-fit: cover;
+    }
+  }
+  
+
+  .thumbnail {
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    max-width: 50px;
+    margin: 10px 1px;
+    border-radius: 2px;
+  }
+
+  .info-container {
+    width: 100%;
+    max-width: 750px;
+
+    .product-info {
+      font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+      max-width: 669px;
+      margin: 25px 0;
+    }
+  }
+}
+
+.product-route {
+  width: 100%;
+  padding: 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .product-route {
+    padding: 5% 2% 2% 2%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-route {
+    padding: 10px 5px;
+
+    .product-content-group {
+      display: grid;
+    }
+  }
+
+  .product-content-group {
+    .img-container {
+      height: auto;
+    }
+  }
+}

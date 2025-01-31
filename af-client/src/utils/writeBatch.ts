@@ -270,7 +270,7 @@ export const addToSavedItems = async (userId, newItems, docField) => {
 
         await updateDoc(userRef, { orders: trimmedItems });
       }
-    } else throw new Error('User document not found for userId: ' + userId);
+    } else throw new Error('User document not found for userId');
   } catch (err: any) {
     console.error('Failed to update user doc:', err);
     throw new Error(err.message);

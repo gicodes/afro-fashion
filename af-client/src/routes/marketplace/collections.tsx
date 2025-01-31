@@ -87,7 +87,7 @@ const Collections = () => {
   };
 
   return (
-    <>
+    <div>
       <FilterWidget setFilter={setFilter} />
 
       { allProducts?.length > 0 ? (
@@ -137,7 +137,7 @@ const Collections = () => {
         </Box>
         <div className='lg-div'></div>
       </div> 
-    </>
+    </div>
   );
 };
 

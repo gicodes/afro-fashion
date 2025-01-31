@@ -35,6 +35,7 @@ const addItem = (cartItems, productIn) => {
 
 const removeItem = (cartItems, productOut) => {
   const thisItem = cartItems.find((cartItem) => cartItem.id === productOut.id);
+  if (!thisItem) return [];
 
   if (thisItem.quantity === 1) {
     return cartItems.filter((item) => item.id !== productOut.id);

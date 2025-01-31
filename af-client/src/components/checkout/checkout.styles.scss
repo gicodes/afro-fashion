@@ -53,7 +53,9 @@ tr.total {
   .sub-total {
     margin: 0;
     display: flex;
+    letter-spacing: 0.1rem;
     background: lightgray;
+    padding: 10px 10px 5px 10px;
   }
 }
 
@@ -70,7 +72,7 @@ tr.total {
 
 @media (min-width: 768px) {
   .total {
-    padding: 0.1% 6.69%;
+    padding: 0.1% 5.5%;
 
     .sub-total {
       margin: 0 20px 0 0;
