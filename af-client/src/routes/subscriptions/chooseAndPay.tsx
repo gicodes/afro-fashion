@@ -77,22 +77,24 @@ const ChooseAndPay: React.FC<ChooseAndPayProps> = ({ userId }) => {
   return (
     <div className="subscription card">
       <div className="sub card-body">
-        <div className='form-group'>
-          <span className='block'>Choosing a subscription package </span>
-          <span className='fs-smaller'>Will initiate a payment window valid for 1 hour</span>
-        <div className="form-check mt-3">
-          <input
-            className="form-check-input fs-smaller m-2"
-            type="radio"
-            name="subscription"
-            value="basic"
-            checked={subscription === "basic"}
-            onChange={handleRadioChange}
-          />
-          <label className="form-check-label" htmlFor="basicSubscription">
-            Basic Package
-          </label>
-        </div>
+        <div className='form-group px-3 py-2'>
+          <p>Choosing a subscription package will initiate a payment window valid for 1 hour
+            <span className='fs-smaller text-warn'> Please make sure you are prepared to make payments before initiating this window</span>
+          </p>
+        
+          <div className="form-check mt-3">
+            <input
+              className="form-check-input fs-smaller m-2"
+              type="radio"
+              name="subscription"
+              value="basic"
+              checked={subscription === "basic"}
+              onChange={handleRadioChange}
+            />
+            <label className="form-check-label" htmlFor="basicSubscription">
+              Basic Package
+            </label>
+          </div>
 
         <div className="form-check mt-3">
           <input

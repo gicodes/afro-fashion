@@ -132,7 +132,7 @@ export const countOkAddProduct = async (seller, sellerId) => {
       const sellerRef = doc(collection(db, "sellers"), sellerId);
       const sellerDoc = await getDoc(sellerRef)
 
-      if (sellerDoc.exists())await updateDoc(sellerRef, { productCount: productCount +1 });   
+      if (sellerDoc.exists()) await updateDoc(sellerRef, { productCount: productCount +1 });   
       
       return true; 
     } else return null;
@@ -197,7 +197,7 @@ export const editSellerItem = async (category, itemId, updatedItem) => {
 };
 
 // Helper method to delete items from a db collection along with images from storage
-export const deleteSellerItem = async (category, itemId) => {
+export const deleteSellerItem = async (category, itemId, sellerId) => {
   if (!category || !itemId) return;
 
   const batch = writeBatch(db);
@@ -206,19 +206,33 @@ export const deleteSellerItem = async (category, itemId) => {
   try {
     const categoryRef = doc(collection(db, collectionId), category);
     const categoryDoc = await getDoc(categoryRef);
+    const sellerRef = doc(collection(db, "sellers"), sellerId);
+    const sellerDoc = await getDoc(sellerRef);
 
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const deletedItem = existingItems.find((item) => item.id === itemId);
+
       if (deletedItem) {
-        await deleteImages(itemId, deletedItem.images);
+        const imageUrls = deletedItem.imageUrls || deletedItem.imageUrl;
+        await deleteImages(itemId, imageUrls);
         // update the database by removing the item
         const updatedItems = existingItems.filter((item) => item.id !== itemId);
+
         batch.update(categoryRef, { items: updatedItems });
 
         await batch.commit();
       } else throw new Error(`Item with ID ${itemId} not found in category ${category}`);
     } else throw new Error(`Category document ${category} not found`);
+
+    if (sellerDoc.exists()) {
+      const sellerData = sellerDoc.data();
+      const newProductCount = sellerData.productCount -1;
+
+      await updateDoc(sellerRef, { productCount: newProductCount });
+    } else {
+      throw new Error("Seller not found!");
+    }
   } catch (err: any) {
     throw new Error(err.message);
   }

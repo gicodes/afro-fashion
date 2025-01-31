@@ -74,14 +74,14 @@ const Subscription: React.FC = () => {
             </div>
           )}
 
-          <Button className='col-md-7 mx-auto' variant='info' onClick={handleToggleSubTable}>
+          <Button className='col-md-6 mx-auto' variant='primary' onClick={handleToggleSubTable}>
             See Subscription Packages
           </Button>
           {showSubTable && <div className='mt-1 mb-2'><SubscriptionTable /></div>}
           <br/>
 
           <div className='col-md-7 mx-auto'>
-            <Button variant='primary' className='fullWidth' onClick={handleToggleSubscribe}>
+            <Button variant='success' className='fullWidth' onClick={handleToggleSubscribe}>
               Subscribe Now
             </Button>
             {currentUser?.userType === "seller" && showChooseAndPay && (

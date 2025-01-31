@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { useLoading } from '../../../../contexts/loading.context.tsx';
 import BrandContext  from '../../../../contexts/brand.context.tsx';
 import { useAlert } from '../../../../contexts/alert.context.tsx';
+import userContext from '../../../../contexts/user.context.tsx';
 import { useNavigate } from 'react-router-dom';
 import '../../dashboard.styles.scss';
 import { Card } from '@mui/material';
@@ -12,8 +13,9 @@ interface SProductCardProps { sellerName: string; }
 export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
   const navigate = useNavigate();
   const seller = sellerName.toLowerCase();
-    const brandContext = useContext(BrandContext);
-    const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]);
+  const { uid } = useContext(userContext);
+  const brandContext = useContext(BrandContext);
+  const brandItemsMap = useMemo(() => brandContext?.brandItemsMap || {}, [brandContext]);
   const { showLoading, hideLoading } = useLoading();
   const [ brands, setBrands ] = useState(brandItemsMap[seller]);
 
@@ -26,7 +28,7 @@ export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
   const handleDeleteProduct = async (category, itemId) => {
     const handleYes = () => {
       showLoading();
-      deleteSellerItem(category, itemId);
+      deleteSellerItem(category, itemId, uid);
 
       addAutoCloseAlert("success", 'Product Deleted!' )
       hideLoading();
