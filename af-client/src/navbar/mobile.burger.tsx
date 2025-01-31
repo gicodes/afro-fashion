@@ -88,7 +88,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose }) => {
               <span className="text-luminous">ash</span>
               <span className="green">ion</span>
             </h1>
-            <p><span className="fs-tiny">EST. 2022 - 2025</span></p>
+            <p><span className="fs-tiny">EST. 2023 - 2025</span></p>
           </div>
         </div>
       </nav>

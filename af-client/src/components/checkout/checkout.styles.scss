@@ -8,32 +8,8 @@
   text-align: center;  
 }
 
-@media (max-width: 600px) {
-  tr.align-middle > td {  
-    display: inline-block; 
-    background: white;
-    border: 0;
-
-    .w-25{ 
-      max-width: 100%; 
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  tr.total {
-    width: 100%;
-    position: absolute;
-  }
-
-  .pay-button {
-    margin-top: 40px;
-  }
-
-  .lr-lg{
-    padding-left: 2%;
-    padding-right: 2%;
-  }
+tr.align-middle > td {  
+  border: 0;
 }
 
 .w-25 {
@@ -41,49 +17,74 @@
   width: 25%;
 
   .checkout-img {
-    object-fit: contain;
-    max-height: 150px;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
     margin: 0 auto;
   }
 }
 
 .checkout-qty {
-  margin: auto;
+  margin: 0 auto;
 
   .increment,
   .decrement {
     cursor: pointer;
     width: max-content;
-    padding: 5%;
+    padding: 0 5%;
   }
+}
+
+tr.total {
+  width: 100%;
+  position: absolute;
+  background: lightgray;
 }
 
 .total {
   width: 100%;
-  display: flex;
-  background: lightgrey;
+  padding: 5px 0;
+  display: grid;
   justify-content: flex-end;
+  background: lightgray;
+
 
   .sub-total {
+    margin: 0;
     display: flex;
-    width: max-content;
     background: lightgray;
-    justify-content: flex-end;
   }
 }
 
 .pay-button {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .w-25 { 
+    max-width: 100%; 
+  }
+}
+
+@media (min-width: 768px) {
+  .total {
+    padding: 0.1% 6.69%;
+
+    .sub-total {
+      margin: 0 20px 0 0;
+    }
+  }
 }
 
 .pay-gap { height: 100px }
 
-.items-card {
-  margin-top: 20px;
-  max-width: 500px;
-  padding: 10px;
+.checkout-items-card {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px 10px;
   width: 100%;
 
   .items-container {
@@ -92,7 +93,6 @@
     justify-content: center;
     
     .item-row {
-      padding: 5px;
       display: flex;
       flex-direction: column; 
       align-items: flex-start;

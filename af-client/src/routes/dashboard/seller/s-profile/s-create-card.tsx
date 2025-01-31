@@ -1,4 +1,5 @@
 import { addNewProduct, countOkAddProduct, uploadProductImages } from '../../../../utils/writeBatch.ts';
+import { setDateToTimestamp } from '../../../../components/date/dateConverter.ts';
 import FormField from '../../../authentication/sign-up/form.component.tsx';
 import { useLoading } from '../../../../contexts/loading.context.tsx';
 import { useAlert } from '../../../../contexts/alert.context.tsx';
@@ -63,8 +64,8 @@ export const SellerCreateCard: React.FC = () => {
       return;
     }
 
-    const countOk = await countOkAddProduct(currentUser?.brandName, uid)
-
+    const countOk = await countOkAddProduct(currentUser, uid)
+    const updatedAt = setDateToTimestamp();
     try {
       const imagesArray = formFields?.images;
       const imageUrls = await uploadProductImages(imagesArray, id);
@@ -77,18 +78,19 @@ export const SellerCreateCard: React.FC = () => {
         seller: brandName,
         category: category,
         imageUrls: imageUrls,
+        updatedAt: updatedAt,
       }
 
       if (countOk) {
         await addNewProduct(category, itemsToAdd);
         addAlert("success", 
-        'Your Product is being created... this may take up some time. You will be redirected to your brand page once it is ready.');
+        "Your Product is being created... this may take up some time. You'll be redirected to your store. Refresh after 2 minutes to see your new product 📈");
 
         hideLoading();
 
         setTimeout(() => {
           navigate(path);
-        }, 10000) 
+        }, 5000) 
       } else {
         addAlert("danger", 'You have exceeded your limit. Upgrade your subscription to continue creating products!')
       }
@@ -128,7 +130,8 @@ export const SellerCreateCard: React.FC = () => {
           > {/* values must match category values in db */}
             <option value={""}>Select product category</option> 
             <option value="accessories">Accessories</option>
-            <option value="bags">Bags</option>          
+            <option value="bags">Bags</option>
+            <option value="cosmetics">Cosmetics</option>            
             <option value="hair">Hair & Accessories</option>
             <option value="hats">Hats & Caps</option>
             <option value="jackets">Jackets & Coats</option>
@@ -138,7 +141,6 @@ export const SellerCreateCard: React.FC = () => {
             <option value="senegalese">Senegalese</option>
             <option value="shoes">Shoes & Sneakers</option>
             <option value="slippers">Slippers & Sandals</option> 
-            <option value="cosmetics">Cosmetics</option>  
             <option value="jewelleries">Jewelleries</option> 
             <option value="unisex">Unisex</option>
             <option value="women">Women Clothing</option>

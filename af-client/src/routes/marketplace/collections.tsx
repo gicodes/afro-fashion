@@ -105,7 +105,7 @@ const Collections = () => {
           </p>
         </div>
       )}
-
+    
       <div className='pagination'>
         <Box
           sx={{
@@ -123,6 +123,7 @@ const Collections = () => {
           >
             <FaChevronLeft size={'20px'} />
           </Button>
+          
 
           <span className='fs-smaller'> Page {currentPage} of {totalPages} </span>
 
@@ -134,7 +135,7 @@ const Collections = () => {
             <FaChevronRight size={'20px'} />
           </Button>
         </Box>
-        <div className='hide-in-sm lg-div' />
+        <div className='lg-div'></div>
       </div> 
     </>
   );

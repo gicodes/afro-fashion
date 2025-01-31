@@ -61,7 +61,7 @@ const CartDropdown: React.FC = () => {
 
         <Link 
           onClick={handleNavDropPostRouting}
-          className='checkout-btn mt-1'
+          className='checkout-btn mt-3'
           to='/checkout'>
           <Button buttonType="default">
             Checkout

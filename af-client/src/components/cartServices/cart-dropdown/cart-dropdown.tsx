@@ -41,7 +41,7 @@ const CartDropdown: React.FC = () => {
           }
 
           <Link 
-            className='checkout-btn' 
+            className='checkout-btn mt-4' 
             to='/checkout'>
             <Button buttonType="default">Checkout</Button>
           </Link>

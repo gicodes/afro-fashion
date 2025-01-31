@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductCard from './product-card.tsx';
 
-const Product = () => {
+const Product: React.FC = () => {
   const { product } = useParams();
   const [productData, setProductData] = useState(null);
 

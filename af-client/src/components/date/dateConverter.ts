@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 const dateFormatter = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
   month: "long",
@@ -23,3 +25,7 @@ export const formatADateToDMY = (date) => {
 
 export const formattedDate = dateFormatter.format(new Date());
 export const formattedTime = timeFormatter.format(new Date());
+
+export const setDateToTimestamp = () => {
+  return Timestamp.fromDate(new Date());
+};

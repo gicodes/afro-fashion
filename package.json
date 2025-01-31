@@ -2,7 +2,7 @@
   "name": "afro-fashion-main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "client": "cd af-client && npm start",
     "server": "cd af-server && node server.js",

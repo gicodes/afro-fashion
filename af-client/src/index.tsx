@@ -1,4 +1,6 @@
+import "./index.scss";
 import React from 'react';
+import App from './App.tsx';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,8 +10,6 @@ import { AlertProvider } from "./contexts/alert.context.tsx";
 import { BrandProvider } from "./contexts/brand.context.tsx";
 import { LoadingProvider } from "./contexts/loading.context.tsx";
 import { CategoriesProvider } from "./contexts/categories.context.tsx";
-import App from './App.tsx';
-import "./index.scss";
 
 const container = document.getElementById('root');
 if (container) {

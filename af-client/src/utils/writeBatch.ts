@@ -54,12 +54,24 @@ export const updateSeller = async (sellerId, inputField, value) => {
     if (sellerDoc.exists()) {
       const updateObject = {};
       updateObject[inputField] = value;
-      
+
       await updateDoc(sellerRef, updateObject);
     } 
   } catch(err: any) {
     throw new Error(err.message);
   }
+};
+
+// Helper method to upload an image and obtain the image URL
+export const uploadImageAndGetUrl = async (imageFile, itemId) => {
+  if (!imageFile || !itemId) return;
+
+  const imageRef = ref(storage, `image/${itemId}`);
+
+  await uploadBytes(imageRef, imageFile);
+  const imageUrl = await getDownloadURL(imageRef);
+
+  return imageUrl;
 };
 
 // Critical function to create new product from seller action
@@ -76,33 +88,57 @@ export const addNewProduct = async (category, itemsToAdd) => {
     if (categoryDoc.exists()) {
       const existingItems = categoryDoc.data().items || [];
       const updatedItems = [...existingItems, itemsToAdd];
-  
+
       batch.update(categoryRef, { 
         items: updatedItems,
         updatedAt: serverTimestamp()
-      })
+      })      
+      await batch.commit();
     } else { // create a new document if it does not exist
       batch.set(categoryRef, { 
         items: [itemsToAdd],
         updatedAt: serverTimestamp() 
       })
-      await batch.commit();
     }
   } catch (error) {
     console.error("Error updating category:", error);
   }
 };
 
-// Helper method to upload an image and obtain the image URL
-export const uploadImageAndGetUrl = async (imageFile, itemId) => {
-  if (!imageFile || !itemId) return;
+// Critical function to track seller subscription and add product count
+export const countOkAddProduct = async (seller, sellerId) => {
+  if (!seller || !sellerId) return;
 
-  const imageRef = ref(storage, `image/${itemId}`);
+  let maxProductCount;
+  const subscription = seller?.subscription;
+  let productCount = seller?.productCount || 0;
 
-  await uploadBytes(imageRef, imageFile);
-  const imageUrl = await getDownloadURL(imageRef);
+  switch (subscription) {
+    case "basic":
+      maxProductCount = 25;
+      break;
+    case "business":
+      maxProductCount = 50;
+      break;
+    case "premium":
+      maxProductCount = 100;
+      break;
+    default:
+      maxProductCount = 5;
+  }
+  
+  try {
+    if (productCount < maxProductCount) {// check if the productCount is within seller subscription
+      const sellerRef = doc(collection(db, "sellers"), sellerId);
+      const sellerDoc = await getDoc(sellerRef)
 
-  return imageUrl;
+      if (sellerDoc.exists())await updateDoc(sellerRef, { productCount: productCount +1 });   
+      
+      return true; 
+    } else return null;
+  } catch (err: any) {
+    throw new Error("New item failed to add to Seller's Product Count", err.message);
+  }
 };
 
 // Helper method for writing images to db collection
@@ -204,43 +240,6 @@ const deleteImages = async (itemId, imageUrls) => {
     console.error(`Error deleting images for item with ID: ${itemId}.`, err);
     throw new Error(err.message);
   }
-};
-
-// Critical function to track seller subscription and add product count
-export const countOkAddProduct = async (seller, sellerId) => {
-  if (!seller || !sellerId) return;
-
-  let maxProductCount;
-  let productCount = seller?.productCount || 0;
-  const subscription = seller?.subscription;
-
-  switch (subscription) {
-    case "basic":
-      maxProductCount = 25;
-      break;
-    case "business":
-      maxProductCount = 50;
-      break;
-    case "premium":
-      maxProductCount = 100;
-      break;
-    default:
-      maxProductCount = 5;
-  }
-  
-  try {
-    if (productCount < maxProductCount) {// check if the productCount is within seller subscription
-      const sellerRef = doc(collection(db, "sellers"), sellerId);
-      const sellerDoc = await getDoc(sellerRef)
-
-      if (sellerDoc.exists())await updateDoc(sellerRef, { productCount: productCount+1});   
-      
-      return true; 
-    } else return null;
-  } catch (err: any) {
-    throw new Error("New item failed to add to Seller's Product Count", err.message);
-  }
-  
 };
 
 // Critical function to add or update items and orders to a users saved items

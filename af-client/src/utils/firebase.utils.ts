@@ -325,7 +325,7 @@ export const getLatestItems = async () => {
         items.forEach(item => {
           const imageUrl = item.imageUrls && item.imageUrls.length > 0 ? item.imageUrls[0] : null;
           // fallback to document createTime if updatedAt is missing
-          const itemUpdatedAt = item.updatedAt 
+          const itemUpdatedAt = item?.updatedAt 
             ? new Date(item.updatedAt.seconds * 1000) // convert Firestore Timestamp to Date
             : categoryDoc.metadata.hasPendingWrites ? new Date() : categoryDoc.data().createdAt.toDate(); // fallback to document createTime
           if (!latestItemsMap[item.id] || itemUpdatedAt > latestItemsMap[item.id].updatedAt) {
