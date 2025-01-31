@@ -23,7 +23,7 @@ const PasswordReset = ({ actionCode }) => {
 
         setEmail(email);
         setIsVerified(true); 
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error verifying reset code:", error.message);
 
         if (error.code === "auth/invalid-action-code" || error.code === "auth/expired-action-code") {
@@ -57,19 +57,14 @@ const PasswordReset = ({ actionCode }) => {
         navigate("/dashboard");
       }, 3000);
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error confirming password reset:", error.message);
       addAutoCloseAlert("danger", "Failed to reset password. Please try again.");
     }
   };
 
   return (
-    <RedirectTemplate 
-      title={"Reset your Password"}  
-      imgSrc={""} 
-      imgAlt={""}
-      body={""} 
-    >
+    <RedirectTemplate title={"Reset your Password"}>
       {isVerified ? (
         <div>
           <p>Password reset link verified for {email}. Please enter your new password below:</p>

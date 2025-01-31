@@ -1,19 +1,19 @@
 import { sendPasswordResetSuccessEmail } from "../api/emailing/sprse.ts";
 import { sendVerificationSuccessEmail } from "../api/emailing/sevse.ts";
 import Button from "../components/buttons/button.component.tsx";
-import { useAlert } from "../contexts/alert.context.tsx";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAlert } from "../contexts/alert.context.tsx";
+import { RedirectTemplate } from './template.tsx';
 import { 
   getAuth,
   applyActionCode, 
   verifyPasswordResetCode, 
   confirmPasswordReset } from "firebase/auth";
-import { RedirectTemplate } from './template.tsx';
-import React, { useState } from "react";
+import { useState } from "react";
 
 const auth = getAuth();
 
-export default function AuthLanding() {
+const AuthLanding: React.FC = ()=> {
   const navigate = useNavigate();
   const location = useLocation();
   const { addAutoCloseAlert } = useAlert();
@@ -25,7 +25,7 @@ export default function AuthLanding() {
   const mode = queryParams.get("mode");
   const oobCode = queryParams.get("oobCode");
 
-  if (!mode || !oobCode) return <RedirectTemplate title={"AF Blank Template"} body={""} imgSrc={""} imgAlt={""} children={null} />
+  if (!mode || !oobCode) return <RedirectTemplate title={"AF dey for you!"} />
 
   const handleResetPassword = async (newPassword) => {
     setIsLoading(true);
@@ -38,8 +38,7 @@ export default function AuthLanding() {
 
       addAutoCloseAlert("success", "Password reset successful! You can now log in with your new password.");
       navigate("/auth")
-    } catch (error) {
-      console.error("Error resetting password:", error);
+    } catch (error: any) {
       addAutoCloseAlert("danger", `Password reset failed: ${error.message}`);
     }
   };
@@ -52,16 +51,15 @@ export default function AuthLanding() {
 
       addAutoCloseAlert("success", "Email verification successful! You can now use all features.");
       navigate("/dashboard")
-    } catch (error) {
-      console.error("Error verifying email:", error);
+    } catch (error: any) {
       addAutoCloseAlert("danger", `Email verification failed: ${error.message}`);
     }
   };
 
   return (
-    <>
+    <div>
       { mode === "resetPassword" && (
-        <RedirectTemplate  title={"Reset your password"} body={""} imgSrc={""} imgAlt={""}>
+        <RedirectTemplate  title={"Reset your password"}>
           <div>
             {email && <p>Password reset link verified for <strong>{email}</strong>.</p>}
             <form
@@ -73,11 +71,11 @@ export default function AuthLanding() {
               }}
             >
               <input
+                required
                 type="password"
                 name="password"
                 aria-label="New password"
                 placeholder="Enter new password"
-                required
                 disabled={isLoading}
                 className="fullWidth mb-1 p-1"
               />
@@ -89,12 +87,14 @@ export default function AuthLanding() {
         </RedirectTemplate>
       )}
       { mode === "verifyEmail" && (
-        <RedirectTemplate title={"Verify your email"} body={""} imgSrc={""} imgAlt={""}>
+        <RedirectTemplate title={"Verify your email"}>
           <Button buttonType="button" onClick={handleVerifyEmail} disabled={isLoading}>
             {isLoading ? "Verifying..." : "Finish Verification"}
           </Button>
         </RedirectTemplate>
       )}
-    </>
+    </div>
   );
 }
+
+export default AuthLanding;

@@ -1,11 +1,12 @@
-import Button from "../../../components/buttons/button.component.tsx";
+import { categoryTracker } from "./user-profile/product-tracker.tsx";
 import {  UserProfileCard } from "./user-profile/profile-card.tsx";
-import UserContext from "../../../contexts/user.context.tsx"; 
-import { SavedItems } from "./user-profile/user.products.tsx";
+import { UserHistory } from "./user-profile/user.products.tsx";
+import UserContext from "../../../contexts/user.context.tsx";
+import { CloseButton, Button } from "react-bootstrap"; 
 import React, { useState, useContext } from 'react';
 import PieUtilityCard from "../index/pie-card.tsx";
 import { today } from '../index/dash-assets.tsx';
-
+import { Paper } from "@mui/material";
 import "../dashboard.styles.scss";
 
 interface User {
@@ -20,8 +21,8 @@ interface User {
 }
 
 const UserProfile: React.FC = () => {
-  const [ savedItemsCard, setSavedItemsCard ] = useState(false);
-  const [ pastOrdersCard, setPastOrdersCard]  = useState(false);
+  const [ viewSavedItems, setViewSavedItems ] = useState<boolean>(false);
+  const [ viewPastOrders, setViewPastOrders ] = useState<boolean>(false);
   const { currentUser } = useContext(UserContext);
   const { 
     bio, 
@@ -34,10 +35,20 @@ const UserProfile: React.FC = () => {
     savedItems,
   }: User = currentUser || {};
 
-  const togglePastOrders = () => setPastOrdersCard(!pastOrdersCard);
-  const toggleSavedItems = () => setSavedItemsCard(!savedItemsCard);
+  const togglePastOrders = () => setViewPastOrders(!viewPastOrders);
+  const toggleSavedItems = () => setViewSavedItems(!viewSavedItems);
+  const trackedCategories = orders?.length > 0 ? categoryTracker(orders) : categoryTracker(savedItems);
 
-  // implement pie chart props here
+  const restoreIndexDash = () => {
+    setViewSavedItems(false);
+    setViewPastOrders(false);
+  }
+  
+  const RestoreIndexDash = () => (
+    <div className="close-button">
+      <CloseButton className="rounded-circle" onClick={restoreIndexDash}/>
+    </div>
+  )
 
    return (
     <>
@@ -48,8 +59,17 @@ const UserProfile: React.FC = () => {
         </div>
 
         <div className="body2-container">
-          <div className="user-profile"> 
-            {/* this.className is used elsewhere, i.e. very sensitive to change */}
+          { viewSavedItems && <div className="col-md-8 mx-auto">
+              <RestoreIndexDash />
+              <UserHistory savedItems={savedItems} />
+            </div>
+          }
+          { viewPastOrders && <div className="col-md-8 mx-auto">
+              <RestoreIndexDash />
+              <UserHistory savedItems={orders} item={"pastOrders"} />
+            </div>
+          }
+          <div className={viewPastOrders || viewSavedItems ? "hidden" : "user-profile"}> 
             <UserProfileCard 
               bio={bio}
               email={email} 
@@ -58,28 +78,47 @@ const UserProfile: React.FC = () => {
               name={displayName}
               imageUrl={imageUrl}
             />
+            <br/>
           </div>
 
-          <div className="user-history">
-            <section id="product-orders" className="mt-2">
-              <Button buttonType={"default"} onClick={togglePastOrders}>
-                past orders
-              </Button>
-              <div className="p-1">
-                {pastOrdersCard && <SavedItems savedItems={orders} item={"pastOrders"} />}
-              </div>
-            </section>
-            <section id="saved-items">
-              <Button buttonType={"default"} onClick={toggleSavedItems}>
-                saved items
-              </Button>
-              <div className="p-1">
-                {savedItemsCard && <SavedItems savedItems={savedItems} item={undefined} />}
-              </div>
-            </section>
+          <div className={viewPastOrders || viewSavedItems ? "hidden" : "user-history"}>
+            <PieUtilityCard userData={trackedCategories} />
+            <br/>
 
-            <PieUtilityCard userData={undefined} productCount={null} productSold={null} />
-          </div>
+            <div className="action-btn-group">
+              <Paper elevation={4}>
+                <div className="p-1">
+                <div className="container m-3 px-1">
+                  <p className="text-black"> Self Services </p>
+                </div>
+                  <hr/>
+                  <div 
+                    onClick={togglePastOrders} 
+                    className="p-action btn text-success"
+                  >
+                    Past Orders
+                  </div>
+                  <Button  
+                    onClick={toggleSavedItems}
+                    className="p-action btn btn-warning"
+                  > 
+                    Saved Items
+                  </Button>
+
+                  <Button // dummy/ disabled button
+                    className="btn-secondary mt-1 w-100"
+                  >
+                    ...
+                  </Button>
+                  <Button // dummy/ disabled button 2
+                    className="btn-secondary mt-1 w-100"
+                  >
+                    ...
+                  </Button>
+                </div>
+              </Paper>
+            </div>
+          </div>  
         </div>
       </div>
       <div className="hide-in-sm lg-div" />

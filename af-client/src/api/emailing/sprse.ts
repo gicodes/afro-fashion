@@ -12,7 +12,7 @@ export const sendPasswordResetSuccessEmail = async (email) => {
       throw new Error('Failed to send congratulatory email');
     }
     // console.log('Congratulatory email sent successfully!');
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending congratulatory email:', error.message);
   }
 };          

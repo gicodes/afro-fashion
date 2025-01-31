@@ -3,9 +3,9 @@ import Paper from '@mui/material/Paper';
 import { PieChart } from '@mui/x-charts/PieChart';
 
 interface PieUtilityCardProps {
-  userData: any[] | undefined;
-  productCount: number | null;
-  productSold: number | null;
+  userData?: {};
+  productCount?: number;
+  productSold?: number;
 }
 
 const PieUtilityCard: React.FC<PieUtilityCardProps> = ({
@@ -13,15 +13,15 @@ const PieUtilityCard: React.FC<PieUtilityCardProps> = ({
   productCount,
   productSold,
 }) => {
-  const nullUserData: boolean = userData?.length === 0 && productCount != null;
+  const nullUserData: boolean = !userData && productCount != null;
   const chartData = userData && Object.keys(userData).length > 0
     ? Object.entries(userData)
-        .sort(([, a], [, b]) => b - a)
+        .sort(([, a], [, b]) => (b as number) - (a as number))
         .slice(0, 3)
         .map(([category, count], index) => ({
           id: index,
           label: category,
-          value: count,
+          value: count as number,
         }))
     : [
         { id: 0, label: "Sales", value: productSold ?? 0 },
@@ -34,7 +34,7 @@ const PieUtilityCard: React.FC<PieUtilityCardProps> = ({
       <div className="sales-card">
         <div className="p-card-header">
           <div className="flex-space-bet">
-            <p>{nullUserData ? "Sales Performance" : "Order History"}</p>
+            <p>{nullUserData ? "Sales Performance" : "Your Hits & History"}</p>
         </div>
         </div>
         <div className="sales-card-body">

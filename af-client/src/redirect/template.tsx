@@ -2,10 +2,10 @@ import React from 'react';
 
 interface RedirectTemplateProps {
   title: string;
-  body: string;
-  imgSrc: string;
-  imgAlt: string;
-  children: any
+  body?: string;
+  imgSrc?: string;
+  imgAlt?: string;
+  children?: any
 }
 
 export const RedirectTemplate: React.FC<RedirectTemplateProps> = ({ title, imgSrc, imgAlt, body, children }) => {

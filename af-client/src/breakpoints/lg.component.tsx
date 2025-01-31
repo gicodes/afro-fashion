@@ -21,7 +21,7 @@ import Checkout from '../components/checkout/checkout.route.tsx';
 import BrandCollection from '../routes/brands/brands.route.tsx';
 import MarketPlace from '../routes/marketplace/marketplace.route.tsx';
 import UserProfile from '../routes/dashboard/user/user.component.tsx';
-import Seller from '../routes/dashboard/seller/seller-component.tsx';
+import Seller from '../routes/dashboard/seller/seller.component.tsx';
 import SignIn from '../routes/authentication/user-auth/lg.sign-in.index.tsx';
 import SignUp from '../routes/authentication/user-auth/lg.sign-up.index.tsx';
 import ProtectedUserRoute from '../routes/dashboard/user/protected-route.tsx';

@@ -46,6 +46,7 @@ const Dashboard: React.FC = () => {
       <CloseButton className="rounded-circle" onClick={restoreIndexDash}/>
     </div>
   )
+  
   const ManageSubscription = () => (
     <div>
       <Link to="/subscriptions" className="flex-just-center">
