@@ -93,7 +93,7 @@ const Collections = () => {
       { allProducts?.length > 0 ? (
         <div className="marketplace-route">
           { currentProducts.map((product, index) => (
-            <section key={index} id={product.id} className="product-section flex-just-center my-1">
+            <section key={index} id={product.id} className="product-section flex-just-center my-2">
               <ProductCard key={product?.id} product={product} />
             </section>
           ))}

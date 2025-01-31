@@ -10,14 +10,14 @@ interface SellerCardIndexProps {
   displayName: string;
   brandName: string;
   address: string;
-  bank: string | undefined | null;
-  bankAcct: string | undefined | null;
+  bank?: string | undefined;
+  bankAcct?: string | undefined;
   bio: string;
   imageUrl: string | any; 
   phone: string;
   products: number | null;
   sold: number | null;
-  toggleEditProfile: () => void | null;
+  toggleEditProfile?: () => void | null;
 }
 
 const SellerCardIndex: React.FC<SellerCardIndexProps> = ({

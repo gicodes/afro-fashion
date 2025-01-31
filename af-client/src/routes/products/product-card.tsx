@@ -8,7 +8,7 @@ import { useAlert } from '../../contexts/alert.context.tsx';
 import { addToSavedItems } from '../../utils/writeBatch.ts';
 import { CartContext } from '../../contexts/cart.context.tsx';
 import { useLoading } from '../../contexts/loading.context.tsx';
-import { setPrice } from '../../components/checkout/checkout.tsx';
+import { setPrice } from '../../components/checkout/checkout.component.tsx';
 import Button from '../../components/buttons/button.component.tsx';
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { FaCircleChevronRight, FaCircleChevronLeft, FaAmazonPay } from "react-icons/fa6";

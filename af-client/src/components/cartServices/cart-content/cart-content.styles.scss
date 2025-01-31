@@ -25,9 +25,7 @@
     align-items: flex-start;
     justify-content: center;
 
-    .name {
-      font-size: 15px;
-    }
+    .name { font-size: 15px; }
 
     .price {
       font-size: 14px;
@@ -36,10 +34,10 @@
 
     .remove-btn {
       position: absolute;
+      margin-top: 25px;
       cursor: pointer;
       display: flex;
       right: 10px;
-      margin-top: 25px;
     }
   }
 }
@@ -56,6 +54,5 @@
         font-size: 12px;
       }
     }
-  }
-  
+  } 
 }

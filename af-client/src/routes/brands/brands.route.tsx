@@ -1,3 +1,4 @@
+import './brands.styles.scss';
 import { Paper } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../products/product-card.tsx';
@@ -7,7 +8,6 @@ import { useLoading } from '../../contexts/loading.context.tsx';
 import SellerCardIndex from '../dashboard/seller/seller-card.tsx';
 import React, { useContext, useState, useEffect, useMemo } from 'react';
 
-import './brands.styles.scss';
 
 // Brand collection is rendered from any brands route to a seller's page
 const BrandCollection: React.FC = () => {
@@ -39,7 +39,10 @@ const BrandCollection: React.FC = () => {
   const { address, bio, imageUrl, phone, products, sold } = sellerInfo;
 
   return (
-    <section id={seller?.toLowerCase()} className="seller-brand-section">
+    <section 
+      id={seller?.toLowerCase()} 
+      className="seller-brand-section"
+    >
       <div className="seller-card">
         <SellerCardIndex 
           bio={bio}
@@ -52,9 +55,6 @@ const BrandCollection: React.FC = () => {
           products={products}
           // bank && bankAcct data are unavailable
           // to add more data, import from sellerInfo
-          bank={undefined} 
-          bankAcct={undefined} 
-          toggleEditProfile={() => {}} 
         />
       </div>
   

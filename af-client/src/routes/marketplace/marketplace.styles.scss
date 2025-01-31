@@ -1,6 +1,5 @@
 .marketplace-route {
   display: grid;
-  padding: 25px 5px 5px 5px;
 
   .btn {
     margin-top: 10px;
@@ -16,7 +15,7 @@
 @media (min-width: 768px) {
   .marketplace-route {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 25px;
     grid-template-columns: repeat(3, 1fr);
 
     .product-section {

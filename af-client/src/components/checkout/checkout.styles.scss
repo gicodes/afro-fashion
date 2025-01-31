@@ -1,63 +1,75 @@
-.checkout-table {
+.check-out-container {
   width: 100%;
-  display: table;
-}
+  padding: 2px;
 
-.t-header {  
-  margin: 0 10px 0 10px;
-  text-align: center;  
-}
-
-tr.align-middle > td {  
-  border: 0;
-}
-
-.w-25 {
-  text-align: center;
-  width: 25%;
-
-  .checkout-img {
+  .checkout-table {
     width: 100%;
-    height: auto;
-    max-height: 100px;
-    object-fit: cover;
+    display: table;
+  }
+
+  .t-header {  
+    margin: 0 10px 0 10px;
+    text-align: center;  
+  }
+
+  tr.align-middle > td {  
+    border: 0;
+  }
+
+  .w-25 {
+    text-align: center;
+    width: 25%;
+
+    .checkout-img {
+      width: 100%;
+      height: auto;
+      max-height: 100px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+  }
+
+  .checkout-qty {
     margin: 0 auto;
+
+    .increment,
+    .decrement {
+      cursor: pointer;
+      width: max-content;
+      padding: 5px 0;
+      border-radius: 4px;
+      background-color: lightgray;
+    }
   }
-}
 
-.checkout-qty {
-  margin: 0 auto;
-
-  .increment,
-  .decrement {
+  .remove-btn {
     cursor: pointer;
-    width: max-content;
-    padding: 0 5%;
   }
-}
 
-tr.total {
-  width: 100%;
-  position: absolute;
-  background: lightgray;
-}
-
-.total {
-  width: 100%;
-  padding: 5px 0;
-  display: grid;
-  justify-content: flex-end;
-  background: lightgray;
-
-
-  .sub-total {
-    margin: 0;
-    display: flex;
-    letter-spacing: 0.1rem;
+  tr.total {
+    width: 100%;
+    position: absolute;
     background: lightgray;
-    padding: 10px 10px 5px 10px;
+  }
+
+  .total {
+    width: 100%;
+    padding: 5px 0;
+    display: grid;
+    justify-content: flex-end;
+    background: lightgray;
+
+
+    .sub-total {
+      margin: 0;
+      display: flex;
+      letter-spacing: 0.1rem;
+      background: lightgray;
+      padding: 10px 10px 5px 10px;
+    }
   }
 }
+
 
 .pay-button {
   display: flex;
@@ -71,12 +83,23 @@ tr.total {
 }
 
 @media (min-width: 768px) {
+  .check-out-container {
+    padding: 20px 25px;
+  }
   .total {
     padding: 0.1% 5.5%;
 
     .sub-total {
       margin: 0 20px 0 0;
     }
+  }
+
+  .checkout-qty {
+    .increment, .decrement {
+      margin: 0 10px;
+      padding: 0;
+      font-size: x-large;
+    }  
   }
 }
 

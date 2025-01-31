@@ -1,4 +1,5 @@
 import React from 'react';
+import '../index.styles.scss';
 import { Card } from '@mui/material';
 import { Loading} from './fc-loading.tsx';
 import { NoInternet } from './fc-noInt.tsx';
@@ -8,9 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { FeaturedItemsProps } from './hot&trending.tsx';
 import { getLatestItems } from '../../utils/firebase.utils.ts';
 
-import '../index.styles.scss';
-
-const LatestIndex = () => {
+const LatestIndex: React.FC = () => {
   const navigate = useNavigate();
   const [ isLoading, setLoading ] = useState(true);
   const [itemsToShow, setItemsToShow] = useState(4);

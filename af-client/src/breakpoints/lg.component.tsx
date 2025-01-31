@@ -17,7 +17,7 @@ import CreditsPage from '../routes/credits/credits.tsx';
 import { Help } from '../routes/help/help.gram.tsx';
 import BrandsPage from '../routes/brands/brands.page.tsx';
 import Subscription from '../routes/subscriptions/subscription.tsx';
-import Checkout from '../components/checkout/checkout.component.tsx';
+import Checkout from '../components/checkout/checkout.route.tsx';
 import BrandCollection from '../routes/brands/brands.route.tsx';
 import MarketPlace from '../routes/marketplace/marketplace.route.tsx';
 import UserProfile from '../routes/dashboard/user/user.component.tsx';

@@ -15,7 +15,7 @@ const ProtectedUserRoute = ({ element }) => {
       if (location.pathname !== currentUser?.intendedRoute) {
         setIntendedRoute(location.pathname);
       }
-      addAutoCloseAlert("warning", "You must be logged in to access this page");
+      addAutoCloseAlert("warning", "You must be signed in in to continue");
       navigate('/auth');
     }
   }, [addAutoCloseAlert, currentUser, navigate, setIntendedRoute, location.pathname]);
