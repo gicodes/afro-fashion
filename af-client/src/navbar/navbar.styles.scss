@@ -6,9 +6,9 @@
   .user-avatar {
     border: 1px solid forestgreen;
     border-radius: 50%;
+    cursor: pointer;
     height: 40px;
     width: 40px;
-    cursor: pointer;
   }
 }
 
@@ -48,6 +48,7 @@
 }
 
 .side-nav {
+  z-index: 9999;
   display: flex;
   cursor: pointer;
   position: relative;

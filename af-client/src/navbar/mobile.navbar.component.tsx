@@ -13,10 +13,9 @@ import BurgerMenu from './mobile.burger.tsx';
 import { LuLogIn } from "react-icons/lu";
 import NavUserBadge from "./user-badge.tsx";
 import { AuthNav } from "./auth-nav.tsx";
-
 import './navbar.styles.scss'
 
-const MobileNavBar = () => {
+const MobileNavBar: React.FC = () => {
   const navigate = useNavigate();
   const [ isBurger, setBurger ] = useState(false);
   const [ authNav, setAuthNav ] = useState(false);
@@ -70,6 +69,7 @@ const MobileNavBar = () => {
   const authIconStyle = {
     backgroundColor: currentUser ? 'green' : 'yellow',
     padding: 0,
+    zIndex: 9999,
     width: '35px',        
     height: '35px',       
     display: 'flex',
@@ -115,8 +115,8 @@ const MobileNavBar = () => {
                 <div className={"auth-icon"} style={authIconStyle}>
                   {currentUser ? (
                     <span                       
-                      onClick={autoCloseNavOps}>
-
+                      onClick={autoCloseNavOps}
+                    >
                       <NavUserBadge   
                         imageUrl={imageUrl}                      
                       />                      
