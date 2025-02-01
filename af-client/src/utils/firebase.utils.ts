@@ -303,7 +303,7 @@ export const getTrendingItems = async () => {
 
     // sort the items by usersSavedCount in descending order
     const trendingItemsArray = Object.values(itemMap).sort((a: any, b: any) => b.usersSavedCount - a.usersSavedCount);
-    const topTrendingItems = trendingItemsArray.slice(0, 6);
+    const topTrendingItems = trendingItemsArray.slice(0, 4);
 
     return topTrendingItems;
   } catch (error: any) {
@@ -345,7 +345,7 @@ export const getLatestItems = async () => {
     const latestItemsArray = Object.values(latestItemsMap).sort(
       (a: any, b: any) => b.updatedAt - a.updatedAt
     );
-    const topLatestItems = latestItemsArray.slice(0, 6);
+    const topLatestItems = latestItemsArray.slice(0, 4);
     return topLatestItems;
   } catch (error: any) {
     console.error("Error fetching latest items:", error);
@@ -361,8 +361,7 @@ export const getSellerId = async (seller) => {
   const sellersSnapshot = await getDocs(sellersQuery);
   let sellerId: any | null = null;
 
-  // get the seller ID from the snapshot
-  sellersSnapshot.forEach((sellerDoc) => {
+  sellersSnapshot.forEach((sellerDoc) => {  // get the seller ID from the snapshot
     sellerId = sellerDoc.id; // get the document ID, which is the seller ID
   });
   return sellerId;
