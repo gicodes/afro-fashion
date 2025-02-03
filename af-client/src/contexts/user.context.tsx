@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useEffect, useState, useCallback } from 'react';
 import { onAuthStateChangedListener } from '../utils/firebase.utils.ts';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, onSnapshot } from 'firebase/firestore';
 import { useLoading } from './loading.context.tsx';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,32 +21,32 @@ const UserContext = createContext<UserContextType>({
 });
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [ intendedRoute, setIntendedRoute ] = useState<string | null>(null);
-  const [ currentUser, setCurrentUser ] = useState<any>(null);
-  const [ userId, setUserId ] = useState<string>('');
+  const [intendedRoute, setIntendedRoute] = useState<string | null>(null);
+  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [userId, setUserId] = useState<string>('');
   const { showLoading, hideLoading } = useLoading();
   const navigate = useNavigate();
 
-  // Memoized version of fetchUserData to prevent unnecessary re-creation
-  const fetchUserData = useCallback(async (uid, collection) => {
+  // Memoized function to fetch user data
+  const fetchUserData = useCallback(async (uid: string, collection: string) => {
     try {
       const firestore = getFirestore();
       const userDocRef = doc(firestore, collection, uid);
       const userSnapshot = await getDoc(userDocRef);
       return userSnapshot.exists() ? userSnapshot.data() : null;
-
     } catch (error) {
       console.error('Error fetching user data:', error);
       return null;
     }
   }, []);
 
-  // Optimized fetchData function with early returns: minimal error handling
+  // Function to handle user data retrieval and setting state
   const fetchData = useCallback(async (user) => {
     if (!user) {
       setCurrentUser(null);
       return;
     }
+
     showLoading();
     const isVerified = user?.emailVerified;
 
@@ -91,9 +91,12 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             latestSubExpiry: sellerData.latestSubExpiry,
           });
           setUserId(user?.uid);
-        } else setCurrentUser(null);
+        } else {
+          setCurrentUser(null);
+        }
       }
-      hideLoading(); // prevents prolonged & redudant state
+
+      hideLoading();
 
       if (intendedRoute) {
         navigate(intendedRoute);
@@ -106,18 +109,56 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, [fetchUserData, intendedRoute, navigate, showLoading, hideLoading]);
 
-  useEffect(() => {
+  
+  useEffect(() => {// listen for auth state changes
     const unsubscribe = onAuthStateChangedListener((user) => fetchData(user));
     return () => unsubscribe();
   }, [fetchData]);
 
-  const value = { uid: userId, setCurrentUser, currentUser, setIntendedRoute, intendedRoute };
+  
+  useEffect(() => {// listen for real-time updates to the authenticated user's document
+    if (!userId) return; // only listen if a user is logged in
+    
+    const firestore = getFirestore();
+    
+    const userDocRef = doc(firestore, 'users', userId);
+    const sellerDocRef = doc(firestore, 'sellers', userId);
+  
+    const unsubscribeUser = onSnapshot(userDocRef, (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const updatedUserData = docSnapshot.data();
+        setCurrentUser((prevUser) => ({
+          ...prevUser,
+          ...updatedUserData,
+        }));
+      }
+    });
+  
+    const unsubscribeSeller = onSnapshot(sellerDocRef, (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const updatedSellerData = docSnapshot.data();
+        setCurrentUser((prevUser) => ({
+          ...prevUser,
+          ...updatedSellerData,
+        }));
+      }
+    });
+  
+    return () => {
+      unsubscribeUser();
+      unsubscribeSeller();
+    };
+  }, [userId]);  
 
-  return (
-    <UserContext.Provider value={value}>
-      {children}
-    </UserContext.Provider>
-  );
+  const value = { 
+    uid: userId, 
+    setCurrentUser, 
+    currentUser, 
+    setIntendedRoute, 
+    intendedRoute 
+  };
+
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
 export default UserContext;

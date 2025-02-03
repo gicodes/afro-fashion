@@ -1,12 +1,8 @@
-import React, { createContext, useState, useEffect, useMemo, useCallback } from 'react';
+import React, { ReactNode, createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { categories } from '../components/collection/collection.component.tsx';
+import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
 import { getCategoriesCollection } from '../utils/firebase.utils.ts';
 import { useLoading } from './loading.context.tsx';
-
-interface CategoryInfo {
-  title: string;
-  description: string;
-}
 
 interface CategoriesContextType {
   categoriesMap: Record<string, CategoryInfo>;
@@ -14,10 +10,16 @@ interface CategoriesContextType {
   searchProductsWithCategory: (productName: string) => Promise<{ title: string; items: unknown}[]>;
 }
 
+interface CategoryInfo {
+  title: string;
+  description: string;
+}
+
 export const CategoriesContext = createContext<CategoriesContextType | undefined>(undefined);
 
-export const CategoriesProvider = ({ children }) => {
+export const CategoriesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { showLoading, hideLoading } = useLoading();
+  const [forceRender, setForceRender] = useState(0);
   const [categoriesInfo, setCategoriesInfo] = useState<CategoryInfo[]>([]);
   const [categoriesMap, setCategoriesMap] = useState<Record<string, CategoryInfo>>({});
 
@@ -35,6 +37,7 @@ export const CategoriesProvider = ({ children }) => {
   // useCallback to memoize getCategories function
   const getCategories = useCallback(async () => {
     showLoading();
+
     try {
       const categoryMap = await getCategoriesCollection();
       setCategoriesMap(categoryMap);
@@ -50,6 +53,15 @@ export const CategoriesProvider = ({ children }) => {
     getCategories();
   }, [processedCategoriesInfo, getCategories]);
 
+  useEffect(() => { // listen for real-time updates in Firestore and trigger a re-render
+    const firestore = getFirestore();
+    const unsubscribe = onSnapshot(collection(firestore, 'categories'), () => {
+      setForceRender((prev) => prev + 1); // Increment state to trigger re-render
+    });
+
+    return () => unsubscribe(); // Cleanup on unmount
+  }, [forceRender]);
+
   // Memoize the searchProductsWithCategory function
   const searchProductsWithCategory = useCallback(async (productName) => {
     const trimmedProductName = typeof productName === 'string' ? productName.trim() : '';
@@ -57,7 +69,6 @@ export const CategoriesProvider = ({ children }) => {
   
     try {
       const categoriesCollection = await getCategoriesCollection();
-  
       const resultsMap = new Map();
   
       Object.entries(categoriesCollection).forEach(([category, products]) => {
@@ -83,7 +94,6 @@ export const CategoriesProvider = ({ children }) => {
         }
       });
   
-      // Add category links without duplication
       resultsMap.forEach((result, category) => {
         result.items.push({
           type: 'category',
