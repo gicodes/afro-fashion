@@ -65,8 +65,8 @@ const SellerCardIndex: React.FC<SellerCardIndexProps> = ({
                   </div> 
 
                   <span className="sc-subtitle">
-                    <BsDot size={'20px'} fill='greenyellow' />&nbsp;
-                    {address || "address missing"}
+                    <BsDot size={'20px'} fill={address ? 'greenyellow' : "#707070"} />&nbsp;
+                    {address || "Address missing"}
                   </span>
                 </div>
 

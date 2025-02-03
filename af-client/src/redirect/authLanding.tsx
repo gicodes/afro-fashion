@@ -25,7 +25,7 @@ const AuthLanding: React.FC = ()=> {
   const mode = queryParams.get("mode");
   const oobCode = queryParams.get("oobCode");
 
-  if (!mode || !oobCode) return <RedirectTemplate title={"AF dey for you!"} />
+  if (!mode || !oobCode) return <RedirectTemplate title={"Keep being fashioniate :)"} />
 
   const handleResetPassword = async (newPassword) => {
     setIsLoading(true);
@@ -58,10 +58,10 @@ const AuthLanding: React.FC = ()=> {
 
   return (
     <div>
-      { mode === "resetPassword" && (
+      { mode === "resetPassword" ? (
         <RedirectTemplate  title={"Reset your password"}>
           <div>
-            {email && <p>Password reset link verified for <strong>{email}</strong>.</p>}
+            {email && <p>Password reset link verified for <b>{email}</b>.</p>}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -85,8 +85,7 @@ const AuthLanding: React.FC = ()=> {
             </form>
           </div>
         </RedirectTemplate>
-      )}
-      { mode === "verifyEmail" && (
+      ):(
         <RedirectTemplate title={"Verify your email"}>
           <Button buttonType="button" onClick={handleVerifyEmail} disabled={isLoading}>
             {isLoading ? "Verifying..." : "Finish Verification"}

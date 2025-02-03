@@ -133,7 +133,6 @@ const Dashboard: React.FC = () => {
           <PieUtilityCard 
             productCount={productCount || 0}
             productSold={productSold || 0} 
-            userData={[]}          
           />
           <br/>
 

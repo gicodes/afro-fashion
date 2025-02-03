@@ -291,6 +291,30 @@ export const addToSavedItems = async (userId, newItems, docField) => {
   }
 }
 
+// Critical function to remove items from a users saved items
+export const removeFromSavedItems = async (userId, itemToRemove) => {
+  if (!userId || !itemToRemove) return;
+
+  const collectionId = "users";
+
+  try {
+    const userRef = doc(collection(db, collectionId), userId);
+    const userDoc = await getDoc(userRef);
+
+    if (userDoc.exists()) {
+      const existingItems = userDoc.data().savedItems || [];
+      const updatedItems = existingItems.filter(item => item !== itemToRemove);
+
+      await updateDoc(userRef, { savedItems: updatedItems });
+    } else {
+      throw new Error('User document not found for userId');
+    }
+  } catch (err: any) {
+    console.error('Failed to remove item from savedItems:', err);
+    throw new Error(err.message);
+  }
+};
+
 // Critical function to reduce item count after a user purchases the item
 export const reduceItemCount = async (item, sellerId) => {
   if (!item || !sellerId) return;

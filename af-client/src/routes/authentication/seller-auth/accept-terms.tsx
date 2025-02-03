@@ -1,13 +1,12 @@
-import UserContext from "../../../contexts/user.context.tsx";
-import { useAlert } from '../../../contexts/alert.context.tsx';
-import { Button, Card, Form } from 'react-bootstrap';
-import { sendVerification } from './verification.ts';
+import './terms.styles.scss';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useContext } from 'react';
+import { Button, Card, Form } from 'react-bootstrap';
+import { sendVerification } from './verification.ts';
+import UserContext from "../../../contexts/user.context.tsx";
+import { useAlert } from '../../../contexts/alert.context.tsx';
 
-import './terms.styles.scss';
-
-export const AcceptTerms = () => {
+export const AcceptTerms: React.FC = () => {
   const { currentUser } = useContext(UserContext);
   const addAlert = useAlert().addAutoCloseAlert;
   const [isChecked, setIsChecked] = useState({
@@ -72,8 +71,8 @@ export const AcceptTerms = () => {
         </div>
 
         <Form className='card-body'>
-          <Form.Group controlId="acceptTermsCheckbox">
-            <div className='form-check'>
+          <Form.Group className='px-2'>
+            <div className='form-check mt-4'>
               <Form.Check 
                 className="form-check-box"
                 type="checkbox"
@@ -86,7 +85,7 @@ export const AcceptTerms = () => {
               <Form.Check
                 type="checkbox" 
                 className="centered-checkbox"
-                label="I run a beauty, clothing or fashion business"
+                label="I run a fashion, clothing or styling business"
                 checked={isChecked.businessOwner}
                 onChange={() => handleCheckboxChange('businessOwner')}
               />
@@ -94,7 +93,7 @@ export const AcceptTerms = () => {
               <Form.Check
                 type="checkbox"
                 className="centered-checkbox"
-                label="I agree to adhere to Afro-fashion's standards, guidelines, and all relevant local regulations"
+                label="I agree to adhere to Afro-fashion's policies, protocols, and all relevant local regulations"
                 checked={isChecked.makeSales}
                 onChange={() => handleCheckboxChange('makeSales')}
               />
@@ -140,11 +139,11 @@ export const AcceptTerms = () => {
           </div>
         </Form>
 
-        <div className="card p-1 bg-wheat">
-          <div className="card-body fs-smaller text-center">
-            <span>When redirected, your verification progress is saved with the email associated to this account.</span>
-            <span className="block">You still need to continue with your email to complete the process and earn your seller badge.</span>
-            <span>We advise sellers to sign out their accounts unless for security reasons or changing device.</span>
+        <div className="card container bg-wheat">
+          <div className="card-body px-3 fs-smaller text-center">
+            <p>When redirected, your verification progress is saved with the email associated to this account. 
+              You still need to continue with your email to complete the process and earn your seller badge.</p>
+            <span> We advise sellers to sign out their accounts unless for security reasons or changing device.</span>
           </div>
         </div>
       </Card>

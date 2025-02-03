@@ -13,7 +13,7 @@ export interface UserProfileCardProps {
   name: string;
   phone: string;
   address: string;
-  imageUrl: string;
+  imageUrl: string | any;
 }
 
 export const UserProfileCard: React.FC<UserProfileCardProps> = ({ 
@@ -97,7 +97,7 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({
   }
 
   return (
-    <Card className="col-md-8">            
+    <Card className="col-md-6">            
       <div className="user-profile">
         <div className="avatar">
           <div className="cover-photo"> 

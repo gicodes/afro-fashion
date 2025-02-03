@@ -297,6 +297,11 @@ body { font-family: 'Roboto', sans-serif }
   .body2-container {
     display: flex;
     justify-content: center;
+    padding: auto 25px;
+
+    .user-profile {
+      margin: auto;
+    }
   }
 }
 
