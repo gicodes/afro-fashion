@@ -25,6 +25,7 @@ const AuthLanding: React.FC = ()=> {
 
   const handleResetPassword = async (newPassword) => {
     setIsLoading(true);
+    
     try {
       const userEmail = await verifyPasswordResetCode(auth, oobCode);
       setEmail(userEmail);
@@ -41,12 +42,11 @@ const AuthLanding: React.FC = ()=> {
 
   const handleVerifyEmail = async () => {
     setIsLoading(true);
-    console.log("before applyActionCode")
 
     try {
       await applyActionCode(auth, oobCode);
-      console.log("after applyActionCode")
       await sendVerificationSuccessEmail(email);
+
       addAutoCloseAlert("success", "Email verification successful!");
       navigate("/dashboard");
     } catch (error: any) {
