@@ -1,15 +1,11 @@
+import { getAuth, applyActionCode, verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
 import { sendPasswordResetSuccessEmail } from "../api/emailing/sprse.ts";
 import { sendVerificationSuccessEmail } from "../api/emailing/sevse.ts";
 import Button from "../components/buttons/button.component.tsx";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAlert } from "../contexts/alert.context.tsx";
 import { RedirectTemplate } from './template.tsx';
-import { 
-  getAuth,
-  applyActionCode, 
-  verifyPasswordResetCode, 
-  confirmPasswordReset } from "firebase/auth";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const auth = getAuth();
 
@@ -45,14 +41,18 @@ const AuthLanding: React.FC = ()=> {
 
   const handleVerifyEmail = async () => {
     setIsLoading(true);
+    console.log("before applyActionCode")
+
     try {
       await applyActionCode(auth, oobCode);
+      console.log("after applyActionCode")
       await sendVerificationSuccessEmail(email);
-
-      addAutoCloseAlert("success", "Email verification successful! You can now use all features.");
-      navigate("/dashboard")
+      addAutoCloseAlert("success", "Email verification successful!");
+      navigate("/dashboard");
     } catch (error: any) {
       addAutoCloseAlert("danger", `Email verification failed: ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 

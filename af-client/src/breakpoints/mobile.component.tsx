@@ -7,8 +7,6 @@ import FailedOperation from '../redirect/failedOp.tsx';
 import Footer from '../index/footer/footer.tsx';
 import PaymentSuccessful from '../redirect/paySuccess.tsx';
 import UserContext from "../contexts/user.context.tsx";
-import PasswordReset from '../redirect/passwordReset.tsx';
-import VerificationSuccess from '../redirect/verifySuccess.tsx';
 import CreditsPage from '../routes/credits/credits.tsx';
 import { Help } from '../routes/help/help.gram.tsx';
 import AuthLanding from '../redirect/authLanding.tsx';
@@ -53,8 +51,6 @@ const Home = () => {
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />        
         <Route path="auth.admin" element={<AdminIndex />} />
         <Route path="auth.me" element={<AuthLanding/>} />     
-        <Route path="auth/verify-email" element={<VerificationSuccess />} />
-        <Route path="auth/password-reset" element={<PasswordReset actionCode={undefined} />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (

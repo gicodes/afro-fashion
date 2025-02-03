@@ -10,8 +10,6 @@ import AuthLanding from '../redirect/authLanding.tsx';
 import AdminIndex from '../routes/admin/admin.index.tsx';
 import Footer from '../index/footer/footer.tsx';
 import NavBar from '../navbar/lg.navbar.component.tsx';
-import PasswordReset from '../redirect/passwordReset.tsx';
-import VerificationSuccess from '../redirect/verifySuccess.tsx';
 import HomeIndex from '../index/lg.home.component.tsx';
 import CreditsPage from '../routes/credits/credits.tsx';
 import { Help } from '../routes/help/help.gram.tsx';
@@ -53,8 +51,6 @@ const Index = () => {
         <Route path="auth/accept-seller-terms" element={<AcceptTerms />} />
         <Route path="auth.admin" element={<AdminIndex />} />
         <Route path="auth.me" element={<AuthLanding/>} />
-        <Route path="auth/verify-email" element={<VerificationSuccess />} />
-        <Route path="auth/password-reset" element={<PasswordReset actionCode={undefined} />} />
         {userType === 'seller' ? (
           <Route path="dashboard" element={<ProtectedSellerRoute element={<Seller />} />} />
         ) : (
