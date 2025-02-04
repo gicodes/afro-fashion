@@ -44,14 +44,13 @@ const UserProfile: React.FC = () => {
     setViewPastOrders(false);
   }
   
-  const RestoreIndexDash = () => (
+  const RestoreIndexDash = () =>
     <div className="close-button">
       <CloseButton className="rounded-circle" onClick={restoreIndexDash}/>
     </div>
-  )
 
    return (
-    <>
+    <div>
       <div className="dash2-index-container">
         <div className="opening-text">
           <span className="-date">{today}</span>
@@ -122,7 +121,7 @@ const UserProfile: React.FC = () => {
         </div>
       </div>
       <div className="hide-in-sm lg-div" />
-    </>
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
-import { getAuth, applyActionCode, verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
+import { getAuth, verifyPasswordResetCode, confirmPasswordReset, signInWithEmailLink, isSignInWithEmailLink } from "firebase/auth";
+import { sendVerification } from "src/routes/authentication/seller-auth/verification.ts";
 import { sendPasswordResetSuccessEmail } from "../api/emailing/sprse.ts";
 import { sendVerificationSuccessEmail } from "../api/emailing/sevse.ts";
 import Button from "../components/buttons/button.component.tsx";
@@ -23,9 +24,40 @@ const AuthLanding: React.FC = ()=> {
 
   if (!mode || !oobCode) return <RedirectTemplate title={"Keep being fashioniate :)"} />
 
+  const handleVerifyEmail = async () => {
+    if (!isSignInWithEmailLink(auth, window.location.href)) {
+      handleInvalidLink();
+      return;
+    }
+
+    let email = window.localStorage.getItem('emailForSignIn') || window.prompt('Please provide your email for confirmation');
+    if (!email) return;
+
+    try {
+      await signInWithEmailLink(auth, email, window.location.href);
+      window.localStorage.removeItem('emailForSignIn'); 
+      await sendVerificationSuccessEmail(email);
+
+      addAutoCloseAlert("success", "Email verification successful!");
+      navigate("/dashboard");
+    } catch (error: any) {
+      addAutoCloseAlert("danger", `Email verification failed: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleInvalidLink = () => {
+    addAutoCloseAlert('warning', 'The verification link is invalid or expired. Please enter your email to receive a new link.');
+    setTimeout(async () => {
+      const email = window.prompt('Enter your email to receive a new verification link:');
+      if (email) await sendVerification(email);
+    }, 5000);
+  };
+
   const handleResetPassword = async (newPassword) => {
     setIsLoading(true);
-    
+
     try {
       const userEmail = await verifyPasswordResetCode(auth, oobCode);
       setEmail(userEmail);
@@ -37,22 +69,6 @@ const AuthLanding: React.FC = ()=> {
       navigate("/auth")
     } catch (error: any) {
       addAutoCloseAlert("danger", `Password reset failed: ${error.message}`);
-    }
-  };
-
-  const handleVerifyEmail = async () => {
-    setIsLoading(true);
-
-    try {
-      await applyActionCode(auth, oobCode);
-      await sendVerificationSuccessEmail(email);
-
-      addAutoCloseAlert("success", "Email verification successful!");
-      navigate("/dashboard");
-    } catch (error: any) {
-      addAutoCloseAlert("danger", `Email verification failed: ${error.message}`);
-    } finally {
-      setIsLoading(false);
     }
   };
 

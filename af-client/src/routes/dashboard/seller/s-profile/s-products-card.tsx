@@ -178,7 +178,7 @@ export const SellerProducts: React.FC<SProductCardProps> = ({ sellerName }) => {
           ))}
         </div>
         ) : (
-        <div className="mx-auto p-3">
+        <div className="mx-auto p-3 text-center">
           You have no Active Product...
         </div>
       )}

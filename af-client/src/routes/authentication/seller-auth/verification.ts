@@ -1,4 +1,8 @@
-import { getAuth, sendSignInLinkToEmail } from "firebase/auth";
+import { 
+  getAuth, 
+  sendSignInLinkToEmail,
+  // sendEmailVerification,
+} from "firebase/auth";
 
 const auth = getAuth();
 
@@ -22,4 +26,4 @@ export const sendVerification = async (email) => {
     const errorMessage = error.message;
     console.error(errorMessage);
   });
-}
+};
