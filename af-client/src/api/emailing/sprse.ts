@@ -1,5 +1,5 @@
 export const sendPasswordResetSuccessEmail = async (email) => {
-  console.log('Sending congratulatory email to:', email);
+  // console.log('Sending congratulatory email to:', email);
   try {
     const response = await fetch('/api/send-password-reset-success-alert', {
       method: 'POST',
@@ -8,11 +8,10 @@ export const sendPasswordResetSuccessEmail = async (email) => {
       },
       body: JSON.stringify({ email }),
     });
-    console.log('response:', response);
+    // console.log('response:', response);
     if (!response.ok) {
       throw new Error('Failed to send congratulatory email');
     }
-    // console.log('Congratulatory email sent successfully!');
   } catch (error: any) {
     console.error('Error sending congratulatory email:', error.message);
   }

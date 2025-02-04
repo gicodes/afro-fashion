@@ -52,7 +52,7 @@ const AuthLanding: React.FC = ()=> {
     setTimeout(async () => {
       const email = window.prompt('Enter your email to receive a new verification link:');
       if (email) await sendVerification(email);
-    }, 5000);
+    }, 2000);
   };
 
   const handleResetPassword = async (newPassword) => {
@@ -69,13 +69,15 @@ const AuthLanding: React.FC = ()=> {
       navigate("/auth")
     } catch (error: any) {
       addAutoCloseAlert("danger", `Password reset failed: ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div>
       { mode === "resetPassword" ? (
-        <RedirectTemplate  title={"Reset your password"}>
+        <RedirectTemplate title={"Reset your password"}>
           <div>
             {email && <p>Password reset link verified for <b>{email}</b>.</p>}
             <form

@@ -141,10 +141,10 @@ const ProductCard: React.FC<{product: Product}> = ({ product}) => {
                 <span> {ProductClass(product)} </span>
               </div>
               <div className='mt-2 p-3 card'>
-                <div className='flex-space-bet'>
-                  <FcLike onClick={handleSaveItem} size={25} />
-                  <FaAmazonPay onClick={handleInstantPay} size={28} fill='forestgreen'/>
-                  <FcDislike onClick={handleDislike} size={25}/>
+                <div className='product-card-action'>
+                  <span><FcLike onClick={handleSaveItem} size={25} /></span>
+                  <span><FaAmazonPay onClick={handleInstantPay} size={28} fill='forestgreen'/></span>
+                  <span><FcDislike onClick={handleDislike} size={25}/></span>
                 </div>
               </div>
             </div>

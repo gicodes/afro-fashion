@@ -53,8 +53,6 @@ const BrandCollection: React.FC = () => {
           sold={sold}
           phone={phone}
           products={products}
-          // bank && bankAcct data are unavailable
-          // to add more data, import from sellerInfo
         />
       </div>
   
@@ -83,7 +81,7 @@ const BrandCollection: React.FC = () => {
       ) : (
         <div className="card p-3">
           <div className="card-body">
-            <p className="mx-auto">No {seller} items are available at the moment...</p>
+            <p className="text-center">No {seller} items are available at the moment...</p>
           </div>   
         </div>
       )}

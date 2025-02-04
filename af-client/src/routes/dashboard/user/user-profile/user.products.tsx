@@ -15,13 +15,16 @@ interface UserHistoryProps {
 
 export const UserHistory: React.FC<UserHistoryProps> = ({ savedItems, item }: UserHistoryProps) => {
   const { uid } = useContext(UserContext);
-  const { addAutoCloseAlert } = useAlert();
+  const { addAutoCloseAlert, addOptionsAlert } = useAlert();
 
   const handleDeleteProduct = async (uid, itemId) => {
-    // console.log('uid', uid, 'itemId', itemId);
-    await removeFromSavedItems(uid, itemId);
-    // console.log('Product Removed from Saved Items!');
-    addAutoCloseAlert("success", 'Product Removed from Saved Items!' );
+    const handleYes = async () => {
+      await removeFromSavedItems(uid, itemId);
+      addAutoCloseAlert("success", 'Product Removed from Saved Items!');
+    };
+    
+    const handleNo = () => { return };
+    addOptionsAlert('warning', 'Are you sure you want to remove this product from your saved items collection?', handleYes, handleNo);
   };
 
   const NoSavedItems = ({item}) => 

@@ -54,7 +54,7 @@ const ProductInfo: React.FC<{product: Product}> = ({product}) => {
   return (
     <div className='product-content-group'>
       <div className='img-container'>
-        <img className='maxi-img' src={imageUrls[currentImageIndex]} alt={name} />
+        <img key={imageUrls[currentImageIndex]} className='maxi-img' src={imageUrls[currentImageIndex]} alt={name} />
         { multipleImages && (
           <div 
             className='flex'

@@ -267,34 +267,30 @@ export const addToSavedItems = async (userId, newItems, docField) => {
     const userRef = doc(collection(db, collectionId), userId);
     const userDoc = await getDoc(userRef);
 
-    if (userDoc.exists()) {
-      if (docField === "savedItems"){
-        const existingItems = userDoc.data().savedItems || [];
-        const itemsArray = Array.isArray(newItems) ? newItems : [newItems]; 
-        const updatedItems = [...existingItems, ...itemsArray];
-        const trimmedItems = updatedItems.slice(-maxItems);
+    if (!userDoc.exists()) throw new Error("User document not found for userId");
+    if (docField !== "savedItems" && docField !== "orders") {
+      throw new Error("Invalid document field provided");
+    }
 
-        await updateDoc(userRef, { savedItems: trimmedItems });
-      } else
-      if (docField === "orders") {
-        const existingItems = userDoc.data().orders || [];
-        const itemsArray = Array.isArray(newItems) ? newItems : [newItems];
-        const updatedItems = [...existingItems, ...itemsArray];
-        const trimmedItems = updatedItems.slice(-maxItems);
+    const existingItems = userDoc.data()[docField] || [];
+    const itemsArray = Array.isArray(newItems) ? newItems : [newItems];
+    const uniqueItems = itemsArray.filter(// filter out duplicates (assuming each item has a unique `id`)
+      (item) => !existingItems.some((existing) => existing.id === item.id)
+    );
 
-        await updateDoc(userRef, { orders: trimmedItems });
-      }
-    } else throw new Error('User document not found for userId');
+    if (uniqueItems.length === 0) return;
+    const updatedItems = [...existingItems, ...uniqueItems].slice(-maxItems);
+
+    await updateDoc(userRef, { [docField]: updatedItems });
   } catch (err: any) {
-    console.error('Failed to update user doc:', err);
+    console.error("Failed to update user doc:", err);
     throw new Error(err.message);
   }
-}
+};
 
 // Critical function to remove items from a users saved items
 export const removeFromSavedItems = async (userId, itemToRemove) => {
   if (!userId || !itemToRemove) return;
-
   const collectionId = "users";
 
   try {
@@ -303,8 +299,8 @@ export const removeFromSavedItems = async (userId, itemToRemove) => {
 
     if (userDoc.exists()) {
       const existingItems = userDoc.data().savedItems || [];
-      const updatedItems = existingItems.filter(item => item !== itemToRemove);
-
+      const updatedItems = existingItems.filter(item => item?.id !== itemToRemove)
+        
       await updateDoc(userRef, { savedItems: updatedItems });
     } else {
       throw new Error('User document not found for userId');
