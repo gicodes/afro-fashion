@@ -1,6 +1,7 @@
 [build]
   functions = "af-server/netlify/functions" 
   command = "npm install && npm run build"
+  publish = "af-client/build"
 
 [functions]
   external_node_modules = ["express"]
