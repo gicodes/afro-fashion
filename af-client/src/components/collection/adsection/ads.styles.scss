@@ -1,0 +1,42 @@
+// larger viewport ads class similar to `z-sm`
+
+.ads-container {
+  width: 100%;
+  padding: 10px;
+  padding-top: 25px;
+  min-height: 150px;
+  color: antiquewhite;
+
+  .ad-header {
+    display: block;
+    text-align: center;
+  }
+
+  .ad-list {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .ad-link {
+    // text-decoration: underline;
+    color: antiquewhite;
+  }
+
+  .v-spaced {
+    padding-right: 75px;
+  }
+}
+
+// smaller viewport class similar to `ads-container`
+.z-sm {
+  display: flex;
+  height: auto;
+  max-height: 36px;
+
+  .toggle {
+    align-items: center;
+    background: transparent;
+  }
+}

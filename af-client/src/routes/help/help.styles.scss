@@ -1,0 +1,132 @@
+// Help styles control help (Support) and credits page
+
+.formWidth {
+  width: 100%;
+  margin: auto;
+}
+
+.help-container { 
+  padding-top: 4rem;
+  text-align: left;
+  padding-bottom: 8rem;
+}
+.help-heading h3{
+  font-size: 18px;
+}
+
+.help-center {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.fixed-width-button {
+  width: 150px; 
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.help-list ul {
+  padding: 0;
+  margin-left: 2rem;
+  width: max-content;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  list-style-type: none;
+}
+
+.help-list li {
+  padding-left: 10px; 
+  margin-bottom: 10px; 
+}
+
+.help-list li:hover {
+  background-color: #f0f0f0; 
+}
+
+.help-list-card{
+  background: white;
+  box-shadow: #ccc inset;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+   h4 {
+    font-size: medium;
+  }
+  
+  .help-list { font-size: small;}
+  .help-list-card {
+    font-size: smaller;
+  } 
+  .help-list li {
+    border-bottom: 0.1px solid #ccc;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+  .help-list ul {
+    padding: 10px 40px;
+    margin-left: 2rem;
+    border-left: 2px solid #ccc;   
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* laptop viewport */
+  .formWidth {
+    width: 50%;
+    margin: auto;
+  }
+  .help-list-card{
+    padding-left: 5rem;
+  }
+  .help-heading h3{
+    font-size: 32px;
+  } 
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* desktop viewport */
+  .formWidth {
+    width: 50%;
+    margin: auto;
+  }
+  .fixed-width-button {
+    width: 200px; 
+  }
+  .help-list-card{
+    padding-left: 5rem;
+  }
+  .help-heading h3{
+    font-size: 32px;
+  }
+  
+}
+
+@media only screen and (min-width: 1201px) {
+  /* Large screen styles */
+  .formWidth {
+    width: 50%;
+    margin: auto;
+  }
+  .fixed-width-button {
+    width: 200px; 
+  } 
+  .help-list-card{
+    padding-left: 5rem;
+  }
+  .help-heading h3{
+    font-size: 32px;
+  }
+}
+
+.link {
+  font-weight: 500;
+  color: royalblue;
+}

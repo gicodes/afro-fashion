@@ -1,0 +1,298 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/bootstrap/scss/mixins";
+
+html { scroll-behavior: smooth; } // smooth scrolling
+
+// custom body styles used throughout 
+body {
+  margin: 0;  
+  background: silver;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* { box-sizing: border-box; }
+
+  // custom background colors used throughout
+.bg-dark { background: #1a1a1a; }
+.bg-kiwi { background: black; }
+.bg-lg { background: lightgrey; }
+.bg-gray { background: grey; }
+.bg-transit { background: rgba(0, 0, 0, 0.1)}
+.bg-index { background: ghostwhite; }
+.bg-ws { background: whitesmoke; }
+.bg-white { background: white; }
+.bg-silver { background: silver;}
+.bg-trans { background: transparent; }
+.bg-wheat { background: wheat; }
+.bg-blulet { 
+  color: white;
+  background: rgba(77, 25, 125, 0.736) }
+.bg-greyer {
+  color: white; 
+  background: rgba(110, 152, 46, 0.736); }
+.bg-dog { 
+  background: darkolivegreen;
+  color: white;
+ }
+
+// existing container styles
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  --bs-gutter-y: 0;
+  width: 100%;
+}
+
+.no-padding-container {
+  // custom class to override .container padding
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.lr-padding {
+  // left-right padding
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+  // y-axis padding
+.yb-p { padding-bottom: 20px }
+.y-p1 { padding-top: 10px }
+.y-p { padding-top: 20px }
+
+  // y-axis margin
+.y-m { margin-top: 20px }
+.vh-93 { min-height: 93px }
+.y-mb { margin-bottom: 20px }
+
+  // negative margin bottom
+.-mt { margin-top: -10px }
+.-mt2 { margin-top: -20px }
+
+.-mb { margin-bottom: -10px }
+.-mb2 { margin-bottom: -20px }
+  
+  // negative padding bottom
+.-pt { padding-top: -10px }
+.-pb { padding-bottom: -10px }
+
+.lr-margin {
+  // left-right margin
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.vh-auto { align-items: center; }
+
+  // flex and justify content styles
+.flex-just-center {
+  justify-content: center;
+  display: flex;
+}
+.flex-space-bet {
+  justify-content: space-between;
+  display: flex;
+}
+.flex-space-around {
+  justify-content: space-around;
+  display: flex;
+}
+.flex { display: flex;}
+.flex-end { justify-content: flex-end;}
+
+.align-left {
+  text-align: left;
+}
+
+  // custom padding styles
+
+// border styles
+.c-border-r { border-radius: 5px; }
+.bg-ordered {
+  border: 1px solid #909090;
+}
+.bl-ordered {
+  border: 1px solid lightgrey;
+  padding: 5%;
+}
+
+.block {
+  // used in brand.route
+  display: block;
+  width: 100%;
+}
+
+.grid { display: grid;}
+
+.hidden { display: none }
+  
+.fullWidth { width: 100% }
+.halfWidth { width: 50%;}
+.w-75 { width: 75%; }
+.w-80 {width: 80%;}
+.w-90 { width: 90%;}
+.mw-750 { max-width: 750px;}
+.mw-268 { width: 268px;}
+
+.z-index { z-index: 9999;}
+.h50 { height: 50px; }
+.vh-100 { height: 100% }
+.vh-max { min-height: max-content }
+.vh-250 { min-height: 250px }
+
+.v-center { 
+  // center across the y-axis : To be used with FLEX or GRID
+  align-self: center; 
+} 
+
+.force-v-center {
+  display: flex;
+  align-self: center; 
+  align-content: center;
+}
+
+.h-center {
+  // center across the x-axis
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.underline {
+  text-decoration: underline;
+}
+
+  // custom flex styles
+
+.sub-pages {
+  gap: 1rem;
+  display: grid;
+  flex-direction: row;
+  // 2 columns for all viewports
+  grid-template-columns: repeat(2, 1fr);
+
+
+  p {
+    margin: 5px;
+    padding: 0 5px;
+    cursor: pointer;
+    font-size: smaller;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  p:hover {
+    background: lightgrey;
+  }
+}
+
+.sub-page {
+  color: silver;
+  font-size: smaller;
+}
+.sub-page:hover {
+  background: darkolivegreen;
+}
+
+  // custom border styles
+
+// Custom fonts and color styles
+.fs-large { font-size: larger }
+.fs-larger { font-size: x-large }
+.fs-mid { font-size: medium }
+.fs-smaller { font-size: smaller }
+.fs-xs { font-size: 11px }
+.fs-tiny { font-size: xx-small }
+
+.fw-bold { font-weight: 700; }
+.italic { font-style: italic; }
+.fw-l-bold { font-weight: 420;}
+
+.co-50 { color: #505050 } 
+.co-90 { color: #909090 }
+
+.bg-black-gradient {
+  background: linear-gradient(144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+}
+
+  // custom text colors and bg
+.text-luminous {
+  background: radial-gradient(skyblue 0.89%, green 89%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-danger { background: radial-gradient(tomato 0.89%, salmon 4.5%, burlywood 84%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.text-ok { color: greenyellow; }
+.text-lg { color: lightgrey; }
+.text-grey { color: #999999; }
+.text-wheat { color: wheat;}
+.text-warn { color: darkgoldenrod;}
+.text-white { color: white }
+.text-gray { color: #6d6d6d }
+.text-ds1 { color: darkslategray; }
+.text-ds2 { color: darkslateblue; }
+.text-ds3 { color: darkseagreen; }
+.text-dm { color: darkmagenta; }
+.text-link { 
+  cursor: pointer;
+  color: royalblue; 
+}
+.text-link:hover { color: goldenrod;}
+
+.disabled {
+  pointer-events: none; /* prevents click events */
+  opacity: 0.5;         /* makes the content look inactive */
+}
+
+.font-uni {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.font-awesome {
+  // used in a couple of components
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.font-classic {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+// set specific styling for taget viewports
+@media (max-width: 768px) {
+  .hide-in-sm {
+    display: none;
+  } 
+}
+@media (min-width: 768px) {
+  .hide-in-lg { display: none; } 
+}
+
+.pagination {
+  background-color: whitesmoke;
+  position: sticky;
+  padding: 10px;
+  width: 100%;
+  bottom: 0;
+}
+
+// set space at the bottom for large viewports
+.lg-div { height: 120px }

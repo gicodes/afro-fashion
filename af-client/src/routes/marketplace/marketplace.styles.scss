@@ -1,0 +1,45 @@
+.marketplace-route {
+  display: grid;
+
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.filter-widget {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+@media (min-width: 768px) {
+  .marketplace-route {
+    width: 100%;
+    margin-top: 25px;
+    grid-template-columns: repeat(3, 1fr);
+
+    .product-section {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .filter-widget {
+    top: 0;
+    position: sticky;
+  }
+
+  .pagination {
+    padding: 25px;
+    display: grid; 
+    background: none;
+    margin-top: 50px;
+    justify-content: end;
+  }
+}
+
+@media (max-width: 768px) {
+  .marketplace-route {
+    margin-top: 5px;
+  }
+}

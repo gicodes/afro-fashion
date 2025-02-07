@@ -1,0 +1,56 @@
+.terms-card {
+  width: 100%;
+  display: flex;
+  background: silver;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+
+  .card-title {
+    font-weight: 501;
+    font-size: medium;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    
+    h6 {
+      font-style: italic;
+      font-weight: bolder;
+    }
+  }
+
+
+  .card-body {
+    margin: 20px 0 10px 0;
+    padding: 0%;
+
+    .form-check {
+      margin-bottom: 10px;
+      align-content: center;
+    }
+
+    .centered-checkbox {
+      gap: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    .form-check-label {
+      font-size: smaller;
+      font-weight: 500;
+    }
+  }
+
+  .card-actions {
+    margin: 2%;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .terms-card {
+    padding: 20px 0 0 0;
+  }
+}
