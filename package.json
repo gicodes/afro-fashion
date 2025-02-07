@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.tsx",
   "scripts": {
-    "client": "cd af-client && npm start",
-    "server": "cd af-server && nodemon --exec ts-node server.ts",
-    "dev": "npm-run-all --parallel client server",
-    "build:client": "cd af-client && npm run build",
-    "build": "npm-run-all build:client"
-  },
+  "client": "cd af-client && npm start",
+  "server": "cd af-server && nodemon --exec ts-node server.ts",
+  "dev": "npm-run-all --parallel client server",
+  "build:client": "cd af-client && npm run build",
+  "build:server": "cd af-server && tsc",
+  "build": "npm-run-all --parallel build:client build:server"
+}
+,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gicodes/afro-fashion.git"
