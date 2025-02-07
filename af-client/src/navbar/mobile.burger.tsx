@@ -9,23 +9,23 @@ import React, { useState } from 'react';
 export const navLinks = [
   {
     id: 1,
-    title: 'Dashboard',
-    link: '/dashboard',
-  },
-  {
-    id: 2,
     title: 'Marketplace',
     link: '/marketplace',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Seller Hub',
     link: '/brands',
   },
   {
-    id: 4,
+    id: 3,
     title: 'Support',
     link: '/support',
+  },
+  {
+    id: 4,
+    title: 'Settings',
+    link: '/#',
   },
   {
     id: 5,

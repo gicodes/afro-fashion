@@ -99,7 +99,7 @@ const Collections = () => {
           ))}
         </div>
       ) : (
-        <div className='card p-2'>
+        <div className='card py-4'>
           <p className='fs-mid mt-3 text-center'>
             Products are unavailable... Try again later
           </p>

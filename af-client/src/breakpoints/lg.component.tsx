@@ -7,7 +7,7 @@ import FailedOperation from '../redirect/failedOp.tsx';
 import PaymentSuccessful from '../redirect/paySuccess.tsx';
 import UserContext from "../contexts/user.context.tsx";
 import AuthLanding from '../redirect/authLanding.tsx';
-import AdminIndex from '../routes/admin/admin.index.tsx';
+import AdminIndex from '../utils/admin/admin.index.tsx';
 import Footer from '../index/footer/footer.tsx';
 import NavBar from '../navbar/lg.navbar.component.tsx';
 import HomeIndex from '../index/lg.home.component.tsx';

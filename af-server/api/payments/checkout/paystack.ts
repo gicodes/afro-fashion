@@ -33,7 +33,7 @@ router.post("/checkout/paystack", async (req: Request<{}, {}, PaystackRequest>, 
       console.error('Paystack API error:', error.response?.data || error.message);
       return res.status(500).json({ error: 'Failed to initialize transaction', details: error.response?.data });
     }
-  }
+  }  
 );
 
 export default router;

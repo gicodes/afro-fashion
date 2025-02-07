@@ -10,7 +10,7 @@ import UserContext from "../contexts/user.context.tsx";
 import CreditsPage from '../routes/credits/credits.tsx';
 import { Help } from '../routes/help/help.gram.tsx';
 import AuthLanding from '../redirect/authLanding.tsx';
-import AdminIndex from '../routes/admin/admin.index.tsx';
+import AdminIndex from '../utils/admin/admin.index.tsx';
 import Checkout from '../components/checkout/checkout.route.tsx';
 import BrandsPage from '../routes/brands/brands.page.tsx';
 import NavBar from '../navbar/mobile.navbar.component.tsx';

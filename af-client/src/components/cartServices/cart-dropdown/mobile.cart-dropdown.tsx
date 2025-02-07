@@ -45,7 +45,7 @@ const CartDropdown: React.FC = () => {
     <div className='cart-dropdown'>
       <div className='cart-items'>
         <span onClick={toggleCartClose} className='toggle-message'>
-          <CloseButton />
+          <span className='close-btn'><CloseButton /></span>
         </span>
         {
           cartCount === 0 ? (
@@ -62,7 +62,8 @@ const CartDropdown: React.FC = () => {
         <Link 
           onClick={handleNavDropPostRouting}
           className='checkout-btn mt-3'
-          to='/checkout'>
+          to='/checkout'
+        >
           <Button buttonType="default">
             Checkout
           </Button>

@@ -5,6 +5,7 @@ import { CartContext } from '../../../contexts/cart.context';
 
 interface CartContentProps {
   cartItem: {
+    id: any,
     name: string;
     imageUrl: string;
     imageUrls: string;
@@ -14,7 +15,7 @@ interface CartContentProps {
 }
 
 const CartContent: React.FC<CartContentProps> = ({ cartItem }) => {
-  const { name, imageUrl, imageUrls, price, quantity } = cartItem;
+  const { id, name, imageUrl, imageUrls, price, quantity } = cartItem;
   const { clearItemfromCart } = useContext(CartContext);
 
   return (
@@ -29,7 +30,8 @@ const CartContent: React.FC<CartContentProps> = ({ cartItem }) => {
         </div>
         
         <div className='cart-content-span'>
-          <span className='name'>{name}</span>
+          <span className='name'>
+            <a href={`/marketplace/products/${id}`}>{name}</a></span>
           <span className='price'>
             <strong>{quantity}</strong> x &nbsp; 
             <strong> ₦{price}</strong>

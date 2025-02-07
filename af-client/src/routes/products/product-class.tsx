@@ -18,7 +18,7 @@ export const ProductClass = (product: Product) => {
   return (
     <div className='pc-product-category'>
       { category !== undefined && <>
-        <span className="font-awesome px-3 text-gray"> 
+        <span className="font-awesome text-gray"> 
           <b>Category:</b>
         </span> 
         <Link 
@@ -34,7 +34,7 @@ export const ProductClass = (product: Product) => {
         <b>{itemClass(product?.count, product?.price)}</b>
       </span>
 
-      {product?.seller && <p className='mt-2 fs-small text-center'>
+      { product?.seller && <p className='mt-2 fs-small text-center'>
         More from &nbsp; 
           <Link 
             className='text-link'

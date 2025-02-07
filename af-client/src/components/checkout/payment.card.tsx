@@ -41,7 +41,7 @@ const PaymentCard = ({
           </div>
           <div 
             onClick={() => closePayCard()} 
-            className='close-btn bg-gray'
+            className='close-btn bg-wheat'
           >
             <CloseButton /> 
           </div>

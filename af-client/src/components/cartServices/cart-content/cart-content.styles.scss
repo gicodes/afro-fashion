@@ -26,6 +26,7 @@
     justify-content: center;
 
     .name { font-size: 15px; }
+    .name:hover { cursor: pointer; }
 
     .price {
       font-size: 14px;
