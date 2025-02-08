@@ -25,51 +25,51 @@ const CartDropdown: React.FC = () => {
       setClose(true);
     }, 9999);
   
-    // clean up the timeout when the component unmounts or when a new route is clicked
     return () => {
       clearTimeout(timeoutId);
     };
   }, [location.pathname]);
 
-  const handleNavDropPostRouting = () => {
-    // close the burger menu when a user clicks a link
-    setClose(true);
-  };
+  const handleNavDropPostRouting = () => {setClose(true);};
 
   return (
     <> 
     { close ? (
       <></>
       ) : (
-
-    <div className='cart-dropdown'>
-      <div className='cart-items'>
-        <span onClick={toggleCartClose} className='toggle-message'>
-          <span className='close-btn'><CloseButton /></span>
-        </span>
-        {
-          cartCount === 0 ? (
-            <span className='empty-message'>
-              Your cart is empty
+      <div className='cart-dropdown'>
+        <div className='cart-container'>
+          <span onClick={toggleCartClose} className='toggle-close-cart'>
+            <span className='close-btn'>
+              <CloseButton />
             </span>
-          ) : (
-            cartItems.map((item: any) => (
-              <CartContent key={item.id} cartItem={item} />
-            ))
-          )
-        }
+          </span>
 
-        <Link 
-          onClick={handleNavDropPostRouting}
-          className='checkout-btn mt-3'
-          to='/checkout'
-        >
-          <Button buttonType="default">
-            Checkout
-          </Button>
-        </Link>
+          {
+            cartCount === 0 ? (
+              <span className='empty-message'>
+                Your cart is empty!
+              </span>
+            ) : (
+              <div className='cart-items'>
+                { cartItems.map((item: any) => (
+                    <CartContent key={item.id} cartItem={item} />
+                ))}
+              </div>
+            )
+          }
+
+          <Link 
+            onClick={handleNavDropPostRouting}
+            className='checkout-btn mt-3'
+            to='/checkout'
+          >
+            <Button buttonType="default">
+              Checkout
+            </Button>
+          </Link>
+        </div>
       </div>
-    </div>
     )}  
     </>
   )

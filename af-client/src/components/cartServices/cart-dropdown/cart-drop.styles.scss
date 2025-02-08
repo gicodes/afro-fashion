@@ -1,33 +1,32 @@
 .cart-dropdown, .cart-drawer {
   background-color: white;
   border: 1px solid black;
-  flex-direction: column;
   position: absolute;
   border-radius: 2%;
-  display: flex;
-  padding: 20px;
+  padding: 10px;
   z-index: 5;
 
-  .empty-message {
-    font-size: 18px;
-    align-items: center;
-    margin: auto;
+  .cart-container {
+    .empty-message {
+      color: brown;
+      height: 200px;
+      display: grid;
+      font-size: 16px;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
+// mobile viewport cart dropdowwn similar to `cart-drawer`
 .cart-dropdown {
-  height: 320px;
-  width: 60%;
+  height: 300px;
+  width: 222px;
   right: 1px;
   top: 92px;
 
-  .cart-items {
-    height: 300px;
-    display: flex;
-    overflow: scroll;
-    flex-direction: column;
-
-    .toggle-message {
+  .cart-container {
+    .toggle-close-cart {
       display: flex;
       justify-content: right;
 
@@ -36,7 +35,24 @@
         border-radius: 25%; 
         font-size: x-small;
       }
+
       .close-btn:hover { background-color: silver;}
+    }
+
+    .cart-items {
+      max-height: 200px;
+      display: flex;
+      overflow: scroll;
+      flex-direction: column;
+    }
+
+    .checkout-btn {
+      position: absolute;
+      padding: 5px;
+      margin: auto;
+      width: 100%;
+      bottom: 1%;
+      left: 0;
     }
   }
 }
@@ -44,27 +60,37 @@
 // larger viewport cart drawer similar to `cart-dropdown`
 .cart-drawer {
   height: 420px;
-  width: 23%;
+  width: 333px;
   right: 1px;
   bottom: 99%;
-}
 
-// larger viewport class similar to `cart-items`
-.z-lg {    
-  height: 400px;
-  display: flex;
-  overflow: scroll;
-  flex-direction: column;
+  .cart-container { 
+    .toggle-close-cart {
+      display: flex;
+      font-size: 10px;
+      justify-content: right;
 
-  .toggle-message {
-    display: flex;
-    font-size: 10px;
-    justify-content: right;
+      .close-btn {
+        padding: 2px;
+        border-radius: 25%;
+      } 
+      .close-btn:hover { background-color: silver;}
+    }  
 
-    .close-btn {
-      padding: 2px;
-      border-radius: 25%;
+    .cart-items {
+      display: flex;
+      overflow: scroll;
+      max-height: 323px;
+      flex-direction: column;
     }
-    .close-btn:hover { background-color: silver;}
+
+    .checkout-btn {
+      position: absolute;
+      padding: 0 10px;
+      margin: auto;
+      width: 100%;
+      bottom: 1%;
+      left: 0;
+    }
   }
 }

@@ -19,30 +19,31 @@ const CartContent: React.FC<CartContentProps> = ({ cartItem }) => {
   const { clearItemfromCart } = useContext(CartContext);
 
   return (
-    <>
-      <div className='cart-item-container'>
-        <div className='cart-content-img'>
-          <img 
-            src={imageUrl || imageUrls}
-            loading="lazy"
-            alt={name}
-          />
-        </div>
-        
-        <div className='cart-content-span'>
+    <div className='cart-item-container'>
+      <div className='cart-content-img'>
+        <img 
+          src={imageUrl || imageUrls}
+          loading="lazy"
+          alt={name}
+        />
+      </div>
+      
+      <div className='cart-content-container'>
+        <div className='content-span'>
           <span className='name'>
-            <a href={`/marketplace/products/${id}`}>{name}</a></span>
+            <a href={`/marketplace/products/${id}`}>{name}</a>
+          </span>
           <span className='price'>
             <strong>{quantity}</strong> x &nbsp; 
             <strong> ₦{price}</strong>
           </span>
+        </div>
 
-          <div className='remove-btn' onClick={() => clearItemfromCart(cartItem)}>
-            <DeleteSharp color='warning' fontSize='small'/>
-          </div>
+        <div className='remove-btn' onClick={() => clearItemfromCart(cartItem)}>
+          <DeleteSharp color='warning' fontSize='small'/>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

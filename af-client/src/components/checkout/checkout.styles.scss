@@ -169,4 +169,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  .checkout-items-card {
+    .items-container {
+      .item-row { font-size: small;}
+    }
+  }
 }

@@ -20,7 +20,7 @@ const Checkout: React.FC = () => {
 
   const togglePayConsole = () => {
     if (cartTotal === 0){
-      addAutoCloseAlert("warning", 'Your cart is empty with nothing to pay for!')
+      addAutoCloseAlert("warning", 'Your cart is empty! with nothing to pay for!')
       return;
     }
     if (!currentUser){
@@ -102,7 +102,7 @@ const Checkout: React.FC = () => {
                 <div className='checkout-items-card'>
                   <p className='font-uni'>Nice move! you are paying for... </p>
                   <div className='items-container'>
-                    <div className='items-row'>
+                    <div className='item-row'>
                       { items.map((item)=> (
                         <div key={item.id}>
                           <b>{item.quantity}</b> x

@@ -8,12 +8,9 @@ import { Product } from './product-card';
 import { Button } from '@mui/material';
 import './product-route.styles.scss';
 
-export const SizeVariation: React.FC<{product: Product}> = ({product}) => {
-  return (
-    <div>Size Variations</div>
-  )
-}
+// Update::: Mod: Render the ratings, reviews and size variation of a product
 
+// ProductInfo renders when a user clicks on a product card's dynamic route
 const ProductInfo: React.FC<{product: Product}> = ({product}) => {
   const navigate = useNavigate()
   const { showLoading, hideLoading } = useLoading();
@@ -61,10 +58,10 @@ const ProductInfo: React.FC<{product: Product}> = ({product}) => {
           >
             {imageUrls.map((url, index) => (
               <div
+                key={index}
                 onClick={() => setCurrentImageIndex(index)}
               >
                 <img 
-                  key={index}
                   src={url}
                   className='thumbnail' 
                   style={{
@@ -89,7 +86,7 @@ const ProductInfo: React.FC<{product: Product}> = ({product}) => {
           </div>
           <span className='px-4 mt-2 text-ds1 fs-smaller'>No reviews</span>
         </div>
-        <p className='fs-larger text-ds1 fw-l-bold'> ₦ {price} </p>
+        <p className='fs-larger text-ds1 fw-l-bold'> ₦ {price}.00 </p>
         <p className='product-info'>{info}</p>
         <hr/>
 

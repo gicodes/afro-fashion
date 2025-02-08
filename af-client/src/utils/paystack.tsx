@@ -11,7 +11,12 @@ export interface PaystackUserProps {
   items: any[];
 }
 
-export const Paystack: React.FC<PaystackUserProps> = ({ amount, email, userId, items }) => {
+export const Paystack: React.FC<PaystackUserProps> = ({ 
+  amount, 
+  email, 
+  userId, 
+  items 
+}) => {
   const { addAutoCloseAlert } = useAlert();
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +45,7 @@ export const Paystack: React.FC<PaystackUserProps> = ({ amount, email, userId, i
       paystack.newTransaction({
         key: process.env.REACT_APP_PAYSTACK_KEY,
         email,
-        amount: amount * 100, // Convert to kobo
+        amount: amount * 100, // convert to kobo
         reference: data.reference,
         onSuccess: async (transaction: any) => {
           addAutoCloseAlert("success", `Payment successful: ${transaction.transaction}`);
@@ -90,16 +95,15 @@ export const Paystack: React.FC<PaystackUserProps> = ({ amount, email, userId, i
         addAutoCloseAlert("danger", `Seller payment failed: ${error.message}`);
       }
     }
-
     setLoading(false);
   };
 
   return (
     <button
       type="button"
-      onClick={initializePayment}
       disabled={loading}
       className="btn btn-info"
+      onClick={initializePayment}
     >
       {loading ? "Processing..." : "Pay with Paystack"}
     </button>

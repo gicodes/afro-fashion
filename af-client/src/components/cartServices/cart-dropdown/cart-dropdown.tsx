@@ -24,19 +24,23 @@ const CartDropdown: React.FC = () => {
       <></>
       ) : (
       <div className='cart-drawer'>
-        <div className='z-lg'>
-          <span onClick={toggleCartClose} className='toggle-message'>
-            <span className='close-btn'><CloseButton /></span>
+        <div className='cart-container'>
+          <span onClick={toggleCartClose} className='toggle-close-cart'>
+            <span className='close-btn'>
+              <CloseButton />
+            </span>
           </span>
           {
             cartCount === 0 ? (
               <span className='empty-message'>
-                Your cart is empty
+                Your cart is empty!
               </span>
-              ) : (
-              cartItems.map((item: any) => (
-                <CartContent key={item.id} cartItem={item} />
-              ))
+            ) : (
+              <div className='cart-items'>
+                { cartItems.map((item: any) => (
+                  <CartContent key={item.id} cartItem={item} />
+                ))}
+              </div>
             )
           }
 
