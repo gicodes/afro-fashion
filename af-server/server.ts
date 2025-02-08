@@ -13,7 +13,7 @@ import sendPasswordChangeAlert from './api/mailing/send-password-changed-alert';
 
 const app: Express = express();
 
-const allowedOrigins: string[] = ['http://localhost:3000', process.env.CLIENT_URL as string];
+const allowedOrigins: string[] = [process.env.CLIENT_URL as string];
 
 app.use(cors({
   origin: allowedOrigins,

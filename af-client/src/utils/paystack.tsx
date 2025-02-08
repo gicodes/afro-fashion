@@ -1,8 +1,8 @@
-import { useAlert } from "../contexts/alert.context.tsx";
-import PaystackPop from "@paystack/inline-js";
 import { useState } from "react";
-import { getSellerBankInfo, getSellerId } from "./firebase.utils.ts";
+import PaystackPop from "@paystack/inline-js";
+import { useAlert } from "../contexts/alert.context.tsx";
 import { addToSavedItems, reduceItemCount } from "./writeBatch.ts";
+import { getSellerBankInfo, getSellerId } from "./firebase.utils.ts";
 
 export interface PaystackUserProps {
   amount: number;
