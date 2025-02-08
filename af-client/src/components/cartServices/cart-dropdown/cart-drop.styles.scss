@@ -1,6 +1,6 @@
 .cart-dropdown, .cart-drawer {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid silver;
   position: absolute;
   border-radius: 2%;
   padding: 10px;
@@ -22,8 +22,8 @@
 .cart-dropdown {
   height: 300px;
   width: 222px;
-  right: 1px;
-  top: 92px;
+  right: 0.5px;
+  top: 90px;
 
   .cart-container {
     .toggle-close-cart {

@@ -40,14 +40,13 @@ export const AuthNav: React.FC<AuthNavProps> = ({
         </div>
         
         <div className='card-body fs-smaller'>
-          <div //removed className='hide-in-sm'
-          >
+          <div>
             <Link title="Dashboard" onClick={onClose} to="dashboard">
               Dashboard
             </Link>
           </div>
             
-          {isSeller  && 
+          { isSeller  && 
             <div>
               <div className='flex-just-center'> 
               <hr className='w-50'/>
@@ -57,6 +56,7 @@ export const AuthNav: React.FC<AuthNavProps> = ({
               </Link>
             </div>
           } 
+
           <div className='flex-just-center -mb2'>
             <hr className='w-50'/>
           </div>
